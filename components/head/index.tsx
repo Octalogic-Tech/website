@@ -10,7 +10,7 @@ const Head = ({
   description = "Octalogic Tech provides offshore mobile & web development along with remote team capabilities. We specialise in custom Web Apps, Cross Platform Mobile Apps and Websites.",
   images = [
     {
-      url: `/images/O-Only.png`,
+      url: `/images/logos/O-Only.png`,
       alt: "Octalogic Tech",
       type: "image/png",
       width: 300,
@@ -42,7 +42,7 @@ const Head = ({
         }
       }
     />
-    <LogoJsonLd logo="/images/O-Only.png" url={siteUrl} />
+    <LogoJsonLd logo="/images/logos/O-Only.png" url={siteUrl} />
     <SocialProfileJsonLd
       type="Organization"
       name="Octalogic Tech"
