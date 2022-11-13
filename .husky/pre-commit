@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+case "$(uname -s)" in
+
+   Darwin)
+     npx lint-staged
+     ;;
+
+   Linux)
+     npx lint-staged
+     ;;
+
+   *)
+     ;;
+esac
