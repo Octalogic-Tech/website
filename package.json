@@ -27,11 +27,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "CI=true prettier --write \"**/*.tsx\"",
-    "prettier:format": "prettier --write \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\"",
+    "prettier:format": "CI=true prettier --write \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\"",
     "prettier:check": "CI=true npx prettier \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\" --check",
-    "cloudflare:build": "node node_modules/@cloudflare/next-on-pages/bin/index.js --experimental-minify",
-    "postinstall": "patch-package",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -47,7 +44,6 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^0.1.0",
     "@emotion/babel-plugin": "11.10.5",
     "@tanstack/react-query-devtools": "^4.15.1",
     "@types/node": "18.11.9",
@@ -74,7 +70,7 @@
     "vercel": "^28.4.17"
   },
   "lint-staged": {
-    "*.tsx": [
+    "*.{ts,tsx}": [
       "npm run-script lint",
       "npx pretty-quick --staged"
     ]
