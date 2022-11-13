@@ -5,11 +5,13 @@
 case "$(uname -s)" in
 
    Darwin)
-     npx lint-staged
+     npm run lint
+     npm run prettier:format
      ;;
 
    Linux)
-     npx lint-staged
+     npm run lint
+     npm run prettier:format
      ;;
 
    *)
