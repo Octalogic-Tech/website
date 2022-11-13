@@ -1,6 +1,6 @@
 {
-  "*.{ts,tsx}": [
+  "*.{tsx,ts,jsx,js,css,json,css,scss,md}": [
     "npm run lint",
-    "npx pretty-quick --staged"
+    "npm run prettier:format"
   ]
 }
