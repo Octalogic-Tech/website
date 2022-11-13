@@ -1,12 +1,14 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+import Head from "../../components/head";
 import Link from "../../components/link/link";
 import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 
 const PrivacyPolicy = () => {
   return (
     <>
+      <Head title="Octalogic Tech - Privacy Policy" />
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
         <Typography
           component="h2"
