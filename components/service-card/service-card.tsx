@@ -5,13 +5,15 @@ import Image from "next/image";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActionArea, CardActions, SxProps } from "@mui/material";
 // import Box from "@mui/system/Box";
 
 import MobileDevCard from "../../public/images/mobile_dev_card.svg";
 
 /* eslint-disable-next-line */
-export interface ServiceCardProps {}
+export interface ServiceCardProps {
+  sx: SxProps;
+}
 
 export function ServiceCard(props: ServiceCardProps) {
   return (
