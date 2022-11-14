@@ -29,7 +29,24 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: comfortaa.style.fontFamily,
-    // fontFamily: "Comfortaa', cursive",
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          overflowX: "hidden",
+          overflowY: "overlay",
+          "&::-webkit-scrollbar": {
+            width: "0.312rem",
+            borderRadius: "1rem",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#000000b3",
+            borderRadius: "1rem",
+          },
+        },
+      },
+    },
   },
 });
 
