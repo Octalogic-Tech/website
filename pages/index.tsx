@@ -7,7 +7,7 @@ import ServiceCard from "../components/service-card/service-card";
 
 import { Services } from "../constants/services";
 
-import { IService } from "../../interfaces";
+import { IService } from "../interfaces";
 
 const Home = () => {
   return (
