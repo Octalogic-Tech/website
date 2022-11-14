@@ -2,13 +2,16 @@ import Button from "@mui/material/Button";
 import { SxProps } from "@mui/material/styles";
 import { styled } from "@mui/system";
 
+import { useRouter } from "next/router";
+
 /* eslint-disable-next-line */
 export interface PillButtonProps {
   text: string;
+  link: string;
   sx: SxProps;
 }
 
-const MyButton = styled(Button)(({ theme }) => ({
+const MyButton = styled(Button)(({ theme }: { theme: any }) => ({
   fontSize: "1rem",
   borderRadius: "1.562rem",
   color: "info.contrastText",
@@ -21,9 +24,15 @@ const MyButton = styled(Button)(({ theme }) => ({
 }));
 
 export function PillButton(props: PillButtonProps) {
-  const { text } = props;
+  const { text, link } = props;
+  const router = useRouter();
+
+  const handleButtonClick = async (linkUrl: string) => {
+    await router.push(linkUrl);
+  };
+
   return (
-    <MyButton variant="contained" {...props}>
+    <MyButton variant="contained" {...props} onClick={() => handleButtonClick(link)}>
       {text}
     </MyButton>
   );

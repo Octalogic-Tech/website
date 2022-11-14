@@ -97,6 +97,7 @@ function Header(props: Props) {
                 boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
               },
             }}
+            link={"contact"}
           />
         </Box>
       ) : (

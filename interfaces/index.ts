@@ -3,3 +3,10 @@ export interface ISocial {
   link: string;
   iconUrl: string;
 }
+
+export interface IService {
+  title: string;
+  desc: string;
+  actionLink: string;
+  illustration: any;
+}

@@ -5,10 +5,14 @@ import HorizontalRule from "../components/horizontal-rule/horizontal-rule";
 import PillButton from "../components/pill-button/pill-button";
 import ServiceCard from "../components/service-card/service-card";
 
+import { Services } from "../constants/services";
+
+import { IService } from "../../interfaces";
+
 const Home = () => {
   return (
     <>
-      <Box sx={{ minHeight: "106vh" }}>
+      <Box sx={{ minHeight: { xs: "66vh", sm: "60vh", md: "86vh", lg: "106vh" } }}>
         <Box
           sx={{
             height: { sm: "50vh", md: "73vh", lg: "125vh" },
@@ -31,14 +35,13 @@ const Home = () => {
             backgroundImage: "url('/images/hero_image_mobile.svg')",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "right",
-            // right: '-1.562rem',
             zIndex: "-1",
             display: { xs: "block", sm: "none" },
           }}
         ></Box>
         <Box
           sx={{
-            height: "85vh",
+            height: "66vh",
             paddingLeft: { xs: "2rem", sm: "4rem", md: "6rem" },
             paddingTop: { xs: "0", sm: "5rem" },
           }}
@@ -84,6 +87,7 @@ const Home = () => {
                   boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                 },
               }}
+              link={"contact"}
             />
           </Box>
         </Box>
@@ -99,7 +103,6 @@ const Home = () => {
             backgroundPosition: "left",
             left: "-1.875rem",
             zIndex: "-1",
-            // display: { xs: 'none', sm: 'block' },
           }}
         ></Box>
         <Typography
@@ -114,8 +117,41 @@ const Home = () => {
         >
           What we do
         </Typography>
-        <Box sx={{ width: "100%", display: "flex" }}>
-          <ServiceCard sx={{ maxWidth: "25%", flex: "0 0 25%" }} />
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            gap: { xs: "2rem", sm: "4rem", md: "2rem" },
+            marginTop: "6rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {Services.map((service: IService) => (
+            <ServiceCard
+              key={service.title}
+              details={service}
+              sx={{
+                maxWidth: { xs: "83.333%", sm: "33.333%", md: "22.14%" },
+                flex: { xs: "0 0 83.333%", sm: "0 0 33.333%", md: "0 0 22.14%" },
+              }}
+            />
+          ))}
+        </Box>
+        <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
+          <PillButton
+            text={"LEARN MORE"}
+            sx={{
+              backgroundColor: "secondary.main",
+              padding: "0.7rem 2rem",
+              lineHeight: "1.5",
+              ":hover": {
+                backgroundColor: "secondary.main",
+                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
+              },
+            }}
+            link={"services"}
+          />
         </Box>
       </Box>
       <HorizontalRule />
