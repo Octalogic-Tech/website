@@ -6,9 +6,9 @@ import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions, IconButton, SxProps } from "@mui/material";
-import Box from "@mui/system/Box";
-import { styled } from "@mui/system";
+import { CardActionArea, CardActions, IconButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import { styled, SxProps } from "@mui/material/styles";
 
 import EastSharp from "@mui/icons-material/East";
 
@@ -20,8 +20,6 @@ export interface ServiceCardProps {
 }
 
 const MyCard = styled(Card)({
-  // maxWidth: { xs: "83.333%", sm: "33.333%", md: "22.14%" },
-  // flex: { xs: "0 0 83.333%", sm: "0 0 33.333%", md: "0 0 22.14%" },
   boxShadow: "0.062rem 1.25rem 1.562rem -0.312rem rgb(46 61 73 / 20%)",
   transition: "box-shadow 0.5s",
   marginTop: "3rem",
@@ -62,6 +60,7 @@ export function ServiceCard(props: ServiceCardProps) {
             padding: ".75rem 1.25rem",
             paddingBottom: 0,
             marginTop: "-3rem",
+            boxSizing: "border-box",
           }}
         >
           <Image

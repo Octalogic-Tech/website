@@ -10,3 +10,9 @@ export interface IService {
   actionLink: string;
   illustration: any;
 }
+
+export interface IBenefit {
+  title: string;
+  desc: string;
+  illustration: any;
+}

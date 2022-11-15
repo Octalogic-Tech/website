@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
-import { SxProps } from "@mui/material/styles";
-import { styled } from "@mui/system";
+import { SxProps, styled } from "@mui/material/styles";
 
 import { useRouter } from "next/router";
 
