@@ -8,7 +8,7 @@ import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 const TermsOfService = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Privacy Policy" />
+      <Head title="Octalogic Tech - Terms of Service" />
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
         <Typography
           component="h2"
