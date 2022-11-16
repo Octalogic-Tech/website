@@ -5,6 +5,7 @@ import HorizontalRule from "../components/horizontal-rule/horizontal-rule";
 import PillButton from "../components/pill-button/pill-button";
 import ServiceCard from "../components/service-card/service-card";
 import BenefitsCard from "../components/benefits-card/benefits-card";
+import Head from "../components/head";
 
 import { Services } from "../constants/services";
 import { Benefits } from "../constants/benefits";
@@ -14,6 +15,7 @@ import { IBenefit, IService } from "../interfaces";
 const Home = () => {
   return (
     <>
+      <Head />
       <Box>
         <Box
           sx={{
