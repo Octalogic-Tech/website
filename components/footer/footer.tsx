@@ -143,7 +143,7 @@ export function Footer() {
         sx={{
           display: "flex",
           alignItems: "center",
-          marginBottom: "0.5rem",
+          marginBottom: "0.65rem",
           gap: "1rem",
         }}
       >
