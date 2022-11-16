@@ -8,7 +8,7 @@ export interface PillButtonProps {
   text: string;
   link?: string | null;
   sx: SxProps;
-  type?: string;
+  // type?: string;
 }
 
 const MyButton = styled(Button)(({ theme }: { theme: any }) => ({

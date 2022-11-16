@@ -141,7 +141,7 @@ const Contact = () => {
                   boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                 },
               }}
-              type="submit"
+              // type="submit"
               // link={"contact"}
             />
           </Box>
