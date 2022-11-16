@@ -61,6 +61,10 @@ function Header(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleDrawerNav = async (linkUrl: string) => {
+    await router.push(linkUrl);
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Box sx={{ display: "flex", padding: "1rem 1rem", justifyContent: "center" }}>
@@ -72,7 +76,10 @@ function Header(props: Props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.linkName}>
-            <ListItemButton sx={{ textAlign: "center", textTransform: "unset" }}>
+            <ListItemButton
+              sx={{ textAlign: "center", textTransform: "unset" }}
+              onClick={() => handleDrawerNav(item.linkHref)}
+            >
               <ListItemText primary={item.linkName} />
             </ListItemButton>
           </ListItem>

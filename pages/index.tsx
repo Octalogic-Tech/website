@@ -218,7 +218,7 @@ const Home = () => {
               backgroundImage: "url('/images/planet-2.svg')",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "right",
-              marginTop: "15.625rem",
+              marginTop: { xs: "6.625rem", sm: "-5.375rem" },
               zIndex: "-6",
             }}
           ></Box>
