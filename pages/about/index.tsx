@@ -3,12 +3,14 @@ import Box from "@mui/material/Box";
 
 import Image from "next/image";
 
+import Head from "../../components/head";
 import PillButton from "../../components/pill-button/pill-button";
 import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 
 const About = () => {
   return (
     <>
+      <Head title="Octalogic Tech - Who We Are" />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
