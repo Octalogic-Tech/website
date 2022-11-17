@@ -8,6 +8,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
 
 import PillButton from "../../components/pill-button/pill-button";
+import Head from "../../components/head";
 
 function MyFormHelperText({ helperText }: { helperText: string }) {
   const { focused } = useFormControl() || {};
@@ -25,14 +26,35 @@ function MyFormHelperText({ helperText }: { helperText: string }) {
 }
 
 const Contact = () => {
-  const handleFormSubmit = (e: any) => {
-    // eslint-disable-next-line no-console
-    console.log("submit called");
+  const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
+
+    const data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phoneNo: e.target.phoneNo.value,
+      message: e.target.message.value,
+    };
+    const JSONdata = JSON.stringify(data);
+
+    const endpoint = "";
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const result = await response.json();
   };
 
   return (
     <>
+      <Head title="Octalogic Tech - Contact" />
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
         <Typography
           component="h1"
@@ -141,8 +163,7 @@ const Contact = () => {
                   boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                 },
               }}
-              // type="submit"
-              // link={"contact"}
+              type="submit"
             />
           </Box>
         </Box>

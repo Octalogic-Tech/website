@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 
 /* eslint-disable-next-line */
 export interface PillButtonProps {
+  sx: SxProps;
   text: string;
   link?: string | null;
-  sx: SxProps;
-  // type?: string;
+  type?: "submit" | "reset" | "button" | undefined;
 }
 
 const MyButton = styled(Button)(({ theme }: { theme: any }) => ({
@@ -24,11 +24,11 @@ const MyButton = styled(Button)(({ theme }: { theme: any }) => ({
 }));
 
 export function PillButton(props: PillButtonProps) {
-  const { text, link = null } = props;
+  const { text, link = null, type } = props;
   const router = useRouter();
 
   const handleButtonClick = async (linkUrl: string | null) => {
-    if (linkUrl) await router.push(linkUrl);
+    if (linkUrl && type !== "submit") await router.push(linkUrl);
   };
 
   return (
