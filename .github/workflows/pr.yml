@@ -55,7 +55,7 @@ jobs:
         run: npm list
 
       - name: Install Node.js dependencies
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        # if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: |
           ls -l
           npm ci
