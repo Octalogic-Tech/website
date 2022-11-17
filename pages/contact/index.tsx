@@ -29,27 +29,26 @@ const Contact = () => {
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
-    const data = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phoneNo: e.target.phoneNo.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
+    // const data = {
+    //   name: e.target.name.value,
+    //   email: e.target.email.value,
+    //   phoneNo: e.target.phoneNo.value,
+    //   message: e.target.message.value,
+    // };
+    // const JSONdata = JSON.stringify(data);
 
-    const endpoint = "";
+    // const endpoint = "";
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONdata,
-    };
+    // const options = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSONdata,
+    // };
 
-    const response = await fetch(endpoint, options);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const result = await response.json();
+    // const response = await fetch(endpoint, options);
+    // const result = await response.json();
   };
 
   return (
