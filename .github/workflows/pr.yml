@@ -10,7 +10,7 @@ permissions:
   checks: write
   contents: write
 
-env: # environment variables (available in any part of the action)
+env:
   NODE_VERSION: 18
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm ci
 
-  run-linters:
+  lint:
     name: Run linters
     needs: [setup]
     runs-on: ubuntu-latest
@@ -69,7 +69,7 @@ jobs:
       - name: Run Formatter Check
         run: npm run prettier:check
 
-  run-build:
+  build:
     name: Run build
     needs: [setup]
     runs-on: ubuntu-latest
