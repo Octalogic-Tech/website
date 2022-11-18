@@ -16,3 +16,9 @@ export interface IBenefit {
   desc: string;
   illustration: any;
 }
+
+export interface ITechnology {
+  name: string;
+  iconUrl: string;
+  link: string;
+}

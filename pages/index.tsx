@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 
 import HorizontalRule from "../components/horizontal-rule/horizontal-rule";
@@ -11,6 +11,8 @@ import { Services } from "../constants/services";
 import { Benefits } from "../constants/benefits";
 
 import { IBenefit, IService } from "../interfaces";
+import Heading from "../components/heading/heading";
+import Paragraph from "../components/paragraph/paragraph";
 
 const Home = () => {
   return (
@@ -49,36 +51,20 @@ const Home = () => {
             paddingTop: { xs: "0", sm: "5rem" },
           }}
         >
-          <Typography
-            component="h1"
+          <Heading
+            size="large"
+            text={"Converting ideas to solutions"}
+            sx={{ maxWidth: { xs: "68vw", sm: "52vw" } }}
+          />
+          <Paragraph
             sx={{
-              fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem", lg: "3rem" },
-              color: "info.main",
-              fontWeight: "600",
-              maxWidth: { xs: "68vw", sm: "52vw" },
-              lineHeight: { xs: "2rem", sm: "2.2rem", md: "2.5rem", lg: "3.5rem" },
-            }}
-          >
-            Converting ideas to solutions
-          </Typography>
-          <Typography
-            component="p"
-            sx={{
-              fontSize: {
-                xs: "1.4rem",
-                sm: "1rem",
-                md: "1.8rem",
-                lg: "1.3rem",
-              },
-              color: "text.primary",
               maxWidth: { xs: "49vw", sm: "30vw", md: "38vw", lg: "30vw" },
               marginTop: "1.5rem",
-              lineHeight: { xs: "1.8rem", sm: "1.4rem", md: "2rem" },
             }}
           >
             Got a startup idea? Let us turn it into a solution! We provide offshore development &
             technological resources to turn an idea into reality
-          </Typography>
+          </Paragraph>
           <Box sx={{ marginTop: { xs: "2rem", lg: "4rem" } }}>
             <PillButton
               text={"GET STARTED"}
@@ -108,18 +94,7 @@ const Home = () => {
             zIndex: "-1",
           }}
         ></Box>
-        <Typography
-          component="h2"
-          sx={{
-            fontSize: { xs: "1.8rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            color: "info.main",
-            fontWeight: "600",
-            lineHeight: { xs: "2rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            textAlign: "center",
-          }}
-        >
-          What we do
-        </Typography>
+        <Heading size="medium" text={"What we do"} />
         <Box
           sx={{
             width: "100%",
@@ -189,19 +164,7 @@ const Home = () => {
             zIndex: "-1",
           }}
         ></Box>
-        <Typography
-          component="h2"
-          sx={{
-            fontSize: { xs: "1.8rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            color: "info.main",
-            fontWeight: "600",
-            lineHeight: { xs: "2rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            textAlign: "center",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Offshore Team Benefits
-        </Typography>
+        <Heading size="medium" text={"Offshore Team Benefits"} />
         <Grid container sx={{ maxWidth: "84%" }}>
           {Benefits.map((benefit: IBenefit) => (
             <Grid xs={12} md={6} key={benefit.title} item sx={{ padding: "1.25rem" }}>
@@ -225,19 +188,11 @@ const Home = () => {
         </Box>
       </Box>
       <Box sx={{ marginTop: "8rem" }}>
-        <Typography
-          component="h2"
-          sx={{
-            fontSize: { xs: "1.8rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            color: "info.main",
-            fontWeight: "600",
-            lineHeight: { xs: "2rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-            textAlign: "center",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Let&apos;s craft brilliance together!
-        </Typography>
+        <Heading
+          size="medium"
+          text={"Let's craft brilliance together!"}
+          sx={{ marginBottom: "0.5rem" }}
+        />
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
           <PillButton
             text={"Get In Touch"}

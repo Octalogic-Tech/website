@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -9,6 +8,8 @@ import FormHelperText from "@mui/material/FormHelperText";
 
 import PillButton from "../../components/pill-button/pill-button";
 import Head from "../../components/head";
+import Heading from "../../components/heading/heading";
+import Paragraph from "../../components/paragraph/paragraph";
 
 function MyFormHelperText({ helperText }: { helperText: string }) {
   const { focused } = useFormControl() || {};
@@ -55,8 +56,9 @@ const Contact = () => {
     <>
       <Head title="Octalogic Tech - Contact" />
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
-        <Typography
-          component="h1"
+        <Heading
+          size="large"
+          text={"Let's have a conversation"}
           sx={{
             fontSize: { xs: "1.65rem", sm: "2.5rem", lg: "3rem" },
             lineHeight: { xs: "2rem", sm: "2.5rem", lg: "3.5rem" },
@@ -66,47 +68,42 @@ const Contact = () => {
             textAlign: "center",
             color: "primary.main",
           }}
-        >
-          Let&apos;s have a conversation
-        </Typography>
-        <Typography
-          component="p"
+        />
+        <Paragraph
           sx={{
             fontSize: "1rem",
-            color: "text.primary",
             textAlign: "center",
             opacity: "0.8",
             marginBottom: "1rem",
+            lineHeight: "1.5",
           }}
         >
           info@octalogic.in &nbsp; | &nbsp; +91 7030518285
-        </Typography>
-        <Typography
-          component="p"
+        </Paragraph>
+        <Paragraph
           sx={{
             fontSize: "1rem",
-            color: "text.primary",
             textAlign: "center",
             opacity: "0.8",
             marginBottom: "1rem",
+            lineHeight: "1.5",
           }}
         >
           3rd Floor, Sunivas Building, Near Taj Vivanta, St. Inez, Goa
-        </Typography>
-        <Typography
-          component="p"
+        </Paragraph>
+        <Paragraph
           sx={{
             fontSize: "1rem",
-            color: "text.primary",
             textAlign: "center",
             opacity: "0.95",
             marginBottom: "1rem",
+            lineHeight: "1.5",
             marginTop: "1.5rem",
           }}
         >
           Send us a message and we&apos;ll get in touch with you shortly to better understand your
           needs and brainstorm possible solutions.
-        </Typography>
+        </Paragraph>
         <Box
           component="form"
           sx={{
@@ -166,18 +163,18 @@ const Contact = () => {
             />
           </Box>
         </Box>
-        <Typography
-          component="p"
+        {/* <Paragraph
           sx={{
             fontSize: "1rem",
             color: "text.secondary",
             textAlign: "center",
             marginTop: "2rem",
             marginBottom: "1rem",
+            lineHeight: "1.5",
           }}
         >
           Thank you for contacting us. We&apos;ll get in touch soon
-        </Typography>
+        </Paragraph> */}
       </Box>
       <Box
         sx={{
