@@ -123,3 +123,26 @@ export const DigitalTechnologies = [
     link: "https://www.coreldraw.com/en/",
   },
 ];
+
+export const MobileTechnologies = [
+  {
+    name: "React Native",
+    iconUrl: "/images/logos/react-native.svg",
+    link: "https://reactnative.dev/",
+  },
+  {
+    name: "Android",
+    iconUrl: "/images/logos/android.svg",
+    link: "https://www.android.com/",
+  },
+  {
+    name: "iOS",
+    iconUrl: "/images/logos/apple.svg",
+    link: "https://developer.apple.com/",
+  },
+  {
+    name: "Ionic",
+    iconUrl: "/images/logos/ionic.svg",
+    link: "https://ionicframework.com/",
+  },
+];
