@@ -58,7 +58,6 @@ const Contact = () => {
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
         <Heading
           size="large"
-          text={"Let's have a conversation"}
           sx={{
             fontSize: { xs: "1.65rem", sm: "2.5rem", lg: "3rem" },
             lineHeight: { xs: "2rem", sm: "2.5rem", lg: "3.5rem" },
@@ -68,7 +67,9 @@ const Contact = () => {
             textAlign: "center",
             color: "primary.main",
           }}
-        />
+        >
+          Let&apos;s have a conversation
+        </Heading>
         <Paragraph
           sx={{
             fontSize: "1rem",

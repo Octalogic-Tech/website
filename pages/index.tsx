@@ -51,11 +51,9 @@ const Home = () => {
             paddingTop: { xs: "0", sm: "5rem" },
           }}
         >
-          <Heading
-            size="large"
-            text={"Converting ideas to solutions"}
-            sx={{ maxWidth: { xs: "68vw", sm: "52vw" } }}
-          />
+          <Heading size="large" sx={{ maxWidth: { xs: "68vw", sm: "52vw" } }}>
+            Converting ideas to solutions
+          </Heading>
           <Paragraph
             sx={{
               maxWidth: { xs: "49vw", sm: "30vw", md: "38vw", lg: "30vw" },
@@ -94,7 +92,7 @@ const Home = () => {
             zIndex: "-1",
           }}
         ></Box>
-        <Heading size="medium" text={"What we do"} />
+        <Heading size="medium">What we do</Heading>
         <Box
           sx={{
             width: "100%",
@@ -164,7 +162,7 @@ const Home = () => {
             zIndex: "-1",
           }}
         ></Box>
-        <Heading size="medium" text={"Offshore Team Benefits"} />
+        <Heading size="medium">Offshore Team Benefits</Heading>
         <Grid container sx={{ maxWidth: "84%" }}>
           {Benefits.map((benefit: IBenefit) => (
             <Grid xs={12} md={6} key={benefit.title} item sx={{ padding: "1.25rem" }}>
@@ -188,11 +186,9 @@ const Home = () => {
         </Box>
       </Box>
       <Box sx={{ marginTop: "8rem" }}>
-        <Heading
-          size="medium"
-          text={"Let's craft brilliance together!"}
-          sx={{ marginBottom: "0.5rem" }}
-        />
+        <Heading size="medium" sx={{ marginBottom: "0.5rem" }}>
+          Let&apos;s craft brilliance together!
+        </Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
           <PillButton
             text={"Get In Touch"}

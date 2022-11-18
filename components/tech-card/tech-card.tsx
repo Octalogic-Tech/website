@@ -11,23 +11,25 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        flex: "0 0 10%",
-        padding: "1rem",
+        padding: "1.5rem 1rem",
         transition: "box-shadow .3s, border-radius .3s",
         ":hover": {
           borderRadius: ".25rem",
           boxShadow: "0.062rem 1.25rem 1.562rem -0.312rem rgb(46 61 73 / 30%)",
         },
+        gap: "1.5rem",
       }}
     >
       <Box
         sx={{
           position: "relative",
           width: "100%",
-          height: "100%",
+          minHeight: "112px",
+          maxHeight: "112px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flex: "0 0 60%",
         }}
       >
         <Image
@@ -35,26 +37,33 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
           alt={`${name} logo`}
           width={112}
           height={0}
-          style={{ height: "auto" }}
+          style={{ height: "auto", maxHeight: "112px" }}
         />
       </Box>
-      <a
-        style={{
-          color: "#212529",
-          textTransform: "unset",
-          fontSize: "1.25rem",
-          fontWeight: "500",
-          marginTop: "1.5rem",
-          marginBottom: "0.5rem",
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           textAlign: "center",
-          textDecoration: "none",
+          margin: "0 1rem",
         }}
-        href={link}
-        target="_blank"
-        rel="noreferrer"
       >
-        {name.toUpperCase()}
-      </a>
+        <a
+          style={{
+            color: "#212529",
+            textTransform: "unset",
+            fontSize: "1.25rem",
+            fontWeight: "500",
+            textDecoration: "none",
+          }}
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {name.toUpperCase()}
+        </a>
+      </Box>
     </Box>
   );
 };

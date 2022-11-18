@@ -13,14 +13,15 @@ const PrivacyPolicy = () => {
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
         <Heading
           size="medium"
-          text={"Privacy Policy"}
           sx={{
             color: "text.primary",
             fontSize: "2rem",
             fontWeight: "500",
             marginBottom: "1rem",
           }}
-        />
+        >
+          Privacy Policy
+        </Heading>
         <Paragraph
           sx={{
             fontSize: "1rem",

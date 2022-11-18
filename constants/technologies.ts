@@ -1,4 +1,4 @@
-export const Technologies = [
+export const WebTechnologies = [
   {
     name: "HTML5",
     iconUrl: "/images/logos/html5.svg",
@@ -88,5 +88,38 @@ export const Technologies = [
     name: "MongoDB",
     iconUrl: "/images/logos/mongodb.svg",
     link: "https://www.mongodb.com/",
+  },
+];
+
+export const DigitalTechnologies = [
+  {
+    name: "Adobe Photoshop",
+    iconUrl: "/images/logos/photoshop.svg",
+    link: "https://www.adobe.com/products/photoshop.html?promoid=RBS7NL7F&mv=other",
+  },
+  {
+    name: "Adobe Illustrator",
+    iconUrl: "/images/logos/illustrator.svg",
+    link: "https://www.adobe.com/in/products/illustrator.html",
+  },
+  {
+    name: "Adobe Premiere",
+    iconUrl: "/images/logos/premiere.svg",
+    link: "https://www.adobe.com/in/products/premiere.html",
+  },
+  {
+    name: "Adobe Lightroom",
+    iconUrl: "/images/logos/lightroom.svg",
+    link: "https://lightroom.adobe.com/",
+  },
+  {
+    name: "Adobe XD",
+    iconUrl: "/images/logos/xd.svg",
+    link: "https://www.adobe.com/products/xd.html",
+  },
+  {
+    name: "Corel Draw",
+    iconUrl: "/images/logos/corel-draw.svg",
+    link: "https://www.coreldraw.com/en/",
   },
 ];
