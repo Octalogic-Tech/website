@@ -22,7 +22,7 @@ const commonCspDirectives = [
   `frame-src 'self' https://www.google.com https://www.youtube.com vars.hotjar.com www.googletagmanager.com https://optimize.google.com *.stripe.com *.stripe.network maps.google.com maps.googleapis.com maps.google.com *.facebook.com connect.facebook.net *.snapchat.com`,
   `connect-src 'self' *.hotjar.com wss://*.hotjar.com *.hotjar.io www.googletagmanager.com *.googleapis.com *.stripe.com maps.googleapis.com maps.google.com fonts.googleapis.com fonts.gstatic.com https://google-analytics.com https://ssl.google-analytics.com https://www.google-analytics.com stats.g.doubleclick.net ampcid.google.com analytics.google.com *.facebook.com connect.facebook.net https://tr.snapchat.com ${
     !isProduction ? "localhost:* ws://localhost:*" : ""
-  } about: data:`,
+  } vitals.vercel-insights.com about: data:`,
   `script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://static.hotjar.com https://script.hotjar.com https://www.googletagmanager.com https://googletagmanager.com https://tagmanager.google.com https://js.stripe.com https://checkout.stripe.com https://cdn.firebase.com https://*.firebaseio.com https://*.firebaseio.com https://maps.googleapis.com https://maps.google.com https://apis.google.com https://www.googleanalytics.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.googleoptimize.com https://optimize.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://graph.facebook.com https://js.facebook.com https://sc-static.net https://tr.snapchat.com ${
     !isProduction ? "'unsafe-eval' localhost:*" : ""
   }`,
