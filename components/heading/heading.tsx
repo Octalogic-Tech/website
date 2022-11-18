@@ -3,8 +3,8 @@ import Typography from "@mui/material/Typography";
 
 interface HeadingProps {
   sx?: SxProps;
-  text: string;
   size: string;
+  children: any;
 }
 
 const CommonHeadingStyles = {
@@ -26,7 +26,7 @@ const MediumHeadingStyles = {
 };
 
 export function Heading(props: HeadingProps) {
-  const { sx = {}, text, size } = props;
+  const { sx = {}, children, size } = props;
   let headingStyles = {};
   let typographyComponent: "h1" | "h2" = "h1";
 
@@ -54,7 +54,7 @@ export function Heading(props: HeadingProps) {
         ...sx,
       }}
     >
-      {text}
+      {children}
     </Typography>
   );
 }

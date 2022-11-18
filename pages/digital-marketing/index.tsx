@@ -9,12 +9,12 @@ import Paragraph from "../../components/paragraph/paragraph";
 import PillButton from "../../components/pill-button/pill-button";
 import TechCard from "../../components/tech-card/tech-card";
 
-import { WebTechnologies } from "../../constants/technologies";
+import { DigitalTechnologies } from "../../constants/technologies";
 
-const WebDevelopment = () => {
+const DigitalMarketing = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Web Development" />
+      <Head title="Octalogic Tech - Digital Marketing" />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
@@ -29,7 +29,7 @@ const WebDevelopment = () => {
             textAlign: { xs: "center", sm: "left" },
           }}
         >
-          Web Development
+          Digital Marketing
         </Heading>
         <Box
           sx={{
@@ -39,24 +39,17 @@ const WebDevelopment = () => {
             margin: "0 auto",
           }}
         >
-          <Box sx={{ marginBottom: { xs: "0", lg: "3rem" }, flex: "0 0 60%" }}>
+          <Box sx={{ marginBottom: { xs: "0", lg: "6rem" }, flex: "0 0 60%" }}>
             <Paragraph
               sx={{
                 marginTop: { xs: "0rem", sm: "3rem" },
                 maxWidth: "46rem",
               }}
             >
-              Working alongside our mobile app team gives us the added benefit of creating seamless
-              mobile-first experiences and delivering fully-featured web apps.
-            </Paragraph>
-            <Paragraph
-              sx={{
-                marginTop: "2rem",
-                maxWidth: "46rem",
-              }}
-            >
-              We’re experienced in both front-end and backend infrastructure and offer comprehensive
-              solutions to fit the needs of our clients.
+              We want everyone to see exactly what makes your brand special. We take the time to
+              understand your business and create a strategy to accomplish your objectives. Here at
+              Octalogic Tech, we believe in building versatile and adaptable digital marketing
+              ecosystems, as to offer an aggressive edge to your business.
             </Paragraph>
           </Box>
           <Box
@@ -67,12 +60,17 @@ const WebDevelopment = () => {
               paddingTop: { xs: "100%", sm: "0" },
             }}
           >
-            <Image src="/images/web_dev_hero_image.svg" alt="Octalogic Tech" fill />
+            <Image src="/images/digital-marketing-hero-image.svg" alt="Octalogic Tech" fill />
           </Box>
         </Box>
         <Heading
           size="medium"
-          sx={{ textAlign: "left", maxWidth: "86rem", margin: "0 auto", marginTop: "6rem" }}
+          sx={{
+            textAlign: "left",
+            maxWidth: "86rem",
+            margin: "0 auto",
+            marginTop: { xs: "6rem", lg: "2rem" },
+          }}
         >
           Technologies We Work With
         </Heading>
@@ -83,8 +81,7 @@ const WebDevelopment = () => {
             marginTop: "2rem",
           }}
         >
-          We make ultra-optimized, fast loading web apps that ensure delightful user experience
-          across a variety of devices using all the tools at our disposal.
+          We make digital marketing strategies fit your goals and budgets.
         </Paragraph>
         <Box
           sx={{
@@ -92,7 +89,6 @@ const WebDevelopment = () => {
             gridTemplateColumns: {
               xs: "repeat(2, minmax(10rem, 1fr))",
               sm: "repeat(3, minmax(11rem, 1fr))",
-              md: "repeat(4, minmax(11rem, 1fr))",
               lg: "repeat(6, minmax(11rem, 1fr))",
             },
             justifyContent: "center",
@@ -100,7 +96,7 @@ const WebDevelopment = () => {
             margin: "3rem auto",
           }}
         >
-          {WebTechnologies.map((tech) => (
+          {DigitalTechnologies.map((tech) => (
             <TechCard key={tech.name} details={tech} />
           ))}
         </Box>
@@ -130,4 +126,4 @@ const WebDevelopment = () => {
   );
 };
 
-export default WebDevelopment;
+export default DigitalMarketing;

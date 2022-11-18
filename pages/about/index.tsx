@@ -20,9 +20,10 @@ const About = () => {
       >
         <Heading
           size="large"
-          text={"We Innovate To Make A Difference"}
           sx={{ maxWidth: "86rem", margin: "0 auto", textAlign: { xs: "center", sm: "left" } }}
-        />
+        >
+          We Innovate To Make A Difference
+        </Heading>
         <Box
           sx={{
             display: "flex",
@@ -85,7 +86,7 @@ const About = () => {
         </Box>
       </Box>
       <Box sx={{ marginTop: { xs: "3rem", sm: "0" } }}>
-        <Heading size="medium" text={"Let's craft brilliance together!"} />
+        <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
           <PillButton
             text={"Get In Touch"}
