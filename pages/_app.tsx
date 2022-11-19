@@ -3,8 +3,10 @@ import { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import { Analytics } from "@vercel/analytics/react";
 
 import theme from "../config/theme";
+import * as vars from "../config/vars";
 import createEmotionCache from "../config/createEmotionCache";
 
 import Header from "../components/header/header";
@@ -20,6 +22,7 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
@@ -28,6 +31,7 @@ export default function MyApp(props: MyAppProps) {
         <>
           <Header />
           <Component {...pageProps} />
+          {vars.isAnalyticsEnabled && <Analytics />}
           <Footer />
           <MobileSpeedDial />
         </>
