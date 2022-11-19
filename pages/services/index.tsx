@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import Box from "@mui/material/Box";
 
 import Image from "next/image";
@@ -9,13 +11,24 @@ import PillButton from "../../components/pill-button/pill-button";
 import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 
 export const Services = () => {
+  const aboutSection = useRef<any>(null);
+
+  const scrollDown = () => {
+    if (aboutSection.current) {
+      window.scrollTo({
+        top: aboutSection.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
-      <Head title="Octalogic Tech - Digital Marketing" />
+      <Head title="Octalogic Tech - Services" />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-          marginY: { xs: "1rem", sm: "3rem", lg: "5.25rem" },
+          marginY: { xs: "1rem", sm: "4rem", lg: "5.25rem" },
         }}
       >
         <Heading
@@ -59,6 +72,7 @@ export const Services = () => {
                     boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                   },
                 }}
+                handleclick={() => scrollDown()}
               />
             </Box>
           </Box>
@@ -74,12 +88,14 @@ export const Services = () => {
           </Box>
         </Box>
       </Box>
-      <Box>
-        <Heading size="medium">Our Services</Heading>
+      <Box ref={aboutSection}>
+        <Heading size="medium" sx={{ marginTop: { xs: "4rem", sm: "0" } }}>
+          Our Services
+        </Heading>
         <Box
           sx={{
             marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "1rem", sm: "3rem", lg: "5.25rem" },
+            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
           }}
         >
           <Box
@@ -96,13 +112,14 @@ export const Services = () => {
                 sx={{
                   maxWidth: "86rem",
                   textAlign: "left",
+                  marginTop: { xs: "2rem", sm: "0" },
                 }}
               >
                 Web Development
               </Heading>
               <Paragraph
                 sx={{
-                  marginTop: { xs: "0rem", sm: "3rem" },
+                  marginTop: { xs: "2rem", sm: "3rem" },
                   maxWidth: "46rem",
                 }}
               >
@@ -141,7 +158,7 @@ export const Services = () => {
         <Box
           sx={{
             marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "1rem", sm: "3rem", lg: "5.25rem" },
+            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
           }}
         >
           <Box
@@ -158,13 +175,14 @@ export const Services = () => {
                 sx={{
                   maxWidth: "86rem",
                   textAlign: "left",
+                  marginTop: { xs: "2rem", sm: "0" },
                 }}
               >
                 Digital Marketing
               </Heading>
               <Paragraph
                 sx={{
-                  marginTop: { xs: "0rem", sm: "3rem" },
+                  marginTop: { xs: "2rem", sm: "3rem" },
                   maxWidth: "46rem",
                 }}
               >
@@ -202,7 +220,7 @@ export const Services = () => {
         <Box
           sx={{
             marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "1rem", sm: "3rem", lg: "5.25rem" },
+            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
           }}
         >
           <Box
@@ -219,13 +237,14 @@ export const Services = () => {
                 sx={{
                   maxWidth: "86rem",
                   textAlign: "left",
+                  marginTop: { xs: "2rem", sm: "0" },
                 }}
               >
                 Mobile Development
               </Heading>
               <Paragraph
                 sx={{
-                  marginTop: { xs: "0rem", sm: "3rem" },
+                  marginTop: { xs: "2rem", sm: "3rem" },
                   maxWidth: "46rem",
                 }}
               >
