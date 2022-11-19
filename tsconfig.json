@@ -23,7 +23,7 @@
     "sourceMap": false,
     "pretty": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "compileOnSave": true,
   "exclude": [".git", "node_modules", "logs", "dist", "build"]
 }
