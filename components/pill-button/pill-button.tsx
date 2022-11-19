@@ -9,6 +9,7 @@ export interface PillButtonProps {
   text: string;
   link?: string | null;
   type?: "submit" | "reset" | "button" | undefined;
+  handleclick?: () => void;
 }
 
 const MyButton = styled(Button)(({ theme }: { theme: any }) => ({
@@ -24,15 +25,16 @@ const MyButton = styled(Button)(({ theme }: { theme: any }) => ({
 }));
 
 export function PillButton(props: PillButtonProps) {
-  const { text, link = null, type } = props;
+  const { text, link = null, type, handleclick = null, ...otherProps } = props;
   const router = useRouter();
 
   const handleButtonClick = async (linkUrl: string | null) => {
+    if (handleclick) handleclick();
     if (linkUrl && type !== "submit") await router.push(linkUrl);
   };
 
   return (
-    <MyButton variant="contained" {...props} onClick={() => handleButtonClick(link)}>
+    <MyButton variant="contained" {...otherProps} onClick={() => handleButtonClick(link)}>
       {text}
     </MyButton>
   );
