@@ -6,33 +6,16 @@ import NextLink from "next/link";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 
 import Link from "../link/link";
 import PillButton from "../pill-button/pill-button";
-
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
 
 interface NavItems {
   linkName: string;
   linkHref: string;
 }
 
-const drawerWidth = 240;
 const navItems: NavItems[] = [
   {
     linkName: "Home",
@@ -52,43 +35,8 @@ const navItems: NavItems[] = [
   },
 ];
 
-function Header(props: Props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+function Header() {
   const router = useRouter();
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const handleDrawerNav = async (linkUrl: string) => {
-    await router.push(linkUrl);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Box sx={{ display: "flex", padding: "1rem 1rem", justifyContent: "center" }}>
-        <NextLink href={"/"}>
-          <Image src="/images/logos/octalogic.svg" alt="Octalogic logo" width={60} height={60} />
-        </NextLink>
-      </Box>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.linkName}>
-            <ListItemButton
-              sx={{ textAlign: "center", textTransform: "unset" }}
-              onClick={() => handleDrawerNav(item.linkHref)}
-            >
-              <ListItemText primary={item.linkName} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
 
   const navLinks = (navigationItems: NavItems[]) => {
     return navigationItems.map((item: NavItems) => {
@@ -143,7 +91,7 @@ function Header(props: Props) {
         }}
       >
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="info"
             aria-label="open drawer"
             edge="start"
@@ -151,7 +99,7 @@ function Header(props: Props) {
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Box
             component="div"
             sx={{
@@ -180,7 +128,7 @@ function Header(props: Props) {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      {/* <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -199,7 +147,7 @@ function Header(props: Props) {
         >
           {drawer}
         </Drawer>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

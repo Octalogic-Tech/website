@@ -15,7 +15,7 @@ export interface BenefitsCardProps {
   details: IBenefit;
 }
 
-const MyCard = styled(Card)({
+const MyCard = styled(Card)((props) => ({
   display: "flex",
   backgroundColor: "transparent",
   boxShadow: "0.062rem 0.312rem 0.625rem rgb(46 61 73 / 30%)",
@@ -25,10 +25,13 @@ const MyCard = styled(Card)({
   ":hover": {
     boxShadow: "0.062rem 1.25rem 1.562rem -0.312rem rgb(46 61 73 / 20%)",
   },
-  ".MuiCardContent-root": {
-    padding: "2rem",
+  [props.theme.breakpoints.down("sm")]: {
+    padding: "0 0.5rem",
   },
-});
+  // ".MuiCardContent-root": {
+  //   padding: "2rem",
+  // },
+}));
 
 export function BenefitsCard(props: BenefitsCardProps) {
   const { details } = props;
@@ -44,7 +47,15 @@ export function BenefitsCard(props: BenefitsCardProps) {
       >
         <Image src={details.illustration} alt="Octalogic Tech Remote Resources" fill />
       </Box>
-      <CardContent>
+      <CardContent
+        sx={{
+          padding: {
+            xs: "1rem",
+            sm: "2rem",
+            md: "2rem",
+          },
+        }}
+      >
         <Typography
           gutterBottom
           component="h4"

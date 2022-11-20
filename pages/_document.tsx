@@ -16,7 +16,11 @@ export default class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
           {(this.props as any).emotionStyleTags}
         </Head>
-        <body>
+        <body
+          style={{
+            backgroundImage: "url(../images/background.png)",
+          }}
+        >
           <Main />
           <NextScript />
         </body>
@@ -24,6 +28,9 @@ export default class MyDocument extends Document {
     );
   }
 }
+
+// backgroundImage: url(../images/background.png),
+// backgroundRepeat: repeat
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
