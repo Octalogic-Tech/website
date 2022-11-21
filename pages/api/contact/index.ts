@@ -41,11 +41,13 @@ export default async function Handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify(slackData),
     };
 
-    try {
-      const slackResponse = await fetch(slackWebhookUrl, options);
-      res.status(201).json({ slackResponse });
-    } catch (error) {
-      res.status(500).json({ error: "Slack webhook error" });
-    }
+    if (slackWebhookUrl)
+      try {
+        await fetch(slackWebhookUrl, options);
+        res.status(201).json({ message: "Success" });
+      } catch (error) {
+        res.status(500).json({ message: "Unable to save data" });
+      }
+    else res.status(400).json({ message: "Unable to save data" });
   }
 }

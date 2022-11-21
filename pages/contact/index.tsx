@@ -189,7 +189,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
-          <FormControl fullWidth required>
+          <FormControl fullWidth>
             <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
               Phone number
             </InputLabel>
@@ -210,6 +210,9 @@ const Contact = () => {
             <OutlinedInput
               multiline
               minRows={2}
+              inputProps={{
+                maxLength: 3000,
+              }}
               id="message"
               label="Message"
               size="small"
