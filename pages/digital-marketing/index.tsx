@@ -11,10 +11,14 @@ import TechCard from "../../components/tech-card/tech-card";
 
 import { DigitalTechnologies } from "../../constants/technologies";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/digital-marketing`;
+
 const DigitalMarketing = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Digital Marketing" />
+      <Head title="Octalogic Tech - Digital Marketing" canonicalUrl={siteUrl} />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },

@@ -6,10 +6,14 @@ import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/privacy-policy`;
+
 const PrivacyPolicy = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Privacy Policy" />
+      <Head title="Octalogic Tech - Privacy Policy" canonicalUrl={siteUrl} />
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
         <Heading
           size="medium"

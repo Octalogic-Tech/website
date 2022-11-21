@@ -25,6 +25,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npx next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "prettier:format": "CI=true prettier --write \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\"",
@@ -66,6 +67,7 @@
     "eslint-plugin-unicorn": "^45.0.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
+    "next-sitemap": "^3.1.32",
     "patch-package": "^6.5.0",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
