@@ -31,29 +31,67 @@ function MyFormHelperText({ helperText }: { helperText: string }) {
 }
 
 const Contact = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    inputName: string,
+  ) => {
+    if (showThankYouMsg) setShowThankYouMsg(false);
+    switch (inputName) {
+      case "name":
+        setName(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "phone":
+        setPhone(e.target.value);
+        break;
+      case "message":
+        setMessage(e.target.value);
+        break;
+      default:
+        return;
+    }
+  };
+
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
-    // const data = {
-    //   name: e.target.name.value,
-    //   email: e.target.email.value,
-    //   phoneNo: e.target.phoneNo.value,
-    //   message: e.target.message.value,
-    // };
-    // const JSONdata = JSON.stringify(data);
+    const endpoint = "/api/contact";
+    const data = {
+      name,
+      email,
+      phone,
+      message,
+    };
+    const JSONdata = JSON.stringify(data);
 
-    // const endpoint = "";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
 
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSONdata,
-    // };
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
 
-    // const response = await fetch(endpoint, options);
-    // const result = await response.json();
+    if (response.status > 300) {
+      console.error(result.error);
+    } else {
+      setShowThankYouMsg(true);
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    }
   };
 
   return (
@@ -128,28 +166,59 @@ const Contact = () => {
             >
               Name
             </InputLabel>
-            <OutlinedInput id="name" label="Name" size="small" />
+            <OutlinedInput
+              id="name"
+              label="Name"
+              size="small"
+              value={name}
+              onChange={(e) => handleChange(e, "name")}
+            />
             <MyFormHelperText helperText={"So we can be polite and call you by name"} />
           </FormControl>
           <FormControl fullWidth required>
             <InputLabel htmlFor="email" sx={{ top: "-0.375rem" }}>
               Email
             </InputLabel>
-            <OutlinedInput id="email" label="Email" size="small" type="email" />
+            <OutlinedInput
+              id="email"
+              label="Email"
+              size="small"
+              type="email"
+              value={email}
+              onChange={(e) => handleChange(e, "email")}
+            />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
-          <FormControl fullWidth required>
-            <InputLabel htmlFor="phoneNo" sx={{ top: "-0.375rem" }}>
+          <FormControl fullWidth>
+            <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
               Phone number
             </InputLabel>
-            <OutlinedInput id="phoneNo" label="Phone number" size="small" type="tel" />
+            <OutlinedInput
+              id="phone"
+              label="Phone number"
+              size="small"
+              type="tel"
+              value={phone}
+              onChange={(e) => handleChange(e, "phone")}
+            />
             <MyFormHelperText helperText={"So we can call you"} />
           </FormControl>
           <FormControl fullWidth required>
             <InputLabel htmlFor="message" sx={{ top: "-0.375rem" }}>
               Message
             </InputLabel>
-            <OutlinedInput multiline minRows={2} id="message" label="Message" size="small" />
+            <OutlinedInput
+              multiline
+              minRows={2}
+              inputProps={{
+                maxLength: 3000,
+              }}
+              id="message"
+              label="Message"
+              size="small"
+              value={message}
+              onChange={(e) => handleChange(e, "message")}
+            />
             <MyFormHelperText helperText={"How can we help?"} />
           </FormControl>
           <Box sx={{ textAlign: "center" }}>
@@ -168,7 +237,7 @@ const Contact = () => {
             />
           </Box>
         </Box>
-        {/* <Paragraph
+        <Paragraph
           sx={{
             fontSize: "1rem",
             color: "text.secondary",
@@ -176,10 +245,11 @@ const Contact = () => {
             marginTop: "2rem",
             marginBottom: "1rem",
             lineHeight: "1.5",
+            opacity: showThankYouMsg ? "1" : "0",
           }}
         >
           Thank you for contacting us. We&apos;ll get in touch soon
-        </Paragraph> */}
+        </Paragraph>
       </Box>
       <Box
         sx={{

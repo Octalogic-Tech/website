@@ -22,3 +22,10 @@ export interface ITechnology {
   iconUrl: string;
   link: string;
 }
+
+export interface IFormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
