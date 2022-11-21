@@ -4,7 +4,7 @@ const ENVIRONMENT = process.env.NEXT_PUBLIC_ENVIRONMENT;
 const isLive = ENVIRONMENT === "production";
 
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_HOST,
+  siteUrl: `https://${process.env.NEXT_PUBLIC_HOST}`,
   changefreq: "monthly",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
