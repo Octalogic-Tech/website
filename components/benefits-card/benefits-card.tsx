@@ -58,7 +58,7 @@ export function BenefitsCard(props: BenefitsCardProps) {
       >
         <Typography
           gutterBottom
-          component="h4"
+          component="h3"
           sx={{
             fontSize: "1.5rem",
             fontWeight: "600",

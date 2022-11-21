@@ -62,7 +62,7 @@ export const Services = () => {
             </Paragraph>
             <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
               <PillButton
-                text={"See How"}
+                title={"See How"}
                 sx={{
                   backgroundColor: "secondary.main",
                   padding: "0.5rem 1rem",
@@ -72,7 +72,7 @@ export const Services = () => {
                     boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                   },
                 }}
-                handleclick={() => scrollDown()}
+                onClick={() => scrollDown()}
               />
             </Box>
           </Box>
@@ -129,7 +129,7 @@ export const Services = () => {
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
                 <PillButton
-                  text={"Know More"}
+                  title={"Know More"}
                   sx={{
                     backgroundColor: "secondary.main",
                     padding: ".7rem 2rem",
@@ -139,7 +139,7 @@ export const Services = () => {
                       boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                     },
                   }}
-                  link={"web-development"}
+                  href={"/web-development"}
                 />
               </Box>
             </Box>
@@ -151,7 +151,7 @@ export const Services = () => {
                 paddingTop: { xs: "100%", sm: "0" },
               }}
             >
-              <Image src="/images/web_dev_avatar.svg" alt="Octalogic Tech" fill />
+              <Image src="/images/web_dev_avatar.svg" alt="Octalogic Tech" fill priority />
             </Box>
           </Box>
         </Box>
@@ -191,7 +191,7 @@ export const Services = () => {
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
                 <PillButton
-                  text={"Know More"}
+                  title={"Know More"}
                   sx={{
                     backgroundColor: "secondary.main",
                     padding: ".7rem 2rem",
@@ -201,7 +201,7 @@ export const Services = () => {
                       boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                     },
                   }}
-                  link={"digital-marketing"}
+                  href={"/digital-marketing"}
                 />
               </Box>
             </Box>
@@ -254,7 +254,7 @@ export const Services = () => {
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
                 <PillButton
-                  text={"Know More"}
+                  title={"Know More"}
                   sx={{
                     backgroundColor: "secondary.main",
                     padding: ".7rem 2rem",
@@ -264,7 +264,7 @@ export const Services = () => {
                       boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                     },
                   }}
-                  link={"mobile-development"}
+                  href={"/mobile-development"}
                 />
               </Box>
             </Box>
@@ -285,7 +285,7 @@ export const Services = () => {
         <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
           <PillButton
-            text={"Get In Touch"}
+            title={"Get In Touch"}
             sx={{
               backgroundColor: "secondary.main",
               padding: "0.7rem 2rem",
@@ -295,7 +295,7 @@ export const Services = () => {
                 boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
               },
             }}
-            link={"contact"}
+            href={"/contact"}
           />
         </Box>
       </Box>

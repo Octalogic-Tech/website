@@ -58,7 +58,7 @@ const MobileDevelopment = () => {
               paddingTop: { xs: "100%", sm: "0" },
             }}
           >
-            <Image src="/images/mobile-dev-hero-image.svg" alt="Octalogic Tech" fill />
+            <Image src="/images/mobile-dev-hero-image.svg" alt="Octalogic Tech" fill priority />
           </Box>
         </Box>
         <Heading
@@ -105,7 +105,7 @@ const MobileDevelopment = () => {
           </Heading>
           <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
             <PillButton
-              text={"Get In Touch"}
+              title={"Get In Touch"}
               sx={{
                 backgroundColor: "secondary.main",
                 padding: "0.7rem 2rem",
@@ -115,7 +115,7 @@ const MobileDevelopment = () => {
                   boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                 },
               }}
-              link={"contact"}
+              href={"/contact"}
             />
           </Box>
         </Box>

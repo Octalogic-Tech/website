@@ -81,7 +81,7 @@ const About = () => {
               paddingTop: { xs: "100%", sm: "18rem", md: "0" },
             }}
           >
-            <Image src="/images/may_the_force_bgdm.svg" alt="Octalogic Tech" fill />
+            <Image src="/images/may_the_force_bgdm.svg" alt="Octalogic Tech" fill priority />
           </Box>
         </Box>
       </Box>
@@ -89,7 +89,7 @@ const About = () => {
         <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
           <PillButton
-            text={"Get In Touch"}
+            title={"Get In Touch"}
             sx={{
               backgroundColor: "secondary.main",
               padding: "0.7rem 2rem",
@@ -99,7 +99,7 @@ const About = () => {
                 boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
               },
             }}
-            link={"contact"}
+            href={"/contact"}
           />
         </Box>
       </Box>

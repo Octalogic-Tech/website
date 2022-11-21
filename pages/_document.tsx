@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
         </Head>
         <body
           style={{
-            backgroundImage: "url(../images/background.png)",
+            backgroundImage: "url(../images/background.webp)",
           }}
         >
           <Main />
@@ -28,9 +28,6 @@ export default class MyDocument extends Document {
     );
   }
 }
-
-// backgroundImage: url(../images/background.png),
-// backgroundRepeat: repeat
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
