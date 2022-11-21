@@ -64,9 +64,8 @@ export function MobileSpeedDial() {
               key={action.name}
               icon={action.icon}
               onClick={() => handleActionClick(action.linkUrl)}
-              sx={{ backgroundColor: "primary.main", color: "white" }}
               tooltipTitle={action.name}
-              // tooltipOpen={open}
+              tooltipOpen
             />
           ))}
         </SpeedDial>
