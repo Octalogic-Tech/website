@@ -11,6 +11,10 @@ import Head from "../../components/head";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/contact`;
+
 function MyFormHelperText({ helperText }: { helperText: string }) {
   const { focused } = useFormControl() || {};
   const text = React.useMemo(() => {
@@ -54,7 +58,7 @@ const Contact = () => {
 
   return (
     <>
-      <Head title="Octalogic Tech - Contact" />
+      <Head title="Octalogic Tech - Contact" canonicalUrl={siteUrl} />
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
         <Heading
           size="large"

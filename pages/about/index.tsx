@@ -8,10 +8,14 @@ import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/about`;
+
 const About = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Who We Are" />
+      <Head title="Octalogic Tech - Who We Are" canonicalUrl={siteUrl} />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
