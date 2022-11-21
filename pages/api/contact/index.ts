@@ -32,9 +32,6 @@ const formatData = (data: IFormData) => {
 };
 
 export default async function Handler(req: NextApiRequest, res: NextApiResponse) {
-  // eslint-disable-next-line no-console
-  console.log("🚀 ~ file: index.ts ~ line 6 ~ vars", vars);
-
   if (req.method === "POST") {
     const formData = req.body;
     const slackData = formatData(formData);
