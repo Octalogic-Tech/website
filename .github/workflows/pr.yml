@@ -1,0 +1,50 @@
+name: PRCheck
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+permissions:
+  checks: write
+  contents: write
+
+env:
+  NODE_VERSION: 18
+
+jobs:
+  run-lint:
+    name: Setup dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        id: cache-npm
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Node.js dependencies
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        run: npm ci
+
+      - name: Run linters
+        run: npm run lint
+
+      - name: Run Formatter Check
+        run: npm run prettier:check
+
+      - name: Build Check
+        run: npm run build

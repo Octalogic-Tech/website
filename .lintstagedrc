@@ -1,6 +1,6 @@
 {
-  "*.{tsx}": [
-    "npx eslint --fix",
-    "git add"
+  "*.{tsx,ts,jsx,js,css,json,css,scss,md}": [
+    "npm run lint",
+    "npm run prettier:format"
   ]
 }

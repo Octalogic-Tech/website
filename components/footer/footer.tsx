@@ -143,7 +143,7 @@ export function Footer() {
         sx={{
           display: "flex",
           alignItems: "center",
-          marginBottom: "0.5rem",
+          marginBottom: "0.65rem",
           gap: "1rem",
         }}
       >
@@ -154,7 +154,7 @@ export function Footer() {
         sx={{
           fontSize: ".80rem",
           textAlign: "center",
-          opacity: "0.60",
+          // opacity: "0.60",
           color: "#212529",
           paddingBottom: "0.5rem",
           lineHeight: ".80rem",

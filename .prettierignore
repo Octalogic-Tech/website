@@ -143,3 +143,7 @@ dist
 .serverless
 
 src/docs
+
+.github
+.vercel
+.next

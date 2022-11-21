@@ -1,0 +1,233 @@
+diff --git a/node_modules/next-seo/lib/jsonld/article.d.ts b/node_modules/next-seo/lib/jsonld/article.d.ts
+index e3cb253..6ea4b86 100644
+--- a/node_modules/next-seo/lib/jsonld/article.d.ts
++++ b/node_modules/next-seo/lib/jsonld/article.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import { ArticleAuthor } from 'src/types';
++import { ArticleAuthor } from '../types';
+ export interface ArticleJsonLdProps extends JsonLdProps {
+     type?: 'Article' | 'BlogPosting' | 'NewsArticle' | 'Blog';
+     url: string;
+diff --git a/node_modules/next-seo/lib/jsonld/brand.d.ts b/node_modules/next-seo/lib/jsonld/brand.d.ts
+index ad0ae4a..499abb6 100644
+--- a/node_modules/next-seo/lib/jsonld/brand.d.ts
++++ b/node_modules/next-seo/lib/jsonld/brand.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { AggregateRating } from 'src/types';
++import type { AggregateRating } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface BrandJsonLdProps extends JsonLdProps {
+     id: string;
+diff --git a/node_modules/next-seo/lib/jsonld/breadcrumb.d.ts b/node_modules/next-seo/lib/jsonld/breadcrumb.d.ts
+index 0140b22..80c2842 100644
+--- a/node_modules/next-seo/lib/jsonld/breadcrumb.d.ts
++++ b/node_modules/next-seo/lib/jsonld/breadcrumb.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { ItemListElements } from 'src/types';
++import type { ItemListElements } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface BreadCrumbJsonLdProps extends JsonLdProps {
+     itemListElements: ItemListElements[];
+diff --git a/node_modules/next-seo/lib/jsonld/carousel.d.ts b/node_modules/next-seo/lib/jsonld/carousel.d.ts
+index de29a90..2a4625a 100644
+--- a/node_modules/next-seo/lib/jsonld/carousel.d.ts
++++ b/node_modules/next-seo/lib/jsonld/carousel.d.ts
+@@ -1,7 +1,7 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { CourseJsonLdProps, RecipeJsonLdProps } from 'src/index';
+-import type { Review, AggregateRating } from 'src/types';
++import type { CourseJsonLdProps, RecipeJsonLdProps } from '../index';
++import type { Review, AggregateRating } from '../types';
+ declare type Director = {
+     name: string;
+ };
+diff --git a/node_modules/next-seo/lib/jsonld/collectionPage.d.ts b/node_modules/next-seo/lib/jsonld/collectionPage.d.ts
+index aabb34c..9950927 100644
+--- a/node_modules/next-seo/lib/jsonld/collectionPage.d.ts
++++ b/node_modules/next-seo/lib/jsonld/collectionPage.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { CreativeWork } from 'src/types';
++import type { CreativeWork } from '../types';
+ export interface CollectionPageJsonLdProps extends JsonLdProps {
+     name: string;
+     hasPart: CreativeWork[];
+diff --git a/node_modules/next-seo/lib/jsonld/corporateContact.d.ts b/node_modules/next-seo/lib/jsonld/corporateContact.d.ts
+index 4ad6ca6..93ccf30 100644
+--- a/node_modules/next-seo/lib/jsonld/corporateContact.d.ts
++++ b/node_modules/next-seo/lib/jsonld/corporateContact.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { ContactPoint } from 'src/types';
++import type { ContactPoint } from '../types';
+ export interface CorporateContactJsonLdProps extends JsonLdProps {
+     url: string;
+     contactPoint: ContactPoint[];
+diff --git a/node_modules/next-seo/lib/jsonld/course.d.ts b/node_modules/next-seo/lib/jsonld/course.d.ts
+index 6072ac3..abbfab9 100644
+--- a/node_modules/next-seo/lib/jsonld/course.d.ts
++++ b/node_modules/next-seo/lib/jsonld/course.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { Provider } from 'src/types';
++import type { Provider } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface CourseJsonLdProps extends JsonLdProps {
+     courseName: string;
+diff --git a/node_modules/next-seo/lib/jsonld/event.d.ts b/node_modules/next-seo/lib/jsonld/event.d.ts
+index 97236e7..292af07 100644
+--- a/node_modules/next-seo/lib/jsonld/event.d.ts
++++ b/node_modules/next-seo/lib/jsonld/event.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { Location, AggregateOffer, Offers, Performer, Organizer, EventStatus, EventAttendanceMode } from 'src/types';
++import type { Location, AggregateOffer, Offers, Performer, Organizer, EventStatus, EventAttendanceMode } from '../types';
+ export interface EventJsonLdProps extends JsonLdProps {
+     name: string;
+     startDate: string;
+diff --git a/node_modules/next-seo/lib/jsonld/faqPage.d.ts b/node_modules/next-seo/lib/jsonld/faqPage.d.ts
+index c2e12fc..45a2b4d 100644
+--- a/node_modules/next-seo/lib/jsonld/faqPage.d.ts
++++ b/node_modules/next-seo/lib/jsonld/faqPage.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { Question } from 'src/types';
++import type { Question } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface FAQPageJsonLdProps extends JsonLdProps {
+     mainEntity: Question[];
+diff --git a/node_modules/next-seo/lib/jsonld/howTo.d.ts b/node_modules/next-seo/lib/jsonld/howTo.d.ts
+index bdd91ff..c87f3d0 100644
+--- a/node_modules/next-seo/lib/jsonld/howTo.d.ts
++++ b/node_modules/next-seo/lib/jsonld/howTo.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import { PriceSpecification, Step } from 'src/types';
++import { PriceSpecification, Step } from '../types';
+ export interface HowToJsonLdProps extends JsonLdProps {
+     name: string;
+     image?: string;
+diff --git a/node_modules/next-seo/lib/jsonld/localBusiness.d.ts b/node_modules/next-seo/lib/jsonld/localBusiness.d.ts
+index 6a4171b..834053e 100644
+--- a/node_modules/next-seo/lib/jsonld/localBusiness.d.ts
++++ b/node_modules/next-seo/lib/jsonld/localBusiness.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { Address, Geo, AggregateRating, Review, Action, GeoCircle, OpeningHoursSpecification, Offer } from 'src/types';
++import type { Address, Geo, AggregateRating, Review, Action, GeoCircle, OpeningHoursSpecification, Offer } from '../types';
+ export interface LocalBusinessJsonLdProps extends JsonLdProps {
+     type: string;
+     id: string;
+diff --git a/node_modules/next-seo/lib/jsonld/organization.d.ts b/node_modules/next-seo/lib/jsonld/organization.d.ts
+index 90f3891..6243579 100644
+--- a/node_modules/next-seo/lib/jsonld/organization.d.ts
++++ b/node_modules/next-seo/lib/jsonld/organization.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { Address, OrganizationCategory, ContactPoint } from 'src/types';
++import type { Address, OrganizationCategory, ContactPoint } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface OrganizationJsonLdProps extends JsonLdProps {
+     type?: OrganizationCategory;
+diff --git a/node_modules/next-seo/lib/jsonld/product.d.ts b/node_modules/next-seo/lib/jsonld/product.d.ts
+index 343b00c..727fdc3 100644
+--- a/node_modules/next-seo/lib/jsonld/product.d.ts
++++ b/node_modules/next-seo/lib/jsonld/product.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { Review, AggregateRating, AggregateOffer, Offers } from 'src/types';
++import type { Review, AggregateRating, AggregateOffer, Offers } from '../types';
+ export interface ProductJsonLdProps extends JsonLdProps {
+     productName: string;
+     images?: string[];
+diff --git a/node_modules/next-seo/lib/jsonld/profilePage.d.ts b/node_modules/next-seo/lib/jsonld/profilePage.d.ts
+index 847054e..d5dae22 100644
+--- a/node_modules/next-seo/lib/jsonld/profilePage.d.ts
++++ b/node_modules/next-seo/lib/jsonld/profilePage.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { ItemListElements } from 'src/types';
++import type { ItemListElements } from '../types';
+ export interface ProfilePageJsonLdProps extends JsonLdProps {
+     breadcrumb: string | ItemListElements[];
+     lastReviewed?: string;
+diff --git a/node_modules/next-seo/lib/jsonld/qaPage.d.ts b/node_modules/next-seo/lib/jsonld/qaPage.d.ts
+index 62df565..e352170 100644
+--- a/node_modules/next-seo/lib/jsonld/qaPage.d.ts
++++ b/node_modules/next-seo/lib/jsonld/qaPage.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { Question } from 'src/types';
++import type { Question } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface QAPageJsonLdProps extends JsonLdProps {
+     mainEntity: Question;
+diff --git a/node_modules/next-seo/lib/jsonld/recipe.d.ts b/node_modules/next-seo/lib/jsonld/recipe.d.ts
+index 25d0be3..f69c7c9 100644
+--- a/node_modules/next-seo/lib/jsonld/recipe.d.ts
++++ b/node_modules/next-seo/lib/jsonld/recipe.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { Instruction, AggregateRating, Video } from 'src/types';
++import type { Instruction, AggregateRating, Video } from '../types';
+ export interface RecipeJsonLdProps extends JsonLdProps {
+     name: string;
+     description: string;
+diff --git a/node_modules/next-seo/lib/jsonld/softwareApp.d.ts b/node_modules/next-seo/lib/jsonld/softwareApp.d.ts
+index f6687bc..f8f4850 100644
+--- a/node_modules/next-seo/lib/jsonld/softwareApp.d.ts
++++ b/node_modules/next-seo/lib/jsonld/softwareApp.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="react" />
+ import { JsonLdProps } from './jsonld';
+-import type { Review, AggregateRating } from 'src/types';
++import type { Review, AggregateRating } from '../types';
+ export interface SoftwareAppJsonLdProps extends JsonLdProps {
+     name: string;
+     price: string;
+diff --git a/node_modules/next-seo/lib/jsonld/video.d.ts b/node_modules/next-seo/lib/jsonld/video.d.ts
+index 0b214f9..493ef2a 100644
+--- a/node_modules/next-seo/lib/jsonld/video.d.ts
++++ b/node_modules/next-seo/lib/jsonld/video.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import { Video } from 'src/types';
++import { Video } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface VideoJsonLdProps extends JsonLdProps, Video {
+ }
+diff --git a/node_modules/next-seo/lib/jsonld/videoGame.d.ts b/node_modules/next-seo/lib/jsonld/videoGame.d.ts
+index c496272..e3dd0cd 100644
+--- a/node_modules/next-seo/lib/jsonld/videoGame.d.ts
++++ b/node_modules/next-seo/lib/jsonld/videoGame.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { Offers, AggregateRating, GamePlayMode, Video, Review, ApplicationCategory } from 'src/types';
++import type { Offers, AggregateRating, GamePlayMode, Video, Review, ApplicationCategory } from '../types';
+ import { JsonLdProps } from './jsonld';
+ export interface VideoGameJsonLdProps extends JsonLdProps {
+     keyOverride?: string;
+diff --git a/node_modules/next-seo/lib/jsonld/webPage.d.ts b/node_modules/next-seo/lib/jsonld/webPage.d.ts
+index 2f269b0..de837cb 100644
+--- a/node_modules/next-seo/lib/jsonld/webPage.d.ts
++++ b/node_modules/next-seo/lib/jsonld/webPage.d.ts
+@@ -1,5 +1,5 @@
+ /// <reference types="react" />
+-import type { ReviewedBy } from 'src/types';
++import type { ReviewedBy } from '../types';
+ export interface WebPageJsonLdProps {
+     keyOverride?: string;
+     id: string;

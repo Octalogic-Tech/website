@@ -1,32 +1,39 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+import Head from "../../components/head";
 import Link from "../../components/link/link";
 import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
+import Heading from "../../components/heading/heading";
+import Paragraph from "../../components/paragraph/paragraph";
+
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/terms-of-service`;
 
 const TermsOfService = () => {
   return (
     <>
+      <Head title="Octalogic Tech - Terms of Service" canonicalUrl={siteUrl} />
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
-        <Typography
-          component="h2"
+        <Heading
+          size="medium"
           sx={{
             color: "text.primary",
             fontSize: "2rem",
-            textAlign: "center",
-            marginBottom: "1.5rem",
+            fontWeight: "500",
+            marginBottom: "1rem",
           }}
         >
           Octalogic Tech Terms of Service
-        </Typography>
+        </Heading>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           1. Terms
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -47,7 +54,7 @@ const TermsOfService = () => {
           laws. If you do not agree with any of these terms, you are prohibited from using or
           accessing this site. The materials contained in this website are protected by applicable
           copyright and trademark law.
-        </Typography>
+        </Paragraph>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           2. Use License
         </Typography>
@@ -101,11 +108,10 @@ const TermsOfService = () => {
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           4. Limitations
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -117,15 +123,14 @@ const TermsOfService = () => {
           orally or in writing of the possibility of such damage. Because some jurisdictions do not
           allow limitations on implied warranties, or limitations of liability for consequential or
           incidental damages, these limitations may not apply to you.
-        </Typography>
+        </Paragraph>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           5. Accuracy of materials
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -135,15 +140,14 @@ const TermsOfService = () => {
           materials on its website are accurate, complete or current. Octalogic Tech may make
           changes to the materials contained on its website at any time without notice. However
           Octalogic Tech does not make any commitment to update the materials.
-        </Typography>
+        </Paragraph>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           6. Links
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -152,15 +156,14 @@ const TermsOfService = () => {
           responsible for the contents of any such linked site. The inclusion of any link does not
           imply endorsement by Octalogic Tech of the site. Use of any such linked website is at the
           user&apos;s own risk.
-        </Typography>
+        </Paragraph>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           7. Modifications
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -168,15 +171,14 @@ const TermsOfService = () => {
           Octalogic Tech may revise these terms of service for its website at any time without
           notice. By using this website you are agreeing to be bound by the then current version of
           these terms of service.
-        </Typography>
+        </Paragraph>
         <Typography component="h3" sx={{ color: "text.primary", fontSize: "1.75rem" }}>
           8. Governing Law
         </Typography>
-        <Typography
-          component="p"
+        <Paragraph
           sx={{
-            color: "text.primary",
             fontSize: "1rem",
+            lineHeight: "1.5",
             marginBottom: "1rem",
             marginTop: "0.5rem",
           }}
@@ -184,7 +186,7 @@ const TermsOfService = () => {
           These terms and conditions are governed by and construed in accordance with the laws of
           Goa and you irrevocably submit to the exclusive jurisdiction of the courts in that State
           or location.
-        </Typography>
+        </Paragraph>
       </Box>
       <HorizontalRule />
     </>

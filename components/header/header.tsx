@@ -6,33 +6,16 @@ import NextLink from "next/link";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
 
 import Link from "../link/link";
-
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
+import PillButton from "../pill-button/pill-button";
 
 interface NavItems {
   linkName: string;
   linkHref: string;
 }
 
-const drawerWidth = 240;
 const navItems: NavItems[] = [
   {
     linkName: "Home",
@@ -40,88 +23,56 @@ const navItems: NavItems[] = [
   },
   {
     linkName: "Who We Are",
-    linkHref: "about",
+    linkHref: "/about",
   },
   {
     linkName: "Services",
-    linkHref: "services",
+    linkHref: "/services",
   },
   {
     linkName: "Let's Talk",
-    linkHref: "contact",
+    linkHref: "/contact",
   },
 ];
 
-function Header(props: Props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+function Header() {
   const router = useRouter();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Box sx={{ display: "flex", padding: "1rem 1rem", justifyContent: "center" }}>
-        <NextLink href={"/"}>
-          <Image src="/images/logos/octalogic.svg" alt="Octalogic logo" width={60} height={60} />
-        </NextLink>
-      </Box>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.linkName}>
-            <ListItemButton sx={{ textAlign: "center", textTransform: "unset" }}>
-              <ListItemText primary={item.linkName} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
-  const navLinks = (rowNavItems: NavItems[]) => {
-    return rowNavItems.map((item: NavItems) => {
+  const navLinks = (navigationItems: NavItems[]) => {
+    return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
-        <Button
-          key={item.linkName}
-          sx={{
-            fontSize: "1rem",
-            borderRadius: "1.562rem",
-            color: "info.contrastText",
-            textTransform: "unset",
-            backgroundColor: "secondary.main",
-            padding: "0.375rem 0.875rem",
-            ":hover": {
+        <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
+          <PillButton
+            title={item.linkName}
+            sx={{
               backgroundColor: "secondary.main",
-              boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-            },
-          }}
-        >
-          {item.linkName}
-        </Button>
+              padding: ".375rem .75rem",
+              ":hover": {
+                backgroundColor: "secondary.main",
+                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
+              },
+            }}
+            href={"/contact"}
+          />
+        </Box>
       ) : (
-        <Link
-          key={item.linkName}
-          href={item.linkHref}
-          underline="none"
-          color={router.pathname === item.linkHref ? "primary.main" : "info.main"}
-          sx={{
-            textTransform: "unset",
-            fontSize: "1rem",
-            fontWeight: "400",
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
-            ":hover": {
-              color: "primary.main",
-            },
-          }}
-        >
-          {item.linkName}
-        </Link>
+        <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
+          <Link
+            href={item.linkHref}
+            underline="none"
+            color={router.pathname === item.linkHref ? "primary.main" : "info.main"}
+            sx={{
+              textTransform: "unset",
+              fontSize: "1rem",
+              fontWeight: "400",
+              ":hover": {
+                color: "primary.main",
+              },
+            }}
+          >
+            {item.linkName}
+          </Link>
+        </Box>
       );
     });
   };
@@ -135,12 +86,12 @@ function Header(props: Props) {
           backgroundColor: "transparent",
           height: { xs: "3.25rem", sm: "7.25rem" },
           justifyContent: "center",
-          padding: { sm: "0 2rem" },
+          padding: { sm: "0 2.4rem" },
           boxShadow: "none",
         }}
       >
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="info"
             aria-label="open drawer"
             edge="start"
@@ -148,7 +99,7 @@ function Header(props: Props) {
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Box
             component="div"
             sx={{
@@ -157,7 +108,7 @@ function Header(props: Props) {
               alignItems: "center",
             }}
           >
-            <NextLink href={"/"}>
+            <NextLink href={"/"} style={{ display: "flex" }}>
               <Image
                 src="/images/logos/octalogic.svg"
                 alt="Octalogic logo"
@@ -166,10 +117,18 @@ function Header(props: Props) {
               />
             </NextLink>
           </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>{navLinks(navItems)}</Box>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            {navLinks(navItems)}
+          </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      {/* <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -188,7 +147,7 @@ function Header(props: Props) {
         >
           {drawer}
         </Drawer>
-      </Box>
+      </Box> */}
     </Box>
   );
 }
