@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
+import Backdrop from "@mui/material/Backdrop";
 
 import HomeIcon from "@mui/icons-material/Home";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -28,44 +29,49 @@ const actions = [
 
 export function MobileSpeedDial() {
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const router = useRouter();
 
-  const handleClick = () => setOpen(!open);
   const handleActionClick = async (linkUrl: string) => {
+    handleClose();
     await router.push(linkUrl);
-    handleClick();
   };
 
   return (
-    <Box
-      sx={{
-        transform: "translateZ(0px)",
-        display: { sm: "none" },
-        position: "fixed",
-        bottom: "4rem",
-        right: "1rem",
-      }}
-    >
-      <SpeedDial
-        ariaLabel="SpeedDial"
-        // sx={{ position: 'absolute', bottom: 0, right: 16 }}
-        icon={<SpeedDialIcon icon={<MenuIcon />} openIcon={<CloseIcon />} />}
-        onClick={handleClick}
-        open={open}
-        direction={"up"}
+    <>
+      <Backdrop open={open} />
+      <Box
+        sx={{
+          transform: "translateZ(0px)",
+          display: { sm: "none" },
+          position: "fixed",
+          bottom: "4rem",
+          right: "1rem",
+        }}
       >
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            onClick={() => handleActionClick(action.linkUrl)}
-            sx={{ backgroundColor: "primary.main", color: "white" }}
-            // tooltipTitle={action.name}
-            // tooltipOpen
-          />
-        ))}
-      </SpeedDial>
-    </Box>
+        <SpeedDial
+          ariaLabel="SpeedDial"
+          icon={<SpeedDialIcon icon={<MenuIcon />} openIcon={<CloseIcon />} />}
+          direction={"up"}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          open={open}
+        >
+          {actions.map((action) => (
+            <SpeedDialAction
+              key={action.name}
+              icon={action.icon}
+              onClick={() => handleActionClick(action.linkUrl)}
+              sx={{ backgroundColor: "primary.main", color: "white" }}
+              tooltipTitle={action.name}
+              // tooltipOpen={open}
+            />
+          ))}
+        </SpeedDial>
+      </Box>
+    </>
   );
 }
 

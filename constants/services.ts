@@ -7,25 +7,25 @@ export const Services = [
   {
     title: "Mobile Apps",
     desc: "We craft apps for Android and iOS designed with the latest UI trends, while delivering the best in class UX for your end users",
-    actionLink: "mobile-development",
+    actionLink: "/mobile-development",
     illustration: MobileDevCard,
   },
   {
     title: "Websites & Apps",
     desc: "From customised sites to Wordpress blogs and Shopify stores, we do it all using consistent and clean architecture code",
-    actionLink: "web-development",
+    actionLink: "/web-development",
     illustration: WebDevCard,
   },
   {
     title: "Digital Marketing",
     desc: "We help increase your business presence online through social media campaigns and influencer marketing",
-    actionLink: "digital-marketing",
+    actionLink: "/digital-marketing",
     illustration: DigitalMarketingCard,
   },
   {
     title: "Remote Resources",
     desc: "Hire remote resources and get exclusive, undivided attention on your projects. We offer monthly and hourly billing plans",
-    actionLink: "digital-marketing",
+    actionLink: "/contact",
     illustration: RemoteDevCard,
   },
 ];

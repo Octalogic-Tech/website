@@ -150,7 +150,7 @@ const Contact = () => {
           </FormControl>
           <Box sx={{ textAlign: "center" }}>
             <PillButton
-              text={"Send Message"}
+              title={"Send Message"}
               sx={{
                 backgroundColor: "secondary.main",
                 padding: "0.7rem 2rem",

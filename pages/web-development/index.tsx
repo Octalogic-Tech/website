@@ -67,7 +67,7 @@ const WebDevelopment = () => {
               paddingTop: { xs: "100%", sm: "0" },
             }}
           >
-            <Image src="/images/web_dev_hero_image.svg" alt="Octalogic Tech" fill />
+            <Image src="/images/web_dev_hero_image.svg" alt="Octalogic Tech" fill priority />
           </Box>
         </Box>
         <Heading
@@ -110,7 +110,7 @@ const WebDevelopment = () => {
           </Heading>
           <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
             <PillButton
-              text={"Get In Touch"}
+              title={"Get In Touch"}
               sx={{
                 backgroundColor: "secondary.main",
                 padding: "0.7rem 2rem",
@@ -120,7 +120,7 @@ const WebDevelopment = () => {
                   boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
                 },
               }}
-              link={"contact"}
+              href={"/contact"}
             />
           </Box>
         </Box>

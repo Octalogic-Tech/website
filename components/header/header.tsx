@@ -23,15 +23,15 @@ const navItems: NavItems[] = [
   },
   {
     linkName: "Who We Are",
-    linkHref: "about",
+    linkHref: "/about",
   },
   {
     linkName: "Services",
-    linkHref: "services",
+    linkHref: "/services",
   },
   {
     linkName: "Let's Talk",
-    linkHref: "contact",
+    linkHref: "/contact",
   },
 ];
 
@@ -43,7 +43,7 @@ function Header() {
       return item.linkName === "Let's Talk" ? (
         <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
           <PillButton
-            text={item.linkName}
+            title={item.linkName}
             sx={{
               backgroundColor: "secondary.main",
               padding: ".375rem .75rem",
@@ -52,7 +52,7 @@ function Header() {
                 boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
               },
             }}
-            link={"contact"}
+            href={"/contact"}
           />
         </Box>
       ) : (

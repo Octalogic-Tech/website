@@ -63,7 +63,7 @@
     "eslint-plugin-jsdoc": "^39.6.2",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-unicorn": "^44.0.2",
+    "eslint-plugin-unicorn": "^45.0.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "patch-package": "^6.5.0",
