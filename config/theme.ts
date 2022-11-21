@@ -8,7 +8,7 @@ export const comfortaa = Comfortaa({
 });
 
 // Create a theme instance.
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       light: "#65d7cc4d",
@@ -45,6 +45,23 @@ const theme = createTheme({
             backgroundColor: "#000000b3",
             borderRadius: "1rem",
           },
+        },
+      },
+    },
+  },
+});
+
+theme = createTheme(theme, {
+  components: {
+    MuiSpeedDialAction: {
+      styleOverrides: {
+        fab: {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.common.white,
+        },
+        staticTooltipLabel: {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.common.white,
         },
       },
     },
