@@ -7,10 +7,14 @@ import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/terms-of-service`;
+
 const TermsOfService = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Terms of Service" />
+      <Head title="Octalogic Tech - Terms of Service" canonicalUrl={siteUrl} />
       <Box sx={{ maxWidth: "71.25rem", margin: "0 auto", padding: "0 1rem" }}>
         <Heading
           size="medium"

@@ -10,6 +10,10 @@ import Paragraph from "../../components/paragraph/paragraph";
 import PillButton from "../../components/pill-button/pill-button";
 import HorizontalRule from "../../components/horizontal-rule/horizontal-rule";
 
+import { host } from "../../config/vars";
+
+const siteUrl = `https://${host}/services`;
+
 export const Services = () => {
   const aboutSection = useRef<any>(null);
 
@@ -24,7 +28,7 @@ export const Services = () => {
 
   return (
     <>
-      <Head title="Octalogic Tech - Services" />
+      <Head title="Octalogic Tech - Services" canonicalUrl={siteUrl} />
       <Box
         sx={{
           marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
