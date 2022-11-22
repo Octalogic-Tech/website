@@ -33,10 +33,10 @@ function MyFormHelperText({ helperText }: { helperText: string }) {
 }
 
 const Contact = () => {
-  const [name, setName] = React.useState("Jane");
-  const [email, setEmail] = React.useState("jane@octalogic.in");
-  const [phone, setPhone] = React.useState("9875");
-  const [message, setMessage] = React.useState("Hello");
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [message, setMessage] = React.useState("");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
   const [turnstileToken, setTurnstileToken] = React.useState("");
   const turnstileRef = React.useRef<TurnstileInstance>(null);
@@ -238,6 +238,11 @@ const Contact = () => {
             siteKey={vars.turnstileSiteKey}
             onSuccess={(token) => setTurnstileToken(token)}
             onError={() => setTurnstileToken("")}
+            scriptOptions={{
+              async: true,
+              defer: true,
+              appendTo: "body",
+            }}
             style={{ textAlign: "center", marginBottom: "2rem" }}
           />
           <Box sx={{ textAlign: "center" }}>
