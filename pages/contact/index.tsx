@@ -11,9 +11,11 @@ import Head from "../../components/head";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
-import { host } from "../../config/vars";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
-const siteUrl = `https://${host}/contact`;
+import * as vars from "../../config/vars";
+
+const siteUrl = `https://${vars.host}/contact`;
 
 function MyFormHelperText({ helperText }: { helperText: string }) {
   const { focused } = useFormControl() || {};
@@ -36,6 +38,8 @@ const Contact = () => {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
+  const [turnstileToken, setTurnstileToken] = React.useState("");
+  const turnstileRef = React.useRef<TurnstileInstance>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -65,6 +69,7 @@ const Contact = () => {
 
     const endpoint = "/api/contact";
     const data = {
+      turnstileToken,
       name,
       email,
       phone,
@@ -86,6 +91,7 @@ const Contact = () => {
     if (response.status > 300) {
       console.error(result.error);
     } else {
+      turnstileRef.current?.reset();
       setShowThankYouMsg(true);
       setName("");
       setEmail("");
@@ -221,6 +227,13 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"How can we help?"} />
           </FormControl>
+          <Turnstile
+            ref={turnstileRef}
+            siteKey={vars.turnstileSiteKey}
+            onSuccess={(token) => setTurnstileToken(token)}
+            onError={() => setTurnstileToken("")}
+            style={{ textAlign: "center", marginBottom: "2rem" }}
+          />
           <Box sx={{ textAlign: "center" }}>
             <PillButton
               title={"Send Message"}

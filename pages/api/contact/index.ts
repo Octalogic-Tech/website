@@ -33,21 +33,33 @@ const formatData = (data: IFormData) => {
 
 export default async function Handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const formData = req.body;
+    const { turnstileToken, ...formData } = req.body;
+    const turnstileBody = `secret=${encodeURIComponent(
+      vars.turnstileSecretKey,
+    )}&response=${encodeURIComponent(turnstileToken)}`;
     const slackData = formatData(formData);
 
-    const options = {
+    const turnstileOptions = {
+      method: "POST",
+      body: turnstileBody,
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+    };
+
+    const slackOptions = {
       method: "POST",
       body: JSON.stringify(slackData),
     };
 
-    if (vars.slackWebhookUrl)
+    if (vars.slackWebhookUrl && vars.turnstileEndpoint && vars.turnstileSecretKey) {
       try {
-        await fetch(vars.slackWebhookUrl, options);
+        await fetch(vars.turnstileEndpoint, turnstileOptions);
+        await fetch(vars.slackWebhookUrl, slackOptions);
         res.status(201).json({ message: "Success" });
       } catch (error) {
         res.status(500).json({ message: "Unable to save data" });
       }
-    else res.status(400).json({ message: "Unable to save data" });
+    } else res.status(400).json({ message: "Unable to save data" });
   }
 }
