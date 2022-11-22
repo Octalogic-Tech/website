@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { IFormData } from "../../../interfaces";
+import { IFormData, ICloufdlareVerifyResponse } from "../../../interfaces";
 
 import * as vars from "../../../config/vars";
 
@@ -34,32 +34,47 @@ const formatData = (data: IFormData) => {
 export default async function Handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const { turnstileToken, ...formData } = req.body;
-    const turnstileBody = `secret=${encodeURIComponent(
-      vars.turnstileSecretKey,
-    )}&response=${encodeURIComponent(turnstileToken)}`;
+
+    if (vars.turnstileEndpoint && vars.turnstileSecretKey) {
+      const turnstileBody = `secret=${encodeURIComponent(
+        vars.turnstileSecretKey,
+      )}&response=${encodeURIComponent(turnstileToken)}`;
+
+      const turnstileOptions = {
+        method: "POST",
+        body: turnstileBody,
+        headers: {
+          "content-type": "application/x-www-form-urlencoded",
+        },
+      };
+
+      const verifyResponse = await fetch(vars.turnstileEndpoint, turnstileOptions);
+      const verifyData: ICloufdlareVerifyResponse =
+        (await verifyResponse.json()) as ICloufdlareVerifyResponse;
+
+      if (!verifyData.success) {
+        res.status(412).json({ message: "Invalid payload" });
+        return;
+      }
+    } else {
+      // throwing an error because validation should always exist
+      res.status(424).json({ message: "Invalid payload" });
+      return;
+    }
+
     const slackData = formatData(formData);
-
-    const turnstileOptions = {
-      method: "POST",
-      body: turnstileBody,
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-    };
-
     const slackOptions = {
       method: "POST",
       body: JSON.stringify(slackData),
     };
 
-    if (vars.slackWebhookUrl && vars.turnstileEndpoint && vars.turnstileSecretKey) {
+    if (vars.slackWebhookUrl) {
       try {
-        await fetch(vars.turnstileEndpoint, turnstileOptions);
         await fetch(vars.slackWebhookUrl, slackOptions);
         res.status(201).json({ message: "Success" });
       } catch (error) {
         res.status(500).json({ message: "Unable to save data" });
       }
-    } else res.status(400).json({ message: "Unable to save data" });
-  }
+    } else res.status(424).json({ message: "Unable to save data" });
+  } else res.status(422).json({ message: "Invalid action" });
 }

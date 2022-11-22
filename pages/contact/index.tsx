@@ -11,7 +11,7 @@ import Head from "../../components/head";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 import * as vars from "../../config/vars";
 
@@ -33,10 +33,10 @@ function MyFormHelperText({ helperText }: { helperText: string }) {
 }
 
 const Contact = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [message, setMessage] = React.useState("");
+  const [name, setName] = React.useState("Jane");
+  const [email, setEmail] = React.useState("jane@octalogic.in");
+  const [phone, setPhone] = React.useState("9875");
+  const [message, setMessage] = React.useState("Hello");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
   const [turnstileToken, setTurnstileToken] = React.useState("");
   const turnstileRef = React.useRef<TurnstileInstance>(null);
@@ -67,6 +67,10 @@ const Contact = () => {
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
+    if (!turnstileToken) {
+      // TODO: verification has failed, add a snackbar with an action that refreshes page so it can retry
+    }
+
     const endpoint = "/api/contact";
     const data = {
       turnstileToken,
@@ -87,6 +91,8 @@ const Contact = () => {
 
     const response = await fetch(endpoint, options);
     const result = await response.json();
+
+    // TODO: add a snackbar to indicate reponse
 
     if (response.status > 300) {
       console.error(result.error);
