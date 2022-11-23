@@ -10,6 +10,7 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
     <Box
       sx={{
         display: "flex",
+        alignItems: "center",
         flexDirection: "column",
         padding: "1.5rem 1rem",
         transition: "box-shadow .3s, border-radius .3s",
@@ -23,21 +24,16 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
       <Box
         sx={{
           position: "relative",
-          width: "100%",
-          minHeight: "112px",
-          maxHeight: "112px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flex: "0 0 60%",
+          height: "112px",
+          width: "112px",
         }}
       >
         <Image
           src={iconUrl}
           alt={`${name} logo`}
           width={112}
-          height={0}
-          style={{ height: "auto", maxHeight: "112px" }}
+          height={112}
+          style={{ objectFit: "contain" }}
         />
       </Box>
       <Box

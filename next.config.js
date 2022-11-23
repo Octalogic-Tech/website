@@ -14,7 +14,7 @@ const commonCspDirectives = [
   "manifest-src 'self'",
   `font-src 'self' fonts.gstatic.com fonts.googleapis.com data:`,
   "base-uri 'none'",
-  "form-action *.facebook.com connect.facebook.net *.snapchat.com",
+  `form-action *.facebook.com connect.facebook.net *.snapchat.com ${process.env.NEXT_PUBLIC_HOST}`,
   "media-src 'self'",
   "prefetch-src 'self' https://www.google.com https://www.gstatic.com",
   "worker-src blob:",
