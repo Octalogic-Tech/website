@@ -52,10 +52,10 @@ const securityHeaders = [
     key: "Referrer-Policy",
     value: "no-referrer",
   },
-  {
-    key: "Content-Security-Policy",
-    value: directives.join("; "),
-  },
+  // {
+  //   key: "Content-Security-Policy",
+  //   value: directives.join("; "),
+  // },
 ];
 
 if (isProduction) {
