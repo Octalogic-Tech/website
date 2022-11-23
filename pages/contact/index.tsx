@@ -11,9 +11,28 @@ import Head from "../../components/head";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
 
-import { host } from "../../config/vars";
+import * as vars from "../../config/vars";
 
-const siteUrl = `https://${host}/contact`;
+import Script from "next/script";
+
+type RenderParameters = {
+  sitekey: string;
+  theme?: "light" | "dark";
+  callback?(token: string): void;
+};
+
+declare global {
+  interface Window {
+    onloadTurnstileCallback(): void;
+    turnstile: {
+      render(container: string | HTMLElement, params: RenderParameters): void;
+      getResponse(id: string): string;
+      reset(id: string): void;
+    };
+  }
+}
+
+const siteUrl = `https://${vars.host}/contact`;
 
 function MyFormHelperText({ helperText }: { helperText: string }) {
   const { focused } = useFormControl() || {};
@@ -62,9 +81,20 @@ const Contact = () => {
 
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
+    // console.log("e", e.target["cf-turnstile-response"].value);
+    let turnstileToken = "";
+
+    if (typeof window !== undefined) {
+      turnstileToken = window.turnstile.getResponse("#contactFormWidget");
+    }
+
+    if (!turnstileToken) {
+      // TODO: verification has failed, add a snackbar with an action that refreshes page so it can retry
+    }
 
     const endpoint = "/api/contact";
     const data = {
+      turnstileToken,
       name,
       email,
       phone,
@@ -83,9 +113,12 @@ const Contact = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
 
+    // TODO: add a snackbar to indicate reponse
+
     if (response.status > 300) {
       console.error(result.error);
     } else {
+      if (typeof window !== undefined) window.turnstile.reset("#contactFormWidget");
       setShowThankYouMsg(true);
       setName("");
       setEmail("");
@@ -97,6 +130,18 @@ const Contact = () => {
   return (
     <>
       <Head title="Octalogic Tech - Contact" canonicalUrl={siteUrl} />
+      <Script id="cf-turnstile-callback">
+        {`window.onloadTurnstileCallback = function () {
+          window.turnstile.render('#contactFormWidget', {
+            sitekey: "${vars.turnstileSiteKey}",
+          })
+        }`}
+      </Script>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+        async={true}
+        defer={true}
+      />
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
         <Heading
           size="large"
@@ -221,6 +266,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"How can we help?"} />
           </FormControl>
+          <Box id="contactFormWidget" style={{ textAlign: "center", marginBottom: "2rem" }} />
           <Box sx={{ textAlign: "center" }}>
             <PillButton
               title={"Send Message"}
