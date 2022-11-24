@@ -21,7 +21,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": false,
-    "pretty": true
+    "pretty": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "compileOnSave": true,

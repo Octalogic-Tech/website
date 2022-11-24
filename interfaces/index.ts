@@ -26,7 +26,7 @@ export interface ITechnology {
 export interface IFormData {
   name: string;
   email: string;
-  phone: string;
+  phone: number;
   message: string;
 }
 
