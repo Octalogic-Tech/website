@@ -1,25 +1,43 @@
-import { IsNotEmpty, IsEmail, IsNumber, MinLength, MaxLength, Min, Max } from "class-validator";
+import {
+  IsNotEmpty,
+  IsEmail,
+  MinLength,
+  MaxLength,
+  IsString,
+  IsOptional,
+  ValidateIf,
+} from "class-validator";
+import { Transform, TransformFnParams } from "class-transformer";
 
 export class ContactDTO {
+  @IsString()
   @IsNotEmpty()
   public turnstileToken!: string;
 
+  @IsString()
+  @Transform(({ value }: TransformFnParams) => value?.replace(/\s+/g, " ").trim())
   @IsNotEmpty()
   @MinLength(1)
-  @MaxLength(100)
+  @MaxLength(300)
   public name!: string;
 
+  @IsString()
+  @IsOptional()
+  @Transform(({ value }: TransformFnParams) => value?.replace(/\s+/g, " ").trim())
+  @ValidateIf((_, value) => !!value)
   @IsEmail()
-  @IsNotEmpty()
   @MaxLength(320)
   public email!: string;
 
-  @IsNumber()
+  @IsString()
+  @Transform(({ value }: TransformFnParams) => value?.replace(/\s+/g, " ").trim())
   @IsNotEmpty()
-  @Min(1000)
-  @Max(999999999999999)
-  public phone!: number;
+  @MinLength(1)
+  @MaxLength(20)
+  public phone!: string;
 
+  @IsString()
+  @Transform(({ value }: TransformFnParams) => value?.replace(/\s+/g, " ").trim())
   @IsNotEmpty()
   @MinLength(1)
   @MaxLength(3000)

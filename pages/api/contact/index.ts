@@ -17,7 +17,7 @@ import { PreconditionFailedException } from "../../../exceptions/preconditionFai
 import { FailedDependencyException } from "../../../exceptions/failedDependency";
 
 class ContactHandler {
-  verifyTurnstileToken = async (turnstileToken: string) => {
+  verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {
     if (vars.turnstileEndpoint && vars.turnstileSecretKey) {
       const turnstileBody = `secret=${encodeURIComponent(
         vars.turnstileSecretKey,
@@ -42,9 +42,11 @@ class ContactHandler {
       // throwing an error because validation should always exist
       throw new FailedDependencyException();
     }
+
+    return true;
   };
 
-  sendToSlack = async (formData: IFormData) => {
+  sendToSlack = async (formData: IFormData): Promise<boolean> => {
     const slackData = formatData(formData);
     const slackOptions = {
       method: "POST",
@@ -57,16 +59,21 @@ class ContactHandler {
       } catch {
         throw new InternalServerErrorException();
       }
-    } else throw new FailedDependencyException();
+    } else if (vars.isLive) throw new FailedDependencyException();
+
+    return true;
   };
 
   @HttpCode(201)
   @Post()
   async contact(@Body(ValidationPipe) contactBody: ContactDTO) {
     const { turnstileToken, ...formData } = contactBody;
-    await this.verifyTurnstileToken(turnstileToken);
-    await this.sendToSlack(formData);
-    return { message: "Success" };
+    const isVerified: boolean = await this.verifyTurnstileToken(turnstileToken);
+    if (isVerified) await this.sendToSlack(formData);
+
+    return {
+      message: isVerified ? "Successfully logged your request" : "Unable to log your request",
+    };
   }
 }
 
