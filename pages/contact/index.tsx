@@ -79,16 +79,20 @@ const Contact = () => {
     }
   };
 
+  const resetTurnstile = () => {
+    if (typeof window !== undefined) window.turnstile.reset("#contactFormWidget");
+  };
+
+  const getTurnstileToken = () => {
+    if (typeof window !== undefined) return window.turnstile.getResponse("#contactFormWidget");
+  };
+
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
-    // console.log("e", e.target["cf-turnstile-response"].value);
-    let turnstileToken = "";
-
-    if (typeof window !== undefined) {
-      turnstileToken = window.turnstile.getResponse("#contactFormWidget");
-    }
+    const turnstileToken = getTurnstileToken();
 
     if (!turnstileToken) {
+      resetTurnstile();
       // TODO: verification has failed, add a snackbar with an action that refreshes page so it can retry
     }
 
@@ -115,10 +119,12 @@ const Contact = () => {
 
     // TODO: add a snackbar to indicate reponse
 
-    if (response.status > 300) {
-      console.error(result.error);
+    if (result.statusCode > 300) {
+      console.error(result.message);
+      if (result.statusCode === 412) resetTurnstile();
+      // TODO: snackbar message telling the user to retry captcha and submit again.
     } else {
-      if (typeof window !== undefined) window.turnstile.reset("#contactFormWidget");
+      resetTurnstile();
       setShowThankYouMsg(true);
       setName("");
       setEmail("");
@@ -220,7 +226,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"So we can be polite and call you by name"} />
           </FormControl>
-          <FormControl fullWidth required>
+          <FormControl fullWidth>
             <InputLabel htmlFor="email" sx={{ top: "-0.375rem" }}>
               Email
             </InputLabel>
@@ -234,7 +240,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
-          <FormControl fullWidth>
+          <FormControl fullWidth required>
             <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
               Phone number
             </InputLabel>
@@ -245,6 +251,16 @@ const Contact = () => {
               type="tel"
               value={phone}
               onChange={(e) => handleChange(e, "phone")}
+              sx={{
+                "& input[type=number]::-webkit-outer-spin-button": {
+                  WebkitAppearance: "none",
+                  margin: 0,
+                },
+                "& input[type=number]::-webkit-inner-spin-button": {
+                  WebkitAppearance: "none",
+                  margin: 0,
+                },
+              }}
             />
             <MyFormHelperText helperText={"So we can call you"} />
           </FormControl>
