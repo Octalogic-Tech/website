@@ -232,7 +232,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"So we can be polite and call you by name"} />
           </FormControl>
-          <FormControl fullWidth required>
+          <FormControl fullWidth>
             <InputLabel htmlFor="email" sx={{ top: "-0.375rem" }}>
               Email
             </InputLabel>
@@ -246,7 +246,7 @@ const Contact = () => {
             />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
-          <FormControl fullWidth>
+          <FormControl fullWidth required>
             <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
               Phone number
             </InputLabel>
