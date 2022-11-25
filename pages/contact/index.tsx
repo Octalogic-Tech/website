@@ -105,7 +105,7 @@ const Contact = () => {
       turnstileToken,
       name,
       email,
-      phone: +phone,
+      phone,
       message,
     };
     const JSONdata = JSON.stringify(data);
@@ -254,7 +254,7 @@ const Contact = () => {
               id="phone"
               label="Phone number"
               size="small"
-              type="number"
+              type="tel"
               value={phone}
               onChange={(e) => handleChange(e, "phone")}
               sx={{
