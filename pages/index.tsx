@@ -64,18 +64,7 @@ const Home = () => {
             technological resources to turn an idea into reality
           </Paragraph>
           <Box sx={{ marginTop: { xs: "2rem", lg: "4rem" } }}>
-            <PillButton
-              title={"GET STARTED"}
-              sx={{
-                backgroundColor: "secondary.main",
-                padding: "0.7rem 2rem",
-                ":hover": {
-                  backgroundColor: "secondary.main",
-                  boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                },
-              }}
-              href={"/contact"}
-            />
+            <PillButton title={"GET STARTED"} href={"/contact"} />
           </Box>
         </Box>
       </Box>
@@ -115,19 +104,7 @@ const Home = () => {
           ))}
         </Box>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
-          <PillButton
-            title={"VIEW MORE"}
-            sx={{
-              backgroundColor: "secondary.main",
-              padding: "0.7rem 2rem",
-              lineHeight: "1.5",
-              ":hover": {
-                backgroundColor: "secondary.main",
-                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-              },
-            }}
-            href={"/services"}
-          />
+          <PillButton title={"VIEW MORE"} href={"/services"} />
         </Box>
       </Box>
       <Box
@@ -190,19 +167,7 @@ const Home = () => {
           Let&apos;s craft brilliance together!
         </Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
-          <PillButton
-            title={"Get In Touch"}
-            sx={{
-              backgroundColor: "secondary.main",
-              padding: "0.7rem 2rem",
-              lineHeight: "1.5",
-              ":hover": {
-                backgroundColor: "secondary.main",
-                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-              },
-            }}
-            href={"/contact"}
-          />
+          <PillButton title={"Get In Touch"} href={"/contact"} />
         </Box>
       </Box>
       <HorizontalRule />

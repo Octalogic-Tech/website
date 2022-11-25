@@ -42,18 +42,7 @@ function Header() {
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
         <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
-          <PillButton
-            title={item.linkName}
-            sx={{
-              backgroundColor: "secondary.main",
-              padding: ".375rem .75rem",
-              ":hover": {
-                backgroundColor: "secondary.main",
-                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-              },
-            }}
-            href={"/contact"}
-          />
+          <PillButton title={item.linkName} sx={{ padding: ".375rem .75rem" }} href={"/contact"} />
         </Box>
       ) : (
         <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>

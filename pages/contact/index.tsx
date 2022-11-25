@@ -55,6 +55,7 @@ const Contact = () => {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -89,10 +90,13 @@ const Contact = () => {
 
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const turnstileToken = getTurnstileToken();
 
     if (!turnstileToken) {
       resetTurnstile();
+      setIsSubmitting(false);
+      return;
       // TODO: verification has failed, add a snackbar with an action that refreshes page so it can retry
     }
 
@@ -122,6 +126,7 @@ const Contact = () => {
     if (result.statusCode > 300) {
       console.error(result.message);
       if (result.statusCode === 412) resetTurnstile();
+      setIsSubmitting(false);
       // TODO: snackbar message telling the user to retry captcha and submit again.
     } else {
       resetTurnstile();
@@ -130,6 +135,7 @@ const Contact = () => {
       setEmail("");
       setPhone("");
       setMessage("");
+      setIsSubmitting(false);
     }
   };
 
@@ -284,19 +290,7 @@ const Contact = () => {
           </FormControl>
           <Box id="contactFormWidget" style={{ textAlign: "center", marginBottom: "2rem" }} />
           <Box sx={{ textAlign: "center" }}>
-            <PillButton
-              title={"Send Message"}
-              sx={{
-                backgroundColor: "secondary.main",
-                padding: "0.7rem 2rem",
-                lineHeight: "1.5",
-                ":hover": {
-                  backgroundColor: "secondary.main",
-                  boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                },
-              }}
-              type="submit"
-            />
+            <PillButton title={"Send Message"} type="submit" loading={isSubmitting} />
           </Box>
         </Box>
         <Paragraph
