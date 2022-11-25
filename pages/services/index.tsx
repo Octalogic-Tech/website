@@ -67,15 +67,7 @@ export const Services = () => {
             <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
               <PillButton
                 title={"See How"}
-                sx={{
-                  backgroundColor: "secondary.main",
-                  padding: "0.5rem 1rem",
-                  lineHeight: "1.5",
-                  ":hover": {
-                    backgroundColor: "secondary.main",
-                    boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                  },
-                }}
+                sx={{ padding: "0.5rem 1rem" }}
                 onClick={() => scrollDown()}
               />
             </Box>
@@ -132,19 +124,7 @@ export const Services = () => {
                 same time.
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
-                <PillButton
-                  title={"Know More"}
-                  sx={{
-                    backgroundColor: "secondary.main",
-                    padding: ".7rem 2rem",
-                    lineHeight: "1.5",
-                    ":hover": {
-                      backgroundColor: "secondary.main",
-                      boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                    },
-                  }}
-                  href={"/web-development"}
-                />
+                <PillButton title={"Know More"} href={"/web-development"} />
               </Box>
             </Box>
             <Box
@@ -194,19 +174,7 @@ export const Services = () => {
                 offer an aggressive edge to your business
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
-                <PillButton
-                  title={"Know More"}
-                  sx={{
-                    backgroundColor: "secondary.main",
-                    padding: ".7rem 2rem",
-                    lineHeight: "1.5",
-                    ":hover": {
-                      backgroundColor: "secondary.main",
-                      boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                    },
-                  }}
-                  href={"/digital-marketing"}
-                />
+                <PillButton title={"Know More"} href={"/digital-marketing"} />
               </Box>
             </Box>
             <Box
@@ -257,19 +225,7 @@ export const Services = () => {
                 foundation for success.
               </Paragraph>
               <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
-                <PillButton
-                  title={"Know More"}
-                  sx={{
-                    backgroundColor: "secondary.main",
-                    padding: ".7rem 2rem",
-                    lineHeight: "1.5",
-                    ":hover": {
-                      backgroundColor: "secondary.main",
-                      boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                    },
-                  }}
-                  href={"/mobile-development"}
-                />
+                <PillButton title={"Know More"} href={"/mobile-development"} />
               </Box>
             </Box>
             <Box
@@ -288,19 +244,7 @@ export const Services = () => {
       <Box sx={{ marginTop: { xs: "3rem", sm: "0" } }}>
         <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
         <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
-          <PillButton
-            title={"Get In Touch"}
-            sx={{
-              backgroundColor: "secondary.main",
-              padding: "0.7rem 2rem",
-              lineHeight: "1.5",
-              ":hover": {
-                backgroundColor: "secondary.main",
-                boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-              },
-            }}
-            href={"/contact"}
-          />
+          <PillButton title={"Get In Touch"} href={"/contact"} />
         </Box>
       </Box>
       <HorizontalRule />

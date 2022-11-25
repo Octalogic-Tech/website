@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { useSnackbar } from "notistack";
+
 import Box from "@mui/material/Box";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -10,10 +12,9 @@ import PillButton from "../../components/pill-button/pill-button";
 import Head from "../../components/head";
 import Heading from "../../components/heading/heading";
 import Paragraph from "../../components/paragraph/paragraph";
+import TurnstileWidget from "../../components/turnstile-widget/turnstile-widget";
 
 import * as vars from "../../config/vars";
-
-import Script from "next/script";
 
 type RenderParameters = {
   sitekey: string;
@@ -55,6 +56,8 @@ const Contact = () => {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -79,17 +82,24 @@ const Contact = () => {
     }
   };
 
+  const resetTurnstile = () => {
+    if (typeof window !== undefined) window.turnstile.reset("#contactFormWidget");
+  };
+
+  const getTurnstileToken = () => {
+    if (typeof window !== undefined) return window.turnstile.getResponse("#contactFormWidget");
+  };
+
   const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
-    // console.log("e", e.target["cf-turnstile-response"].value);
-    let turnstileToken = "";
-
-    if (typeof window !== undefined) {
-      turnstileToken = window.turnstile.getResponse("#contactFormWidget");
-    }
+    setIsSubmitting(true);
+    const turnstileToken = getTurnstileToken();
 
     if (!turnstileToken) {
-      // TODO: verification has failed, add a snackbar with an action that refreshes page so it can retry
+      enqueueSnackbar("Invalid captcha, please try again.", { variant: "error" });
+      resetTurnstile();
+      setIsSubmitting(false);
+      return;
     }
 
     const endpoint = "/api/contact";
@@ -113,35 +123,27 @@ const Contact = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
 
-    // TODO: add a snackbar to indicate reponse
-
-    if (response.status > 300) {
-      console.error(result.error);
+    if (result.statusCode > 300) {
+      console.error(result.message);
+      enqueueSnackbar(result.message, { variant: "error" });
+      if (result.statusCode === 412) resetTurnstile();
+      setIsSubmitting(false);
     } else {
-      if (typeof window !== undefined) window.turnstile.reset("#contactFormWidget");
+      enqueueSnackbar(result.message, { variant: "success" });
+      resetTurnstile();
       setShowThankYouMsg(true);
       setName("");
       setEmail("");
       setPhone("");
       setMessage("");
+      setIsSubmitting(false);
     }
   };
 
   return (
     <>
       <Head title="Octalogic Tech - Contact" canonicalUrl={siteUrl} />
-      <Script id="cf-turnstile-callback">
-        {`window.onloadTurnstileCallback = function () {
-          window.turnstile.render('#contactFormWidget', {
-            sitekey: "${vars.turnstileSiteKey}",
-          })
-        }`}
-      </Script>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
-        async={true}
-        defer={true}
-      />
+      <TurnstileWidget widgetId="contactFormWidget" />
       <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
         <Heading
           size="large"
@@ -212,39 +214,51 @@ const Contact = () => {
               Name
             </InputLabel>
             <OutlinedInput
+              inputProps={{
+                maxLength: 300,
+              }}
               id="name"
               label="Name"
               size="small"
               value={name}
               onChange={(e) => handleChange(e, "name")}
+              sx={{ backgroundColor: "white" }}
             />
             <MyFormHelperText helperText={"So we can be polite and call you by name"} />
           </FormControl>
-          <FormControl fullWidth required>
+          <FormControl fullWidth>
             <InputLabel htmlFor="email" sx={{ top: "-0.375rem" }}>
               Email
             </InputLabel>
             <OutlinedInput
+              inputProps={{
+                maxLength: 320,
+              }}
               id="email"
               label="Email"
               size="small"
               type="email"
               value={email}
               onChange={(e) => handleChange(e, "email")}
+              sx={{ backgroundColor: "white" }}
             />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
-          <FormControl fullWidth>
+          <FormControl fullWidth required>
             <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
               Phone number
             </InputLabel>
             <OutlinedInput
+              inputProps={{
+                maxLength: 20,
+              }}
               id="phone"
               label="Phone number"
               size="small"
               type="tel"
               value={phone}
               onChange={(e) => handleChange(e, "phone")}
+              sx={{ backgroundColor: "white" }}
             />
             <MyFormHelperText helperText={"So we can call you"} />
           </FormControl>
@@ -263,24 +277,13 @@ const Contact = () => {
               size="small"
               value={message}
               onChange={(e) => handleChange(e, "message")}
+              sx={{ backgroundColor: "white" }}
             />
             <MyFormHelperText helperText={"How can we help?"} />
           </FormControl>
           <Box id="contactFormWidget" style={{ textAlign: "center", marginBottom: "2rem" }} />
           <Box sx={{ textAlign: "center" }}>
-            <PillButton
-              title={"Send Message"}
-              sx={{
-                backgroundColor: "secondary.main",
-                padding: "0.7rem 2rem",
-                lineHeight: "1.5",
-                ":hover": {
-                  backgroundColor: "secondary.main",
-                  boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-                },
-              }}
-              type="submit"
-            />
+            <PillButton title={"Send Message"} type="submit" loading={isSubmitting} />
           </Box>
         </Box>
         <Paragraph

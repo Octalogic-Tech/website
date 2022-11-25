@@ -1,40 +1,23 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import {
+  Body,
+  createHandler,
+  HttpCode,
+  InternalServerErrorException,
+  Post,
+  ValidationPipe,
+} from "next-api-decorators";
 
-import { IFormData, ICloufdlareVerifyResponse } from "../../../interfaces";
+import { ContactDTO } from "../../../dto/contact.dto";
+import { ICloufdlareVerifyResponse, IFormData } from "../../../interfaces";
 
 import * as vars from "../../../config/vars";
+import { formatData } from "../../../utils/utils";
 
-const formatData = (data: IFormData) => {
-  const formattedData = Object.keys(data).map((key) => {
-    const captalizedKey = key.charAt(0).toUpperCase() + key.slice(1);
-    return {
-      type: "section",
-      text: {
-        type: "mrkdwn",
-        text: `*${captalizedKey}*\n${data[key as keyof typeof data]}`,
-      },
-    };
-  });
+import { PreconditionFailedException } from "../../../exceptions/preconditionFailed";
+import { FailedDependencyException } from "../../../exceptions/failedDependency";
 
-  return {
-    text: "New Contact",
-    blocks: [
-      {
-        type: "header",
-        text: {
-          type: "plain_text",
-          text: "New contact",
-        },
-      },
-      ...formattedData,
-    ],
-  };
-};
-
-export default async function Handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const { turnstileToken, ...formData } = req.body;
-
+class ContactHandler {
+  verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {
     if (vars.turnstileEndpoint && vars.turnstileSecretKey) {
       const turnstileBody = `secret=${encodeURIComponent(
         vars.turnstileSecretKey,
@@ -53,15 +36,17 @@ export default async function Handler(req: NextApiRequest, res: NextApiResponse)
         (await verifyResponse.json()) as ICloufdlareVerifyResponse;
 
       if (!verifyData.success) {
-        res.status(412).json({ message: "Invalid payload" });
-        return;
+        throw new PreconditionFailedException();
       }
     } else {
       // throwing an error because validation should always exist
-      res.status(424).json({ message: "Invalid payload" });
-      return;
+      throw new FailedDependencyException();
     }
 
+    return true;
+  };
+
+  sendToSlack = async (formData: IFormData): Promise<boolean> => {
     const slackData = formatData(formData);
     const slackOptions = {
       method: "POST",
@@ -71,10 +56,25 @@ export default async function Handler(req: NextApiRequest, res: NextApiResponse)
     if (vars.slackWebhookUrl) {
       try {
         await fetch(vars.slackWebhookUrl, slackOptions);
-        res.status(201).json({ message: "Success" });
-      } catch (error) {
-        res.status(500).json({ message: "Unable to save data" });
+      } catch {
+        throw new InternalServerErrorException();
       }
-    } else res.status(424).json({ message: "Unable to save data" });
-  } else res.status(422).json({ message: "Invalid action" });
+    } else if (vars.isLive) throw new FailedDependencyException();
+
+    return true;
+  };
+
+  @HttpCode(201)
+  @Post()
+  async contact(@Body(ValidationPipe) contactBody: ContactDTO) {
+    const { turnstileToken, ...formData } = contactBody;
+    const isVerified: boolean = await this.verifyTurnstileToken(turnstileToken);
+    if (isVerified) await this.sendToSlack(formData);
+
+    return {
+      message: isVerified ? "Successfully logged your request" : "Unable to log your request",
+    };
+  }
 }
+
+export default createHandler(ContactHandler);
