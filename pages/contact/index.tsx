@@ -51,10 +51,10 @@ function MyFormHelperText({ helperText }: { helperText: string }) {
 }
 
 const Contact = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [message, setMessage] = React.useState("");
+  const [name, setName] = React.useState("Dylan");
+  const [email, setEmail] = React.useState("test@test.com");
+  const [phone, setPhone] = React.useState("12345");
+  const [message, setMessage] = React.useState("Test");
   const [showThankYouMsg, setShowThankYouMsg] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();

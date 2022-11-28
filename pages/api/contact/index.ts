@@ -11,10 +11,13 @@ import { ContactDTO } from "../../../dto/contact.dto";
 import { ICloufdlareVerifyResponse, IFormData } from "../../../interfaces";
 
 import * as vars from "../../../config/vars";
+
 import { formatData } from "../../../utils/utils";
 
 import { PreconditionFailedException } from "../../../exceptions/preconditionFailed";
 import { FailedDependencyException } from "../../../exceptions/failedDependency";
+
+import { mailOptions, transporter } from "../../../config/nodemailer";
 
 class ContactHandler {
   verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {
@@ -64,12 +67,33 @@ class ContactHandler {
     return true;
   };
 
+  sendToMail = async (): Promise<boolean> => {
+    // const { name, email, phone, message } = formData;
+
+    if (vars.gmailCredentials) {
+      try {
+        await transporter.sendMail({
+          ...mailOptions,
+          subject: "New Contact",
+          text: "Test",
+          html: "<h1>New Contact</h1><p>Body text</p>",
+        });
+      } catch (error) {
+        console.error(error);
+        throw new InternalServerErrorException();
+      }
+    } else throw new FailedDependencyException();
+
+    return true;
+  };
+
   @HttpCode(201)
   @Post()
   async contact(@Body(ValidationPipe) contactBody: ContactDTO) {
     const { turnstileToken, ...formData } = contactBody;
     const isVerified: boolean = await this.verifyTurnstileToken(turnstileToken);
     if (isVerified) await this.sendToSlack(formData);
+    if (isVerified) await this.sendToMail();
 
     return {
       message: isVerified ? "Successfully logged your request" : "Unable to log your request",
