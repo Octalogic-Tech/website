@@ -11,12 +11,13 @@ import { ContactDTO } from "../../../dto/contact.dto";
 import { ICloufdlareVerifyResponse, IFormData } from "../../../interfaces";
 
 import * as vars from "../../../config/vars";
-import { mailOptions, transporter } from "../../../config/nodemailer";
 
 import { formatData } from "../../../utils/utils";
 
 import { PreconditionFailedException } from "../../../exceptions/preconditionFailed";
 import { FailedDependencyException } from "../../../exceptions/failedDependency";
+
+import { sendMail } from "../../../gmail";
 
 class ContactHandler {
   verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {
@@ -66,21 +67,23 @@ class ContactHandler {
     return true;
   };
 
-  sendMail = async (): Promise<boolean> => {
+  sendToMail = async (): Promise<boolean> => {
     // const { name, email, phone, message } = formData;
 
-    if (vars.email && vars.emailAppPass) {
-      try {
-        await transporter.sendMail({
-          ...mailOptions,
-          subject: "New Contact",
-          text: "Test",
-          html: "<h1>New Contact</h1><p>Body text</p>",
-        });
-      } catch {
-        throw new InternalServerErrorException();
-      }
-    } else throw new FailedDependencyException();
+    const options = {
+      from: vars.email,
+      to: vars.email,
+      subject: "New Contact",
+      html: `<h1>New Contact</h1><p>Body text</p>`,
+      textEncoding: "base64",
+    };
+
+    try {
+      await sendMail(options);
+    } catch (error) {
+      console.error(error);
+      throw new InternalServerErrorException();
+    }
 
     return true;
   };
@@ -91,7 +94,7 @@ class ContactHandler {
     const { turnstileToken, ...formData } = contactBody;
     const isVerified: boolean = await this.verifyTurnstileToken(turnstileToken);
     if (isVerified) await this.sendToSlack(formData);
-    if (isVerified) await this.sendMail();
+    if (isVerified) await this.sendToMail();
 
     return {
       message: isVerified ? "Successfully logged your request" : "Unable to log your request",
