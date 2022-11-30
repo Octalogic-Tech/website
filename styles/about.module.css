@@ -1,4 +1,5 @@
-.heading_1, .heading_2 {
+.heading_1,
+.heading_2 {
   max-width: 86rem;
   margin: 0 auto;
 }
@@ -13,7 +14,9 @@
   flex: 0 0 60%;
 }
 
-.para_1, .para_3, .para_4 {
+.para_1,
+.para_3,
+.para_4 {
   max-width: 46rem;
 }
 
@@ -38,7 +41,6 @@
   margin-top: 3rem;
   text-align: center;
 }
-
 
 /*** Media Queries ***/
 

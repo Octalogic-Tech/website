@@ -15,7 +15,6 @@
   line-height: 1.3rem;
 }
 
-
 /*** Media Queries ***/
 
 /* xs */
@@ -24,7 +23,7 @@
     flex: 0 0 30%;
     padding-top: 100%;
   }
-  
+
   .card_content {
     padding: 1rem;
   }

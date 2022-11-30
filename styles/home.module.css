@@ -1,7 +1,7 @@
 .hero_img {
   width: 100%;
   position: absolute;
-  background-image: url('/images/hero_image.svg');
+  background-image: url("/images/hero_image.svg");
   background-repeat: no-repeat;
   background-position: top right;
   z-index: -1;
@@ -11,7 +11,7 @@
   height: 60vh;
   width: 100%;
   position: absolute;
-  background-image: url('/images/hero_image_mobile.svg');
+  background-image: url("/images/hero_image_mobile.svg");
   background-repeat: no-repeat;
   background-position: right;
   z-index: -1;
@@ -25,7 +25,7 @@
   height: 80vh;
   width: 100%;
   position: absolute;
-  background-image: url('/images/planet-1.svg');
+  background-image: url("/images/planet-1.svg");
   background-repeat: no-repeat;
   background-position: left;
   left: -1.875rem;
@@ -57,7 +57,7 @@
   width: 100%;
   margin-top: -6.25rem;
   position: absolute;
-  background-image: url('/images/why-us.svg');
+  background-image: url("/images/why-us.svg");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
@@ -68,7 +68,7 @@
 }
 
 .benefits_grid_item {
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
 .planet_2_wrap {
@@ -80,7 +80,7 @@
   height: 40vh;
   width: 100%;
   position: absolute;
-  background-image: url('/images/planet-2.svg');
+  background-image: url("/images/planet-2.svg");
   background-repeat: no-repeat;
   background-position: right;
   z-index: -6;
@@ -98,7 +98,6 @@
   margin-top: 3rem;
   text-align: center;
 }
-
 
 /*** Media Queries ***/
 
@@ -129,14 +128,14 @@
   .btn_wrap_1 {
     margin-top: 2rem;
   }
-  
+
   .services_wrap {
     gap: 2rem;
   }
 
   .service_card {
     max-width: 83.333%;
-    flex: 0 0 83.333%
+    flex: 0 0 83.333%;
   }
 
   .benefits_card {
@@ -179,7 +178,7 @@
 
   .service_card {
     max-width: 33.333%;
-    flex: 0 0 33.333%
+    flex: 0 0 33.333%;
   }
 
   .benefits_card {
@@ -211,7 +210,7 @@
 
   .service_card {
     max-width: 22.14%;
-    flex: 0 0 22.14%
+    flex: 0 0 22.14%;
   }
 }
 

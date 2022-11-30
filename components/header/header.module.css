@@ -1,5 +1,5 @@
 .btn {
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
 }
 
 .link {
@@ -32,12 +32,12 @@
   align-items: center;
 }
 
-
 /*** Media Queries ***/
 
 /* xs */
 @media screen and (min-width: 0px) {
-  .btn_wrap, .nav_wrap {
+  .btn_wrap,
+  .nav_wrap {
     padding: 0 0.5rem;
   }
 
@@ -56,7 +56,8 @@
 
 /* sm */
 @media screen and (min-width: 600px) {
-  .btn_wrap, .nav_wrap {
+  .btn_wrap,
+  .nav_wrap {
     padding: 0 1rem;
   }
 
@@ -76,10 +77,8 @@
 
 /* md */
 @media screen and (min-width: 900px) {
-
 }
 
 /* lg */
 @media screen and (min-width: 1200px) {
-  
 }
