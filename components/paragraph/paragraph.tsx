@@ -4,10 +4,11 @@ import Typography from "@mui/material/Typography";
 interface ParagraphProps {
   sx?: SxProps;
   children: any;
+  className?: string;
 }
 
 export const Paragraph = (props: ParagraphProps) => {
-  const { sx, children } = props;
+  const { sx, children, ...otherProps } = props;
   return (
     <Typography
       component="p"
@@ -22,6 +23,7 @@ export const Paragraph = (props: ParagraphProps) => {
         lineHeight: { xs: "1.8rem", sm: "1.4rem", md: "2rem" },
         ...sx,
       }}
+      {...otherProps}
     >
       {children}
     </Typography>
