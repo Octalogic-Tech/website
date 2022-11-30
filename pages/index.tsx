@@ -1,3 +1,5 @@
+import styles from "../styles/home.module.css";
+
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 
@@ -19,154 +21,53 @@ const Home = () => {
     <>
       <Head />
       <Box>
-        <Box
-          sx={{
-            height: { sm: "50vh", md: "58vw", lg: "125vh" },
-            width: "100%",
-            position: "absolute",
-            backgroundImage: "url('/images/hero_image.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top right",
-            top: { lg: "3.25rem" },
-            zIndex: "-1",
-            display: { xs: "none", sm: "block" },
-          }}
-        ></Box>
-        <Box
-          sx={{
-            height: "60vh",
-            width: "100%",
-            position: "absolute",
-            backgroundImage: "url('/images/hero_image_mobile.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right",
-            zIndex: "-1",
-            display: { xs: "block", sm: "none" },
-          }}
-        ></Box>
-        <Box
-          sx={{
-            minHeight: { xs: "62vh", sm: "52vh", md: "48vh", lg: "106vh" },
-            paddingLeft: { xs: "2rem", sm: "4rem", md: "4rem", lg: "6rem" },
-            paddingTop: { xs: "0", sm: "5rem" },
-          }}
-        >
-          <Heading size="large" sx={{ maxWidth: { xs: "68vw", sm: "52vw" } }}>
+        <Box className={styles.hero_img}></Box>
+        <Box className={styles.mobile_hero_img}></Box>
+        <Box className={styles.content_wrapper}>
+          <Heading size="large" className={styles.heading_1}>
             Converting ideas to solutions
           </Heading>
-          <Paragraph
-            sx={{
-              maxWidth: { xs: "49vw", sm: "30vw", md: "38vw", lg: "30vw" },
-              marginTop: "1.5rem",
-            }}
-          >
+          <Paragraph className={styles.para_1}>
             Got a startup idea? Let us turn it into a solution! We provide offshore development &
             technological resources to turn an idea into reality
           </Paragraph>
-          <Box sx={{ marginTop: { xs: "2rem", lg: "4rem" } }}>
+          <Box className={styles.btn_wrap_1}>
             <PillButton title={"GET STARTED"} href={"/contact"} />
           </Box>
         </Box>
       </Box>
       <Box>
-        <Box
-          sx={{
-            height: "80vh",
-            width: "100%",
-            position: "absolute",
-            backgroundImage: "url('/images/planet-1.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "left",
-            left: "-1.875rem",
-            zIndex: "-1",
-          }}
-        ></Box>
+        <Box className={styles.planet_1}></Box>
         <Heading size="medium">What we do</Heading>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            gap: { xs: "2rem", sm: "4rem", md: "2rem" },
-            marginTop: "6rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <Box className={styles.services_wrap}>
           {Services.map((service: IService) => (
-            <ServiceCard
-              key={service.title}
-              details={service}
-              sx={{
-                maxWidth: { xs: "83.333%", sm: "33.333%", md: "22.14%" },
-                flex: { xs: "0 0 83.333%", sm: "0 0 33.333%", md: "0 0 22.14%" },
-              }}
-            />
+            <ServiceCard key={service.title} details={service} className={styles.service_card} />
           ))}
         </Box>
-        <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
+        <Box className={styles.btn_wrap_2}>
           <PillButton title={"VIEW MORE"} href={"/services"} />
         </Box>
       </Box>
-      <Box
-        sx={{
-          marginTop: "8rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          sx={{
-            height: "80vh",
-            width: "100%",
-            position: "absolute",
-            backgroundImage: "url('/images/planet-1.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "left",
-            left: "-1.875rem",
-            zIndex: "-1",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            height: "100vh",
-            width: "100%",
-            marginTop: "-6.25rem",
-            position: "absolute",
-            backgroundImage: "url('/images/why-us.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            zIndex: "-1",
-          }}
-        ></Box>
+      <Box className={styles.sec_3}>
+        <Box className={styles.planet_1}></Box>
+        <Box className={styles.why_us}></Box>
         <Heading size="medium">Offshore Team Benefits</Heading>
-        <Grid container sx={{ maxWidth: "84%" }}>
+        <Grid container className={styles.benefits_grid}>
           {Benefits.map((benefit: IBenefit) => (
-            <Grid xs={12} md={6} key={benefit.title} item sx={{ padding: "1.25rem" }}>
-              <BenefitsCard details={benefit} sx={{ flexDirection: { xs: "column", sm: "row" } }} />
+            <Grid xs={12} md={6} key={benefit.title} item className={styles.benefits_grid_item}>
+              <BenefitsCard details={benefit} className={styles.benefits_card} />
             </Grid>
           ))}
         </Grid>
-        <Box sx={{ width: "100%", zIndex: "-10" }}>
-          <Box
-            sx={{
-              height: "40vh",
-              width: "100%",
-              position: "absolute",
-              backgroundImage: "url('/images/planet-2.svg')",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right",
-              marginTop: { xs: "6.625rem", sm: "-5.375rem" },
-              zIndex: "-6",
-            }}
-          ></Box>
+        <Box className={styles.planet_2_wrap}>
+          <Box className={styles.planet_2}></Box>
         </Box>
       </Box>
-      <Box sx={{ marginTop: "8rem" }}>
-        <Heading size="medium" sx={{ marginBottom: "0.5rem" }}>
+      <Box className={styles.sec_4}>
+        <Heading size="medium" className={styles.heading_4}>
           Let&apos;s craft brilliance together!
         </Heading>
-        <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
+        <Box className={styles.btn_wrap_3}>
           <PillButton title={"Get In Touch"} href={"/contact"} />
         </Box>
       </Box>

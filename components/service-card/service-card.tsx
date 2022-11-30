@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Styles from "./service-card.module.css";
+
 import Image from "next/image";
 
 import Card from "@mui/material/Card";
@@ -17,6 +19,7 @@ import { IService } from "../../interfaces";
 export interface ServiceCardProps {
   sx?: SxProps;
   details: IService;
+  className?: string;
 }
 
 const MyCard = styled(Card)({
@@ -42,31 +45,17 @@ const MyCard = styled(Card)({
 });
 
 export function ServiceCard(props: ServiceCardProps) {
-  const { details } = props;
+  const { details, ...otherProps } = props;
 
   return (
-    <MyCard {...props}>
+    <MyCard {...otherProps}>
       <Link href={details.actionLink} underline="none">
-        <CardActionArea
-          sx={{
-            cursor: "pointer !important",
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              height: { xs: "68.6vw", sm: "25.6vw", md: "17.6vw" },
-              position: "relative",
-              padding: ".75rem 1.25rem",
-              paddingBottom: 0,
-              marginTop: "-3rem",
-              boxSizing: "border-box",
-            }}
-          >
+        <CardActionArea className={Styles.card_action_area}>
+          <Box className={Styles.img_wrap}>
             <Image
               src={details.illustration}
               alt="Octalogic Tech Remote Resources"
-              style={{ width: "100%", height: "auto", position: "relative" }}
+              className={Styles.img}
             />
           </Box>
           <CardContent>
@@ -74,26 +63,19 @@ export function ServiceCard(props: ServiceCardProps) {
               gutterBottom
               component="h3"
               sx={{
-                fontSize: "1.5rem",
-                fontWeight: "600",
-                textAlign: "center",
                 color: "info.main",
-                lineHeight: "1.8rem",
-                margin: "0.25rem",
               }}
+              className={Styles.title}
             >
               {details.title}
             </Typography>
-            <Typography
-              color="text.primary"
-              sx={{ textAlign: "center", paddingTop: "1rem", opacity: "0.8", lineHeight: "1.3rem" }}
-            >
+            <Typography color="text.primary" className={Styles.desc}>
               {details.desc}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <IconButton color="primary" sx={{ margin: "0 0.5rem" }} aria-label={details.title}>
+          <IconButton color="primary" className={Styles.icon_btn} aria-label={details.title}>
             <EastSharp />
           </IconButton>
         </CardActions>

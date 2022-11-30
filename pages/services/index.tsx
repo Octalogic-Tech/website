@@ -1,3 +1,5 @@
+import Styles from "../../styles/services.module.css";
+
 import { useRef } from "react";
 
 import Box from "@mui/material/Box";
@@ -29,221 +31,114 @@ export const Services = () => {
   return (
     <>
       <Head title="Octalogic Tech - Services" canonicalUrl={siteUrl} />
-      <Box
-        sx={{
-          marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-          marginY: { xs: "1rem", sm: "4rem", lg: "5.25rem" },
-        }}
-      >
-        <Heading
-          size="large"
-          sx={{
-            maxWidth: "86rem",
-            margin: "0 auto",
-            textAlign: { xs: "center", sm: "left" },
-          }}
-        >
+      <Box className={Styles.sec_1}>
+        <Heading size="large" className={Styles.heading_1}>
           The Way We Work
         </Heading>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column-reverse", sm: "row" },
-            maxWidth: "86rem",
-            margin: "0 auto",
-          }}
-        >
-          <Box sx={{ marginBottom: { xs: "0", lg: "6rem" }, flex: "0 0 60%" }}>
-            <Paragraph
-              sx={{
-                marginTop: { xs: "0rem", sm: "3rem" },
-                maxWidth: "46rem",
-              }}
-            >
+        <Box className={Styles.content_wrap_1}>
+          <Box className={Styles.left_wrap_1}>
+            <Paragraph className={Styles.para_1}>
               Our mission at Octalogic Tech is to help you create beautiful and functional mobile
               and web apps. From concept to delivery, we offer solutions that will ensure a
               successful product.
             </Paragraph>
-            <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
-              <PillButton
-                title={"See How"}
-                sx={{ padding: "0.5rem 1rem" }}
-                onClick={() => scrollDown()}
-              />
+            <Box className={Styles.btn_wrap_1}>
+              <PillButton title={"See How"} className={Styles.btn_1} onClick={() => scrollDown()} />
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: "relative",
-              width: "100%",
-              marginBottom: { xs: "0", sm: "0", md: "2rem", lg: "0" },
-              paddingTop: { xs: "100%", sm: "0" },
-            }}
-          >
-            <Image src="/images/services_hero_image.svg" alt="Octalogic Tech" fill />
+          <Box className={Styles.right_wrap_1}>
+            <Image
+              src="/images/services_hero_image.svg"
+              alt="Octalogic Tech"
+              fill
+              sizes="(min-width: 0px) 100vw"
+            />
           </Box>
         </Box>
       </Box>
       <Box ref={aboutSection}>
-        <Heading size="medium" sx={{ marginTop: { xs: "4rem", sm: "0" } }}>
+        <Heading size="medium" className={Styles.heading_2}>
           Our Services
         </Heading>
-        <Box
-          sx={{
-            marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column-reverse", sm: "row" },
-              maxWidth: "86rem",
-              margin: "0 auto",
-            }}
-          >
-            <Box sx={{ marginBottom: { xs: "0", lg: "6rem" }, flex: "0 0 60%" }}>
-              <Heading
-                size="medium"
-                sx={{
-                  maxWidth: "86rem",
-                  textAlign: "left",
-                  marginTop: { xs: "2rem", sm: "0" },
-                }}
-              >
+        <Box className={Styles.sec_2}>
+          <Box className={Styles.content_wrap_2}>
+            <Box className={Styles.left_wrap_2}>
+              <Heading size="medium" className={Styles.heading_3}>
                 Web Development
               </Heading>
-              <Paragraph
-                sx={{
-                  marginTop: { xs: "2rem", sm: "3rem" },
-                  maxWidth: "46rem",
-                }}
-              >
+              <Paragraph className={Styles.para_2}>
                 We create products using the latest technologies at our disposal to give you ground
                 breaking performance while being aesthetically pleasing and user friendly at the
                 same time.
               </Paragraph>
-              <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
+              <Box className={Styles.btn_wrap_2}>
                 <PillButton title={"Know More"} href={"/web-development"} />
               </Box>
             </Box>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                marginBottom: { xs: "0", sm: "0", md: "2rem", lg: "0" },
-                paddingTop: { xs: "100%", sm: "0" },
-              }}
-            >
-              <Image src="/images/web_dev_avatar.svg" alt="Octalogic Tech" fill priority />
+            <Box className={Styles.right_wrap_2}>
+              <Image
+                src="/images/web_dev_avatar.svg"
+                alt="Octalogic Tech"
+                fill
+                priority
+                sizes="(min-width: 0px) 100vw"
+              />
             </Box>
           </Box>
         </Box>
-        <Box
-          sx={{
-            marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column-reverse", sm: "row-reverse" },
-              maxWidth: "86rem",
-              margin: "0 auto",
-            }}
-          >
-            <Box sx={{ marginBottom: { xs: "0", lg: "6rem" }, flex: "0 0 60%" }}>
-              <Heading
-                size="medium"
-                sx={{
-                  maxWidth: "86rem",
-                  textAlign: "left",
-                  marginTop: { xs: "2rem", sm: "0" },
-                }}
-              >
+        <Box className={Styles.sec_3}>
+          <Box className={Styles.content_wrap_3}>
+            <Box className={Styles.left_wrap_3}>
+              <Heading size="medium" className={Styles.heading_4}>
                 Digital Marketing
               </Heading>
-              <Paragraph
-                sx={{
-                  marginTop: { xs: "2rem", sm: "3rem" },
-                  maxWidth: "46rem",
-                }}
-              >
+              <Paragraph className={Styles.para_3}>
                 We believe in building versatile and adaptable digital marketing ecosystems, as to
                 offer an aggressive edge to your business
               </Paragraph>
-              <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
+              <Box className={Styles.btn_wrap_3}>
                 <PillButton title={"Know More"} href={"/digital-marketing"} />
               </Box>
             </Box>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                marginBottom: { xs: "0", sm: "0", md: "2rem", lg: "0" },
-                paddingTop: { xs: "100%", sm: "0" },
-              }}
-            >
-              <Image src="/images/marketing_dev_avatar.svg" alt="Octalogic Tech" fill />
+            <Box className={Styles.right_wrap_3}>
+              <Image
+                src="/images/marketing_dev_avatar.svg"
+                alt="Octalogic Tech"
+                fill
+                sizes="(min-width: 0px) 100vw"
+              />
             </Box>
           </Box>
         </Box>
-        <Box
-          sx={{
-            marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-            marginY: { xs: "4rem", sm: "4rem", lg: "5.25rem" },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column-reverse", sm: "row" },
-              maxWidth: "86rem",
-              margin: "0 auto",
-            }}
-          >
-            <Box sx={{ marginBottom: { xs: "0", lg: "6rem" }, flex: "0 0 60%" }}>
-              <Heading
-                size="medium"
-                sx={{
-                  maxWidth: "86rem",
-                  textAlign: "left",
-                  marginTop: { xs: "2rem", sm: "0" },
-                }}
-              >
+        <Box className={Styles.sec_4}>
+          <Box className={Styles.content_wrap_4}>
+            <Box className={Styles.left_wrap_4}>
+              <Heading size="medium" className={Styles.heading_5}>
                 Mobile Development
               </Heading>
-              <Paragraph
-                sx={{
-                  marginTop: { xs: "2rem", sm: "3rem" },
-                  maxWidth: "46rem",
-                }}
-              >
+              <Paragraph className={Styles.para_4}>
                 We use our expertise in a variety of technologies to craft code that opens the door
                 for ongoing iterations with our clients’ users and ensure a build with the
                 foundation for success.
               </Paragraph>
-              <Box sx={{ marginTop: "3rem", textAlign: "left" }}>
+              <Box className={Styles.btn_wrap_4}>
                 <PillButton title={"Know More"} href={"/mobile-development"} />
               </Box>
             </Box>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                marginBottom: { xs: "0", sm: "0", md: "2rem", lg: "0" },
-                paddingTop: { xs: "100%", sm: "0" },
-              }}
-            >
-              <Image src="/images/mobile_dev_avatar.svg" alt="Octalogic Tech" fill />
+            <Box className={Styles.right_wrap_4}>
+              <Image
+                src="/images/mobile_dev_avatar.svg"
+                alt="Octalogic Tech"
+                fill
+                sizes="(min-width: 0px) 100vw"
+              />
             </Box>
           </Box>
         </Box>
       </Box>
-      <Box sx={{ marginTop: { xs: "3rem", sm: "0" } }}>
+      <Box className={Styles.sec_5}>
         <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
-        <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
+        <Box className={Styles.btn_wrap_5}>
           <PillButton title={"Get In Touch"} href={"/contact"} />
         </Box>
       </Box>
