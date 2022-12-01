@@ -1,5 +1,10 @@
 import styles from "../styles/home.module.css";
 
+import Image from "next/image";
+
+import HeroImage from "../public/images/hero_image.svg";
+import MobileHeroImage from "../public/images/hero_image_mobile.svg";
+
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 
@@ -8,21 +13,35 @@ import PillButton from "../components/pill-button/pill-button";
 import ServiceCard from "../components/service-card/service-card";
 import BenefitsCard from "../components/benefits-card/benefits-card";
 import Head from "../components/head";
+import Heading from "../components/heading/heading";
+import Paragraph from "../components/paragraph/paragraph";
 
 import { Services } from "../constants/services";
 import { Benefits } from "../constants/benefits";
 
 import { IBenefit, IService } from "../interfaces";
-import Heading from "../components/heading/heading";
-import Paragraph from "../components/paragraph/paragraph";
 
 const Home = () => {
   return (
     <>
       <Head />
-      <Box>
-        <Box className={styles.hero_img}></Box>
-        <Box className={styles.mobile_hero_img}></Box>
+      <Box className={styles.sec_1_wrapper}>
+        <Image
+          alt="Hero image"
+          src={HeroImage}
+          priority
+          quality={100}
+          sizes="100vw"
+          className={styles.hero_img}
+        />
+        <Image
+          alt="Hero image"
+          src={MobileHeroImage}
+          priority
+          quality={100}
+          sizes="100vw"
+          className={styles.mobile_hero_img}
+        />
         <Box className={styles.content_wrapper}>
           <Heading size="large" className={styles.heading_1}>
             Converting ideas to solutions

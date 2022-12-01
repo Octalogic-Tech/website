@@ -68,7 +68,7 @@
 .copyright {
   font-size: 0.8rem;
   text-align: center;
-  color: #212529;
+  color: var(--text-main-color);
   padding-bottom: 0.5rem;
   line-height: 0.8rem;
 }
