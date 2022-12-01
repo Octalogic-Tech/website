@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Styles from "../../styles/contact.module.css";
+
 import { useSnackbar } from "notistack";
 
 import Box from "@mui/material/Box";
@@ -144,73 +146,28 @@ const Contact = () => {
     <>
       <Head title="Octalogic Tech - Contact" canonicalUrl={siteUrl} />
       <TurnstileWidget widgetId="contactFormWidget" />
-      <Box sx={{ maxWidth: { xs: "22rem", sm: "40rem", lg: "64rem" }, margin: "0 auto" }}>
-        <Heading
-          size="large"
-          sx={{
-            fontSize: { xs: "1.65rem", sm: "2.5rem", lg: "3rem" },
-            lineHeight: { xs: "2rem", sm: "2.5rem", lg: "3.5rem" },
-            fontWeight: "600",
-            marginTop: { xs: "1.15rem", lg: "4.25rem" },
-            marginBottom: "0.5rem",
-            textAlign: "center",
-            color: "primary.main",
-          }}
-        >
+      <Box className={Styles.container}>
+        <Heading size="large" sx={{ color: "primary.main" }} className={Styles.heading_1}>
           Let&apos;s have a conversation
         </Heading>
-        <Paragraph
-          sx={{
-            fontSize: "1rem",
-            textAlign: "center",
-            opacity: "0.8",
-            marginBottom: "1rem",
-            lineHeight: "1.5",
-          }}
-        >
+        <Paragraph className={Styles.para_1}>
           info@octalogic.in &nbsp; | &nbsp; +91 7030518285
         </Paragraph>
-        <Paragraph
-          sx={{
-            fontSize: "1rem",
-            textAlign: "center",
-            opacity: "0.8",
-            marginBottom: "1rem",
-            lineHeight: "1.5",
-          }}
-        >
+        <Paragraph className={Styles.para_2}>
           3rd Floor, Sunivas Building, Near Taj Vivanta, St. Inez, Goa
         </Paragraph>
-        <Paragraph
-          sx={{
-            fontSize: "1rem",
-            textAlign: "center",
-            opacity: "0.95",
-            marginBottom: "1rem",
-            lineHeight: "1.5",
-            marginTop: "1.5rem",
-          }}
-        >
+        <Paragraph className={Styles.para_3}>
           Send us a message and we&apos;ll get in touch with you shortly to better understand your
           needs and brainstorm possible solutions.
         </Paragraph>
         <Box
           component="form"
-          sx={{
-            maxWidth: { xs: "20rem", sm: "26rem", lg: "40rem" },
-            margin: "0 auto",
-            marginTop: "4rem",
-          }}
+          className={Styles.form}
           autoComplete="off"
           onSubmit={handleFormSubmit}
         >
           <FormControl fullWidth required>
-            <InputLabel
-              htmlFor="name"
-              sx={{
-                top: "-0.375rem",
-              }}
-            >
+            <InputLabel htmlFor="name" className={Styles.input_label}>
               Name
             </InputLabel>
             <OutlinedInput
@@ -222,12 +179,12 @@ const Contact = () => {
               size="small"
               value={name}
               onChange={(e) => handleChange(e, "name")}
-              sx={{ backgroundColor: "white" }}
+              className={Styles.outlined_input}
             />
             <MyFormHelperText helperText={"So we can be polite and call you by name"} />
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel htmlFor="email" sx={{ top: "-0.375rem" }}>
+            <InputLabel htmlFor="email" className={Styles.input_label}>
               Email
             </InputLabel>
             <OutlinedInput
@@ -240,12 +197,12 @@ const Contact = () => {
               type="email"
               value={email}
               onChange={(e) => handleChange(e, "email")}
-              sx={{ backgroundColor: "white" }}
+              className={Styles.outlined_input}
             />
             <MyFormHelperText helperText={"So we can contact you"} />
           </FormControl>
           <FormControl fullWidth required>
-            <InputLabel htmlFor="phone" sx={{ top: "-0.375rem" }}>
+            <InputLabel htmlFor="phone" className={Styles.input_label}>
               Phone number
             </InputLabel>
             <OutlinedInput
@@ -258,12 +215,12 @@ const Contact = () => {
               type="tel"
               value={phone}
               onChange={(e) => handleChange(e, "phone")}
-              sx={{ backgroundColor: "white" }}
+              className={Styles.outlined_input}
             />
             <MyFormHelperText helperText={"So we can call you"} />
           </FormControl>
           <FormControl fullWidth required>
-            <InputLabel htmlFor="message" sx={{ top: "-0.375rem" }}>
+            <InputLabel htmlFor="message" className={Styles.input_label}>
               Message
             </InputLabel>
             <OutlinedInput
@@ -277,37 +234,26 @@ const Contact = () => {
               size="small"
               value={message}
               onChange={(e) => handleChange(e, "message")}
-              sx={{ backgroundColor: "white" }}
+              className={Styles.outlined_input}
             />
             <MyFormHelperText helperText={"How can we help?"} />
           </FormControl>
-          <Box id="contactFormWidget" style={{ textAlign: "center", marginBottom: "2rem" }} />
-          <Box sx={{ textAlign: "center" }}>
+          <Box id="contactFormWidget" className={Styles.widget} />
+          <Box className={Styles.btn_wrap}>
             <PillButton title={"Send Message"} type="submit" loading={isSubmitting} />
           </Box>
         </Box>
         <Paragraph
+          className={Styles.thank_you}
           sx={{
-            fontSize: "1rem",
             color: "text.secondary",
-            textAlign: "center",
-            marginTop: "2rem",
-            marginBottom: "1rem",
-            lineHeight: "1.5",
             opacity: showThankYouMsg ? "1" : "0",
           }}
         >
           Thank you for contacting us. We&apos;ll get in touch soon
         </Paragraph>
       </Box>
-      <Box
-        sx={{
-          width: "100%",
-          paddingTop: "calc(100% / 2.3)",
-          backgroundImage: "url('/images/contact_background.svg')",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></Box>
+      <Box className={Styles.bg}></Box>
     </>
   );
 };

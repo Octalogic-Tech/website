@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Styles from "./header.module.css";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
@@ -41,23 +43,21 @@ function Header() {
   const navLinks = (navigationItems: NavItems[]) => {
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
-        <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
-          <PillButton title={item.linkName} sx={{ padding: ".375rem .75rem" }} href={"/contact"} />
+        <Box key={item.linkName} className={Styles.btn_wrap}>
+          <PillButton title={item.linkName} className={Styles.btn} href={"/contact"} />
         </Box>
       ) : (
-        <Box key={item.linkName} sx={{ padding: { sm: "0 0.5rem", md: "0 1rem" } }}>
+        <Box key={item.linkName} className={Styles.nav_wrap}>
           <Link
             href={item.linkHref}
             underline="none"
             color={router.pathname === item.linkHref ? "primary.main" : "info.main"}
             sx={{
-              textTransform: "unset",
-              fontSize: "1rem",
-              fontWeight: "400",
               ":hover": {
                 color: "primary.main",
               },
             }}
+            className={Styles.link}
           >
             {item.linkName}
           </Link>
@@ -67,18 +67,8 @@ function Header() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar
-        position="relative"
-        component="nav"
-        sx={{
-          backgroundColor: "transparent",
-          height: { xs: "3.25rem", sm: "7.25rem" },
-          justifyContent: "center",
-          padding: { sm: "0 2.4rem" },
-          boxShadow: "none",
-        }}
-      >
+    <Box className={Styles.container}>
+      <AppBar position="relative" component="nav" className={Styles.app_bar}>
         <Toolbar>
           {/* <IconButton
             color="info"
@@ -89,15 +79,8 @@ function Header() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Box
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", sm: "flex" },
-              alignItems: "center",
-            }}
-          >
-            <NextLink href={"/"} style={{ display: "flex" }}>
+          <Box component="div" className={Styles.logo_wrap}>
+            <NextLink href={"/"} className={Styles.logo_link}>
               <Image
                 src="/images/logos/octalogic.svg"
                 alt="Octalogic logo"
@@ -106,15 +89,7 @@ function Header() {
               />
             </NextLink>
           </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            {navLinks(navItems)}
-          </Box>
+          <Box className={Styles.links_wrap}>{navLinks(navItems)}</Box>
         </Toolbar>
       </AppBar>
       {/* <Box component="nav">

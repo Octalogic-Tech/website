@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Styles from "./benefits-card.module.css";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -13,6 +15,7 @@ import { IBenefit } from "../../interfaces";
 export interface BenefitsCardProps {
   sx?: SxProps;
   details: IBenefit;
+  className?: string;
 }
 
 const MyCard = styled(Card)((props) => ({
@@ -28,51 +31,33 @@ const MyCard = styled(Card)((props) => ({
   [props.theme.breakpoints.down("sm")]: {
     padding: "0 0.5rem",
   },
-  // ".MuiCardContent-root": {
-  //   padding: "2rem",
-  // },
 }));
 
 export function BenefitsCard(props: BenefitsCardProps) {
-  const { details } = props;
+  const { details, ...otherProps } = props;
 
   return (
-    <MyCard {...props}>
-      <Box
-        sx={{
-          flex: { xs: "0 0 30%", lg: "0 0 21.1%" },
-          position: "relative",
-          paddingTop: { xs: "100%", sm: "0" },
-        }}
-      >
-        <Image src={details.illustration} alt="Octalogic Tech Remote Resources" fill />
+    <MyCard {...otherProps}>
+      <Box className={Styles.img_wrap}>
+        <Image
+          src={details.illustration}
+          alt="Octalogic Tech Remote Resources"
+          fill
+          sizes="(min-width: 0px) 100vw"
+        />
       </Box>
-      <CardContent
-        sx={{
-          padding: {
-            xs: "1rem",
-            sm: "2rem",
-            md: "2rem",
-          },
-        }}
-      >
+      <CardContent className={Styles.card_content}>
         <Typography
           gutterBottom
           component="h3"
           sx={{
-            fontSize: "1.5rem",
-            fontWeight: "600",
             color: "info.main",
-            lineHeight: "1.8rem",
-            margin: "0.25rem",
           }}
+          className={Styles.title}
         >
           {details.title}
         </Typography>
-        <Typography
-          color="text.primary"
-          sx={{ paddingTop: "1rem", opacity: "0.8", lineHeight: "1.3rem" }}
-        >
+        <Typography color="text.primary" className={Styles.desc}>
           {details.desc}
         </Typography>
       </CardContent>

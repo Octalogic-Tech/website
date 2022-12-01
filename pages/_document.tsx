@@ -8,7 +8,7 @@ import createEmotionCache from "../config/createEmotionCache";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className={comfortaa.className} style={{ scrollBehavior: "smooth" }}>
+      <Html lang="en" className={comfortaa.className}>
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />

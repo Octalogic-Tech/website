@@ -5,6 +5,7 @@ interface HeadingProps {
   sx?: SxProps;
   size: string;
   children: any;
+  className?: string;
 }
 
 const CommonHeadingStyles = {
@@ -26,7 +27,7 @@ const MediumHeadingStyles = {
 };
 
 export function Heading(props: HeadingProps) {
-  const { sx = {}, children, size } = props;
+  const { sx = {}, children, size, ...otherProps } = props;
   let headingStyles = {};
   let typographyComponent: "h1" | "h2" = "h1";
 
@@ -53,6 +54,7 @@ export function Heading(props: HeadingProps) {
         ...headingStyles,
         ...sx,
       }}
+      {...otherProps}
     >
       {children}
     </Typography>
