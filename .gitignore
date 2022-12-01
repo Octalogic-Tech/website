@@ -29,11 +29,7 @@ yarn-error.log*
 .env*.local
 .env
 
-# credentials
-credentials.json
-
-# tokens
-token.json
+*.json
 
 # vercel
 .vercel

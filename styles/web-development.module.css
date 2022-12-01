@@ -1,4 +1,6 @@
-.heading_1, .heading_2, .para_3 {
+.heading_1,
+.heading_2,
+.para_3 {
   max-width: 86rem;
   margin: 0 auto;
 }
@@ -13,11 +15,13 @@
   flex: 0 0 60%;
 }
 
-.para_1, .para_2 {
+.para_1,
+.para_2 {
   max-width: 46rem;
 }
 
-.para_2, .para_3 {
+.para_2,
+.para_3 {
   margin-top: 2rem;
 }
 
@@ -50,7 +54,6 @@
   margin-top: 3rem;
   text-align: center;
 }
-
 
 /*** Media Queries ***/
 
