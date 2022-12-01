@@ -1,3 +1,5 @@
+import Styles from "../../styles/mobile-development.module.css";
+
 import Box from "@mui/material/Box";
 
 import Image from "next/image";
@@ -19,95 +21,44 @@ const MobileDevelopment = () => {
   return (
     <>
       <Head title="Octalogic Tech - Mobile Development" canonicalUrl={siteUrl} />
-      <Box
-        sx={{
-          marginX: { xs: "2rem", sm: "4rem", md: "7rem" },
-          marginY: { xs: "1rem", sm: "3rem", lg: "5.25rem" },
-        }}
-      >
-        <Heading
-          size="large"
-          sx={{
-            maxWidth: "86rem",
-            margin: "0 auto",
-            textAlign: { xs: "center", sm: "left" },
-          }}
-        >
+      <Box className={Styles.container}>
+        <Heading size="large" className={Styles.heading_1}>
           Mobile Development
         </Heading>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column-reverse", sm: "row" },
-            maxWidth: "86rem",
-            margin: "0 auto",
-          }}
-        >
-          <Box sx={{ marginBottom: { xs: "0", lg: "10rem" }, flex: "0 0 60%" }}>
-            <Paragraph
-              sx={{
-                marginTop: { xs: "0rem", sm: "3rem" },
-                maxWidth: "46rem",
-              }}
-            >
+        <Box className={Styles.content_wrap}>
+          <Box className={Styles.left_wrap}>
+            <Paragraph className={Styles.para_1}>
               Through design and development we laid the foundation for products that are visually
               pleasing and have an intuitive user experience.
             </Paragraph>
           </Box>
-          <Box
-            sx={{
-              position: "relative",
-              width: "100%",
-              marginBottom: { xs: "0", sm: "0", md: "2rem", lg: "0" },
-              paddingTop: { xs: "100%", sm: "0" },
-            }}
-          >
-            <Image src="/images/mobile-dev-hero-image.svg" alt="Octalogic Tech" fill priority />
+          <Box className={Styles.right_wrap}>
+            <Image
+              src="/images/mobile-dev-hero-image.svg"
+              alt="Octalogic Tech"
+              fill
+              priority
+              sizes="(min-width: 0px) 100vw"
+            />
           </Box>
         </Box>
-        <Heading
-          size="medium"
-          sx={{
-            textAlign: "left",
-            maxWidth: "86rem",
-            margin: "0 auto",
-            marginTop: { xs: "6rem", lg: "2rem" },
-          }}
-        >
+        <Heading size="medium" className={Styles.heading_2}>
           Technologies We Work With
         </Heading>
-        <Paragraph
-          sx={{
-            maxWidth: "86rem",
-            margin: "0 auto",
-            marginTop: "2rem",
-          }}
-        >
+        <Paragraph className={Styles.para_2}>
           Our mobile developer team has a diverse toolbox of specialties that can fit your unique
           project.
         </Paragraph>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(2, minmax(10rem, 1fr))",
-              sm: "repeat(3, minmax(11rem, 1fr))",
-              lg: "repeat(6, minmax(11rem, 1fr))",
-            },
-            justifyContent: "center",
-            maxWidth: "82rem",
-            margin: "3rem auto",
-          }}
-        >
+        <Box className={Styles.tech_wrapper}>
           {MobileTechnologies.map((tech) => (
             <TechCard key={tech.name} details={tech} />
           ))}
         </Box>
-        <Box sx={{ marginTop: "8rem" }}>
-          <Heading size="medium" sx={{ marginBottom: "0.5rem" }}>
+        <Box className={Styles.sec_3}>
+          <Heading size="medium" className={Styles.heading_3}>
             Let&apos;s craft brilliance together!
           </Heading>
-          <Box sx={{ marginTop: "3rem", textAlign: "center" }}>
+          <Box className={Styles.btn_wrap}>
             <PillButton title={"Get In Touch"} href={"/contact"} />
           </Box>
         </Box>

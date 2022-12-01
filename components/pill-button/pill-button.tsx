@@ -1,5 +1,15 @@
+import { ReactElement } from "react";
+
 import { styled } from "@mui/material/styles";
 import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
+
+import Link from "../link/link";
+
+interface LinkWrapperProps {
+  condition: string | undefined;
+  wrapper: (children: ReactElement) => ReactElement;
+  children: ReactElement;
+}
 
 const MyButton = styled(LoadingButton)(({ theme }: { theme: any }) => ({
   fontSize: "1rem",
@@ -21,13 +31,25 @@ const MyButton = styled(LoadingButton)(({ theme }: { theme: any }) => ({
   },
 }));
 
+const ConditionalLinkWrapper = ({ condition, wrapper, children }: LinkWrapperProps) =>
+  condition ? wrapper(children) : children;
+
 export function PillButton(props: LoadingButtonProps) {
-  const { title, ...otherProps } = props;
+  const { title, href, ...otherProps } = props;
 
   return (
-    <MyButton variant="contained" {...otherProps}>
-      {title}
-    </MyButton>
+    <ConditionalLinkWrapper
+      condition={href}
+      wrapper={(children: ReactElement) => (
+        <Link href={href as string} passHref sx={{ textDecoration: "none" }}>
+          {children}
+        </Link>
+      )}
+    >
+      <MyButton variant="contained" {...otherProps}>
+        {title}
+      </MyButton>
+    </ConditionalLinkWrapper>
   );
 }
 

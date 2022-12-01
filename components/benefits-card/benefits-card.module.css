@@ -1,0 +1,51 @@
+.img_wrap {
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+  margin: 0.25rem;
+}
+
+.desc {
+  padding-top: 1rem;
+  opacity: 0.8;
+  line-height: 1.3rem;
+}
+
+/*** Media Queries ***/
+
+/* xs */
+@media screen and (min-width: 0px) {
+  .img_wrap {
+    flex: 0 0 30%;
+    padding-top: 100%;
+  }
+  .card_content {
+    padding: 1rem;
+  }
+}
+
+/* sm */
+@media screen and (min-width: 600px) {
+  .img_wrap {
+    padding-top: 0;
+  }
+
+  .card_content {
+    padding: 2rem;
+  }
+}
+
+/* md */
+@media screen and (min-width: 900px) {
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+  .img_wrap {
+    flex: 0 0 21.1%;
+  }
+}
