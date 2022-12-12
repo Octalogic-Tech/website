@@ -23,6 +23,11 @@ export interface ITechnology {
   link: string;
 }
 
+export interface IRemote {
+  name: string;
+  imageUrl: string;
+}
+
 export interface IFormData {
   name: string;
   email: string;
