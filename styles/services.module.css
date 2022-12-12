@@ -6,7 +6,8 @@
 .content_wrap_1,
 .content_wrap_2,
 .content_wrap_3,
-.content_wrap_4 {
+.content_wrap_4,
+.content_wrap_5 {
   display: flex;
   max-width: 86rem;
   margin: 0 auto;
@@ -15,21 +16,22 @@
 .left_wrap_1,
 .left_wrap_2,
 .left_wrap_3,
-.left_wrap_4 {
+.left_wrap_4,
+.left_wrap_5 {
   flex: 0 0 60%;
 }
 
 .para_1,
 .para_2,
 .para_3,
-.para_4 {
+.para_4 .para_5 {
   max-width: 46rem;
 }
 
 .btn_wrap_1,
 .btn_wrap_2,
 .btn_wrap_3,
-.btn_wrap_4 {
+.btn_wrap_4 .btn_wrap_5 {
   margin-top: 3rem;
   text-align: left;
 }
@@ -41,7 +43,8 @@
 .right_wrap_1,
 .right_wrap_2,
 .right_wrap_3,
-.right_wrap_4 {
+.right_wrap_4,
+.right_wrap_5 {
   position: relative;
   width: 100%;
 }
@@ -53,7 +56,7 @@
   text-align: left;
 }
 
-.btn_wrap_5 {
+.btn_wrap_6 {
   margin-top: 3rem;
   text-align: center;
 }
@@ -73,14 +76,16 @@
   .content_wrap_1,
   .content_wrap_2,
   .content_wrap_3,
-  .content_wrap_4 {
+  .content_wrap_4,
+  .content_wrap_5 {
     flex-direction: column-reverse;
   }
 
   .left_wrap_1,
   .left_wrap_2,
   .left_wrap_3,
-  .left_wrap_4 {
+  .left_wrap_4,
+  .left_wrap_5 {
     margin-bottom: 0;
   }
 
@@ -91,7 +96,8 @@
   .right_wrap_1,
   .right_wrap_2,
   .right_wrap_3,
-  .right_wrap_4 {
+  .right_wrap_4,
+  .right_wrap_5 {
     margin-bottom: 0;
     padding-top: 100%;
   }
@@ -102,7 +108,8 @@
 
   .sec_2,
   .sec_3,
-  .sec_4 {
+  .sec_4,
+  .sec_5 {
     margin: 4rem 2rem;
   }
 
@@ -114,11 +121,12 @@
 
   .para_2,
   .para_3,
-  .para_4 {
+  .para_4,
+  .para_5 {
     margin-top: 2rem;
   }
 
-  .sec_5 {
+  .sec_6 {
     margin-top: 3rem;
   }
 }
@@ -142,21 +150,24 @@
     flex-direction: row;
   }
 
-  .content_wrap_3 {
+  .content_wrap_3,
+  .content_wrap_5 {
     flex-direction: row-reverse;
   }
 
   .para_1,
   .para_2,
   .para_3,
-  .para_4 {
+  .para_4,
+  .para_5 {
     margin-top: 3rem;
   }
 
   .right_wrap_1,
   .right_wrap_2,
   .right_wrap_3,
-  .right_wrap_4 {
+  .right_wrap_4,
+  .right_wrap_5 {
     margin-bottom: 0;
     padding-top: 0;
   }
@@ -196,7 +207,8 @@
   .sec_1,
   .sec_2,
   .sec_3,
-  .sec_4 {
+  .sec_4,
+  .sec_5 {
     margin-top: 5.25rem;
     margin-bottom: 5.25rem;
   }
@@ -204,14 +216,16 @@
   .left_wrap_1,
   .left_wrap_2,
   .left_wrap_3,
-  .left_wrap_4 {
+  .left_wrap_4,
+  .left_wrap_5 {
     margin-bottom: 6rem;
   }
 
   .right_wrap_1,
   .right_wrap_2,
   .right_wrap_3,
-  .right_wrap_4 {
+  .right_wrap_4,
+  .right_wrap_5 {
     margin-bottom: 0;
   }
 }

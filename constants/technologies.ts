@@ -146,3 +146,34 @@ export const MobileTechnologies = [
     link: "https://ionicframework.com/",
   },
 ];
+
+export const RemoteServices = [
+  {
+    name: "Technical Consultancy",
+    imageUrl: "/images/services/technical-consultancy.svg",
+  },
+  {
+    name: "Dev Ops Audits and Setup",
+    imageUrl: "/images/services/devops-audits-and-setup.svg",
+  },
+  {
+    name: "Offshore Resource Provision and Management ",
+    imageUrl: "/images/services/offshore-resource-provisioning-and-management.svg",
+  },
+  {
+    name: "Fixed Cost Software Development",
+    imageUrl: "/images/services/fixed-cost-software-development.svg",
+  },
+  {
+    name: "Software delivery and maintenance",
+    imageUrl: "/images/services/software-delivery-and-maintenance.svg",
+  },
+  {
+    name: "Quality Assurance",
+    imageUrl: "/images/services/quality-assurance.svg",
+  },
+  {
+    name: "Team Scaling as per demand",
+    imageUrl: "/images/services/team-scaling-as-per-demand.svg",
+  },
+];

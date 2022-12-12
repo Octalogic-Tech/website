@@ -25,7 +25,7 @@ export const Services = [
   {
     title: "Remote Resources",
     desc: "Hire remote resources and get exclusive, undivided attention on your projects. We offer monthly and hourly billing plans",
-    actionLink: "/contact",
+    actionLink: "/remote-resources",
     illustration: RemoteDevCard,
   },
 ];

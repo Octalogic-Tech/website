@@ -135,10 +135,34 @@ export const Services = () => {
             </Box>
           </Box>
         </Box>
+        <Box className={Styles.sec_5}>
+          <Box className={Styles.content_wrap_5}>
+            <Box className={Styles.left_wrap_5}>
+              <Heading size="medium" className={Styles.heading_5}>
+                Remote Resources
+              </Heading>
+              <Paragraph className={Styles.para_5}>
+                We believe in building scalable software and apps for our clients with in-house
+                infrastructure to reduce dependency on 3rd party services.
+              </Paragraph>
+              <Box className={Styles.btn_wrap_5}>
+                <PillButton title={"Know More"} href={"/remote-resources"} />
+              </Box>
+            </Box>
+            <Box className={Styles.right_wrap_5}>
+              <Image
+                src="/images/remote-resources-avatar.svg"
+                alt="Octalogic Tech"
+                fill
+                sizes="(min-width: 0px) 100vw"
+              />
+            </Box>
+          </Box>
+        </Box>
       </Box>
-      <Box className={Styles.sec_5}>
+      <Box className={Styles.sec_6}>
         <Heading size="medium">Let&apos;s craft brilliance together!</Heading>
-        <Box className={Styles.btn_wrap_5}>
+        <Box className={Styles.btn_wrap_6}>
           <PillButton title={"Get In Touch"} href={"/contact"} />
         </Box>
       </Box>
