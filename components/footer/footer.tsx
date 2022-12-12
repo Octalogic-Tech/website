@@ -58,7 +58,7 @@ export function Footer() {
         <Box className={Styles.links_wrap}>
           <FooterLink name={"Contact"} href={"contact"} />
           <FooterLink name={"Home"} href={"/"} />
-          <FooterLink name={"Digital Marketing"} href={"digital-marketing"} />
+          <FooterLink name={"Remote Resources"} href={"remote-resources"} />
         </Box>
         <Box className={Styles.links_wrap}>
           <FooterLink name={"Privacy"} href={"privacy-policy"} />
