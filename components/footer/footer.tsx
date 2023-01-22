@@ -41,6 +41,8 @@ const SocialLinks = ({ socials }: { socials: ISocial[] }) => {
 };
 
 export function Footer() {
+  const date: Date = new Date();
+
   return (
     <Box className={Styles.footer_container}>
       <Box className={Styles.logo_wrap}>
@@ -75,7 +77,7 @@ export function Footer() {
         <SocialLinks socials={Socials} />
       </Box>
       <Typography component="div" className={Styles.copyright}>
-        © 2017 - 2022, Octalogic Tech LLP. All rights reserved
+        © 2017 - {date.getFullYear()}, Octalogic Tech LLP. All rights reserved
       </Typography>
     </Box>
   );
