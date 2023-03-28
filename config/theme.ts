@@ -1,4 +1,4 @@
-import { Comfortaa } from "@next/font/google";
+import { Comfortaa } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 
 export const comfortaa = Comfortaa({
