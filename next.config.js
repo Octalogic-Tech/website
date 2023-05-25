@@ -71,6 +71,9 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  experimental: {
+    appDir: true,
+  },
   async headers() {
     return [
       {
