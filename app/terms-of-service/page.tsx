@@ -15,7 +15,7 @@ const TermsOfService = () => {
     <>
       <Head title="Octalogic Tech - Terms of Service" canonicalUrl={siteUrl} />
       <div className="max-w-screen-xl mx-auto px-4">
-        <Heading size="medium" className="mb-4">
+        <Heading size="medium" className="mb-4 text-center">
           Octalogic Tech Terms of Service
         </Heading>
         <Heading size="small">1. Terms</Heading>

@@ -88,7 +88,7 @@ const MediumHeadingStyles = {
   ...CommonHeadingStyles,
   // fontSize: { xs: "1.8rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
   // lineHeight: { xs: "2rem", sm: "1.7rem", md: "2rem", lg: "2.5rem" },
-  fontSize: "1.8rem",
+  fontSize: "2rem",
   // lineHeight: "1rem",
   // textAlign: "center",
 };
