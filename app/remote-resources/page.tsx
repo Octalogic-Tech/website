@@ -37,11 +37,13 @@ const MobileDevelopment = () => {
           {/* <div className={Styles.left_wrap}> */}
           {/* <div className="flex-0 flex-shrink-0 flex-basis-60%"> */}
           {/* <Paragraph className={Styles.para_1}> */}
-          <Paragraph className="max-w-[46rem]  sm:text-[1.3rem] sm:leading-[1.8rem] sm:mt-0 md:text-4 md:leading-[1.4rem]  lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
-            {`We are a turnkey offshore development company providing custom software development
+          <div className="">
+            <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem]  lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
+              {`We are a turnkey offshore development company providing custom software development
               and remote team services for clients across the globe while ensuring it doesn't cost
               them a fortune.`}
-          </Paragraph>
+            </Paragraph>
+          </div>
           {/* </Paragraph> */}
           {/* </div> */}
           {/* </div> */}
@@ -55,7 +57,7 @@ const MobileDevelopment = () => {
               // fill
               // priority
               // sizes="(min-width: 0px) 100vw"
-              className="h-[300px]  sm:h-[200px] md:h-[180px]  w-full  sm:my-8"
+              className="h-[300px]  sm:h-[200px] md:h-[180px]  w-full  sm:my-8 md:my-0"
             />
           </div>
         </div>
@@ -65,7 +67,7 @@ const MobileDevelopment = () => {
         </Heading>
         {/* </Heading> */}
         {/* <Paragraph className={Styles.para_2}> */}
-        <Paragraph className="sm:text-[1.3rem] sm:leading-[1.8rem] sm:mt-4 md:text-4 md:leading-[1.4rem] lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
+        <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem] lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
           Our clients work directly with us without any middlemen, which is very effective and
           economical
         </Paragraph>

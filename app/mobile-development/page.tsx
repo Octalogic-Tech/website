@@ -37,10 +37,12 @@ const MobileDevelopment = () => {
           {/* <Box className={Styles.left_wrap}> */}
           {/* <div className="flex flex-none flex-shrink-0 w-60 sm:mb-0 xl:mb-[10rem]"> */}
           {/* <Paragraph className={Styles.para_1}> */}
-          <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem] md:mt-[3rem] lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
-            Through design and development we laid the foundation for products that are visually
-            pleasing and have an intuitive user experience.
-          </Paragraph>
+          <div className="">
+            <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem] md:mt-[3rem] lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
+              Through design and development we laid the foundation for products that are visually
+              pleasing and have an intuitive user experience.
+            </Paragraph>
+          </div>
           {/* </div> */}
           {/* <div className={Styles.right_wrap}> */}
           <div className="relative w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
@@ -53,7 +55,7 @@ const MobileDevelopment = () => {
               //   height: "220px",
               //   width: "220px",
               // }}
-              className="h-[300px]  sm:h-[200px]  w-full  sm:my-8"
+              className="h-[300px]  sm:h-[200px]  w-full  sm:my-8 md:my-0"
               // fill
               // priority
               // sizes="(min-width: 0px) 100vw"
