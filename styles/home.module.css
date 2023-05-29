@@ -6,7 +6,9 @@
   top: -6%;
   z-index: -1;
 }
-
+.hover_shadow {
+  box-shadow: "10px 5px 10px 2px #888888";
+}
 .mobile_hero_img {
   width: 55%;
   height: auto;

@@ -1,9 +1,10 @@
 // import Styles from "./footer.module.css";
 
 import Image from "next/image";
-import NextLink from "next/link";
+// import NextLink from "next/link";
+import Link from "next/link";
 
-import Link from "../link/link";
+// import Link from "../link/link";
 
 import { Socials } from "../../constants/socials";
 
@@ -16,7 +17,7 @@ const FooterLink = ({ name, href }: { name: string; href: string }) => {
       {/* <Link href={href} underline="none" color="info.main" className={Styles.link}> */}
       <Link
         href={href}
-        underline="none"
+        // underline="none"
         color="info.main"
         className="text-base font-normal opacity-70 transition-opacity duration-200"
       >
@@ -55,7 +56,7 @@ export function Footer() {
     // </div>
     <div className="w-[60%] mx-auto ">
       <div className="flex justify-center my-5">
-        <NextLink href={"/"}>
+        <Link href={"/"}>
           <Image
             src="/images/logos/octalogic.svg"
             alt="Octalogic logo"
@@ -64,7 +65,7 @@ export function Footer() {
             // className={Styles.logo_img}
             className="cursor-pointer my-5"
           />
-        </NextLink>
+        </Link>
       </div>
       <div className="body flex justify-center gap-10 text-center ">
         <div className="w-[300px]">

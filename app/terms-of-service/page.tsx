@@ -1,11 +1,7 @@
-"use client"
-import Styles from "../../styles/terms-of-service.module.css";
-
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+"use client";
 
 import Head from "../../src/components/head";
-import Link from "../../src/components/link/link";
+import Link from "next/link";
 import HorizontalRule from "../../src/components/horizontal-rule/horizontal-rule";
 import Heading from "../../src/components/heading/heading";
 import Paragraph from "../../src/components/paragraph/paragraph";
@@ -18,28 +14,16 @@ const TermsOfService = () => {
   return (
     <>
       <Head title="Octalogic Tech - Terms of Service" canonicalUrl={siteUrl} />
-      <Box className={Styles.container}>
-        <Heading
-          size="medium"
-          sx={{
-            color: "text.primary",
-          }}
-          className={Styles.heading_1}
-        >
+      <div className="max-w-screen-xl mx-auto px-4">
+        <Heading size="medium" className="mb-4">
           Octalogic Tech Terms of Service
         </Heading>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_1}>
-          1. Terms
-        </Typography>
-        <Paragraph className={Styles.para_1}>
+        <Heading size="small">1. Terms</Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           By accessing the website at{" "}
           <Link
             href="/"
-            sx={{
-              color: "#007bff",
-              ":hover": { color: "#0056b3" },
-            }}
-            className={Styles.link}
+            className="no-underline hover:underline text-[#007bff] hover:text-[#0056b3]"
           >
             https://octalogic.in/
           </Link>
@@ -49,9 +33,9 @@ const TermsOfService = () => {
           accessing this site. The materials contained in this website are protected by applicable
           copyright and trademark law.
         </Paragraph>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_2}>
+        <Heading size="small" className="my-2">
           2. Use License
-        </Typography>
+        </Heading>
         <ol type="a">
           <li>
             Permission is granted to temporarily download one copy of the materials (information or
@@ -82,9 +66,9 @@ const TermsOfService = () => {
             materials in your possession whether in electronic or printed format.
           </li>
         </ol>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_3}>
+        <Heading size="small" className="my-2">
           3. Disclaimer
-        </Typography>
+        </Heading>
         <ol type="a">
           <li>
             The materials on Octalogic Tech&apos;s website are provided on an &apos;as is&apos;
@@ -99,10 +83,10 @@ const TermsOfService = () => {
             otherwise relating to such materials or on any sites linked to this site.
           </li>
         </ol>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_4}>
+        <Heading size="small" className="my-2">
           4. Limitations
-        </Typography>
-        <Paragraph className={Styles.para_2}>
+        </Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           In no event shall Octalogic Tech or its suppliers be liable for any damages (including,
           without limitation, damages for loss of data or profit, or due to business interruption)
           arising out of the use or inability to use the materials on Octalogic Tech&apos;s website,
@@ -111,42 +95,34 @@ const TermsOfService = () => {
           allow limitations on implied warranties, or limitations of liability for consequential or
           incidental damages, these limitations may not apply to you.
         </Paragraph>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_5}>
-          5. Accuracy of materials
-        </Typography>
-        <Paragraph className={Styles.para_3}>
+        <Heading size="small">5. Accuracy of materials</Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           The materials appearing on Octalogic Tech&apos;s website could include technical,
           typographical, or photographic errors. Octalogic Tech does not warrant that any of the
           materials on its website are accurate, complete or current. Octalogic Tech may make
           changes to the materials contained on its website at any time without notice. However
           Octalogic Tech does not make any commitment to update the materials.
         </Paragraph>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_6}>
-          6. Links
-        </Typography>
-        <Paragraph className={Styles.para_4}>
+        <Heading size="small">6. Links</Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           Octalogic Tech has not reviewed all of the sites linked to its website and is not
           responsible for the contents of any such linked site. The inclusion of any link does not
           imply endorsement by Octalogic Tech of the site. Use of any such linked website is at the
           user&apos;s own risk.
         </Paragraph>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_7}>
-          7. Modifications
-        </Typography>
-        <Paragraph className={Styles.para_5}>
+        <Heading size="small">7. Modifications</Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           Octalogic Tech may revise these terms of service for its website at any time without
           notice. By using this website you are agreeing to be bound by the then current version of
           these terms of service.
         </Paragraph>
-        <Typography component="h3" sx={{ color: "text.primary" }} className={Styles.title_8}>
-          8. Governing Law
-        </Typography>
-        <Paragraph className={Styles.para_6}>
+        <Heading size="small">8. Governing Law</Heading>
+        <Paragraph className="text-base leading-6 mb-4 mt-2">
           These terms and conditions are governed by and construed in accordance with the laws of
           Goa and you irrevocably submit to the exclusive jurisdiction of the courts in that State
           or location.
         </Paragraph>
-      </Box>
+      </div>
       <HorizontalRule />
     </>
   );

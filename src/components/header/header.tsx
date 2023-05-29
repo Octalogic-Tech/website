@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import * as React from "react";
 
 import Styles from "./header.module.css";
- 
-import { usePathname } from 'next/navigation';
- 
+
+import { usePathname } from "next/navigation";
+
 import Image from "next/image";
 // import { useRouter } from "next/router";
 // import { useRouter } from "next/navigation";
@@ -42,23 +42,22 @@ const navItems: NavItems[] = [
 ];
 
 function Header() {
-  const pathname=usePathname();
-
+  const pathname = usePathname();
 
   const navLinks = (navigationItems: NavItems[]) => {
     console.log(navigationItems);
-    
+
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
         <Box key={item.linkName} className={Styles.btn_wrap}>
-          <PillButton title={item.linkName} className={Styles.btn} href={"/contact"} />
+          <PillButton title={item.linkName} className="py-1 px-2" href={"/contact"} />
         </Box>
       ) : (
         <Box key={item.linkName} className={Styles.nav_wrap}>
           <Link
             href={item.linkHref}
             underline="none"
-            color={pathname === item.linkHref ? "primary.main" : "info.main"}  
+            color={pathname === item.linkHref ? "primary.main" : "info.main"}
             sx={{
               ":hover": {
                 color: "primary.main",

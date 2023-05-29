@@ -1,9 +1,9 @@
-"use client"
+"use client";
+
 import Styles from "../../styles/remote-resources.module.css";
 
-import Box from "@mui/material/Box";
-
 import Image from "next/image";
+import Box from "@mui/material";
 
 import Head from "../../src/components/head";
 import Heading from "../../src/components/heading/heading";
@@ -22,50 +22,72 @@ const MobileDevelopment = () => {
   return (
     <>
       <Head title="Octalogic Tech - Remote Resources" canonicalUrl={siteUrl} />
-      <Box className={Styles.container}>
-        <Heading size="large" className={Styles.heading_1}>
+      {/* <Box className={Styles.container}> */}
+      <div className="sm:my-4 sm:mx-8 md:my-[4rem] md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21">
+        {/* <Heading size="large" className={Styles.heading_1}> */}
+        <Heading size="large" className="max-w-[86rem] mx-auto mb-4">
           Remote Resources
         </Heading>
-        <Box className={Styles.content_wrap}>
-          <Box className={Styles.left_wrap}>
-            <Paragraph className={Styles.para_1}>
-              {`We are a turnkey offshore development company providing custom software development
+        {/* </Heading> */}
+        {/* <Box className={Styles.content_wrap}> */}
+        <div className="flex max-w-[86rem] mx-auto sm:flex sm:flex-col-reverse md:flex md:flex-row ">
+          {/* <div className={Styles.left_wrap}> */}
+          {/* <div className="flex-0 flex-shrink-0 flex-basis-60%"> */}
+          {/* <Paragraph className={Styles.para_1}> */}
+          <Paragraph className="max-w-[46rem]  sm:text-[1.3rem] sm:leading-[1.8rem] sm:mt-0 md:text-4 md:leading-[1.4rem]  lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
+            {`We are a turnkey offshore development company providing custom software development
               and remote team services for clients across the globe while ensuring it doesn't cost
               them a fortune.`}
-            </Paragraph>
-          </Box>
-          <Box className={Styles.right_wrap}>
+          </Paragraph>
+          {/* </Paragraph> */}
+          {/* </div> */}
+          {/* </div> */}
+          {/* <Box className={Styles.right_wrap}> */}
+          <div className="relative w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
             <Image
               src="/images/remote-resources-hero-image.svg"
               alt="Octalogic Tech"
-              fill
-              priority
-              sizes="(min-width: 0px) 100vw"
+              width={300}
+              height={300}
+              // fill
+              // priority
+              // sizes="(min-width: 0px) 100vw"
+              className="h-[300px]  sm:h-[200px] md:h-[180px]  w-full  sm:my-8"
             />
-          </Box>
-        </Box>
-        <Heading size="medium" className={Styles.heading_2}>
+          </div>
+        </div>
+        {/* <Heading size="medium" className={Styles.heading_2}> */}
+        <Heading size="large" className="max-w-[86rem] mx-auto mb-4 sm:mt-8">
           Areas of Expertise
         </Heading>
-        <Paragraph className={Styles.para_2}>
+        {/* </Heading> */}
+        {/* <Paragraph className={Styles.para_2}> */}
+        <Paragraph className="sm:text-[1.3rem] sm:leading-[1.8rem] sm:mt-4 md:text-4 md:leading-[1.4rem] lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
           Our clients work directly with us without any middlemen, which is very effective and
           economical
         </Paragraph>
-        <Box className={Styles.tech_wrapper}>
+        {/* </Paragraph> */}
+        {/* <Box className={Styles.tech_wrapper}> */}
+        <div className="grid justify-center max-w-screen-xl mx-auto mt-12   md:grid md:grid-cols-3  lg:grid lg:grid-cols-3 ">
           {RemoteServices.map((service) => (
             <RemoteCard key={service.name} details={service} />
           ))}
-        </Box>
-        <Box className={Styles.sec_3}>
-          <Heading size="medium" className={Styles.heading_3}>
+        </div>
+        {/* </Box> */}
+        {/* <Box className={Styles.sec_3}> */}
+        <div className="mt-32">
+          {/* <Heading size="medium" className={Styles.heading_3}> */}
+          <Heading size="medium" className="mb-2 text-center">
             Let&apos;s craft brilliance together!
           </Heading>
-          <Box className={Styles.btn_wrap}>
+          {/* </Heading> */}
+          {/* <Box className={Styles.btn_wrap}> */}
+          <div className="mt-12 text-center">
             <PillButton title={"Get In Touch"} href={"/contact"} />
-          </Box>
-        </Box>
+          </div>
+        </div>
         <HorizontalRule />
-      </Box>
+      </div>
     </>
   );
 };
