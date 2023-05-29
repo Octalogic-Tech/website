@@ -89,7 +89,7 @@ const MobileDevelopment = () => {
         {/* <Box className={Styles.sec_3}> */}
         <div className="mt-[8rem]">
           {/* <Heading size="medium" className={Styles.heading_3}> */}
-          <Heading size="medium" className="mb-[0.5rem] text-center">
+          <Heading size="large" className="mb-[0.5rem] text-center">
             Let&apos;s craft brilliance together!
           </Heading>
           {/* <Box className={Styles.btn_wrap}> */}

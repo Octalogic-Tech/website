@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
     <>
       <Head title="Octalogic Tech - Privacy Policy" canonicalUrl={siteUrl} />
       <div className="max-w-screen-xl mx-auto px-4">
-        <Heading size="medium" className="mb-4 text-center">
+        <Heading size="large" className="mb-4 text-center">
           Privacy Policy
         </Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">

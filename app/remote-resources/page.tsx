@@ -25,7 +25,10 @@ const MobileDevelopment = () => {
       {/* <Box className={Styles.container}> */}
       <div className="sm:my-4 sm:mx-8 md:my-[4rem] md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21">
         {/* <Heading size="large" className={Styles.heading_1}> */}
-        <Heading size="large" className="max-w-[86rem] mx-auto mb-4">
+        <Heading
+          size="large"
+          className="max-w-[86rem] mx-auto mb-4 sm:text-center sm:text-[rem] md:text-left"
+        >
           Remote Resources
         </Heading>
         {/* </Heading> */}
@@ -77,7 +80,7 @@ const MobileDevelopment = () => {
         {/* <Box className={Styles.sec_3}> */}
         <div className="mt-32">
           {/* <Heading size="medium" className={Styles.heading_3}> */}
-          <Heading size="medium" className="mb-2 text-center">
+          <Heading size="large" className="mb-2 text-center">
             Let&apos;s craft brilliance together!
           </Heading>
           {/* </Heading> */}

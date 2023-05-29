@@ -1,7 +1,7 @@
 "use client";
-import Styles from "../../styles/web-development.module.css";
+// import Styles from "../../styles/web-development.module.css";
 
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 
 import Image from "next/image";
 
@@ -27,7 +27,7 @@ const WebDevelopment = () => {
       {/* <Box className={Styles.container}> */}
       <div className="sm:my-[1rem] sm:mx-[2rem] md:my-[4rem] md:mx-[3rem] lg:ml-[7rem] lg:mr-[7rem] xl:mt-[5.25rem] xl:mb-[5.25rem]">
         {/* <Heading size="large" className={Styles.heading_1}> */}
-        <Heading size="large" className="max-w-[86rem] mx-auto ">
+        <Heading size="large" className="max-w-[86rem] mx-auto sm:text-center md:text-left ">
           Web Development
         </Heading>
         {/* <Box className={Styles.content_wrap}> */}
@@ -47,7 +47,7 @@ const WebDevelopment = () => {
           </div>
           {/* </Box> */}
           {/* <Box className={Styles.right_wrap}> */}
-          <div className="  w-[40%] sm:w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
+          <div className="w-[40%] sm:w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
             <Image
               src="/images/web_dev_hero_image.svg"
               alt="Octalogic Tech"
@@ -61,11 +61,14 @@ const WebDevelopment = () => {
           </div>
         </div>
         {/* <Heading size="medium" className={Styles.heading_2}> */}
-        <Heading size="large" className="max-w-[86rem] mx-auto">
+        <Heading
+          size="large"
+          className="max-w-[86rem] mx-auto mt-8 sm:text-center md:text-left sm:mb-4"
+        >
           Technologies We Work With
         </Heading>
         {/* <Paragraph className={Styles.para_3}> */}
-        <Paragraph className="max-w-[86rem] mx-auto mt-[2rem] sm:text-[1.3rem] sm:leading-[2rem] md:text-[1rem] md:leading-[1.7rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[1.4rem] xl:leading-[2rem]  xl:mt-[2rem]">
+        <Paragraph className="max-w-[86rem] mx-auto  sm:text-[1.3rem] sm:leading-[2rem] md:text-[1rem] md:leading-[1.7rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[1.4rem] xl:leading-[2rem]  xl:mt-[2rem]">
           We make ultra-optimized, fast loading web apps that ensure delightful user experience
           across a variety of devices using all the tools at our disposal.
         </Paragraph>
@@ -76,12 +79,9 @@ const WebDevelopment = () => {
           ))}
         </div>
         {/* <Box className={Styles.sec_3}> */}
-        <div className="mt-[8rem]">
+        <div className="mt-32">
           {/* <Heading size="medium" className={Styles.heading_3}> */}
-          <Heading
-            size="medium"
-            className="mb-[0.5rem] text-center sm:text-[1.8rem] sm:leading-[2rem] md:text-[1.7rem] md:leading-[1.7rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[2.5rem] xl:leading-[2.5rem]"
-          >
+          <Heading size="large" className="mb-2 text-center">
             Let&apos;s craft brilliance together!
           </Heading>
           {/* <Box className={Styles.btn_wrap}> */}

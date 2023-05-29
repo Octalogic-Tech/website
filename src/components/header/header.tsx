@@ -1,20 +1,11 @@
 "use client";
 import * as React from "react";
 
-import Styles from "./header.module.css";
-
 import { usePathname } from "next/navigation";
 
 import Image from "next/image";
-// import { useRouter } from "next/router";
-// import { useRouter } from "next/navigation";
-import NextLink from "next/link";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-
-import Link from "../link/link";
+import Link from "next/link";
 import PillButton from "../pill-button/pill-button";
 
 interface NavItems {
@@ -43,82 +34,41 @@ const navItems: NavItems[] = [
 
 function Header() {
   const pathname = usePathname();
-
+  console.log(pathname);
   const navLinks = (navigationItems: NavItems[]) => {
     console.log(navigationItems);
 
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
-        <Box key={item.linkName} className={Styles.btn_wrap}>
+        <div key={item.linkName} className="sm:px-2 md:px-4">
           <PillButton title={item.linkName} className="py-1 px-2" href={"/contact"} />
-        </Box>
+        </div>
       ) : (
-        <Box key={item.linkName} className={Styles.nav_wrap}>
+        <div key={item.linkName} className=" sm:px-2 md:px-4">
           <Link
             href={item.linkHref}
-            underline="none"
-            color={pathname === item.linkHref ? "primary.main" : "info.main"}
-            sx={{
-              ":hover": {
-                color: "primary.main",
-              },
-            }}
-            className={Styles.link}
+            className={`"text-normal text-base font-normal hover:text-[#26A69A] " ${
+              pathname === item.linkHref ? "text-[#26A69A]" : ""
+            }`}
           >
             {item.linkName}
           </Link>
-        </Box>
+        </div>
       );
     });
   };
 
   return (
-    <Box className={Styles.container}>
-      <AppBar position="relative" component="nav" className={Styles.app_bar}>
-        <Toolbar>
-          {/* <IconButton
-            color="info"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Box component="div" className={Styles.logo_wrap}>
-            <NextLink href={"/"} className={Styles.logo_link}>
-              <Image
-                src="/images/logos/octalogic.svg"
-                alt="Octalogic logo"
-                width={60}
-                height={60}
-              />
-            </NextLink>
-          </Box>
-          <Box className={Styles.links_wrap}>{navLinks(navItems)}</Box>
-        </Toolbar>
-      </AppBar>
-      {/* <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box> */}
-    </Box>
+    <div className="mt-8 mx-8">
+      <div className=" flex bg-transparent justify-center  shadow-none sm:h-13 md:h-29 md:px-10">
+        <div className="flex-grow items-center sm:hidden md:block">
+          <Link href={"/"}>
+            <Image src="/images/logos/octalogic.svg" alt="Octalogic logo" width={60} height={60} />
+          </Link>
+        </div>
+        <div className="flex flex-row items-center sm:hidden md:flex">{navLinks(navItems)}</div>
+      </div>
+    </div>
   );
 }
 
