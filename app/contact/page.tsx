@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import Styles from "../../styles/contact.module.css";
+// import Styles from "../../styles/contact.module.css";
 
 // import { SnackbarProvider, useSnackbar } from "notistack";
 
@@ -152,20 +152,20 @@ const Contact = () => {
         <Heading
           size="large"
           // sx={{ color: "primary.main" }}
-          className="mb-2 text-center"
+          className="mb-2 text-center "
         >
           Let&apos;s have a conversation
         </Heading>
         {/* <Paragraph className={Styles.para_1}> */}
-        <Paragraph className="text-sm text-center opacity-80 mb-4 leading-6">
+        <Paragraph className="text-base text-center opacity-80 mb-4 leading-6">
           info@octalogic.in &nbsp; | &nbsp; +91 7030518285
         </Paragraph>
         {/* <Paragraph className={Styles.para_2}> */}
-        <Paragraph className="text-sm text-center opacity-80 mb-4 leading-6">
+        <Paragraph className="text-base text-center opacity-80 mb-4 leading-6">
           3rd Floor, Sunivas Building, Near Taj Vivanta, St. Inez, Goa
         </Paragraph>
         {/* <Paragraph className={Styles.para_3}> */}
-        <Paragraph className="text-sm text-center mb-4 leading-6 opacity-95 mt-6">
+        <Paragraph className="text-base text-center mb-4 leading-6 opacity-95 mt-6">
           Send us a message and we&apos;ll get in touch with you shortly to better understand your
           needs and brainstorm possible solutions.
         </Paragraph>
@@ -266,7 +266,8 @@ const Contact = () => {
           Thank you for contacting us. We&apos;ll get in touch soon
         </Paragraph>
       </div>
-      <div className={Styles.bg}></div>
+      {/* <div className={Styles.bg}></div> */}
+      <div className="w-full bg-url(/images/contact_background.svg) bg-cover bg-no-repeat pt-[calc(100%/2.3)]"></div>
     </>
   );
 };

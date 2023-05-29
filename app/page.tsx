@@ -54,7 +54,7 @@ const Home = () => {
       </div>
       <div>
         <div className="h-80vh w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
-        <Heading size="medium" className="text-center">
+        <Heading size="large" className="text-center">
           What we do
         </Heading>
         <div className=" flex justify-center mt-24 flex-wrap sm:flex sm:gap-8 md:flex md:gap-16 lg:flex lg:gap-8">
@@ -72,7 +72,7 @@ const Home = () => {
           className="h-screen w-full -mt-16 absolute bg-no-repeat bg-cover z-[-1]"
           style={{ backgroundImage: 'url("/images/why-us.svg")' }}
         ></div>
-        <Heading size="medium">Offshore Team Benefits</Heading>
+        <Heading size="large">Offshore Team Benefits</Heading>
         <div className="grid grid-cols-2 gap-12 m-16 w-[80%] lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           {Benefits.map((benefit: IBenefit) => (
             <div key={benefit.title}>
@@ -85,7 +85,7 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-32">
-        <Heading size="medium" className="mb-20 text-center">
+        <Heading size="large" className="mb-20 text-center">
           Let&apos;s craft brilliance together!
         </Heading>
         <div className="mt-12 text-center">
