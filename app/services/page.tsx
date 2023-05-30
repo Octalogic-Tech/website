@@ -32,7 +32,7 @@ const Services = () => {
       <div className="sm:my-4 sm:mx-6 md:ml-4 lg:mx-0 xl:my-21">
         <Heading
           size="large"
-          className="max-w-[86rem]  sm:text-center  md:text-left md:ml-0  lg:ml-44"
+          className="sm:mt-20 max-w-[86rem]  sm:text-center  md:text-left md:ml-0  lg:ml-44"
         >
           The Way We Work
         </Heading>
