@@ -34,10 +34,7 @@ const navItems: NavItems[] = [
 
 function Header() {
   const pathname = usePathname();
-  console.log(pathname);
   const navLinks = (navigationItems: NavItems[]) => {
-    console.log(navigationItems);
-
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
         <div key={item.linkName} className="sm:px-2 md:px-4">

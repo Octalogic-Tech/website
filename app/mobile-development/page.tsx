@@ -32,33 +32,31 @@ const MobileDevelopment = () => {
         >
           Mobile Development
         </Heading>
-        {/* <Box className={Styles.content_wrap}> */}
-        <div className="flex max-w-[86rem] mx-auto sm:flex sm:flex-col-reverse md:flex md:flex-row">
-          {/* <Box className={Styles.left_wrap}> */}
-          {/* <div className="flex flex-none flex-shrink-0 w-60 sm:mb-0 xl:mb-[10rem]"> */}
+
+        <div className="flex max-w-[86rem] mx-auto sm:flex items-center sm:flex-col-reverse md:flex md:flex-row justify-start md:gap-20 ">
+          {/* <div className={Styles.left_wrap}> */}
+          {/* <div className="flex-0 flex-shrink-0 flex-basis-60%"> */}
           {/* <Paragraph className={Styles.para_1}> */}
-          <div className="">
-            <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem] md:mt-[3rem] lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
+          <div className="lg:max-w-[46rem] md:max-w-[20rem]">
+            <Paragraph className="max-w-[46rem] sm:text-[1.4rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem]  lg:text-[1.8rem] lg:leading-8 xl:text-[1.3rem]">
               Through design and development we laid the foundation for products that are visually
               pleasing and have an intuitive user experience.
             </Paragraph>
           </div>
+          {/* </Paragraph> */}
           {/* </div> */}
-          {/* <div className={Styles.right_wrap}> */}
-          <div className="relative w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
+          {/* </div> */}
+          {/* <Box className={Styles.right_wrap}> */}
+          <div className="sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
             <Image
               src="/images/mobile-dev-hero-image.svg"
               alt="Octalogic Tech"
-              width={200}
-              height={200}
-              // style={{
-              //   height: "220px",
-              //   width: "220px",
-              // }}
-              className="h-[300px]  sm:h-[200px]  w-full  sm:my-8 md:my-0"
+              width={300}
+              height={300}
               // fill
               // priority
               // sizes="(min-width: 0px) 100vw"
+              className="h-[300px]  sm:h-[200px] md:h-[180px] sm:my-8 md:my-0"
             />
           </div>
         </div>
