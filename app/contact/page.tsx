@@ -41,16 +41,16 @@ function ContactPage() {
     <div>
       <Head title="Octalogic Tech - Contact" canonicalUrl={siteUrl} />
       <TurnstileWidget widgetId="contactFormWidget" />
-      <Heading size="large" className="mb-2 mt-16 text-center ">
+      <Heading size="large" className="mb-4 mt-16 text-center ">
         Let&apos;s have a conversation
       </Heading>
-      <Paragraph className="text-base text-center opacity-80 mb-4 leading-6">
+      <Paragraph className="text-xl text-center opacity-80 mb-4 leading-6">
         info@octalogic.in &nbsp; | &nbsp; +91 7030518285
       </Paragraph>
-      <Paragraph className="text-base text-center opacity-80 mb-4 leading-6">
+      <Paragraph className="text-xl text-center opacity-80 mb-4 leading-6">
         3rd Floor, Sunivas Building, Near Taj Vivanta, St. Inez, Goa
       </Paragraph>
-      <Paragraph className="w-[60%] text-center text-base mx-auto mb-4 leading-6 opacity-95 mt-6">
+      <Paragraph className="w-3/5 text-center text-base mx-auto mb-4 leading-6 opacity-95 mt-6">
         Send us a message and we&apos;ll get in touch with you shortly to better understand your
         needs and brainstorm possible solutions.
       </Paragraph>
@@ -58,7 +58,7 @@ function ContactPage() {
         <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-8 mt-12">
             <input
-              className="shadow appearance-none border rounded w-full py-[0.65rem] px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
               id="name"
               type="text"
               placeholder="Name"
@@ -70,7 +70,7 @@ function ContactPage() {
           </div>
           <div className="mb-8">
             <input
-              className="shadow appearance-none border rounded w-full py-[0.65rem] px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
               id="email"
               type="email"
               placeholder="Email"
@@ -82,7 +82,7 @@ function ContactPage() {
           </div>
           <div className="mb-12">
             <input
-              className="shadow appearance-none border rounded w-full py-[0.65rem] px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500"
               id="phone"
               type="text"
               placeholder="Phone Number"

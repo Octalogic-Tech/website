@@ -19,38 +19,38 @@ const WebDevelopment = () => {
   return (
     <>
       <Head title="Octalogic Tech - Web Development" canonicalUrl={siteUrl} />
-      <div className="sm:my-[1rem] sm:mx-[2rem] md:my-[4rem] md:mx-[3rem] lg:ml-[7rem] lg:mr-[7rem] xl:mt-[5.25rem] xl:mb-[5.25rem]">
-        <Heading size="large" className="max-w-[86rem] mx-auto sm:text-center md:text-left ">
+      <div className="sm:my-4 sm:mx-8 md:my-16 md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21">
+        <Heading size="large" className="max-w-7xl mx-auto sm:text-center md:text-left ">
           Web Development
         </Heading>
         <div className="flex sm:flex sm:flex-col-reverse md:flex md:flex-row ">
-          <div className="flex flex-col w-[60%] sm:mb-0 xl:mb-[3rem] sm:w-full">
-            <Paragraph className="max-w-[46rem] sm:text-[1.3rem] sm:leading-[1.8rem] sm:mt-0 md:text-[1rem] md:leading-[1.4rem] md:mt-[3rem] lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
+          <div className="flex flex-col w-3/5 sm:mb-0 xl:mb-12 sm:w-full">
+            <Paragraph className="max-w-3xl sm:mt-0 md:mt-12 sm:text-xl md:text-base  lg:text-2xl">
               Working alongside our mobile app team gives us the added benefit of creating seamless
               mobile-first experiences and delivering fully-featured web apps.
             </Paragraph>
-            <Paragraph className="max-w-[46rem] sm:text-[1.3rem] sm:w-full sm:leading-[1.8rem] sm:mt-[1rem] md:text-[1rem] md:leading-[1.4rem] md:mt-[3rem] lg:text-[1.8rem] lg:leading-[1.5rem] xl:text-[1.4rem]">
+            <Paragraph className="max-w-3xl sm:w-full sm:mt-4 md:mt-12 sm:text-xl md:text-base lg:text-2xl ">
               We’re experienced in both front-end and backend infrastructure and offer comprehensive
               solutions to fit the needs of our clients.
             </Paragraph>
           </div>
-          <div className="w-[40%] sm:w-full sm:mb-0  md:pt-0 lg:mb-[2rem] xl:mb-0 flex justify-center">
+          <div className="w-2/5 sm:w-full sm:mb-0  md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
             <Image
               src="/images/web_dev_hero_image.svg"
               alt="Octalogic Tech"
               width={100}
               height={100}
-              className="h-[300px]  sm:h-[200px]  w-full  sm:my-8"
+              className="h-60  sm:h-52  w-full  sm:my-8"
             />
           </div>
         </div>
         <Heading
           size="large"
-          className="max-w-[86rem] mx-auto mt-8 sm:text-center md:text-left sm:mb-4"
+          className="max-w-7xl mx-auto mt-8 sm:text-center md:text-left sm:mb-4"
         >
           Technologies We Work With
         </Heading>
-        <Paragraph className="max-w-[86rem] mx-auto  sm:text-[1.3rem] sm:leading-[2rem] md:text-[1rem] md:leading-[1.7rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[1.4rem] xl:leading-[2rem]  xl:mt-[2rem]">
+        <Paragraph className="max-w-7xl mx-auto  sm:text-xl md:text-base  lg:text-2xl">
           We make ultra-optimized, fast loading web apps that ensure delightful user experience
           across a variety of devices using all the tools at our disposal.
         </Paragraph>

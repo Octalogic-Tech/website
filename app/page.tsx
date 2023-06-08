@@ -53,7 +53,7 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <div className="h-80vh w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
+        <div className="w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
         <Heading size="large" className="text-center">
           What we do
         </Heading>
@@ -67,7 +67,7 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-32 flex flex-col items-center">
-        <div className="h-80vh w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
+        <div className="w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
         <div
           className="h-screen w-full -mt-16 absolute bg-no-repeat bg-cover z-[-1]"
           style={{ backgroundImage: 'url("/images/why-us.svg")' }}
