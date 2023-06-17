@@ -74,7 +74,8 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
   const { name, iconUrl, link } = details;
   return (
     <div
-      className="flex flex-row items-center sm:flex-col p-6 transition duration-300 ease-in-out transform hover:border-opacity-0 hover:shadow-lg hover:rounded-md space-y-6 "
+      className="flex flex-row items-center sm:flex-col p-6 transition duration-300 ease-in-out
+       transform hover:border-opacity-0 hover:shadow-lg hover:rounded-md space-y-6 "
       style={
         {
           // width: "200px",
@@ -98,12 +99,6 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
           width={100}
           height={100}
           className="object-contain"
-          style={
-            {
-              // height: "400px",
-              // width: "400px",
-            }
-          }
         />
       </div>
       <div className="flex justify-center items-center text-center mx-4">

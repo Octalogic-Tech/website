@@ -18,7 +18,7 @@ const TermsOfService = () => {
         <Heading size="large" className="mb-4 text-center">
           Octalogic Tech Terms of Service
         </Heading>
-        <Heading size="large">1. Terms</Heading>
+        <Heading size="small">1. Terms</Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
           By accessing the website at{" "}
           <Link
@@ -33,7 +33,7 @@ const TermsOfService = () => {
           accessing this site. The materials contained in this website are protected by applicable
           copyright and trademark law.
         </Paragraph>
-        <Heading size="large" className="my-2">
+        <Heading size="small" className="my-2">
           2. Use License
         </Heading>
         <ol type="a">
@@ -66,7 +66,7 @@ const TermsOfService = () => {
             materials in your possession whether in electronic or printed format.
           </li>
         </ol>
-        <Heading size="large" className="my-2">
+        <Heading size="small" className="my-2">
           3. Disclaimer
         </Heading>
         <ol type="a">
@@ -83,7 +83,7 @@ const TermsOfService = () => {
             otherwise relating to such materials or on any sites linked to this site.
           </li>
         </ol>
-        <Heading size="large" className="my-2">
+        <Heading size="small" className="my-2">
           4. Limitations
         </Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
@@ -95,7 +95,7 @@ const TermsOfService = () => {
           allow limitations on implied warranties, or limitations of liability for consequential or
           incidental damages, these limitations may not apply to you.
         </Paragraph>
-        <Heading size="large">5. Accuracy of materials</Heading>
+        <Heading size="small">5. Accuracy of materials</Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
           The materials appearing on Octalogic Tech&apos;s website could include technical,
           typographical, or photographic errors. Octalogic Tech does not warrant that any of the
@@ -103,20 +103,20 @@ const TermsOfService = () => {
           changes to the materials contained on its website at any time without notice. However
           Octalogic Tech does not make any commitment to update the materials.
         </Paragraph>
-        <Heading size="large">6. Links</Heading>
+        <Heading size="small">6. Links</Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
           Octalogic Tech has not reviewed all of the sites linked to its website and is not
           responsible for the contents of any such linked site. The inclusion of any link does not
           imply endorsement by Octalogic Tech of the site. Use of any such linked website is at the
           user&apos;s own risk.
         </Paragraph>
-        <Heading size="large">7. Modifications</Heading>
+        <Heading size="small">7. Modifications</Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
           Octalogic Tech may revise these terms of service for its website at any time without
           notice. By using this website you are agreeing to be bound by the then current version of
           these terms of service.
         </Paragraph>
-        <Heading size="large">8. Governing Law</Heading>
+        <Heading size="small">8. Governing Law</Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
           These terms and conditions are governed by and construed in accordance with the laws of
           Goa and you irrevocably submit to the exclusive jurisdiction of the courts in that State

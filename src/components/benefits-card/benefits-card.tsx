@@ -86,9 +86,7 @@ export function BenefitsCard(props: BenefitsCardProps) {
   return (
     <div
       className="h-full flex p-5 align-center sm:flex-col md:flex-row  hover:!shadow-xl hover:!shadow-slate-400"
-      // {...otherProps}
       style={{
-        // boxShadow: "2px 3px 3px 0px #888888",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         transition: "box-shadow 0.5s",
         alignItems: "center",
@@ -99,8 +97,6 @@ export function BenefitsCard(props: BenefitsCardProps) {
           src={details.illustration}
           alt="Octalogic Tech Remote Resources"
           className="sm:mb-4 h-full"
-          // height={100}
-          // width={100}
         />
       </div>
       <div className={Styles.cardContent}>

@@ -109,7 +109,7 @@ const ServiceCard = (props: ServiceCardProps) => {
 
   return (
     <div
-      className={`sm:w-[83.333%]  md:max-w-[33.333%]  lg:max-w-[22.14%]  hover:!shadow-xl hover:!shadow-slate-400`}
+      className={`sm:w-5/6  md:max-w-2/6  lg:max-w-[22.14%]  hover:!shadow-xl hover:!shadow-slate-400`}
       style={{
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         transition: "box-shadow 0.5s",
@@ -120,7 +120,7 @@ const ServiceCard = (props: ServiceCardProps) => {
           <Image
             src={details.illustration}
             alt="Octalogic Tech Remote Resources"
-            className="w-full h-[14rem]"
+            className="w-full h-56"
           />
         </div>
         <div className="p-8">

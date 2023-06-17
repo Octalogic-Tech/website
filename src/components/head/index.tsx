@@ -35,7 +35,7 @@ const Head = ({
       noindex={!isLive}
       nofollow={!isLive}
       description={description}
-      canonical={canonicalUrl.replace(/\/$/, "")} // remove slash at the end
+      canonical={canonicalUrl.replace(/\/$/, "")}
       twitter={{
         handle: "@OctalogicTech",
         site: "@OctalogicTech",
