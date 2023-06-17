@@ -13,8 +13,15 @@ import { ICloufdlareVerifyResponse, IFormData } from "../../../interfaces";
 import * as vars from "../../../config/vars";
 import { formatData } from "../../../utils/utils";
 
+import * as emailHelpers from "../../../helpers/email";
+
 import { PreconditionFailedException } from "../../../exceptions/preconditionFailed";
 import { FailedDependencyException } from "../../../exceptions/failedDependency";
+
+import * as templates from "./template";
+
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 class ContactHandler {
   verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {
@@ -64,15 +71,38 @@ class ContactHandler {
     return true;
   };
 
+  respondWithEmail = async (formData: IFormData): Promise<boolean> => {
+    // send an email to the person that tried to get in touch
+    await Promise.allSettled([
+      emailHelpers.sendEmail({
+        from: "contactus@updates.octalogic.in",
+        to: formData.email,
+        subject: "Thank you for reaching out!",
+        body: templates.userTemplate(formData.name),
+      }),
+      emailHelpers.sendEmail({
+        from: "contactus@updates.octalogic.in",
+        to: vars.notificationEmail,
+        subject: "Website Contact Us Request",
+        body: templates.adminTemplate(formData),
+      }),
+    ]);
+
+    return true;
+  };
+
   @HttpCode(201)
   @Post()
   async contact(@Body(ValidationPipe) contactBody: ContactDTO) {
     const { turnstileToken, ...formData } = contactBody;
     const isVerified: boolean = await this.verifyTurnstileToken(turnstileToken);
-    if (isVerified) await this.sendToSlack(formData);
+    if (isVerified)
+      await Promise.allSettled([this.respondWithEmail(formData), this.sendToSlack(formData)]);
 
     return {
-      message: isVerified ? "Successfully logged your request" : "Unable to log your request",
+      message: isVerified
+        ? "Thank you. We'll be in touch with you shortly"
+        : "Unable to log your request",
     };
   }
 }

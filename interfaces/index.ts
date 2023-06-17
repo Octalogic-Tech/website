@@ -43,3 +43,10 @@ export interface ICloufdlareVerifyResponse {
   action: string;
   cdata: string;
 }
+
+export interface IEmailPayload {
+  from: string;
+  to: string;
+  subject: string;
+  body: string;
+}
