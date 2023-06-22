@@ -29,8 +29,7 @@ function ContactPage() {
         body: JSON.stringify(data),
       });
 
-      const responseData = await response.json();
-      console.log(responseData);
+      await response.json();
     } catch (error) {
       console.error(error);
     }

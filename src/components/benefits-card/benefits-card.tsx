@@ -81,7 +81,7 @@ export interface BenefitsCardProps {
 }
 
 export function BenefitsCard(props: BenefitsCardProps) {
-  const { details, ...otherProps } = props;
+  const { details } = props;
 
   return (
     <div
