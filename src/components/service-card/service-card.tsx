@@ -14,7 +14,7 @@
 
 // import EastSharp from "@mui/icons-material/East";
 
-// import { IService } from "../../interfaces";
+// import { IService } from "@/interfaces";
 
 // export interface ServiceCardProps {
 //   sx?: SxProps;
@@ -90,7 +90,7 @@ import React from "react";
 import Styles from "./service-card.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import rightArrow from "../../../public/images/right-arrow.png";
+import rightArrow from "public/images/right-arrow.png";
 
 export interface IService {
   illustration: string;

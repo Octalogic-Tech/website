@@ -1,4 +1,4 @@
-import { IFormData } from "../interfaces";
+import { IFormData } from "@/interfaces";
 
 export const formatData = (data: IFormData) => {
   const formattedData = Object.keys(data).map((key) => {

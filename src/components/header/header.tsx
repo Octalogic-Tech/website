@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 import Link from "next/link";
-import PillButton from "../pill-button/pill-button";
+import PillButton from "@/components/pill-button/pill-button";
 
 interface NavItems {
   linkName: string;

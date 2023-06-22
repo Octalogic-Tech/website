@@ -1,12 +1,10 @@
-"use client";
-
-import Head from "../../src/components/head";
+import Head from "@/components/head";
 import Link from "next/link";
-import HorizontalRule from "../../src/components/horizontal-rule/horizontal-rule";
-import Heading from "../../src/components/heading/heading";
-import Paragraph from "../../src/components/paragraph/paragraph";
+import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
+import Heading from "@/components/heading/heading";
+import Paragraph from "@/components/paragraph/paragraph";
 
-import { host } from "../../src/config/vars";
+import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/privacy-policy`;
 

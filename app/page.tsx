@@ -1,22 +1,20 @@
-"use client";
-
 import Image from "next/image";
 
 import HeroImage from "/public/images/hero_image.svg";
 import MobileHeroImage from "/public/images/hero_image_mobile.svg";
 
-import HorizontalRule from "../src/components/horizontal-rule/horizontal-rule";
-import PillButton from "../src/components/pill-button/pill-button";
-import ServiceCard from "../src/components/service-card/service-card";
-import BenefitsCard from "../src/components/benefits-card/benefits-card";
-import Head from "../src/components/head";
-import Heading from "../src/components/heading/heading";
-import Paragraph from "../src/components/paragraph/paragraph";
+import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
+import PillButton from "@/components/pill-button/pill-button";
+import ServiceCard from "@/components/service-card/service-card";
+import BenefitsCard from "@/components/benefits-card/benefits-card";
+import Head from "@/components/head";
+import Heading from "@/components/heading/heading";
+import Paragraph from "@/components/paragraph/paragraph";
 
-import { Services } from "../src/constants/services";
-import { Benefits } from "../src/constants/benefits";
+import { Services } from "@/constants/services";
+import { Benefits } from "@/constants/benefits";
 
-import { IBenefit, IService } from "../src/interfaces";
+import { IBenefit, IService } from "@/interfaces";
 
 const Home = () => {
   return (

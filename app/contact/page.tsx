@@ -2,12 +2,12 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import Head from "../../src/components/head";
-import PillButton from "../../src/components/pill-button/pill-button";
-import Paragraph from "../../src/components/paragraph/paragraph";
-// import * as vars from "../../src/config/vars";
-import Heading from "../../src/components/heading/heading";
-import TurnstileWidget from "../../src/components/turnstile-widget/turnstile-widget";
+import Head from "@/components/head";
+import PillButton from "@/components/pill-button/pill-button";
+import Paragraph from "@/components/paragraph/paragraph";
+// import * as vars from "@/config/vars";
+import Heading from "@/components/heading/heading";
+import TurnstileWidget from "@/components/turnstile-widget/turnstile-widget";
 
 const siteUrl = `https://localhost:3000/api/contact`;
 

@@ -1,5 +1,5 @@
 import Script from "next/script";
-import * as vars from "../../config/vars";
+import * as vars from "@/config/vars";
 
 export function TurnstileWidget({ widgetId }: { widgetId: string }) {
   return (

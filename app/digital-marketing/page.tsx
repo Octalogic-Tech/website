@@ -1,17 +1,15 @@
-"use client";
-
 import Image from "next/image";
 
-import Head from "../../src/components/head";
-import Heading from "../../src/components/heading/heading";
-import HorizontalRule from "../../src/components/horizontal-rule/horizontal-rule";
-import Paragraph from "../../src/components/paragraph/paragraph";
-import PillButton from "../../src/components/pill-button/pill-button";
-import TechCard from "../../src/components/tech-card/tech-card";
+import Head from "@/components/head";
+import Heading from "@/components/heading/heading";
+import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
+import Paragraph from "@/components/paragraph/paragraph";
+import PillButton from "@/components/pill-button/pill-button";
+import TechCard from "@/components/tech-card/tech-card";
 
-import { DigitalTechnologies } from "../../src/constants/technologies";
+import { DigitalTechnologies } from "@/constants/technologies";
 
-import { host } from "../../src/config/vars";
+import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/digital-marketing`;
 

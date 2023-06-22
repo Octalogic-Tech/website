@@ -7,14 +7,14 @@ import {
   ValidationPipe,
 } from "next-api-decorators";
 
-import { ContactDTO } from "../../../dto/contact.dto";
-import { ICloufdlareVerifyResponse, IFormData } from "../../../interfaces";
+import { ContactDTO } from "@/dto/contact.dto";
+import { ICloufdlareVerifyResponse, IFormData } from "@/interfaces";
 
-import * as vars from "../../../config/vars";
-import { formatData } from "../../../utils/utils";
+import * as vars from "@/config/vars";
+import { formatData } from "@/utils/utils";
 
-import { PreconditionFailedException } from "../../../exceptions/preconditionFailed";
-import { FailedDependencyException } from "../../../exceptions/failedDependency";
+import { PreconditionFailedException } from "@/exceptions/preconditionFailed";
+import { FailedDependencyException } from "@/exceptions/failedDependency";
 
 class ContactHandler {
   verifyTurnstileToken = async (turnstileToken: string): Promise<boolean> => {

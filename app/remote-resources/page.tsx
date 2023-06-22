@@ -1,17 +1,15 @@
-"use client";
-
 import Image from "next/image";
 
-import Head from "../../src/components/head";
-import Heading from "../../src/components/heading/heading";
-import HorizontalRule from "../../src/components/horizontal-rule/horizontal-rule";
-import Paragraph from "../../src/components/paragraph/paragraph";
-import PillButton from "../../src/components/pill-button/pill-button";
-import RemoteCard from "../../src/components/remote-card/remote-card";
+import Head from "@//components/head";
+import Heading from "@//components/heading/heading";
+import HorizontalRule from "@//components/horizontal-rule/horizontal-rule";
+import Paragraph from "@//components/paragraph/paragraph";
+import PillButton from "@//components/pill-button/pill-button";
+import RemoteCard from "@//components/remote-card/remote-card";
 
-import { RemoteServices } from "../../src/constants/technologies";
+import { RemoteServices } from "@//constants/technologies";
 
-import { host } from "../../src/config/vars";
+import { host } from "@//config/vars";
 
 const siteUrl = `https://${host}/remote-resources`;
 

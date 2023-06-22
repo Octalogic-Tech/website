@@ -1,14 +1,12 @@
-"use client";
-
 import Image from "next/image";
 
-import Head from "../../src/components/head";
-import PillButton from "../../src/components/pill-button/pill-button";
-import HorizontalRule from "../../src/components/horizontal-rule/horizontal-rule";
-import Heading from "../../src/components/heading/heading";
-import Paragraph from "../../src/components/paragraph/paragraph";
+import Head from "@/components/head";
+import PillButton from "@/components/pill-button/pill-button";
+import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
+import Heading from "@/components/heading/heading";
+import Paragraph from "@/components/paragraph/paragraph";
 
-import { host } from "../../src/config/vars";
+import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/about`;
 

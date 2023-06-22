@@ -3,7 +3,7 @@
 
 // import Image from "next/image";
 
-// import { IRemote } from "../../interfaces";
+// import { IRemote } from "@/interfaces";
 
 // export const RemoteCard = ({ details }: { details: IRemote }) => {
 //   const { name, imageUrl } = details;
@@ -66,7 +66,7 @@
 
 import Image from "next/image";
 
-import { IRemote } from "../../interfaces";
+import { IRemote } from "@/interfaces";
 
 export const RemoteCard = ({ details }: { details: IRemote }) => {
   const { name, imageUrl } = details;

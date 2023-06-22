@@ -2,7 +2,7 @@
 
 // import Image from "next/image";
 
-// import { ITechnology } from "../../interfaces";
+// import { ITechnology } from "@/interfaces";
 
 // export const TechCard = ({ details }: { details: ITechnology }) => {
 //   const { name, iconUrl, link } = details;
@@ -68,7 +68,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ITechnology } from "../../interfaces";
+import { ITechnology } from "@/interfaces";
 
 export const TechCard = ({ details }: { details: ITechnology }) => {
   const { name, iconUrl, link } = details;

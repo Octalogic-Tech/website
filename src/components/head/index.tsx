@@ -1,3 +1,5 @@
+"use client";
+
 import {
   NextSeo,
   LogoJsonLd,
@@ -7,7 +9,7 @@ import {
 } from "next-seo";
 import NextHeader from "next/head";
 
-import { host, isLive } from "../../config/vars";
+import { host, isLive } from "@/config/vars";
 
 const siteUrl = `https://${host}`;
 
