@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unassigned-import
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/header/header";
