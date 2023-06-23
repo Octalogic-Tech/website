@@ -1,4 +1,4 @@
-.container {
+/* .container {
   margin: 0 auto;
 }
 
@@ -58,12 +58,12 @@
   padding-top: calc(100% / 2.3);
   background-image: url("/images/contact_background.svg");
   background-repeat: no-repeat;
-}
+} */
 
 /*** Media Queries ***/
 
 /* xs */
-@media screen and (min-width: 0px) {
+/* @media screen and (min-width: 0px) {
   .container {
     max-width: 22rem;
   }
@@ -77,10 +77,10 @@
   .form {
     max-width: 20rem;
   }
-}
+} */
 
 /* sm */
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .container {
     max-width: 40rem;
   }
@@ -93,14 +93,14 @@
   .form {
     max-width: 26rem;
   }
-}
+} */
 
 /* md */
-@media screen and (min-width: 900px) {
-}
+/* @media screen and (min-width: 900px) {
+} */
 
 /* lg */
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .container {
     max-width: 64rem;
   }
@@ -114,4 +114,4 @@
   .form {
     max-width: 40rem;
   }
-}
+} */

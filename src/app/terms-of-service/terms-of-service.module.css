@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 71.25rem;
   margin: 0 auto;
   padding: 0 1rem;
@@ -10,14 +10,23 @@
   margin-bottom: 1rem;
 }
 
+.title_1,
+.title_2,
+.title_3,
+.title_4,
+.title_5,
+.title_6,
+.title_7,
+.title_8 {
+  font-size: 1.75rem;
+}
+
 .para_1,
 .para_2,
 .para_3,
 .para_4,
 .para_5,
-.para_6,
-.para_7,
-.para_8 {
+.para_6 {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -30,4 +39,4 @@
 
 .link:hover {
   text-decoration: underline;
-}
+} */

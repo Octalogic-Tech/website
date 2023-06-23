@@ -29,7 +29,7 @@ body {
   /* font-family: 'Tsukimi Rounded', sans-serif; */
   /* color: red; */
   /* font-family: 'Comfortaa', cursive; */
-  background-image: url(../public/images/background.webp);
+  background-image: url(../../public/images/background.webp);
   color: #000000;
 }
 .heading {

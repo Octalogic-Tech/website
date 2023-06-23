@@ -1,4 +1,4 @@
-.heading_1,
+/* .heading_1,
 .heading_2,
 .para_2 {
   max-width: 86rem;
@@ -50,12 +50,12 @@
 .btn_wrap {
   margin-top: 3rem;
   text-align: center;
-}
+} */
 
 /*** Media Queries ***/
 
 /* xs */
-@media screen and (min-width: 0px) {
+/* @media screen and (min-width: 0px) {
   .container {
     margin: 1rem 2rem;
   }
@@ -88,10 +88,10 @@
   .tech_wrapper {
     grid-template-columns: repeat(2, minmax(10rem, 1fr));
   }
-}
+} */
 
 /* sm */
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .container {
     margin: 4rem 3rem;
   }
@@ -115,10 +115,10 @@
   .tech_wrapper {
     grid-template-columns: repeat(3, minmax(11rem, 1fr));
   }
-}
+} */
 
 /* md */
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   .container {
     margin-left: 7rem;
     margin-right: 7rem;
@@ -127,17 +127,17 @@
   .right_wrap {
     margin-bottom: 2rem;
   }
-}
+} */
 
 /* lg */
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .container {
     margin-top: 5.25rem;
     margin-bottom: 5.25rem;
   }
 
   .left_wrap {
-    margin-bottom: 6rem;
+    margin-bottom: 10rem;
   }
 
   .right_wrap {
@@ -151,4 +151,4 @@
   .tech_wrapper {
     grid-template-columns: repeat(6, minmax(11rem, 1fr));
   }
-}
+} */
