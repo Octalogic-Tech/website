@@ -84,7 +84,7 @@ const jsonLd = {
       ],
       contactPoint: [
         {
-          telephone: "+919096302367",
+          telephone: "+919209301230",
           contactType: "technical and finance support",
           email: "carlton@octalogic.in",
           areaServed: ["Dubai", "India"],
@@ -105,7 +105,7 @@ const jsonLd = {
           availableLanguage: ["English", "Hindi", "Konkani"],
         },
         {
-          telephone: "+919923358164",
+          telephone: "+918830669189",
           contactType: "technical support",
           email: "jude@octalogic.in",
           areaServed: ["US", "Dubai", "Asia"],
