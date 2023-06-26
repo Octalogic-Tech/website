@@ -16,7 +16,6 @@ const commonCspDirectives = [
   "base-uri 'none'",
   `form-action *.facebook.com connect.facebook.net *.snapchat.com ${process.env.NEXT_PUBLIC_HOST}`,
   "media-src 'self'",
-  "prefetch-src 'self' https://www.google.com https://www.gstatic.com",
   "worker-src 'self' blob:",
   "style-src 'self' www.googletagmanager.com tagmanager.google.com checkout.stripe.com fonts.googleapis.com tagmanager.google.com https://optimize.google.com 'unsafe-inline'",
   `frame-src 'self' https://www.google.com https://www.youtube.com vars.hotjar.com www.googletagmanager.com https://optimize.google.com *.stripe.com *.stripe.network maps.google.com maps.googleapis.com maps.google.com *.facebook.com connect.facebook.net *.snapchat.com challenges.cloudflare.com`,

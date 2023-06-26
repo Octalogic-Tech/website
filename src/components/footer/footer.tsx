@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Socials } from "../../constants/socials";
+import { Socials } from "@/constants/socials";
 
-import { ISocial } from "../../interfaces";
+import { ISocial } from "@/interfaces";
 
 const FooterLink = ({ name, href }: { name: string; href: string }) => {
   return (

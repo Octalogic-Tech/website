@@ -10,7 +10,7 @@
 
 // import Image from "next/image";
 
-// import { IBenefit } from "../../interfaces";
+// import { IBenefit } from "@/interfaces";
 
 // export interface BenefitsCardProps {
 //   sx?: SxProps;
@@ -73,7 +73,7 @@ import Styles from "./benefits-card.module.css";
 
 import Image from "next/image";
 
-import { IBenefit } from "../../interfaces";
+import { IBenefit } from "@/interfaces";
 
 export interface BenefitsCardProps {
   details: IBenefit;
@@ -81,7 +81,7 @@ export interface BenefitsCardProps {
 }
 
 export function BenefitsCard(props: BenefitsCardProps) {
-  const { details, ...otherProps } = props;
+  const { details } = props;
 
   return (
     <div

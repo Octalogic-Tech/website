@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import Link from "../link/link";
+import Link from "next/link";
 
 interface LinkWrapperProps {
   condition: string | undefined;
@@ -10,17 +10,14 @@ interface LinkWrapperProps {
 const ConditionalLinkWrapper = ({ condition, wrapper, children }: LinkWrapperProps) =>
   condition ? wrapper(children) : children;
 
+/* Renders a pill button and if it has an href, then is wrapped in a Link */
 export function PillButton(props: any) {
   const { title, href, ...otherProps } = props;
 
   return (
     <ConditionalLinkWrapper
       condition={href}
-      wrapper={(children: ReactElement) => (
-        <Link href={href as string} passHref style={{ textDecoration: "none" }}>
-          {children}
-        </Link>
-      )}
+      wrapper={(children: ReactElement) => <Link href={href}>{children}</Link>}
     >
       <button
         {...otherProps}
