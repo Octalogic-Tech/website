@@ -111,11 +111,11 @@
     margin-top: 3rem;
     text-align: center;
   } */
-  
-  /*** Media Queries ***/
-  
-  /* xs */
-  /* @media screen and (min-width: 0px) {
+
+/*** Media Queries ***/
+
+/* xs */
+/* @media screen and (min-width: 0px) {
     .hero_img {
       display: none;
     }
@@ -157,9 +157,9 @@
       margin-top: 6.625rem;
     }
   } */
-  
-  /* sm */
-  /* @media screen and (min-width: 600px) {
+
+/* sm */
+/* @media screen and (min-width: 600px) {
     .hero_img {
       display: block;
     }
@@ -198,9 +198,9 @@
       margin-top: -5.375rem;
     }
   } */
-  
-  /* md */
-  /* @media screen and (min-width: 900px) {
+
+/* md */
+/* @media screen and (min-width: 900px) {
     .para_1 {
       max-width: 38vw;
     }
@@ -214,9 +214,9 @@
       flex: 0 0 22.14%;
     }
   } */
-  
-  /* lg */
-  /* @media screen and (min-width: 1200px) {
+
+/* lg */
+/* @media screen and (min-width: 1200px) {
     .content_wrapper {
       padding-left: 6rem;
       padding-top: 5rem;
@@ -230,4 +230,3 @@
       margin-top: 4rem;
     }
   } */
-  
