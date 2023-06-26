@@ -1,4 +1,4 @@
-.card_action_area {
+/* .card_action_area {
   cursor: pointer !important;
 }
 
@@ -39,31 +39,31 @@
 
 .icon_btn {
   margin: 0 0.5rem;
-}
+} */
 
 /*** Media Queries ***/
 
 /* xs */
-@media screen and (min-width: 0px) {
+/* @media screen and (min-width: 0px) {
   .img_wrap {
     height: 68.6vw;
   }
-}
+} */
 
 /* sm */
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .img_wrap {
     height: 25.6vw;
   }
-}
+} */
 
 /* md */
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   .img_wrap {
     height: 17.6vw;
   }
-}
+} */
 
 /* lg */
-@media screen and (min-width: 1200px) {
-}
+/* @media screen and (min-width: 1200px) {
+} */

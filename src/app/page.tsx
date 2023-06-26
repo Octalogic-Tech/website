@@ -7,7 +7,7 @@ import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
 import PillButton from "@/components/pill-button/pill-button";
 import ServiceCard from "@/components/service-card/service-card";
 import BenefitsCard from "@/components/benefits-card/benefits-card";
-import Head from "@/components/head";
+// import Head from "@/components/head";
 import Heading from "@/components/heading/heading";
 import Paragraph from "@/components/paragraph/paragraph";
 
@@ -19,7 +19,7 @@ import { IBenefit, IService } from "@/interfaces";
 const Home = () => {
   return (
     <>
-      <Head />
+      {/* <Head /> */}
       <div className="min-h-[48vw] mb-16 relative w-full text-right">
         <Image
           alt="Hero image"

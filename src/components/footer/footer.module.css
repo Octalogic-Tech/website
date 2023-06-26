@@ -1,4 +1,4 @@
-.container {
+/* .container {
   text-align: center;
   padding: 0.25rem;
 }
@@ -71,30 +71,30 @@
   color: var(--text-main-color);
   padding-bottom: 0.5rem;
   line-height: 0.8rem;
-}
+} */
 
 /*** Media Queries ***/
 
 /* xs */
-@media screen and (min-width: 0px) {
+/* @media screen and (min-width: 0px) {
   .container {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
-}
+} */
 
 /* sm */
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .container {
     flex: 0 0 16.666667%;
     max-width: 16.666667%;
   }
-}
+} */
 
 /* md */
-@media screen and (min-width: 900px) {
-}
+/* @media screen and (min-width: 900px) {
+} */
 
 /* lg */
-@media screen and (min-width: 1200px) {
-}
+/* @media screen and (min-width: 1200px) {
+} */

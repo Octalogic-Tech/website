@@ -22,7 +22,7 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Tsukimi+Rounded:wght@300;400&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"); */
 
 body {
   /* font-family: 'Poppins', sans-serif; */
@@ -36,7 +36,7 @@ body {
   margin: 0;
   /* font-family: '__Comfortaa_42be05','__Comfortaa_Fallback_42be05',cursive,sans-serif; */
   /* font-family: cursive,sans-serif; */
-  font-family: "Comfortaa", cursive;
+  /* font-family: "Comfortaa", cursive; */
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;

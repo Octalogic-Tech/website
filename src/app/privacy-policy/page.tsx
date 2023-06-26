@@ -1,5 +1,6 @@
-import Head from "@/components/head";
+import { Metadata } from "next";
 import Link from "next/link";
+
 import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
 import Heading from "@/components/heading/heading";
 import Paragraph from "@/components/paragraph/paragraph";
@@ -8,10 +9,14 @@ import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/privacy-policy`;
 
+export const metadata: Metadata = {
+  title: "Octalogic Tech - Privacy Policy",
+  alternates: { canonical: siteUrl },
+};
+
 const PrivacyPolicy = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Privacy Policy" canonicalUrl={siteUrl} />
       <div className="max-w-screen-xl mx-auto px-4">
         <Heading size="large" className="mb-4 text-center">
           Privacy Policy

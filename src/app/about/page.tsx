@@ -1,6 +1,6 @@
+import { Metadata } from "next";
 import Image from "next/image";
 
-import Head from "@/components/head";
 import PillButton from "@/components/pill-button/pill-button";
 import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
 import Heading from "@/components/heading/heading";
@@ -10,10 +10,14 @@ import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/about`;
 
+export const metadata: Metadata = {
+  title: "Octalogic Tech - Who We Are",
+  alternates: { canonical: siteUrl },
+};
+
 const About = () => {
   return (
     <>
-      <Head title="Octalogic Tech - Who We Are" canonicalUrl={siteUrl} />
       <div className="sm:mx-4 sm:my-8 md:mx-16 md:my-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21">
         <Heading size="large" className="max-w-7xl mx-auto sm:text-center md:text-left ">
           We Innovate To Make A Difference

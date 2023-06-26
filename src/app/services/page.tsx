@@ -1,34 +1,26 @@
-"use client";
-
-import { useRef } from "react";
-
+import { Metadata } from "next";
 import Image from "next/image";
 
-import Head from "@/components/head";
 import Heading from "@/components/heading/heading";
 import Paragraph from "@/components/paragraph/paragraph";
 import PillButton from "@/components/pill-button/pill-button";
 import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
+import ScrollDownButton from "@/components/scroll-down-button/scroll-down-button";
 
 import { host } from "@/config/vars";
 
 const siteUrl = `https://${host}/services`;
 
-const Services = () => {
-  const aboutSection = useRef<any>(null);
+export const metadata: Metadata = {
+  title: "Octalogic Tech - Services",
+  alternates: { canonical: siteUrl },
+};
 
-  const scrollDown = () => {
-    if (aboutSection.current) {
-      window.scrollTo({
-        top: aboutSection.current.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
+const Services = () => {
+  const scrollToSectionId = "services-section";
 
   return (
     <>
-      <Head title="Octalogic Tech - Services" canonicalUrl={siteUrl} />
       <div className="sm:my-4 sm:mx-4 md:ml-4 lg:mx-0 xl:my-21">
         <Heading
           size="large"
@@ -44,7 +36,7 @@ const Services = () => {
               successful product.
             </Paragraph>
             <div className="mt-12 sm:text-center md:text-left ">
-              <PillButton title={"Know More"} onClick={() => scrollDown()} />
+              <ScrollDownButton sectionId={scrollToSectionId} />
             </div>
           </div>
           <div className="w-1/3 sm:w-full sm:mb-0  md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
@@ -59,7 +51,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="sm:my-16 sm:mx-8 md:m-16  xl:mt-21 xl:mb-21">
+      <div id={scrollToSectionId} className="sm:my-16 sm:mx-8 md:m-16  xl:mt-21 xl:mb-21">
         <Heading size="large" className="max-w-7xl text-center my-12 sm:mt-8 md:mt-0">
           Our Services
         </Heading>
