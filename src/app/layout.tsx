@@ -30,17 +30,11 @@ const description =
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    // LogoJsonLd structured data
-    {
-      "@type": "Organization",
-      url: siteUrl,
-      logo: `${siteUrl}/images/logos/O-Only.png`,
-    },
-    // SocialProfileJsonLd structured data
     {
       "@type": "Organization",
       name: "Octalogic Tech",
       url: siteUrl,
+      logo: `${siteUrl}/images/logos/O-Only.png`,
       sameAs: [
         "https://www.instagram.com/octalogic.tech",
         "https://twitter.com/octalogictech",
@@ -49,7 +43,6 @@ const jsonLd = {
         "https://in.linkedin.com/company/octalogic",
       ],
     },
-    // OrganizationJsonLd and LocalBusinessJsonLd structured data
     {
       "@type": "LocalBusiness",
       "@id": siteUrl,
