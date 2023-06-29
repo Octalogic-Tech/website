@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import PillButton from "@/components/pill-button/pill-button";
+import MobileMenuDrawer from "@/components/mobile-menu-drawer/mobile-menu-drawer";
 
 interface NavItems {
   linkName: string;
@@ -62,6 +63,7 @@ function Header() {
           </Link>
         </div>
         <div className="flex flex-row items-center sm:hidden md:flex">{navLinks(navItems)}</div>
+        <MobileMenuDrawer />
       </div>
     </div>
   );
