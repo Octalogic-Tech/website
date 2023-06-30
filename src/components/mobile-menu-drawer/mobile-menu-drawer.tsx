@@ -1,51 +1,60 @@
-import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-// import MobileMenuButton from "@/components/mobile-menu-button/mobile-menu-button";
+import Link from "next/link";
+import Image from "next/image";
+import { Home, Info, Settings, Mail } from "lucide-react";
+
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
+import MobileMenuButton from "@/components/mobile-menu-button/mobile-menu-button";
+import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
 
 export default function MobileMenuDrawer() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        {/* <MobileMenuButton /> */}
-        <Button variant="outline">Open</Button>
+        <MobileMenuButton />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="w-[300px]">
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            {"Make changes to your profile here. Click save when you're done."}
-          </SheetDescription>
+          <div className="flex flex-col justify-center items-center my-[20px]">
+            <Image src="/images/logos/octalogic.svg" alt="Octalogic logo" width={80} height={80} />
+            <HorizontalRule />
+          </div>
         </SheetHeader>
-        {/* <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div> */}
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
+        <nav className="mt-[20px]">
+          <ul>
+            <li className="mb-[16px]">
+              <SheetClose asChild>
+                <Link href="/" className="flex items-center gap-[24px] w-full py-[10px]">
+                  <Home color="white" fill="#26A69A" className="h-8 w-8" />
+                  <span>Home</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="mb-[16px]">
+              <SheetClose asChild>
+                <Link href="/about" className="flex items-center gap-[24px] w-full py-[10px]">
+                  <Info color="white" fill="#26A69A" className="h-8 w-8" />
+                  <span>About</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="mb-[16px]">
+              <SheetClose asChild>
+                <Link href="/services" className="flex items-center gap-[24px] w-full py-[10px]">
+                  <Settings color="white" fill="#26A69A" className="h-8 w-8" />
+                  <span>Services</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="mb-[16px]">
+              <SheetClose asChild>
+                <Link href="/contact" className="flex items-center gap-[24px] w-full py-[10px]">
+                  <Mail color="white" fill="#26A69A" className="h-8 w-8" />
+                  <span>Contact</span>
+                </Link>
+              </SheetClose>
+            </li>
+          </ul>
+        </nav>
       </SheetContent>
     </Sheet>
   );
