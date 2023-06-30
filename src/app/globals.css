@@ -1,79 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --primary-main-color: #26a69a;
-  --primary-dark-color: #65d7cc4d;
-
-  --secondary-main-color: #ff62a7;
-
-  --text-main-color: #212529;
-  --text-dark-color: #6c757d;
-  --text-light-color: #a8a8a8;
-  --text-contrast-color: #ffffff;
-
-  --link-primary-color: #007bff;
-  --link-secondary-color: #0056b3;
-
-  --black: #000000;
-  --white: #ffffff;
-}
-
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Tsukimi+Rounded:wght@300;400&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
-/* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"); */
-
-body {
-  /* font-family: 'Poppins', sans-serif; */
-  /* font-family: 'Tsukimi Rounded', sans-serif; */
-  /* color: red; */
-  /* font-family: 'Comfortaa', cursive; */
-  background-image: url(../../public/images/background.webp);
-  color: #000000;
-}
-.heading {
-  margin: 0;
-  /* font-family: '__Comfortaa_42be05','__Comfortaa_Fallback_42be05',cursive,sans-serif; */
-  /* font-family: cursive,sans-serif; */
-  /* font-family: "Comfortaa", cursive; */
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  /* color: red; */
-  /* font-weight: 400; */
-}
-
-/* Button click effect */
-.ripple {
-  background-color: pink;
-  width: 1rem;
-  height: 1rem;
-  position: absolute;
-  border-radius: 50%;
-  transform: translateX(-100%) translateY(-100%);
-  mix-blend-mode: screen;
-  animation: ripple 1250ms ease-out forwards, fade 1500ms ease-out forwards;
-}
-
-@keyframes ripple {
-  0% {
-    transform: translate(-100%, -100%);
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 215 20.2% 65.1%;
+ 
+    --radius: 0.5rem;
   }
-  80% {
-    transform: translate(-100%, -100%) scale(50);
-  }
-  100% {
-    transform: translate(-100%, -100%) scale(50);
-    opacity: 0;
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+ 
+    --ring: 217.2 32.6% 17.5%;
   }
 }
-
-@keyframes fade {
-  0% {
-    opacity: 1;
+ 
+@layer base {
+  * {
+    @apply border-border;
   }
-  100% {
-    opacity: 0;
+  body {
+    @apply bg-background text-foreground;
   }
 }

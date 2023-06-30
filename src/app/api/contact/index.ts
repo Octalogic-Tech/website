@@ -11,7 +11,7 @@ import { ContactDTO } from "@/dto/contact.dto";
 import { ICloufdlareVerifyResponse, IFormData } from "@/interfaces";
 
 import * as vars from "@/config/vars";
-import { formatData } from "@/utils/utils";
+import { formatData } from "@/lib/utils";
 
 import { PreconditionFailedException } from "@/exceptions/preconditionFailed";
 import { FailedDependencyException } from "@/exceptions/failedDependency";

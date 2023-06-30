@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
@@ -155,6 +156,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header></Header>
         {children}
         <Footer></Footer>
+        <Analytics />
       </body>
     </html>
   );

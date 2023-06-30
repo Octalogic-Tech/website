@@ -21,7 +21,7 @@ export function PillButton(props: any) {
     >
       <button
         {...otherProps}
-        className="bg-[#FF62A7] text-white text-base rounded-3xl py-3 px-6 bg-secondary hover:bg-secondary hover:shadow-md"
+        className="bg-[#FF62A7] text-white text-base rounded-3xl py-3 px-6 hover:shadow-md"
       >
         {title}
       </button>
