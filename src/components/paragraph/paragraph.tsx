@@ -44,7 +44,7 @@ interface ParagraphProps {
 const Paragraph = (props: ParagraphProps) => {
   const { children, className } = props;
 
-  return <p className={`text-2xl leading-7 ${className}`}>{children}</p>;
+  return <p className={`text-1xl md:text-2xl leading-7 text-[#212529] ${className}`}>{children}</p>;
 };
 
 export default Paragraph;

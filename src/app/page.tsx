@@ -27,7 +27,7 @@ const Home = () => {
           priority
           quality={100}
           sizes="100vw"
-          className="w-54 h-auto md:w-7/12 absolute right-0 top-neg-6 z-[-1] sm:hidden md:block"
+          className="w-[54%] h-auto absolute right-0 top-neg-6 z-[-1] hidden sm:block"
         />
         <Image
           alt="Hero image"
@@ -35,17 +35,17 @@ const Home = () => {
           priority
           quality={100}
           sizes="100vw"
-          className="w-55 h-auto absolute right-0 top-0 z-[-1] sm:block md:hidden"
+          className="w-[35%] h-auto absolute right-0 top-0 z-[-1] block sm:hidden"
         />
-        <div className="text-left sm:pl-8 sm:pt-0 md:pl-16 md:pt-12 xl:pl-24 xl:pt-20">
-          <Heading size="large" className="sm:max-w-[68vw] md:max-w-[52vw]">
+        <div className="text-left pl-[2rem] pt-0 md:pl-16 md:pt-12 xl:pl-24 xl:pt-20">
+          <Heading size="large" className="max-w-[68vw] md:max-w-[52vw]">
             Converting ideas to solutions
           </Heading>
-          <Paragraph className="mt-6 sm:max-w-[49vw] md:max-v-[30vw] lg:max-w-[38vw] xl:max-w-[30vw]">
+          <Paragraph className="mt-4 max-w-[49vw] md:max-v-[30vw] lg:max-w-[38vw] xl:max-w-[30vw]">
             Got a startup idea? Let us turn it into a solution! We provide offshore development &
             technological resources to turn an idea into reality
           </Paragraph>
-          <div className="sm:mt-8 xl:mt-16">
+          <div className="mt-4 xl:mt-16">
             <PillButton title={"GET STARTED"} href={"/contact"} />
           </div>
         </div>
@@ -55,7 +55,7 @@ const Home = () => {
         <Heading size="large" className="text-center">
           What we do
         </Heading>
-        <div className=" flex justify-center mt-24 flex-wrap sm:flex sm:gap-8 md:flex md:gap-16 lg:flex lg:gap-8">
+        <div className="flex justify-center mt-24 flex-wrap gap-x-8 gap-y-24 md:gap-x-16 lg:gap-x-8 lg:gap-y-8">
           {Services.map((service: IService) => (
             <ServiceCard key={service.title} details={service} />
           ))}
@@ -70,8 +70,10 @@ const Home = () => {
           className="h-screen w-full -mt-16 absolute bg-no-repeat bg-cover z-[-1]"
           style={{ backgroundImage: 'url("/images/why-us.svg")' }}
         ></div>
-        <Heading size="large">Offshore Team Benefits</Heading>
-        <div className="grid grid-cols-2 gap-12 m-16 w-[80%] lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+        <Heading size="large" className="text-center">
+          Offshore Team Benefits
+        </Heading>
+        <div className="grid grid-cols-2 gap-12 m-16 w-[80%] sm:grid-cols-2 grid-cols-1">
           {Benefits.map((benefit: IBenefit) => (
             <div key={benefit.title}>
               <BenefitsCard details={benefit} />
