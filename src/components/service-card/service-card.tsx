@@ -87,10 +87,10 @@
 // export default ServiceCard;
 
 import React from "react";
-// import Styles from "./service-card.module.css";
+import Styles from "./service-card.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import rightArrow from "public/images/right-arrow.png";
+import { MoveRight } from "lucide-react";
 
 export interface IService {
   illustration: string;
@@ -109,24 +109,22 @@ const ServiceCard = (props: ServiceCardProps) => {
 
   return (
     <div
-      className={`sm:w-5/6  md:max-w-2/6  lg:max-w-[22.14%]  hover:!shadow-xl hover:!shadow-slate-400`}
-      style={{
-        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        transition: "box-shadow 0.5s",
-      }}
+      className={`max-w-[83.333%] sm:max-w-[33.333%] lg:max-w-[22.14%] bg-[#fff] ${Styles.service_card} flex items-end justify-center`}
     >
       <Link href={details.actionLink} className="">
-        <div className={""}>
+        <div className="pt-[0.75rem] px-[1.25rem] mt-[-3rem] h-56">
           <Image
             src={details.illustration}
             alt="Octalogic Tech Remote Resources"
-            className="w-full h-56"
+            className="w-full h-full"
           />
         </div>
-        <div className="p-8">
-          <h3 className="text-xl font-semibold leading-6 my-1 text-center">{details.title}</h3>
-          <p className="py-4 opacity-80 leading-5 text-center ">{details.desc}</p>
-          <Image src={rightArrow} alt="arrow" width={30} className="float-right py-4" />
+        <div className="p-[1.25rem]">
+          <h3 className="text-2xl font-semibold leading-6 my-1 text-center">{details.title}</h3>
+          <p className="py-4 opacity-80 leading-5 text-center text-[#212529]">{details.desc}</p>
+          <div className="flex justify-end">
+            <MoveRight color="#26A69A" />
+          </div>
         </div>
       </Link>
     </div>
