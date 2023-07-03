@@ -1,21 +1,22 @@
 import React from "react";
 
 const Heading = ({ size, children, className }: any) => {
-  let headingSize;
+  let dynamicStyles;
 
   switch (size) {
     case "large":
-      headingSize = "text-2xl md:text-3xl lg:text-3xl";
+      dynamicStyles =
+        "text-[28px] sm:text-[35px] lg:text-[40px] xl:text-[48px] leading-[2rem] sm:leading-[2.5rem] lg:leading-[3.5rem]";
       break;
     case "small":
-      headingSize = "text-xl md:text-2xl lg:text-2xl";
+      dynamicStyles = "text-xl md:text-2xl lg:text-2xl";
       break;
     default:
-      headingSize = "text-3xl";
+      dynamicStyles = "text-3xl";
       break;
   }
 
-  return <h1 className={`font-semibold ${headingSize} ${className}`}>{children}</h1>;
+  return <h1 className={`font-semibold text-black ${dynamicStyles} ${className}`}>{children}</h1>;
 };
 
 export default Heading;

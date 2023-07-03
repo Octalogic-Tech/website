@@ -7,7 +7,6 @@ import HorizontalRule from "@/components/horizontal-rule/horizontal-rule";
 import PillButton from "@/components/pill-button/pill-button";
 import ServiceCard from "@/components/service-card/service-card";
 import BenefitsCard from "@/components/benefits-card/benefits-card";
-// import Head from "@/components/head";
 import Heading from "@/components/heading/heading";
 import Paragraph from "@/components/paragraph/paragraph";
 
@@ -19,15 +18,14 @@ import { IBenefit, IService } from "@/interfaces";
 const Home = () => {
   return (
     <>
-      {/* <Head /> */}
-      <div className="min-h-[48vw] mb-16 relative w-full text-right">
+      <div className="min-h-[48vw] mb-16 relative w-full text-right overflow-x-clip">
         <Image
           alt="Hero image"
           src={HeroImage}
           priority
           quality={100}
           sizes="100vw"
-          className="w-[54%] h-auto absolute right-0 top-neg-6 z-[-1] hidden sm:block"
+          className="w-[54%] h-auto absolute right-[-1px] top-neg-6 z-[-1] hidden sm:block"
         />
         <Image
           alt="Hero image"
@@ -35,23 +33,23 @@ const Home = () => {
           priority
           quality={100}
           sizes="100vw"
-          className="w-[35%] h-auto absolute right-0 top-0 z-[-1] block sm:hidden"
+          className="w-[34%] h-auto absolute right-[-1px] top-[10%] z-[-1] block sm:hidden"
         />
         <div className="text-left pl-[2rem] pt-0 md:pl-16 md:pt-12 xl:pl-24 xl:pt-20">
           <Heading size="large" className="max-w-[68vw] md:max-w-[52vw]">
             Converting ideas to solutions
           </Heading>
-          <Paragraph className="mt-4 max-w-[49vw] md:max-v-[30vw] lg:max-w-[38vw] xl:max-w-[30vw]">
+          <Paragraph className="mt-[1.5rem] max-w-[40vw] md:max-v-[30vw] lg:max-w-[38vw] xl:max-w-[30vw]">
             Got a startup idea? Let us turn it into a solution! We provide offshore development &
             technological resources to turn an idea into reality
           </Paragraph>
-          <div className="mt-4 xl:mt-16">
+          <div className="mt-10 xl:mt-16">
             <PillButton title={"GET STARTED"} href={"/contact"} />
           </div>
         </div>
       </div>
-      <div>
-        <div className="w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
+      <div className="relative">
+        <div className="w-full h-[80vh] absolute bg-no-repeat bg-left left-[-1.875rem] top-0 z-[-1]  bg-[url('/images/planet-1.svg')]"></div>
         <Heading size="large" className="text-center">
           What we do
         </Heading>
@@ -64,8 +62,8 @@ const Home = () => {
           <PillButton title={"VIEW MORE"} href={"/services"} />
         </div>
       </div>
-      <div className="mt-32 flex flex-col items-center">
-        <div className="w-full absolute bg-no-repeat bg-left -left-6 top-0 z-[-1]  bg-url(/images/planet-1.svg)"></div>
+      <div className="mt-32 flex flex-col items-center relative">
+        <div className="w-full h-[80vh] absolute bg-no-repeat bg-left left-[-1.875rem] top-0 z-[-1] bg-[url('/images/planet-1.svg')]"></div>
         <div
           className="h-screen w-full -mt-16 absolute bg-no-repeat bg-cover z-[-1]"
           style={{ backgroundImage: 'url("/images/why-us.svg")' }}
@@ -73,19 +71,17 @@ const Home = () => {
         <Heading size="large" className="text-center">
           Offshore Team Benefits
         </Heading>
-        <div className="grid grid-cols-2 gap-12 m-16 w-[80%] sm:grid-cols-2 grid-cols-1">
+        <div className="flex flex-wrap w-full max-w-[84%] mt-[3rem]">
           {Benefits.map((benefit: IBenefit) => (
-            <div key={benefit.title}>
-              <BenefitsCard details={benefit} />
-            </div>
+            <BenefitsCard key={benefit.title} details={benefit} />
           ))}
         </div>
         <div className="w-full z-[-10]">
-          <div className="h-40vh w-full absolute bg-no-repeat bg-right z-[-6] bg-url(/images/planet-2.svg)"></div>
+          <div className="h-[40vh] w-full bottom-[-4rem] absolute bg-no-repeat bg-right z-[-6] bg-[url('/images/planet-2.svg')]"></div>
         </div>
       </div>
       <div className="mt-32">
-        <Heading size="large" className="mb-20 text-center">
+        <Heading size="large" className="mb-[4rem] text-center">
           Let&apos;s craft brilliance together!
         </Heading>
         <div className="mt-12 text-center">
