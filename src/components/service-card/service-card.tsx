@@ -120,7 +120,9 @@ const ServiceCard = (props: ServiceCardProps) => {
           />
         </div>
         <div className="p-[1.25rem]">
-          <h3 className="text-2xl font-semibold leading-6 my-1 text-center">{details.title}</h3>
+          <h3 className="text-2xl font-semibold leading-6 my-1 text-center text-black">
+            {details.title}
+          </h3>
           <p className="py-4 opacity-80 leading-5 text-center text-[#212529]">{details.desc}</p>
           <div className="flex justify-end">
             <MoveRight color="#26A69A" />

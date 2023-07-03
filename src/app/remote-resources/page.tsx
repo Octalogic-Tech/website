@@ -20,39 +20,36 @@ export const metadata: Metadata = {
 
 const RemoteResources = () => {
   return (
-    <div className="sm:my-4 sm:mx-8 md:my-[4rem] md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21">
-      <Heading
-        size="large"
-        className="max-w-7xl mx-auto mb-8 sm:text-center sm:text-2xl md:text-left"
-      >
+    <div className="my-4 mx-8 md:my-[4rem] md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21 max-w-[86rem]">
+      <Heading size="large" className="mx-auto mb-8 text-center md:text-left">
         Remote Resources
       </Heading>
-      <div className="flex max-w-7xl mx-auto sm:flex sm:flex-col-reverse md:flex md:flex-row justify-start md:gap-20 ">
-        <div className="lg:max-w-3xl md:max-w-80">
-          <Paragraph className="max-w-3xl sm:text-xl sm:mt-0 md:text-base lg:text-2xl">
+      <div className="flex mx-auto flex-col-reverse md:flex-row justify-start md:gap-20 ">
+        <div>
+          <Paragraph className="mt-0 text-[20px]">
             {`We are a turnkey offshore development company providing custom software development
               and remote team services for clients across the globe while ensuring it doesn't cost
               them a fortune.`}
           </Paragraph>
         </div>
-        <div className="sm:mb-0  md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
+        <div className="mb-0 md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
           <Image
             src="/images/remote-resources-hero-image.svg"
             alt="Octalogic Tech"
             width={300}
             height={300}
-            className="h-60  sm:h-52 sm:my-8 md:my-0"
+            className="h-60 my-8 md:my-0"
           />
         </div>
       </div>
-      <Heading size="large" className="max-w-7xl mx-auto mb-4 sm:mt-8">
+      <Heading size="large" className="mx-auto mb-4 mt-8">
         Areas of Expertise
       </Heading>
-      <Paragraph className="max-w-3xl sm:text-xl sm:mt-0 md:text-base lg:text-2xl ">
+      <Paragraph className="text-[20px] mt-0">
         Our clients work directly with us without any middlemen, which is very effective and
         economical
       </Paragraph>
-      <div className="grid justify-center max-w-screen-xl mx-auto mt-12   md:grid md:grid-cols-3  lg:grid lg:grid-cols-3 ">
+      <div className="grid justify-center mx-auto mt-12 md:grid md:grid-cols-3 lg:grid lg:grid-cols-3 ">
         {RemoteServices.map((service) => (
           <RemoteCard key={service.name} details={service} />
         ))}

@@ -1,12 +1,9 @@
-.img_wrap {
-  position: relative;
-}
-
 .title {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.8rem;
   margin: 0.25rem;
+  overflow-wrap: break-word;
 }
 
 .desc {
@@ -15,27 +12,29 @@
   line-height: 1.3rem;
 }
 
+.benefits_card {
+  box-shadow: 0.062rem 0.312rem 0.625rem rgb(46 61 73 / 30%);
+  transition: box-shadow 0.2s;
+}
+
+.benefits_card:hover {
+  box-shadow: 0.062rem 1.25rem 1.562rem -0.312rem rgb(46 61 73 / 20%);
+
+}
+
 /*** Media Queries ***/
 
 /* xs */
 @media screen and (min-width: 0px) {
-  .img_wrap {
-    flex: 0 0 30%;
-    padding-top: 100%;
-  }
   .card_content {
-    padding: 1rem;
+    padding: 0 1rem;
   }
 }
 
 /* sm */
 @media screen and (min-width: 600px) {
-  .img_wrap {
-    padding-top: 0;
-  }
-
   .card_content {
-    padding: 2rem;
+    padding: 0 2rem;
   }
 }
 
@@ -45,7 +44,4 @@
 
 /* lg */
 @media screen and (min-width: 1200px) {
-  .img_wrap {
-    flex: 0 0 21.1%;
-  }
 }

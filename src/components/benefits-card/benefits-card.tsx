@@ -68,11 +68,8 @@
 // export default BenefitsCard;
 
 import * as React from "react";
-
 import Styles from "./benefits-card.module.css";
-
 import Image from "next/image";
-
 import { IBenefit } from "@/interfaces";
 
 export interface BenefitsCardProps {
@@ -84,24 +81,17 @@ export function BenefitsCard(props: BenefitsCardProps) {
   const { details } = props;
 
   return (
-    <div
-      className="h-full flex p-5 align-center sm:flex-col md:flex-row  hover:!shadow-xl hover:!shadow-slate-400"
-      style={{
-        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        transition: "box-shadow 0.5s",
-        alignItems: "center",
-      }}
-    >
-      <div className="pr-5 ">
-        <Image
-          src={details.illustration}
-          alt="Octalogic Tech Remote Resources"
-          className="sm:mb-4 h-full"
-        />
-      </div>
-      <div className={Styles.cardContent}>
-        <h3 className={`${Styles.title} ${Styles.infoColor}`}>{details.title}</h3>
-        <p className={Styles.desc}>{details.desc}</p>
+    <div className="p-5 w-full lg:basis-[50%]">
+      <div
+        className={`h-full bg-white rounded flex gap-[2rem] items-center flex-col sm:flex-row p-[1.5rem] ${Styles.benefits_card}`}
+      >
+        <div className="basis-auto">
+          <Image src={details.illustration} alt="Octalogic Tech Remote Resources" className="" />
+        </div>
+        <div className="basis-[80%] w-full">
+          <h3 className={`${Styles.title} text-black`}>{details.title}</h3>
+          <p className={`${Styles.desc} text-[#212529]`}>{details.desc}</p>
+        </div>
       </div>
     </div>
   );

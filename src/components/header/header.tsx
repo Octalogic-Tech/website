@@ -44,7 +44,7 @@ function Header() {
           <Link
             href={item.linkHref}
             className={`"text-normal text-base font-normal hover:text-[#26A69A] " ${
-              pathname === item.linkHref ? "text-[#26A69A]" : ""
+              pathname === item.linkHref ? "text-[#26A69A]" : "text-[#212529]"
             }`}
           >
             {item.linkName}

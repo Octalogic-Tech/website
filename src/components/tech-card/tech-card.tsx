@@ -69,28 +69,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ITechnology } from "@/interfaces";
+import Styles from "./tech-card.module.css";
 
 export const TechCard = ({ details }: { details: ITechnology }) => {
   const { name, iconUrl, link } = details;
   return (
     <div
-      className="flex flex-row items-center sm:flex-col p-6 transition duration-300 ease-in-out
-       transform hover:border-opacity-0 hover:shadow-lg hover:rounded-md space-y-6 "
-      style={
-        {
-          // width: "200px",
-          // height: "200px",
-        }
-      }
+      className={`flex items-center flex-col py-[1.5rem] px-[1rem] transition duration-300 ease-in-out
+       transform hover:rounded-md gap-[1.5rem] bg-white ${Styles.tech_card}`}
     >
       <div
         className=""
         style={{
-          // background: "red",
-          // width: "100%",
-          // height: "100%",
           justifyContent: "center",
           display: "flex",
+          width: "112px",
+          height: "112px",
         }}
       >
         <Image
@@ -106,7 +100,7 @@ export const TechCard = ({ details }: { details: ITechnology }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-gray-700 uppercase font-medium text-lg no-underline"
+          className="uppercase font-medium text-[20px] no-underline text-[#212529]"
         >
           {name.toUpperCase()}
         </Link>
