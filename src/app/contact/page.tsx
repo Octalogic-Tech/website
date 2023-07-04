@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 
-import Paragraph from "@/components/paragraph/paragraph";
 import Heading from "@/components/heading/heading";
 import { ContactForm } from "@/components/contact-form/contact-form";
 
@@ -18,19 +17,19 @@ export const metadata: Metadata = {
 function ContactPage() {
   return (
     <div>
-      <Heading size="large" className="mb-4 mt-16 text-center ">
+      <Heading size="large" className="mb-4 mt-[4.25rem] text-center text-[#26a69a]">
         Let&apos;s have a conversation
       </Heading>
-      <Paragraph className="text-xl text-center opacity-80 mb-4 leading-6">
+      <p className="text-[16px] text-center opacity-80 mb-4 leading-6 text-[#212529]">
         info@octalogic.in &nbsp; | &nbsp; +91 7030518285
-      </Paragraph>
-      <Paragraph className="text-xl text-center opacity-80 mb-4 leading-6">
+      </p>
+      <p className="text-[16px] text-center opacity-80 mb-4 leading-6 text-[#212529]">
         3rd Floor, Sunivas Building, Near Taj Vivanta, St. Inez, Goa
-      </Paragraph>
-      <Paragraph className="w-3/5 text-center text-base mx-auto mb-4 leading-6 opacity-95 mt-6">
+      </p>
+      <p className="w-3/5 text-[16px] text-center text-base mx-auto mb-4 leading-6 opacity-95 mt-6 text-[#212529]">
         Send us a message and we&apos;ll get in touch with you shortly to better understand your
         needs and brainstorm possible solutions.
-      </Paragraph>
+      </p>
       <ContactForm apiUrl={apiUrl} />
       <div className="w-full pt-[43.478%] bg-no-repeat bg-cover bg-center bg-[url('/images/contact_background.svg')]"></div>
     </div>
