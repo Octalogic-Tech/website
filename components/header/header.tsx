@@ -32,6 +32,10 @@ const navItems: NavItems[] = [
     linkHref: "/services",
   },
   {
+    linkName: "Blog",
+    linkHref: "https://blog.octalogic.in",
+  },
+  {
     linkName: "Let's Talk",
     linkHref: "/contact",
   },

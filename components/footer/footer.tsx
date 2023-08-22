@@ -69,7 +69,8 @@ export function Footer() {
         </Box>
         <Box className={Styles.links_wrap}>
           <FooterLink name={"Terms of Service"} href={"terms-of-service"} />
-          <FooterLink name={"Services"} href={"services"} />
+          {/* <FooterLink name={"Services"} href={"services"} /> */}
+          <FooterLink name={"Blog"} href={"https://blog.octalogic.in"} />
           <FooterLink name={"Mobile Dev"} href={"mobile-development"} />
         </Box>
       </Box>
