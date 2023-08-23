@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const WebDevelopment = () => {
   return (
     <div className="flex flex-col items-center">
-      <div className="my-4 mx-[1rem] md:my-16 md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21 max-w-[86rem]">
+      <div className="my-4 mx-[1rem] md:my-16 md:mx-12 lg:ml-28 lg:mr-28 mt-8 sm:mt-0 xl:mt-21 xl:mb-21 max-w-[86rem]">
         <Heading size="large" className="mx-auto text-center md:text-left ">
           Web Development
         </Heading>
@@ -46,7 +46,7 @@ const WebDevelopment = () => {
             />
           </div>
         </div>
-        <Heading size="large" className="mx-auto mt-8 text-center md:text-left mb-4">
+        <Heading size="large" className="mx-auto mt-16 lg:mt-12 text-center md:text-left mb-4">
           Technologies We Work With
         </Heading>
         <Paragraph className="mx-auto text-xl md:text-base lg:text-2xl">

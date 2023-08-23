@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const MobileDevelopment = () => {
   return (
     <div className="flex flex-col items-center">
-      <div className="my-4 mx-8 md:my-16 md:mx-12 lg:ml-28 lg:mr-28 xl:mt-21 xl:mb-21 max-w-[86rem]">
+      <div className="my-4 mx-8 md:my-16 md:mx-12 lg:ml-28 lg:mr-28 mt-8 sm:mt-0 xl:mt-21 xl:mb-21 max-w-[86rem]">
         <Heading size="large" className="text-center leading-10 sm:text-left mx-auto">
           Mobile Development
         </Heading>

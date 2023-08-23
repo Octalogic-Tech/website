@@ -18,7 +18,7 @@ import { IBenefit, IService } from "@/interfaces";
 const Home = () => {
   return (
     <>
-      <div className="min-h-[48vw] mb-16 relative w-full text-right overflow-x-clip">
+      <div className="min-h-[48vw] mb-16 relative w-full text-right overflow-x-clip mt-8 sm:mt-0">
         <Image
           alt="Hero image"
           src={HeroImage}
@@ -33,7 +33,7 @@ const Home = () => {
           priority
           quality={100}
           sizes="100vw"
-          className="w-[34%] h-auto absolute right-[-1px] top-[10%] z-[-1] block sm:hidden"
+          className="w-[50%] h-auto absolute right-[-1px] top-[10%] z-[-1] block sm:hidden"
         />
         <div className="text-left pl-[2rem] pt-0 md:pl-16 md:pt-12 xl:pl-24 xl:pt-20">
           <Heading size="large" className="max-w-[68vw] md:max-w-[52vw]">
