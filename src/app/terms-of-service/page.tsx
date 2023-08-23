@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const TermsOfService = () => {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="max-w-screen-xl mx-auto px-4 mt-8 xl:mt-21">
         <Heading size="large" className="mb-4 text-center">
           Octalogic Tech Terms of Service
         </Heading>
@@ -36,17 +36,17 @@ const TermsOfService = () => {
           accessing this site. The materials contained in this website are protected by applicable
           copyright and trademark law.
         </Paragraph>
-        <Heading size="small" className="my-2">
+        <Heading size="small" className="mt-4 mb-2">
           2. Use License
         </Heading>
-        <ol type="a">
+        <ol type="a" className="list-alpha ml-8 flex flex-col gap-4">
           <li>
             Permission is granted to temporarily download one copy of the materials (information or
             software) on Octalogic Tech&apos;s website for personal, non-commercial transitory
             viewing only. This is the grant of a license, not a transfer of title, and under this
             license you may not:
           </li>
-          <ol type="i">
+          <ol type="i" className="list-roman ml-8 flex flex-col gap-4">
             <li>modify or copy the materials;</li>
             <li>
               use the materials for any commercial purpose, or for any public display (commercial or
@@ -69,10 +69,10 @@ const TermsOfService = () => {
             materials in your possession whether in electronic or printed format.
           </li>
         </ol>
-        <Heading size="small" className="my-2">
+        <Heading size="small" className="mt-4 mb-2">
           3. Disclaimer
         </Heading>
-        <ol type="a">
+        <ol type="a" className="list-alpha ml-8 flex flex-col gap-4">
           <li>
             The materials on Octalogic Tech&apos;s website are provided on an &apos;as is&apos;
             basis. Octalogic Tech makes no warranties, expressed or implied, and hereby disclaims
@@ -86,7 +86,7 @@ const TermsOfService = () => {
             otherwise relating to such materials or on any sites linked to this site.
           </li>
         </ol>
-        <Heading size="small" className="my-2">
+        <Heading size="small" className="mt-4 mb-2">
           4. Limitations
         </Heading>
         <Paragraph className="text-base leading-6 mb-4 mt-2">
