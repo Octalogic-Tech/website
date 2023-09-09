@@ -1,4 +1,4 @@
-import * as vars from "../config/vars";
+import * as vars from "@/config/vars";
 
 import { IEmailPayload } from "../interfaces";
 
