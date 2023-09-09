@@ -1,50 +1,66 @@
-name: PRCheck
+name: PR Validation & Preview Deploy
 
 on:
   pull_request:
     branches:
-      - main
-      - develop
-
-permissions:
-  checks: write
-  contents: write
+      - "*"
+    types: [opened, synchronize, reopened]
 
 env:
   NODE_VERSION: 18
 
 jobs:
-  run-lint:
-    name: Setup dependencies
+  lint:
+    name: Validate Code
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+
+      - name: Check out Git repository
+        uses: actions/checkout@v3
 
       - name: Cache node modules
         uses: actions/cache@v3
         id: cache-npm
         with:
           path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-npm-
 
       - name: Install Node.js dependencies
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm ci
-
-      - name: Run linters
-        run: npm run lint
+        run: |
+          npm install -g pnpm
+          pnpm install --frozen-lockfile
 
       - name: Run Formatter Check
         run: npm run prettier:check
 
-      - name: Build Check
-        run: npm run build
+      - name: Install CLI
+        uses: dopplerhq/cli-action@v2
+      - name: Run linter & Build
+        run: |
+          doppler run npm run lint
+          doppler run npm run build
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+
+  preview:
+    needs: lint
+    name: Preview Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
