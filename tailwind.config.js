@@ -11,12 +11,12 @@ module.exports = {
       },
     },
     listStyleType: {
-      none: 'none',
-      disc: 'disc',
-      decimal: 'decimal',
-      square: 'square',
-      roman: 'lower-roman',
-      alpha: "lower-alpha"
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      roman: "lower-roman",
+      alpha: "lower-alpha",
     },
     extend: {
       colors: {
