@@ -1,0 +1,25 @@
+name: Production Deployment
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: 
+      - main
+      - master
+    types: [closed]
+
+jobs:
+  deploy:
+    name: Production Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          vercel-args: '--prod'

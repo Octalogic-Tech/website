@@ -24,9 +24,17 @@
     "pretty": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "alwaysStrict": true
+    "alwaysStrict": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".next/types/**/*.ts"],
   "compileOnSave": true,
   "exclude": [".git", "node_modules", "logs", "dist", "build"]
 }

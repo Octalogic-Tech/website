@@ -8,20 +8,6 @@
     "email": "info@octalogic.in",
     "url": "https://octalogic.in/"
   },
-  "maintainers": [
-    {
-      "name": "Jude Fernandes",
-      "email": "jude@octalogic.in"
-    },
-    {
-      "name": "Glenn Fernandes",
-      "email": "jude@octalogic.in"
-    },
-    {
-      "name": "Dylan Thompson",
-      "email": "dylan@octalogic.in"
-    }
-  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -33,49 +19,46 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/lab": "^5.0.0-alpha.134",
-    "@mui/material": "^5.13.5",
-    "@tanstack/react-query": "^4.29.14",
-    "@vercel/analytics": "^1.0.1",
+    "@radix-ui/react-dialog": "^1.0.4",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@vercel/analytics": "^1.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "clsx": "^1.2.1",
-    "next": "13.4.6",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.279.0",
+    "next": "13.4.19",
     "next-api-decorators": "^2.0.2",
-    "next-seo": "^6.0.0",
-    "notistack": "^3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "reflect-metadata": "^0.1.13"
+    "react-hook-form": "^7.46.1",
+    "reflect-metadata": "^0.1.13",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "11.11.0",
-    "@tanstack/react-query-devtools": "^4.29.14",
-    "@types/node": "20.3.1",
-    "@types/react": "^18.2.12",
-    "@types/react-dom": "18.2.5",
+    "@types/node": "20.6.2",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
     "@types/react-router-dom": "5.3.3",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
-    "@typescript-eslint/parser": "^5.59.11",
-    "eslint": "8.43.0",
-    "eslint-config-next": "13.4.6",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsdoc": "^46.2.6",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "autoprefixer": "^10.4.15",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsdoc": "^46.8.1",
     "eslint-plugin-prefer-arrow": "^1.2.3",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-unicorn": "^47.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "next-sitemap": "^4.1.3",
-    "prettier": "^2.8.8",
+    "lint-staged": "^14.0.1",
+    "next-sitemap": "^4.2.3",
+    "postcss": "^8.4.29",
+    "prettier": "^3.0.3",
     "pretty-quick": "^3.1.3",
-    "rimraf": "^5.0.1",
-    "typescript": "5.1.3",
-    "vercel": "^30.2.2"
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.2.2"
   }
 }
