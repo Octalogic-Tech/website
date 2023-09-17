@@ -91,7 +91,7 @@ const Services = () => {
 
         <Heading
           size="large"
-          className="max-w-7xl flex justify-center sm:mt-12  sm:text-center  md:ml-64 lg:ml-72  md:text-right hidden sm:block"
+          className="max-w-7xl justify-center md:ml-64 lg:ml-80 sm:text-center hidden sm:block"
         >
           Digital Marketing
         </Heading>
@@ -159,7 +159,7 @@ const Services = () => {
 
         <Heading
           size="large"
-          className="max-w-7xl flex justify-center md:ml-64 lg:ml-80 sm:text-center hidden sm:block"
+          className="max-w-7xl justify-center md:ml-64 lg:ml-80 sm:text-center hidden sm:block"
         >
           Remote Resources
         </Heading>

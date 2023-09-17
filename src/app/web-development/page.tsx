@@ -26,7 +26,7 @@ const WebDevelopment = () => {
           Web Development
         </Heading>
         <div className="flex flex-col-reverse md:flex-row ">
-          <div className="flex flex-col w-3/5 mb-0 xl:mb-12 w-full">
+          <div className="flex flex-col mb-0 xl:mb-12 w-full">
             <Paragraph className="mt-0 md:mt-12 text-xl md:text-base  lg:text-2xl">
               Working alongside our mobile app team gives us the added benefit of creating seamless
               mobile-first experiences and delivering fully-featured web apps.
@@ -36,7 +36,7 @@ const WebDevelopment = () => {
               solutions to fit the needs of our clients.
             </Paragraph>
           </div>
-          <div className="w-2/5 w-full mb-0 md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
+          <div className="w-full mb-0 md:pt-0 lg:mb-8 xl:mb-0 flex justify-center">
             <Image
               src="/images/web_dev_hero_image.svg"
               alt="Octalogic Tech"
@@ -54,7 +54,7 @@ const WebDevelopment = () => {
             "We make ultra-optimized, fast loading web apps that ensure delightful user experience across a variety of devices using all the tools at our disposal."
           }
         </Paragraph>
-        <div className="grid justify-center mx-auto mt-12 grid grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-6 ">
+        <div className="justify-center mx-auto mt-12 grid grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-6 ">
           {WebTechnologies.map((tech) => (
             <TechCard key={tech.name} details={tech} />
           ))}

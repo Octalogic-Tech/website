@@ -26,7 +26,7 @@ const DigitalMarketing = () => {
           Digital Marketing
         </Heading>
 
-        <div className="flex mx-auto flex items-center flex-col-reverse md:flex md:flex-row justify-between md:gap-20 ">
+        <div className="mx-auto flex items-center flex-col-reverse md:flex md:flex-row justify-between md:gap-20 ">
           <div className="basis-[60%]">
             <Paragraph className="md:my-12 text-xl mt-0 md:text-base lg:text-2xl">
               We want everyone to see exactly what makes your brand special. We take the time to
@@ -41,7 +41,7 @@ const DigitalMarketing = () => {
               alt="Octalogic Tech"
               width={300}
               height={300}
-              className="h-60 h-52 my-8 md:my-0"
+              className="h-52 my-8 md:my-0"
             />
           </div>
         </div>
@@ -51,7 +51,7 @@ const DigitalMarketing = () => {
         <Paragraph className="mt-8 text-xl md:text-base lg:text-2xl">
           We make digital marketing strategies fit your goals and budgets.
         </Paragraph>
-        <div className="grid justify-center mx-auto mt-12 grid grid-cols-2  md:grid md:grid-cols-3  lg:grid lg:grid-cols-6 ">
+        <div className="justify-center mx-auto mt-12 grid grid-cols-2  md:grid md:grid-cols-3  lg:grid lg:grid-cols-6 ">
           {DigitalTechnologies.map((tech) => (
             <TechCard key={tech.name} details={tech} />
           ))}

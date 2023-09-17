@@ -28,7 +28,7 @@ const MobileDevelopment = () => {
 
         <div className="flex mx-auto items-start flex-col-reverse sm:flex-row justify-start md:gap-20 ">
           <div className="">
-            <Paragraph className="mt-0 text-[20px] mt-0 sm:mt-[3rem]">
+            <Paragraph className="text-[20px] mt-0 sm:mt-[3rem]">
               Through design and development we laid the foundation for products that are visually
               pleasing and have an intuitive user experience.
             </Paragraph>
