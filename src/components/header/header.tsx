@@ -65,7 +65,7 @@ function Header() {
           <Image src="/images/logos/octalogic.svg" alt="Octalogic logo" width={60} height={60} />
         </Link>
       </div>
-      <div className="flex flex-row items-center hidden md:flex">{navLinks(navItems)}</div>
+      <div className="flex-row items-center hidden md:flex">{navLinks(navItems)}</div>
       <MobileMenuDrawer />
     </div>
   );

@@ -1,5 +1,3 @@
-"use client";
-
 import PillButton from "@/components/pill-button/pill-button";
 
 /* Returns a button, when clicked, 
