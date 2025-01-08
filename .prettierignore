@@ -1,3 +1,8 @@
+### Astro ###
+# Gitignore template for Astro projects
+# Ignore content collection generated files
+.astro
+
 ### Node ###
 # Logs
 logs
@@ -138,12 +143,15 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-### Serverless ###
-# Ignore build directory
-.serverless
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
 
-src/docs
+node_modules
 
-.github
-.vercel
-.next
+*.sublime*
+
+psd
+thumb
+sketch
