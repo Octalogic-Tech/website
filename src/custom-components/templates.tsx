@@ -1,10 +1,14 @@
-import React from 'react'
-import { ContactButton } from './contactButton'
+import React from "react";
+// import { ContactButton } from "./contactButton";
 
 function Templates() {
   return (
-    <ContactButton />
-  )
+    <>
+      {/* <ContactButton /> */}
+      hello world
+      {/* <Navbar /> */}
+    </>
+  );
 }
 
-export default Templates
+export default Templates;
