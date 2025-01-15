@@ -1,18 +1,10 @@
 "use client";
 
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import { ModeToggle } from "@/components/ModeToggle";
-// import { Icons } from "@/components/icons"
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
+// import Link from "next/link";
+
 import { X, Menu } from "lucide-react";
 import * as React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -39,22 +31,29 @@ const MenuListItems = [
 export default function Navigation() {
   const languages = ["EN", "FR", "DE", "ES"];
   const [selectedLanguage, setSelectedLanguage] = React.useState(languages[0]);
-
+  const [activeLink, setActiveLink] = React.useState("/");
   const [isOpen, setIsOpen] = React.useState(false);
 
+  //to know if the hamburger icon is open or not
   const toggleNavbar = () => {
-    console.log("isOpen");
+    // console.log("isOpen");
     setIsOpen(!isOpen);
+  };
+
+  //to set the styling for active links
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setIsOpen(false);
   };
 
   return (
     <>
-      <nav className="flex h-[72px] max-h-[72px] w-full flex-row items-center justify-between px-8 shadow-sm">
+      <nav className="flex h-[72px] max-h-[72px] w-full flex-row items-center justify-between border-b px-8">
         {/* Logo Section */}
         <div className="flex h-full flex-1 items-center">
-          <Link href="/" className="text-xl font-bold text-blue-600">
+          <a href="/" className="text-xl font-bold text-blue-600">
             octalogic
-          </Link>
+          </a>
         </div>
 
         {/* Navigation Items */}
@@ -63,11 +62,17 @@ export default function Navigation() {
             <NavigationMenuList>
               {MenuListItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
-                  <Link href={item.link} legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
+                  <NavigationMenuLink
+                    asChild
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      `${activeLink === item.link ? "border-b border-[#424242] text-accent-foreground" : ""}`,
+                    )}
+                  >
+                    <a href={item.link} onClick={() => handleLinkClick(item.link)}>
                       {item.name}
-                    </NavigationMenuLink>
-                  </Link>
+                    </a>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -92,7 +97,7 @@ export default function Navigation() {
 
           {/* Get in Touch Button */}
           <Button variant="custom" asChild className="hidden rounded-full md:flex">
-            <Link href="/get-in-touch">GET IN TOUCH</Link>
+            <a href="/get-in-touch">GET IN TOUCH</a>
           </Button>
         </div>
 
@@ -101,46 +106,39 @@ export default function Navigation() {
           <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
         </div>
       </nav>
-      {/* {isOpen && (
-        <div className="hidden flex-1 md:flex">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {MenuListItems.map((item, index) => (
-                <NavigationMenuItem key={index}>
-                  <Link href="/" passHref>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
-                      {item}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="fixed left-0 top-[72px] z-40 flex h-[calc(100vh-72px)] w-full flex-col bg-white md:hidden">
+          {/* Scrollable Menu Items */}
+          <div className="flex flex-1 flex-col space-y-6 overflow-y-auto p-8">
+            {MenuListItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                className={`text-left font-medium text-[#424242]/50 transition-colors hover:text-[#424242] ${
+                  activeLink === item.link ? "text-[#424242]" : ""
+                }`}
+                onClick={() => handleLinkClick(item.link)}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Fixed Bottom Button */}
+          <div className="flex w-full justify-center border-t p-4">
+            <Button
+              variant="custom"
+              asChild
+              className="w-[90%] max-w-[400px] rounded-full bg-teal-400"
+            >
+              <a href="/get-in-touch" className="block py-3 text-center">
+                GET IN TOUCH
+              </a>
+            </Button>
+          </div>
         </div>
-      )} */}
+      )}
     </>
   );
 }
-
-// const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWithoutRef<"a">>(
-//   ({ className, title, children, ...props }, ref) => {
-//     return (
-//       <li>
-//         <NavigationMenuLink asChild>
-//           <a
-//             ref={ref}
-//             className={cn(
-//               "block select-none space-y-1 p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-//               className,
-//             )}
-//             {...props}
-//           >
-//             <div className="text-sm font-medium leading-none">{title}</div>
-//             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
-//           </a>
-//         </NavigationMenuLink>
-//       </li>
-//     );
-//   },
-// );
-// ListItem.displayName = "ListItem";

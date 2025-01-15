@@ -17,7 +17,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         custom:
-          "ml-5 font-Barlow px-[24px] py-[12px] text-[#0A3D62] bg-[#60E3CF] hover:bg-teal-600 font-semibold rounded-[8px]",
+          "ml-5 font-Barlow px-[24px] py-[12px] text-[#0A3D62] bg-[#60E3CF] hover:bg-teal-600 font-semibold rounded-[8px] text-[#062236]",
         logo: "w-full justify-end",
       },
       size: {
