@@ -41,7 +41,7 @@ export default function Navigation() {
   };
 
   //to set the styling for active links
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link: string) => {
     setActiveLink(link);
     setIsOpen(false);
   };
