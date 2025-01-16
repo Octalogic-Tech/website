@@ -17,14 +17,21 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         custom:
-          "ml-5 font-Barlow px-[24px] py-[12px] text-[#0A3D62] bg-[#60E3CF] hover:bg-teal-600 font-semibold rounded-[8px] text-[#062236]",
+          "ml-5 font-Barlow px-[24px] py-[12px] text-[#0A3D62] bg-[#60E3CF] hover:bg-teal-600 font-semibold text-[#062236]",
         logo: "w-full justify-end",
+        contactButton1: "bg-[#60E3CF] leading-[28px] hover:bg-teal-400 focus:ring-blue-500",
+        contactButton2:
+          "bg-[#60E3CF] bg-opacity-20 border-[1px] border-[#60E3CF] hover:bg-teal-400 focus:ring-blue-500",
+        contactButton3: "border-[1px] border-[#0A3D62] hover:bg-teal-400 focus:ring-blue-500",
+        contactButton4: "hover:bg-teal-400 focus:ring-blue-500",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        contactButtonSize:
+          "py-[12px] px-[24px] text-[20px] rounded-full font-Barlow text-[#0A3D62]-600",
       },
     },
     defaultVariants: {
