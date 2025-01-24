@@ -1,10 +1,8 @@
 ---
 // eslint-disable-next-line import/no-unassigned-import
 import "@/styles/globals.css";
-import Navigation from "./navigation";
-import Home from "./home";
-import { ContactButton, InputWithLabel, TypographyStyles } from "./template";
-// import { ModeToggle } from "@/components/ModeToggle";
+import Navigation from "../components/navigation";
+import Home from "../components/home";
 ---
 
 <script is:inline>
@@ -46,8 +44,5 @@ import { ContactButton, InputWithLabel, TypographyStyles } from "./template";
     <!-- <ModeToggle client:load /> -->
     <Navigation client:load />
     <Home />
-    <ContactButton />
-    <InputWithLabel client:load />
-    <TypographyStyles />
   </body>
 </html>
