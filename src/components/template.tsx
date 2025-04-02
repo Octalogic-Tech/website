@@ -130,6 +130,7 @@ interface TypographyProps {
     | "H5Medium32"
     | "H5SemiBold32"
     | "H6Medium24"
+    | "H6SemiBold24"
     | "H6Bold24"
     | "BodyMMedium16"
     | "BodyMRegular16"
@@ -142,25 +143,26 @@ interface TypographyProps {
 }
 
 export const Typography: React.FC<TypographyProps> = ({ variant, children, className }) => {
-  const baseStyles = "text-black"; // Default text color
+  // const baseStyles = "text-black"; // Default text color
 
   const variantStyles = {
-    H1SemiBold80: "text-[80px]/[80px] font-semibold font-Barlow",
-    H2SemiBold64: "text-[64px]/[72px] font-semibold font-Barlow",
+    H1SemiBold80: "lg:text-[80px]/[80px] font-semibold font-Barlow tracking-tight",
+    H2SemiBold64: "lg:text-[64px]/[72px] font-semibold font-Barlow",
     H2Medium64: "text-[64px]/[72px] font-medium font-Barlow",
     H3Medium48: "text-[48px]/[56px] font-medium font-Barlow",
     H3SemiBold48: "text-[48px]/[56px] font-semibold font-Barlow",
-    H4SemiBold40: "text-[40px]/[48px] font-semibold font-Barlow",
+    H4SemiBold40: "lg:text-[40px]/[48px] font-semibold font-Barlow",
     H5Medium32: "text-[32px]/[40px] font-medium font-Barlow",
     H5SemiBold32: "text-[32px]/[40px] font-semibold font-Barlow",
     H6Medium24: "text-[24px]/[32px] font-medium font-Barlow",
+    H6SemiBold24: "text-[24px]/[32px] font-semibold font-Barlow",
     H6Bold24: "text-[24px]/[32px] font-bold font-Barlow",
     BodyMRegular16: "text-[16px]/[24px] font-normal font-Montserrat",
-    BodyMMedium16: "text-[16px]/[24px] font-medium font-Montserrat",
-    BodyLMedium20: "text-[20px]/[28px] font-medium font-Montserrat",
+    BodyMMedium16: "lg:text-[16px]/[24px] font-medium font-Montserrat",
+    BodyLMedium20: "lg:text-[20px]/[28px] font-medium font-Montserrat",
     CaptionMMedium12: "text-[12px]/[16px] font-medium font-Montserrat",
     CaptionMSemiBold12: "text-[12px]/[16px] font-semibold font-Montserrat",
-    CaptionLMedium14: "text-[14px]/[20px] font-medium font-Montserrat",
+    CaptionLMedium14: "lg:text-[14px]/[20px] font-medium font-Montserrat",
   };
 
   // Map custom variants to standard HTML tags
@@ -174,6 +176,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
     H5Medium32: "h5",
     H5SemiBold32: "h5",
     H6Bold24: "h6",
+    H6SemiBold24: "h6",
     H6Medium24: "h6",
     BodyMMedium16: "p",
     BodyMRegular16: "p",
@@ -185,5 +188,5 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
 
   const Tag: React.ElementType = tagMapping[variant];
 
-  return <Tag className={clsx(baseStyles, variantStyles[variant], className)}>{children}</Tag>;
+  return <Tag className={clsx(variantStyles[variant], className)}>{children}</Tag>;
 };

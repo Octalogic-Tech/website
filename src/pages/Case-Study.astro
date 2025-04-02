@@ -1,11 +1,17 @@
 ---
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line
+// import/no-unassigned-import
 import "@/styles/globals.css";
 import Navigation from "../components/navigation";
-import Home from "../components/home"; 
+import HeroSection from "../components/Case-Study/HeroSection.tsx";
+import FeaturedSection from "../components/Case-Study/FeaturedSection.tsx";
+import StoriesSection from "../components/Case-Study/StoriesSection.tsx";
+import WorkWithUsSection from "../components/Case-Study/WorkWithUsSection.tsx";
+import ContactUsSection from "../components/Case-Study/ContactUsSection.tsx";
+import Footer from "../components/Footer.tsx";
 ---
 
-<script is:inline>
+<!-- <script is:inline>
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -22,8 +28,7 @@ import Home from "../components/home";
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
   }
-</script>
-
+</script> -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -38,11 +43,15 @@ import Home from "../components/home";
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Home</title>
+    <title>Case Study</title>
   </head>
   <body>
-    <!-- <ModeToggle client:load /> -->
     <Navigation client:load />
-    <Home />
+    <HeroSection client:load />
+    <FeaturedSection client:load />
+    <StoriesSection client:load />
+    <WorkWithUsSection client:visible />
+    <ContactUsSection client:load />
+    <Footer client:load />
   </body>
 </html>

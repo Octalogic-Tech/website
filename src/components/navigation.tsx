@@ -22,7 +22,7 @@ const MenuListItems = [
   { name: "About us", link: "/about" },
   { name: "Services", link: "/services" },
   { name: "Portfolio", link: "/portfolio" },
-  { name: "Case studies", link: "/case-studies" },
+  { name: "Case studies", link: "/Case-Study" },
   { name: "Blog", link: "/blog" },
   { name: "Contact us", link: "/contact" },
   { name: "Careers", link: "/careers" },
@@ -34,13 +34,10 @@ export default function Navigation() {
   const [activeLink, setActiveLink] = React.useState("/");
   const [isOpen, setIsOpen] = React.useState(false);
 
-  //to know if the hamburger icon is open or not
-  const toggleNavbar = () => {
-    // console.log("isOpen");
-    setIsOpen(!isOpen);
-  };
+  // To toggle the mobile menu
+  const toggleNavbar = () => setIsOpen(!isOpen);
 
-  //to set the styling for active links
+  // To set the active link styling
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
     setIsOpen(false);
@@ -48,25 +45,25 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="flex h-[72px] max-h-[72px] w-full flex-row items-center justify-between border-b px-8">
+      <nav className="sticky left-0 top-0 z-50 flex h-[72px] w-full flex-row items-center justify-between gap-[24px] border-b border-[#E5E5E5] bg-white px-[40px]">
         {/* Logo Section */}
-        <div className="flex h-full flex-1 items-center">
+        <div className="flex h-full w-full items-center">
           <a href="/" className="text-xl font-bold text-blue-600">
             octalogic
           </a>
         </div>
 
         {/* Navigation Items */}
-        <div className="hidden flex-1 md:flex">
+        <div className="hidden md:flex">
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="gap-[32px]">
               {MenuListItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
                   <NavigationMenuLink
                     asChild
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      `${activeLink === item.link ? "border-b border-[#424242] text-accent-foreground" : ""}`,
+                      `${activeLink === item.link ? "border-b border-[#424242] p-0 text-accent-foreground" : "border-b p-0"}`,
                     )}
                   >
                     <a href={item.link} onClick={() => handleLinkClick(item.link)}>
@@ -80,7 +77,7 @@ export default function Navigation() {
         </div>
 
         {/* Right Section: Language Selector and Button */}
-        <div className="flex h-full flex-1 flex-row items-center justify-end space-x-4">
+        <div className="flex h-full w-full flex-row items-center justify-end gap-[16px]">
           <div className="relative px-5">
             <select
               value={selectedLanguage}
@@ -101,15 +98,15 @@ export default function Navigation() {
           </Button>
         </div>
 
-        {/* mobile view */}
+        {/* Mobile View */}
         <div className="md:hidden">
           <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
         </div>
       </nav>
+
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="fixed left-0 top-[72px] z-40 flex h-[calc(100vh-72px)] w-full flex-col bg-white md:hidden">
-          {/* Scrollable Menu Items */}
           <div className="flex flex-1 flex-col space-y-6 overflow-y-auto p-8">
             {MenuListItems.map((item) => (
               <a
