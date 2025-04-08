@@ -33,7 +33,10 @@ const FeaturedSection: React.FC = () => {
           >
             Featured case study
           </Typography>
-          <Typography variant="BodyMMedium16" className="lg:w-[410px] max-w-[410px] text-[14px]/[20px]">
+          <Typography
+            variant="BodyMMedium16"
+            className="max-w-[410px] text-[14px]/[20px] lg:w-[410px]"
+          >
             In the ever-evolving digital realm, we offer a brighter path to product excellence by
             bringing together cutting-edge technologies that unlock boundless potential.
           </Typography>
@@ -43,8 +46,12 @@ const FeaturedSection: React.FC = () => {
       {/* Card Section*/}
       <div className="z-10">
         <Card className="flex max-w-[824px] flex-col justify-between gap-[12px] rounded-[24px] bg-white p-[8px] lg:flex-row lg:p-[12px]">
-          <div className="order-2 lg:order-1 flex max-w-[394px] flex-col justify-between gap-[24px] lg:p-[36px] p-[6px]">
-            <img src="/img-1.jpg" alt="Case study visual" className="lg:h-[40px] lg:w-[170px] w-[134px] h-[32px]" />
+          <div className="order-2 flex max-w-[394px] flex-col justify-between gap-[24px] p-[6px] lg:order-1 lg:p-[36px]">
+            <img
+              src="/img-1.jpg"
+              alt="Case study visual"
+              className="h-[32px] w-[134px] lg:h-[40px] lg:w-[170px]"
+            />
 
             <Typography variant="CaptionLMedium14" className="text-[12px]/[16px] text-[#525252]">
               We were brought in to refresh their primary digital properties with a particular focus
@@ -56,7 +63,7 @@ const FeaturedSection: React.FC = () => {
 
             <Button
               variant="secondary"
-              className="m-0 h-fit lg:w-fit w-full rounded-[16px] border-[#0A3D624D] p-0 text-[#0A3D62] shadow-[0px_11px_4px_0px_rgba(31,46,66,0.01),_0px_6px_4px_0px_rgba(31,46,66,0.02),_0px_3px_0.19px_0px_rgba(31,46,66,0.03),_0px_1px_1px_0px_rgba(31,46,66,0.04),_0px_0px_0px_1.5px_rgba(31,46,66,0.08)]"
+              className="m-0 h-fit w-full rounded-[16px] border-[#0A3D624D] p-0 text-[#0A3D62] shadow-[0px_11px_4px_0px_rgba(31,46,66,0.01),_0px_6px_4px_0px_rgba(31,46,66,0.02),_0px_3px_0.19px_0px_rgba(31,46,66,0.03),_0px_1px_1px_0px_rgba(31,46,66,0.04),_0px_0px_0px_1.5px_rgba(31,46,66,0.08)] lg:w-fit"
             >
               <Typography variant="H6SemiBold24" className="px-[32px] py-[12px] uppercase">
                 View Case Study
@@ -64,7 +71,7 @@ const FeaturedSection: React.FC = () => {
             </Button>
           </div>
 
-          <div className="lg:h-[396px] lg:w-[394px] h-[200px] lg:order-2 order-1">
+          <div className="order-1 h-[200px] lg:order-2 lg:h-[396px] lg:w-[394px]">
             <img
               src="/img-1.jpg"
               alt="Case study visual"
