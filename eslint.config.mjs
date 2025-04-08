@@ -185,7 +185,12 @@ export default [
       "import/no-deprecated": "error",
       "import/no-extraneous-dependencies": "off",
       "import/no-internal-modules": "off",
-      "import/no-unassigned-import": "warn",
+      "import/no-unassigned-import": [
+        "warn",
+        {
+          allow: ["**/*.css"],
+        },
+      ],
       "import/order": "off",
       indent: "off",
       "linebreak-style": "off",
@@ -294,7 +299,7 @@ export default [
     files: ["**/*.astro"],
 
     languageOptions: {
-      parser: parser,
+      parser,
       ecmaVersion: 5,
       sourceType: "script",
 
