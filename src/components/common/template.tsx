@@ -137,6 +137,7 @@ interface TypographyProps {
     | "BodyLMedium20"
     | "CaptionMSemiBold12"
     | "CaptionLMedium14"
+    | "CaptionMMedium14"
     | "CaptionMMedium12";
   children: React.ReactNode;
   className?: string;
@@ -146,23 +147,27 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
   // const baseStyles = "text-black"; // Default text color
 
   const variantStyles = {
-    H1SemiBold80: "lg:text-[80px]/[80px] font-semibold font-Barlow tracking-tight",
-    H2SemiBold64: "lg:text-[64px]/[72px] font-semibold font-Barlow",
-    H2Medium64: "text-[64px]/[72px] font-medium font-Barlow",
+    H1SemiBold80:
+      "text-[36px]/[44px] md:text-[60px]/[64px] font-bold font-Barlow-condensed tracking-tighter",
+    H2SemiBold64: "md:text-[64px]/[72px] font-semibold font-Barlow",
+    H2Medium64: "text-[40px]/[48px] md:text-[64px]/[72px] font-medium font-Barlow",
     H3Medium48: "text-[48px]/[56px] font-medium font-Barlow",
-    H3SemiBold48: "text-[48px]/[56px] font-semibold font-Barlow",
+    H3SemiBold48:
+      "text-[24px]/[32px] md:text-[36px]/[44px] font-semibold font-Barlow-condensed tracking-tighter",
     H4SemiBold40: "lg:text-[40px]/[48px] font-semibold font-Barlow",
     H5Medium32: "text-[32px]/[40px] font-medium font-Barlow",
     H5SemiBold32: "text-[32px]/[40px] font-semibold font-Barlow",
-    H6Medium24: "text-[24px]/[32px] font-medium font-Barlow",
-    H6SemiBold24: "text-[24px]/[32px] font-semibold font-Barlow",
+    H6Medium24:
+      "text-[20px]/[28px] font-medium font-Barlow-condensed font-semibold tracking-tighter",
+    H6SemiBold24: "text-[16px]/[24px] md:text-[18px]/[28px] font-Barlow-condensed tracking-tighter",
     H6Bold24: "text-[24px]/[32px] font-bold font-Barlow",
-    BodyMRegular16: "text-[16px]/[24px] font-normal font-Montserrat",
-    BodyMMedium16: "lg:text-[16px]/[24px] font-medium font-Montserrat",
+    BodyMRegular16: "text-[14px]/[20px] md:text-[16px]/[24px] font-normal font-Montserrat",
+    BodyMMedium16: "text-[14px]/[20px] md:text-[16px]/[24px] font-medium font-Montserrat",
     BodyLMedium20: "lg:text-[20px]/[28px] font-medium font-Montserrat",
     CaptionMMedium12: "text-[12px]/[16px] font-medium font-Montserrat",
     CaptionMSemiBold12: "text-[12px]/[16px] font-semibold font-Montserrat",
-    CaptionLMedium14: "lg:text-[14px]/[20px] font-medium font-Montserrat",
+    CaptionMMedium14: "text-[14px]/[20px] font-medium font-Montserrat",
+    CaptionLMedium14: "text-[9px]/[16px] font-medium font-Montserrat",
   };
 
   // Map custom variants to standard HTML tags
@@ -184,6 +189,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
     CaptionMMedium12: "p",
     CaptionMSemiBold12: "p",
     CaptionLMedium14: "p",
+    CaptionMMedium14: "p",
   };
 
   const Tag: React.ElementType = tagMapping[variant];

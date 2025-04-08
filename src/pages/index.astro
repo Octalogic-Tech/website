@@ -1,8 +1,9 @@
 ---
 // eslint-disable-next-line import/no-unassigned-import
 import "@/styles/globals.css";
-import Navigation from "../components/navigation";
-import Home from "../components/home"; 
+import Navigation from "../components/common/navigation";
+import Mainsection from "../components/Home/MainSection.tsx";
+import Footer from "../components/common/Footer";
 ---
 
 <script is:inline>
@@ -40,9 +41,12 @@ import Home from "../components/home";
     <meta name="generator" content={Astro.generator} />
     <title>Home</title>
   </head>
-  <body>
+  <body class="flex flex-col">
     <!-- <ModeToggle client:load /> -->
     <Navigation client:load />
-    <Home />
+    <main>
+      <Mainsection client:load />
+    </main>
+    <Footer client:load />
   </body>
 </html>

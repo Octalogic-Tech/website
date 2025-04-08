@@ -12,18 +12,21 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border-2 border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         // secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         custom:
           "ml-5 font-Barlow px-[24px] py-[12px] text-[#0A3D62] bg-[#60E3CF] hover:bg-teal-600 font-semibold text-[#062236]",
         logo: "w-full justify-end",
-        primary: "bg-[#60E3CF] leading-[28px] hover:bg-teal-400 focus:ring-blue-500",
+        primary:
+          "border-2 border-grey-400 bg-[#60E3CF] leading-[28px] hover:bg-teal-400 focus:ring-blue-500",
         primary_optional:
           "bg-[#60E3CF] bg-opacity-20 border-[1px] border-[#60E3CF] hover:bg-teal-400 focus:ring-blue-500",
         secondary: "border-[1px] border-[#0A3D62] hover:bg-teal-400 focus:ring-blue-500",
         no_stroke: "hover:bg-teal-400 focus:ring-blue-500",
+        darkblue:
+          "leading-[36px] bg-[#0A3D62] text-[#60E3CF] font-semibold hover:ring-2 hover:ring-gray-400/50 focus:ring-2 focus:ring-gray-400/30",
       },
       size: {
         default: "h-9 px-4 py-2",
