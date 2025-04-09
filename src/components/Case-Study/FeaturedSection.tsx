@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "../template";
+import { Typography } from "../common/template";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 

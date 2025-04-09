@@ -53,7 +53,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="sticky left-0 top-0 z-50 flex h-[72px] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-[40px]">
+      <nav className="sticky left-0 top-0 z-50 flex h-[72px] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-10">
         {/* Logo Section */}
         <div className="flex items-center">
           <a href="/" className="flex items-center">

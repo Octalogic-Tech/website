@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "../template";
+import { Typography } from "../common/template";
 import {
   Carousel,
   CarouselContent,

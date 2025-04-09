@@ -49,33 +49,33 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <section className="flex flex-col gap-[24px] px-[16px] md:px-[96px]">
-      <div className="flex flex-col gap-[32px] pb-[24px] pt-[100px]">
-        <div className="flex flex-col gap-[72px]">
+    <section className="flex flex-col gap-6 px-4 md:px-4">
+      <div className="flex flex-col gap-8 pb-6 pt-20">
+        <div className="flex flex-col gap-16">
           {/* navigation part */}
-          <div className="flex h-full flex-col justify-between gap-[58px] text-[#292929] md:flex-row">
-            <div className="max-w-[1426px] md:max-w-[1426px]">
-              <div className="flex h-[138px] flex-col justify-between md:h-full">
-                <div className="flex flex-col gap-[16px]">
+          <div className="flex h-full flex-col justify-between gap-16 text-[#292929] md:flex-row">
+            <div className="max-w-[1426px]">
+              <div className="flex h-36 flex-col justify-between md:h-full">
+                <div className="flex flex-col gap-4">
                   {/* image tag */}
-                  <div className="h-[32px] w-[132.16px] overflow-hidden">
+                  <div className="w-36 overflow-hidden">
                     <img src="mainLogo.png" alt="Logo" />
                   </div>
-                  <div className="flex items-center gap-[10px] text-[#292929]">
+                  <div className="flex items-center gap-2 text-[#292929]">
                     {locations.map((location, index) => (
                       <React.Fragment key={location}>
                         <div>
                           <Typography variant="CaptionMMedium12">{location}</Typography>
                         </div>
                         {index < locations.length - 1 && (
-                          <div className="h-[4.8px] w-[4.8px] rounded-full bg-[#60E3CF]" />
+                          <div className="h-1 w-1 rounded-full bg-[#60E3CF]" />
                         )}
                       </React.Fragment>
                     ))}
                   </div>
                 </div>
                 {/* logos */}
-                <div className="flex gap-[8px]">
+                <div className="flex gap-2">
                   {socialLinks.map((social) => (
                     <a key={social.name} href={social.href} className="rounded-sm">
                       <img src={social.imgSrc} alt={social.name} width={24} height={24} />
@@ -85,9 +85,9 @@ const Footer: React.FC = () => {
               </div>
             </div>
             {/* links */}
-            <div className="flex gap-[64px] text-[14px]/[20px] text-[#0A3D62]">
+            <div className="flex gap-16 text-[#0A3D62]">
               {navigationLinks.map((section) => (
-                <div key={section.title} className="flex flex-col gap-[16px]">
+                <div key={section.title} className="flex flex-col gap-4">
                   {section.links.map((link) => (
                     <div key={link.name}>
                       <Typography variant={"CaptionMMedium14"}>
@@ -100,22 +100,22 @@ const Footer: React.FC = () => {
             </div>
           </div>
           {/* line  */}
-          <div className="h-[1px] w-full rounded-[50px] bg-[#D6D6D6]"></div>
+          <div className="h-[1px] w-full bg-[#D6D6D6]"></div>
         </div>
 
         {/* bottom part */}
-        <div className="flex flex-col items-center gap-[24px] text-center text-[12px]/[16px] text-[#737373] md:flex-row md:justify-between">
+        <div className="flex flex-col items-center gap-6 text-center text-[#737373] md:flex-row md:justify-between">
           <div>
             <Typography variant="CaptionMMedium14">
               © {new Date().getFullYear()} Octalogic - We build platforms that scale fast
             </Typography>
           </div>
-          <div className="flex gap-[8px]">
+          <div className="flex gap-2">
             <div>
               <Typography variant="CaptionMMedium14">Crafted Mindfully at</Typography>
             </div>
-            <div className="height-[24px] w-[103.5px] object-contain">
-              {/* <img className="" src="img-1.jpg" alt="" /> */}
+            <div className="w-24 object-contain">
+              <img src="mainLogo.png" alt="Logo" />
             </div>
           </div>
         </div>

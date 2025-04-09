@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { Typography } from "../template";
+import { Typography } from "../common/template";
 import { Button } from "../ui/button";
-
+import { RotatingBanner } from "@/components/common/rotating-banner";
 const WorkWithUsSection: React.FC = () => {
   const bannerImages = [
     "/img-1.jpg",
@@ -53,32 +53,7 @@ const WorkWithUsSection: React.FC = () => {
       </div>
 
       {/* Rotating Banner */}
-      <div className="relative w-full overflow-hidden bg-[#0A3D62] p-[40px] lg:px-[96px] lg:py-[56px]">
-        <div
-          ref={bannerRef}
-          className="flex animate-[scroll_10s_linear_infinite] gap-[40px] lg:gap-[80px]"
-        >
-          {bannerImages.concat(bannerImages).map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt="Rotating Banner"
-              className="h-[32px] w-[110px] flex-shrink-0 object-contain lg:h-[40px] lg:w-[137.5px]"
-            />
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
+      <RotatingBanner images={bannerImages} />
     </section>
   );
 };

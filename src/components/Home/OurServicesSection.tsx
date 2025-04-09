@@ -38,9 +38,7 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Cards Grid */}
         <div className="flex flex-col md:mt-20 md:flex-row">
-          {/* First section - 500px with image */}
           <div className="hidden w-full md:block md:w-[500px]">
             <div className="max-h-[500px] max-w-[420px] md:ml-5 md:mt-40">
               <img
@@ -51,13 +49,11 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Second section - 700px with cards */}
           <div className="w-full lg:w-[700px]">
             <div className="flex flex-col">
               {data?.serviceCards?.map((card, index) => (
                 <React.Fragment key={index}>
                   <div className="group flex flex-col items-start gap-2 md:flex-row md:gap-6">
-                    {/* Number - Above on mobile, parallel on md screens */}
                     <Typography
                       variant="BodyMMedium16"
                       className="text-white/50 transition-colors duration-300 group-hover:text-[#60E3CF]"
@@ -65,7 +61,6 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
                       {String(index + 1).padStart(3, "0")}
                     </Typography>
 
-                    {/* Card Content */}
                     <div className="w-full max-w-[650px] md:px-8">
                       <div className="flex flex-col gap-6">
                         <Typography
@@ -81,7 +76,6 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
                           {card?.description}
                         </Typography>
 
-                        {/* Chips */}
                         <div className="flex flex-wrap gap-2">
                           {card?.chips?.map((chip, chipIndex) => (
                             <span
