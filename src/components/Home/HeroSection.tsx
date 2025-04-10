@@ -8,19 +8,19 @@ interface HeroSectionProps {
 
 export default function HeroSection({ data }: HeroSectionProps) {
   return (
-    <section className="flex flex-col items-center justify-center bg-[#F3FFFD] py-20 md:w-full md:py-36">
-      <div className="flex flex-col items-center gap-4 px-4 md:px-8">
+    <section className="flex min-h-[90vh] flex-col items-center justify-center gap-8 bg-[#F3FFFD] py-[10vh] md:py-0">
+      <div className="flex flex-col items-center gap-8 px-4 md:px-8">
         <Typography variant="H1SemiBold80" className="mx-auto text-center uppercase text-[#0A3D62]">
           {data?.heading}
         </Typography>
         <Typography
           variant="BodyLMedium20"
-          className="mx-auto w-full text-center text-[#0A3D62] md:w-[720px]"
+          className="mx-auto w-full text-center text-[#0A3D62] md:max-w-[720px]"
         >
           {data?.description}
         </Typography>
       </div>
-      <div className="mt-8 max-w-[1100px] flex-col items-center justify-center p-8">
+      <div className="max-w-[85%] flex-col items-center justify-center gap-8">
         <div className="flex flex-col gap-6 rounded-lg bg-[#E5F8FF] p-6 md:flex-row md:items-center md:justify-between">
           {data?.services?.map((service: string) => (
             <div key={service} className="flex items-center gap-3">
@@ -41,10 +41,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                   />
                 </svg>
               </div>
-              <Typography
-                variant="H6Bold24"
-                className="text-[16px] uppercase tracking-tighter text-[#0A3D62] sm:text-[20px] md:text-[24px]"
-              >
+              <Typography variant="H6Bold24" className="uppercase tracking-tighter text-[#0A3D62]">
                 {service}
               </Typography>
             </div>

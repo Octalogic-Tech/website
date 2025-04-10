@@ -39,6 +39,7 @@ export interface OurServicesSectionData {
   ctaButton: {
     text: string;
   };
+  sideimage: string;
   serviceCards: ServiceCard[];
 }
 
@@ -73,4 +74,8 @@ export interface BlogSectionData {
     readMore: string;
     viewAll: string;
   };
+}
+
+export interface BannerData {
+  images: string[];
 }

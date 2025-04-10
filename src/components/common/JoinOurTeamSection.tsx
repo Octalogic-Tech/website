@@ -4,11 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const JoinOurTeamSection: React.FC = () => {
   return (
-    <section className="bg-[#F3FFFD] px-4 py-20 md:px-24 md:py-36">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-16 lg:flex-row">
-        {/* Content Section */}
-        <div className="flex flex-col gap-16 md:max-w-[600px]">
-          {/* Text Content */}
+    <section className="flex min-h-[100vh] items-center justify-center bg-[#F3FFFD] py-12">
+      <div className="mx-auto flex max-w-[90%] flex-col items-center justify-between gap-12 lg:flex-row">
+        <div className="mt-8 flex flex-col gap-6 md:max-w-[80%] md:gap-12">
           <div className="flex flex-col gap-6">
             <Typography variant="H3SemiBold48" className="uppercase text-[#0A3D62]">
               JOIN OUR TEAM
@@ -19,18 +17,17 @@ const JoinOurTeamSection: React.FC = () => {
             </Typography>
           </div>
 
-          {/* Button */}
           <div>
             <Button
               variant="outline"
-              className="h-[64px] rounded-[16px] bg-white px-[32px] py-[16px] font-Barlow text-[20px] font-semibold uppercase text-[#0A3D62] transition-all duration-300 hover:scale-105"
+              className="h-16 w-full rounded-xl bg-white px-8 py-4 font-Barlow text-[20px] font-semibold uppercase text-[#0A3D62] transition-all duration-300 hover:scale-105 md:w-auto"
             >
               WE ARE HIRING
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-rows-2 gap-4 md:max-w-[1200px]">
+        <div className="grid grid-rows-2 gap-4 md:max-w-[50%]">
           <div className="grid grid-cols-2 gap-4">
             <div className="mt-20 flex justify-end">
               <img
@@ -48,7 +45,6 @@ const JoinOurTeamSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Second Row - 3 Images */}
           <div className="grid grid-cols-3 gap-4">
             <div>
               <img

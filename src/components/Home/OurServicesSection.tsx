@@ -9,47 +9,42 @@ interface OurServicesSectionProps {
 
 const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
   return (
-    <section className="w-full border-t border-white/10 bg-black px-4 py-20 md:px-28 md:py-36">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-20">
-        <div className="flex max-w-[1200px] flex-col items-start justify-start gap-6">
-          <div className="flex w-full flex-col items-start gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="flex flex-col gap-6">
-              <Typography
-                variant="H2Medium64"
-                className="text-start uppercase text-white md:text-left"
-              >
-                {data?.title}
-              </Typography>
-              <Typography
-                variant="BodyMMedium16"
-                className="max-w-[720px] text-start text-white/80"
-              >
-                {data?.description}
-              </Typography>
-            </div>
-            <Button
-              variant="outline"
-              className="w-full rounded-xl border-white px-8 py-6 text-[#0A3D62] hover:bg-white md:mt-3 md:w-auto"
+    <section className="flex min-h-[250vh] w-full items-center justify-center border-t border-white/10 bg-black px-4 py-8 md:py-12">
+      <div className="mx-auto mt-8 flex max-w-[90%] flex-col gap-12">
+        <div className="flex w-full flex-col items-start gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-6">
+            <Typography
+              variant="H2Medium64"
+              className="text-start uppercase text-[#E5E5E5] md:text-left"
             >
-              <Typography variant="H6SemiBold24" className="uppercase">
-                {data?.ctaButton?.text}
-              </Typography>
-            </Button>
+              {data?.title}
+            </Typography>
+            <Typography variant="BodyMMedium16" className="text-start text-[#E5E5E5]">
+              {data?.description}
+            </Typography>
           </div>
+          <Button
+            variant="outline"
+            className="w-full rounded-xl border-white px-8 py-6 text-[#0A3D62] hover:bg-white md:mt-3 md:w-auto"
+          >
+            <Typography variant="H6SemiBold24" className="uppercase">
+              {data?.ctaButton?.text}
+            </Typography>
+          </Button>
         </div>
 
-        <div className="flex flex-col md:mt-20 md:flex-row">
-          <div className="hidden w-full md:block md:w-[500px]">
-            <div className="max-h-[500px] max-w-[420px] md:ml-5 md:mt-40">
+        <div className="mt-8 flex flex-col md:mt-16 md:flex-row">
+          <div className="hidden w-full md:block md:w-[40%]">
+            <div className="max-w-[30vw] md:ml-5 md:mt-40">
               <img
-                src="/services-1.png"
+                src={data?.sideimage}
                 alt="Our Services"
                 className="h-full w-full object-cover"
               />
             </div>
           </div>
 
-          <div className="w-full lg:w-[700px]">
+          <div className="w-full md:w-[60%]">
             <div className="flex flex-col">
               {data?.serviceCards?.map((card, index) => (
                 <React.Fragment key={index}>
@@ -61,7 +56,7 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
                       {String(index + 1).padStart(3, "0")}
                     </Typography>
 
-                    <div className="w-full max-w-[650px] md:px-8">
+                    <div className="w-full md:w-[80%] md:px-8">
                       <div className="flex flex-col gap-6">
                         <Typography
                           variant="H3Medium48"
@@ -80,7 +75,7 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
                           {card?.chips?.map((chip, chipIndex) => (
                             <span
                               key={chipIndex}
-                              className="rounded-lg border border-white/10 px-4 py-2.5 transition-all duration-300 group-hover:border-[#60E3CF] group-hover:bg-[#60E3CF]"
+                              className="rounded-lg border border-white/10 px-4 py-3 transition-all duration-300 group-hover:border-[#60E3CF] group-hover:bg-[#60E3CF]"
                             >
                               <Typography
                                 variant="CaptionMMedium12"

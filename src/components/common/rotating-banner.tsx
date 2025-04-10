@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 interface RotatingBannerProps {
   images: string[];
@@ -9,31 +9,25 @@ interface RotatingBannerProps {
 
 export const RotatingBanner: React.FC<RotatingBannerProps> = ({
   images,
-  className = "bg-[#0A3D62] p-[40px] lg:px-[96px] lg:py-[56px]",
-  imageClassName = "h-[32px] w-[110px] lg:h-[40px] lg:w-[137.5px]",
-  speed = 10,
+  className = "bg-[#0A3D62] min-h-[20vh] py-4 px-4 flex items-center",
+  imageClassName = "w-auto h-[2rem] md:h-[2.5rem] lg:h-[3rem] object-contain",
+  speed = 20,
 }) => {
-  const bannerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (bannerRef.current) {
-      const firstClone = bannerRef.current.innerHTML;
-      bannerRef.current.innerHTML += firstClone;
-    }
-  }, []);
-
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
       <div
-        ref={bannerRef}
-        className={`flex animate-[scroll_${speed}s_linear_infinite] gap-[40px] lg:gap-[80px]`}
+        className={`flex gap-8 md:gap-12`}
+        style={{
+          minWidth: "200%",
+          animation: `scroll ${speed}s linear infinite`,
+        }}
       >
         {images.concat(images).map((image, index) => (
           <img
-            key={index}
+            key={`${image}-${index}`}
             src={image}
             alt="Rotating Banner"
-            className={`flex-shrink-0 object-contain ${imageClassName}`}
+            className={`flex-shrink-0 ${imageClassName}`}
           />
         ))}
       </div>

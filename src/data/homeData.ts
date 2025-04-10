@@ -5,6 +5,7 @@ import type {
   OurServicesSectionData,
   PortfolioSectionData,
   BlogSectionData,
+  BannerData,
 } from "@/types/home";
 
 export const heroSectionData: HeroSectionData = {
@@ -55,10 +56,11 @@ export const caseStudySectionData: CaseStudySectionData = {
 export const ourServicesSectionData: OurServicesSectionData = {
   title: "Our Services",
   description:
-    "We provide comprehensive end-to-end solutions for digital product development, from strategy and design to development and ongoing support.",
+    "Our services are more than just solutions, they're opportunities to transform your digital presence and achieve your business objectives. We're here to make your digital dreams a reality.",
   ctaButton: {
     text: "Start a Project",
   },
+  sideimage: "/services-1.png",
   serviceCards: [
     {
       title: "Branding",
@@ -173,5 +175,16 @@ export const blogSectionData: BlogSectionData = {
         "How do you create compelling presentations that wow your colleagues and impress your managers?",
       tags: ["DESIGN", "Research", "Presentation"],
     },
+  ],
+};
+export const bannerImages: BannerData = {
+  images: [
+    "/comapny-1.png",
+    "/comapny-2.png",
+    "/comapny-3.png",
+    "/comapny-4.png",
+    "/comapny-5.png",
+    "/comapny-6.png",
+    "/comapny-7.png",
   ],
 };

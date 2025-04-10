@@ -9,7 +9,7 @@ interface CaseStudySectionProps {
 
 const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
   return (
-    <section className="mx-auto w-full max-w-[1440px] px-4 py-16 md:px-24 md:py-36">
+    <section className="mx-auto flex min-h-[70vh] items-center justify-center">
       <div className="flex flex-col justify-between gap-6 md:flex-row">
         {cards.map((card, index) => (
           <div key={index} className="flex flex-col">
@@ -25,10 +25,10 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
               </Typography>
             </div>
 
-            <div className="flex-none p-6 pt-0">
+            <div className="flex-none p-4 pt-0 md:p-0">
               <Button
                 variant="outline"
-                className="w-full rounded-xl px-4 py-6 text-[#0A3D62] hover:text-[#0A3D62] md:w-[200px]"
+                className="w-full rounded-xl px-4 py-6 text-[#0A3D62] hover:text-[#0A3D62] md:w-[14rem]"
               >
                 <Typography variant="H6SemiBold24">{card.buttonText}</Typography>
               </Button>
