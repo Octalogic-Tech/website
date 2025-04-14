@@ -53,15 +53,13 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="sticky left-0 top-0 z-50 flex h-[72px] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-10">
-        {/* Logo Section */}
+      <nav className="sticky left-0 top-0 z-50 flex h-[10vh] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-10">
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img src="/mainLogo.png" alt="Octalogic Logo" className="h-8 w-auto" />
           </a>
         </div>
 
-        {/* Navigation Items */}
         <div className="hidden lg:flex">
           <NavigationMenu>
             <NavigationMenuList className="flex flex-wrap gap-x-4 lg:gap-x-6 xl:gap-x-8">
@@ -72,7 +70,7 @@ export default function Navigation() {
                       href={item.link}
                       onClick={() => handleLinkClick(item.link)}
                       className={cn(
-                        "relative whitespace-nowrap px-2 py-[26px] text-sm lg:text-base",
+                        "relative whitespace-nowrap px-2 py-6 text-sm lg:text-base",
                         isLinkActive(item.link)
                           ? "text-[#424242] after:absolute after:bottom-[-1px] after:left-0 after:h-[2px] after:w-full after:bg-[#424242]"
                           : "text-[#737373]",
@@ -87,7 +85,6 @@ export default function Navigation() {
           </NavigationMenu>
         </div>
 
-        {/* Right Section */}
         <div className="flex items-center gap-4">
           <div className="relative">
             <div className="flex items-center">
@@ -125,16 +122,14 @@ export default function Navigation() {
           <Button variant="primary" asChild className="hidden rounded-lg py-5 lg:flex">
             <a href="/get-in-touch">GET IN TOUCH</a>
           </Button>
-          {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="fixed left-0 top-[72px] z-40 flex h-[calc(100vh-72px)] w-full flex-col bg-white lg:hidden">
+        <div className="top-15 fixed left-0 z-40 flex h-[calc(100vh-72px)] w-full flex-col bg-white lg:hidden">
           <div className="flex flex-1 flex-col space-y-6 overflow-y-auto p-8">
             {MenuListItems.map((item) => (
               <a
@@ -150,12 +145,11 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Fixed Bottom Button */}
           <div className="flex w-full justify-center border-t p-4">
             <Button
               variant="custom"
               asChild
-              className="w-[90%] max-w-[400px] rounded-full bg-teal-400"
+              className="w-full max-w-[400px] rounded-full bg-teal-400"
             >
               <a href="/get-in-touch" className="block py-3 text-center">
                 GET IN TOUCH

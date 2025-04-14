@@ -7,6 +7,7 @@ import {
   heroSectionData,
   ourServicesSectionData,
   portfolioSectionData,
+  bannerImages,
 } from "@/data/homeData";
 import CaseStudySection from "./CaseStudySection";
 import BlogSection from "./BlogSection";
@@ -16,20 +17,11 @@ import JoinOurTeamSection from "../common/JoinOurTeamSection";
 import OurServicesSection from "./OurServicesSection";
 import HeroSection from "./HeroSection";
 
-const bannerImages = [
-  "/company-1.png",
-  "/company-2.png",
-  "/company-3.png",
-  "/company-4.png",
-  "/company-5.png",
-  "/company-6.png",
-  "/company-7.png",
-];
 export default function MainSection() {
   return (
     <main>
       <HeroSection data={heroSectionData} />
-      <RotatingBanner images={bannerImages} />
+      <RotatingBanner images={bannerImages.images} />
       <AboutSection data={aboutSectionData} />
       <PortfolioSection data={portfolioSectionData} />
       <CaseStudySection cards={caseStudySectionData.cards} />

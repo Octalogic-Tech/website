@@ -149,7 +149,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
 
   const variantStyles = {
     H1SemiBold80:
-      "text-[36px]/[44px] md:text-[60px]/[64px] font-bold font-Barlow-condensed tracking-tighter",
+      "text-[36px]/[44px] lg:text-[60px]/[64px] font-bold font-Barlow-condensed tracking-tighter",
     H2SemiBold64: "md:text-[64px]/[72px] font-semibold font-Barlow",
     H2Medium64:
       "text-[32px]/[40px] md:text-[44px]/[52px] font-medium font-Barlow-condensed tracking-tighter",

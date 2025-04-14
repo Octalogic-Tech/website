@@ -52,12 +52,10 @@ const Footer: React.FC = () => {
     <section className="flex flex-col gap-6 px-4 md:px-4">
       <div className="flex flex-col gap-8 pb-6 pt-20">
         <div className="flex flex-col gap-16">
-          {/* navigation part */}
           <div className="flex h-full flex-col justify-between gap-16 text-[#292929] md:flex-row">
-            <div className="max-w-[1426px]">
-              <div className="flex h-36 flex-col justify-between md:h-full">
+            <div>
+              <div className="flex flex-col justify-between gap-12">
                 <div className="flex flex-col gap-4">
-                  {/* image tag */}
                   <div className="w-36 overflow-hidden">
                     <img src="mainLogo.png" alt="Logo" />
                   </div>
@@ -74,7 +72,6 @@ const Footer: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                {/* logos */}
                 <div className="flex gap-2">
                   {socialLinks.map((social) => (
                     <a key={social.name} href={social.href} className="rounded-sm">
@@ -84,7 +81,6 @@ const Footer: React.FC = () => {
                 </div>
               </div>
             </div>
-            {/* links */}
             <div className="flex gap-16 text-[#0A3D62]">
               {navigationLinks.map((section) => (
                 <div key={section.title} className="flex flex-col gap-4">
@@ -99,23 +95,21 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          {/* line  */}
           <div className="h-[1px] w-full bg-[#D6D6D6]"></div>
         </div>
 
-        {/* bottom part */}
         <div className="flex flex-col items-center gap-6 text-center text-[#737373] md:flex-row md:justify-between">
           <div>
-            <Typography variant="CaptionMMedium14">
+            <Typography variant="CaptionMMedium12">
               © {new Date().getFullYear()} Octalogic - We build platforms that scale fast
             </Typography>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center justify-center gap-2">
             <div>
-              <Typography variant="CaptionMMedium14">Crafted Mindfully at</Typography>
+              <Typography variant="CaptionMMedium12">Crafted Mindfully at</Typography>
             </div>
-            <div className="w-24 object-contain">
-              <img src="mainLogo.png" alt="Logo" />
+            <div className="w-[20vw] object-contain md:w-[5vw]">
+              <img src="mainLogo.png" alt="Logo" className="h-auto w-full" />
             </div>
           </div>
         </div>

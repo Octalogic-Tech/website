@@ -1,13 +1,8 @@
 ---
 import "../styles/globals.css";
-import Navigation from "../components/navigation";
-import Footer from "../components/Footer";
-import AboutHero from "../components/About/AboutHero";
-import MissionSection from "../components/About/MissionSection";
-import AboutImageCarousel from "../components/About/AboutImageCarousel";
-import AboutTestimonials from "../components/About/AboutTestimonials";
-import ContactUsSection from "../components/Case-Study/ContactUsSection.tsx";
-import AboutHiring from "../components/About/AboutHiring";
+import Navigation from "../components/common/navigation";
+import Footer from "../components/common/Footer";
+import Mainsection from "../components/About/MainSection.tsx";
 ---
 
 <html lang="en">
@@ -26,13 +21,8 @@ import AboutHiring from "../components/About/AboutHiring";
   </head>
   <body>
     <Navigation client:load />
-    <main class="pt-[72px]">
-      <AboutHero client:load />
-      <AboutImageCarousel client:load />
-      <MissionSection client:load />
-      <AboutTestimonials client:load />
-      <ContactUsSection client:load />
-      <AboutHiring client:load />
+    <main>
+      <Mainsection client:load />
     </main>
     <Footer client:load />
   </body>
