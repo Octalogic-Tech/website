@@ -16,19 +16,26 @@ interface PortfolioSectionProps {
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
   return (
-    <section className="mx-auto flex min-h-[150vh] w-full flex-col items-center justify-center gap-8 bg-[#f3fffd] md:py-8">
+    <section className="mx-auto flex min-h-[150vh] w-full flex-col items-center justify-center gap-8 md:py-8">
       <div className="flex flex-col items-start justify-start gap-6 px-4 md:ml-40 md:px-0">
-        <Typography variant="H2Medium64" className="text-center uppercase text-[#0A3D62]">
+        <Typography
+          variant="H2Medium64"
+          className="bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text text-center uppercase text-transparent"
+        >
           {data?.title}
         </Typography>
-        <Typography variant="BodyMMedium16" className="text-start text-[#0A3D62] md:max-w-[60%]">
+        <Typography variant="BodyMMedium16" className="text-start text-[#737373] md:max-w-[60%]">
           {data?.description}
         </Typography>
-        <Button variant="outline" className="mt-4 w-full rounded-xl !p-6 md:w-auto md:!p-8">
-          <Typography variant="H6SemiBold24" className="uppercase text-[#0A3D62]">
-            {data?.ctaButton?.text}
-          </Typography>
-        </Button>
+        <div className="flex w-full items-start md:max-w-[40%]">
+          <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
+            <a href={"hiring"}>
+              <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
+                start a project
+              </Typography>
+            </a>
+          </Button>
+        </div>
       </div>
 
       <div className="relative w-full px-4 lg:px-12">

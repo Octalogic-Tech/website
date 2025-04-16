@@ -9,10 +9,10 @@ interface CaseStudySectionProps {
 
 const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
   return (
-    <section className="mx-auto flex min-h-[70vh] items-center justify-center">
-      <div className="flex flex-col justify-between gap-6 md:flex-row">
+    <section className="mx-auto flex min-h-[70vh] items-center justify-center bg-[#F5F5F5] py-12">
+      <div className="flex flex-col justify-between gap-4 md:flex-row">
         {cards.map((card, index) => (
-          <div key={index} className="flex flex-col">
+          <div key={index} className="flex flex-col md:max-w-[30vw]">
             <div className="flex-none p-6">
               <div className="flex items-center gap-4">
                 <img src={card.logo} alt="logo" className="h-9 w-auto object-contain" />
@@ -25,12 +25,17 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
               </Typography>
             </div>
 
-            <div className="flex-none p-4 pt-0 md:p-0">
+            <div className="px-6">
               <Button
                 variant="outline"
-                className="w-full rounded-xl px-4 py-6 text-[#0A3D62] hover:text-[#0A3D62] md:w-[14rem]"
+                className="w-full rounded-full border-2 border-[#0A3D62] p-6 py-7 md:w-fit"
+                asChild
               >
-                <Typography variant="H6SemiBold24">{card.buttonText}</Typography>
+                <a href={"hiring"}>
+                  <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
+                    view casestudy
+                  </Typography>
+                </a>
               </Button>
             </div>
           </div>

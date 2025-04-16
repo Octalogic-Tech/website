@@ -4,25 +4,32 @@ import { Button } from "@/components/ui/button";
 
 const JoinOurTeamSection: React.FC = () => {
   return (
-    <section className="flex min-h-[100vh] items-center justify-center bg-[#F3FFFD] py-12">
-      <div className="mx-auto flex max-w-[90%] flex-col items-center justify-between gap-12 lg:flex-row">
-        <div className="mt-8 flex flex-col gap-6 md:max-w-[80%] md:gap-12">
+    <section className="flex min-h-[100vh] items-center justify-center bg-[#141414] py-12">
+      <div className="mx-auto flex max-w-[90%] flex-col items-center justify-between gap-8 lg:flex-row">
+        <div className="mt-8 flex flex-col gap-6 md:max-w-[40%] md:gap-12">
           <div className="flex flex-col gap-6">
-            <Typography variant="H3SemiBold48" className="uppercase text-[#0A3D62]">
+            <Typography
+              variant="H2Medium64"
+              className="bg-gradient-to-r from-[#FFFFFF] to-[#8F8F8F] bg-clip-text uppercase text-transparent"
+            >
               JOIN OUR TEAM
             </Typography>
-            <Typography variant="BodyMMedium16" className="text-[#0A3D62]">
+            <Typography variant="BodyMMedium16" className="text-[#D6D6D6]">
               Fulfilling tech-led projects for seasoned designers, developers, and product owners.
               Solve the problem, find the joy, measure the outcome, and be fulfilled.
             </Typography>
           </div>
 
-          <div>
-            <Button
-              variant="outline"
-              className="h-16 w-full rounded-xl bg-white px-8 py-4 font-Barlow text-[20px] font-semibold uppercase text-[#0A3D62] transition-all duration-300 hover:scale-105 md:w-auto"
-            >
-              WE ARE HIRING
+          <div className="flex w-full">
+            <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
+              <a href={"hiring"}>
+                <Typography
+                  variant="H6Regular24"
+                  className="uppercase tracking-tighter text-[#0A3D62]"
+                >
+                  we are hiring
+                </Typography>
+              </a>
             </Button>
           </div>
         </div>

@@ -35,7 +35,7 @@ export const caseStudySectionData: CaseStudySectionData = {
     {
       logo: "/cardLogo-1.png",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "In collaboration with Promise Brand Specialists, we were tasked to create an elevated digital experience to reflect the innovative and performance-oriented nature of the brand. The primary goal of the website was to provide a seamless digital service when looking for key information as well as placing and paying for cement orders online.",
       buttonText: "View Case Study",
     },
     {

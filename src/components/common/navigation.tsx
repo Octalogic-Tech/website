@@ -10,6 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { Typography } from "./template";
 
 const MenuListItems = [
   { name: "Home", link: "/" },
@@ -94,7 +95,7 @@ export default function Navigation() {
               <select
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="appearance-none rounded-lg border px-3 py-1 pr-8 text-sm"
+                className="appearance-none rounded-3xl border px-4 py-1 pr-8 text-sm"
               >
                 {languages.map((lang, index) => (
                   <option key={index} value={lang}>
@@ -122,8 +123,15 @@ export default function Navigation() {
             </div>
           </div>
 
-          <Button variant="primary" asChild className="hidden rounded-lg py-5 lg:flex">
-            <a href="/get-in-touch">GET IN TOUCH</a>
+          <Button variant="primary" asChild className="hidden rounded-3xl py-5 lg:flex">
+            <a href="/get-in-touch">
+              <Typography
+                variant="BodyMRegular16"
+                className="p-4 uppercase tracking-tighter text-[#0A3D62]"
+              >
+                Get in touch
+              </Typography>
+            </a>
           </Button>
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
@@ -152,13 +160,14 @@ export default function Navigation() {
 
           {/* Fixed Bottom Button */}
           <div className="flex w-full justify-center border-t p-4">
-            <Button
-              variant="custom"
-              asChild
-              className="w-[90%] max-w-[400px] rounded-full bg-teal-400"
-            >
-              <a href="/get-in-touch" className="block py-3 text-center">
-                GET IN TOUCH
+            <Button variant="custom" className="rounded-3xl p-6" asChild>
+              <a href="/get-in-touch">
+                <Typography
+                  variant="BodyMMedium16"
+                  className="uppercase tracking-tighter text-[#0A3D62]"
+                >
+                  Get in touch
+                </Typography>
               </a>
             </Button>
           </div>

@@ -10,7 +10,7 @@ interface BlogSectionProps {
 
 const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
   return (
-    <section className="flex min-h-[150vh] w-full flex-col items-center justify-center gap-20 px-4 py-8 md:px-8 md:py-12">
+    <section className="mx-auto flex min-h-[150vh] max-w-[90%] flex-col items-center justify-center gap-20 px-4 py-8 md:px-8 md:py-12">
       <div className="flex w-full flex-col items-center justify-center gap-6">
         <Typography variant="H2Medium64" className="text-center uppercase text-[#0A3D62]">
           {data?.title}
@@ -76,7 +76,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
         </div>
 
         <div className="flex justify-center">
-          <Button variant="primary" className="w-full rounded-2xl p-8 md:w-auto">
+          <Button variant="primary" className="w-full rounded-full p-8 md:w-auto">
             <Typography variant="H6SemiBold24" className="uppercase text-[#0A3D62]">
               {data?.buttons?.viewAll}
             </Typography>

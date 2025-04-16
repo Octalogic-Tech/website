@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-16 text-[#0A3D62]">
+            <div className="flex gap-16 text-[##292929]">
               {navigationLinks.map((section) => (
                 <div key={section.title} className="flex flex-col gap-4">
                   {section.links.map((link) => (

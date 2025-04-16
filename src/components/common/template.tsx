@@ -156,16 +156,18 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
     H3Medium48: "text-[48px]/[56px] font-medium font-Barlow",
     H3SemiBold48:
       "text-[24px]/[32px] md:text-[36px]/[44px] font-semibold font-Barlow-condensed tracking-tighter",
-    H4SemiBold40: "md:text-[32px]/[40px] font-semibold font-Barlow-condensed tracking-tighter",
+    H4SemiBold40:
+      "text-[32px]/[40px] md:text-[32px]/[40px] font-semibold font-Barlow-condensed tracking-tighter",
     H5Medium32: "text-[32px]/[40px] font-medium font-Barlow",
     H5SemiBold32: "text-[32px]/[40px] font-semibold font-Barlow",
     H6Medium24:
       "text-[20px]/[28px] font-medium font-Barlow-condensed font-semibold tracking-tighter",
-    H6SemiBold24: "text-[16px]/[24px] md:text-[18px]/[28px] font-Barlow-condensed tracking-tighter",
+    H6SemiBold24:
+      "text-[16px]/[24px] md:text-[18px]/[28px] font-bold font-Barlow-condensed tracking-tighter",
     H6Bold24: "text-[24px]/[32px] font-bold font-Barlow",
-    H6Regular24: "text-[16px]/[20px] md:text-[20px]/[24px] font-normal font-Barlow-condensed",
+    H6Regular24: "text-[16px]/[20px] md:text-[20px]/[24px] font-bold font-Barlow-condensed",
     BodyMMedium16: "text-[14px]/[20px] md:text-[16px]/[20px] font-medium font-Montserrat",
-    BodyMRegular16: "text-[12px]/[16px] md:text-[14px]/[20px] font-normal font-Montserrat",
+    BodyMRegular16: "text-[12px]/[16px] md:text-[14px]/[20px] font-medium font-Montserrat",
     BodyLMedium20: "lg:text-[20px]/[28px] font-medium font-Montserrat",
     CaptionMMedium12: "text-[12px]/[12px] font-medium font-Montserrat",
     CaptionMSemiBold12: "text-[12px]/[16px] font-semibold font-Montserrat",

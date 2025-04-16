@@ -9,7 +9,7 @@ interface RotatingBannerProps {
 
 export const RotatingBanner: React.FC<RotatingBannerProps> = ({
   images,
-  className = "bg-[#0A3D62] min-h-[20vh] py-4 px-4 flex items-center",
+  className = "bg-[#141414] min-h-[20vh] py-4 px-4 flex items-center",
   imageClassName = "w-auto h-[2rem] md:h-[2.5rem] lg:h-[3rem] object-contain",
   speed = 20,
 }) => {

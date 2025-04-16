@@ -11,11 +11,11 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
   return (
     <section className="flex min-h-[250vh] w-full items-center justify-center border-t border-white/10 bg-black px-4 py-8 md:py-12">
       <div className="mx-auto mt-8 flex max-w-[90%] flex-col gap-12">
-        <div className="flex w-full flex-col items-start gap-6 md:flex-row md:items-start md:justify-between">
-          <div className="flex flex-col gap-6">
+        <div className="flex flex-col items-start gap-6 md:max-w-[90%] md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-6 md:max-w-[60%]">
             <Typography
               variant="H2Medium64"
-              className="text-start uppercase text-[#E5E5E5] md:text-left"
+              className="bg-gradient-to-r from-[#FFFFFF] to-[#8F8F8F] bg-clip-text text-start uppercase text-transparent md:text-left"
             >
               {data?.title}
             </Typography>
@@ -23,14 +23,15 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
               {data?.description}
             </Typography>
           </div>
-          <Button
-            variant="outline"
-            className="w-full rounded-xl border-white px-8 py-6 text-[#0A3D62] hover:bg-white md:mt-3 md:w-auto"
-          >
-            <Typography variant="H6SemiBold24" className="uppercase">
-              {data?.ctaButton?.text}
-            </Typography>
-          </Button>
+          <div className="flex w-full items-start justify-end md:max-w-[40%]">
+            <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
+              <a href={"hiring"}>
+                <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
+                  start a project
+                </Typography>
+              </a>
+            </Button>
+          </div>
         </div>
 
         <div className="mt-8 flex flex-col md:mt-16 md:flex-row">
