@@ -25,13 +25,13 @@ export default function HeroSection({ data }: HeroSectionProps) {
       </div>
       <div className="flex items-center justify-center gap-8">
         <div className="flex flex-wrap px-6 md:items-center md:justify-between">
-          {data?.services?.map((service: string, index) => (
-            <div key={service} className="flex items-center">
+          {data?.services?.map((service: { name: string }, index) => (
+            <div key={service.name} className="flex items-center">
               <Typography
                 variant="H6SemiBold24"
                 className="uppercase tracking-tighter text-[#0A3D62]"
               >
-                {service}
+                {service.name}
               </Typography>
               {index !== (data?.services?.length ?? 0) - 1 && (
                 <span className="mx-4 text-2xl font-bold text-[#60E3CF] md:mx-8">/</span>

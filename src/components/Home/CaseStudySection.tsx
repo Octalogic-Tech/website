@@ -15,7 +15,11 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
           <div key={index} className="flex flex-col md:max-w-[30vw]">
             <div className="flex-none p-6">
               <div className="flex items-center gap-4">
-                <img src={card.logo} alt="logo" className="h-9 w-auto object-contain" />
+                <img
+                  src={card.logo.url}
+                  alt={card.logo.alt}
+                  className="h-9 w-auto object-contain"
+                />
               </div>
             </div>
 
@@ -31,9 +35,9 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
                 className="w-full rounded-full border-2 border-[#0A3D62] p-6 py-7 md:w-fit"
                 asChild
               >
-                <a href={"hiring"}>
+                <a href={card.viewcasestudyButton.buttonUrl}>
                   <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
-                    view casestudy
+                    {card.viewcasestudyButton.buttonLabel}
                   </Typography>
                 </a>
               </Button>

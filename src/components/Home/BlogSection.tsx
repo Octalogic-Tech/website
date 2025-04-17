@@ -32,8 +32,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
             >
               <div className="h-[30vh] w-full">
                 <img
-                  src={post?.image}
-                  alt={post?.title}
+                  src={post?.image.url}
+                  alt={post?.image.alt}
                   className="h-full w-full rounded-xl object-cover"
                 />
               </div>
@@ -52,7 +52,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
                 </Typography>
 
                 <div className="flex flex-wrap gap-2">
-                  {post?.tags?.map((tag, tagIndex) => (
+                  {post?.tags?.map((tag: string, tagIndex: number) => (
                     <span
                       key={tagIndex}
                       className="rounded-[4px] border border-[#0284C7] bg-[#F0F9FF] px-3 py-1"
@@ -64,10 +64,12 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
                   ))}
                 </div>
                 <div>
-                  <Button variant="outline" className="mt-2 w-full rounded-3xl !py-6">
-                    <Typography variant="H6SemiBold24" className="uppercase text-[#0A3D62]">
-                      {data?.buttons?.readMore}
-                    </Typography>
+                  <Button variant="outline" className="mt-2 w-full rounded-3xl !py-6" asChild>
+                    <a href={post?.button.buttonUrl}>
+                      <Typography variant="H6SemiBold24" className="uppercase text-[#0A3D62]">
+                        {post?.button.buttonLabel}
+                      </Typography>
+                    </a>
                   </Button>
                 </div>
               </div>

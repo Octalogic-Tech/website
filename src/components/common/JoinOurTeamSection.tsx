@@ -1,8 +1,19 @@
 import React from "react";
 import { Typography } from "../common/template";
 import { Button } from "@/components/ui/button";
+import useSWR from "swr";
+import { JOIN_US_QUERY } from "@/graphql/queries/joinUs";
+import { fetcher } from "@/lib/utils";
 
 const JoinOurTeamSection: React.FC = () => {
+  const { data, error } = useSWR(JOIN_US_QUERY, fetcher);
+
+  if (error) console.error("Join Us Error:", error);
+
+  const joinUsData = data?.allJoinOurTeams?.[0];
+  const content = joinUsData;
+  const sideImages = joinUsData?.sideImages || [];
+
   return (
     <section className="flex min-h-[100vh] items-center justify-center bg-[#141414] py-12">
       <div className="mx-auto flex max-w-[90%] flex-col items-center justify-between gap-8 lg:flex-row">
@@ -12,11 +23,10 @@ const JoinOurTeamSection: React.FC = () => {
               variant="H2Medium64"
               className="bg-gradient-to-r from-[#FFFFFF] to-[#8F8F8F] bg-clip-text uppercase text-transparent"
             >
-              JOIN OUR TEAM
+              {content?.pageTitle}
             </Typography>
             <Typography variant="BodyMMedium16" className="text-[#D6D6D6]">
-              Fulfilling tech-led projects for seasoned designers, developers, and product owners.
-              Solve the problem, find the joy, measure the outcome, and be fulfilled.
+              {content?.description}
             </Typography>
           </div>
 
@@ -27,7 +37,7 @@ const JoinOurTeamSection: React.FC = () => {
                   variant="H6Regular24"
                   className="uppercase tracking-tighter text-[#0A3D62]"
                 >
-                  we are hiring
+                  {content?.weAreHiringButton?.buttonLabel}
                 </Typography>
               </a>
             </Button>
@@ -38,15 +48,15 @@ const JoinOurTeamSection: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="mt-20 flex justify-end">
               <img
-                src="/team-1.png"
-                alt="Team member"
+                src={sideImages[0]?.url}
+                alt={sideImages[0]?.alt}
                 className="h-[160px] w-[160px] object-cover"
               />
             </div>
             <div className="flex justify-start">
               <img
-                src="/team-2.png"
-                alt="Team working"
+                src={sideImages[3]?.url}
+                alt={sideImages[3]?.alt}
                 className="h-[240px] w-[160px] object-cover"
               />
             </div>
@@ -55,22 +65,22 @@ const JoinOurTeamSection: React.FC = () => {
           <div className="grid grid-cols-3 gap-4">
             <div>
               <img
-                src="/team-3.png"
-                alt="Team member"
+                src={sideImages[4]?.url}
+                alt={sideImages[4]?.alt}
                 className="h-[128px] w-[260px] object-cover"
               />
             </div>
             <div>
               <img
-                src="team-4.png"
-                alt="Office space"
+                src={sideImages[2]?.url}
+                alt={sideImages[2]?.alt}
                 className="h-[240px] w-[200px] object-cover"
               />
             </div>
             <div>
               <img
-                src="/team-5.png"
-                alt="Team member"
+                src={sideImages[1]?.url}
+                alt={sideImages[1]?.alt}
                 className="h-[128px] w-[260px] object-cover"
               />
             </div>

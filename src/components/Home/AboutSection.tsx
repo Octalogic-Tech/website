@@ -2,17 +2,17 @@ import { Typography } from "@/components/common/template";
 import type { AboutSectionData } from "@/types/home";
 
 interface StatProps {
-  value: string;
-  label: string;
+  statNumber: number;
+  statDescription: string;
 }
-function Stat({ value, label }: StatProps) {
+function Stat({ statNumber, statDescription }: StatProps) {
   return (
-    <div className="flex flex-col items-start gap-2">
-      <Typography variant="H1SemiBold80" className="font-semibold text-[#49A99A]">
-        {value}
+    <div className="flex flex-col items-start justify-start">
+      <Typography variant="H2Medium64" className="font-semibold text-[#49A99A]">
+        {statNumber}+
       </Typography>
       <Typography variant="CaptionLMedium14" className="text-[#737373]">
-        {label}
+        {statDescription}
       </Typography>
     </div>
   );
@@ -37,13 +37,13 @@ export default function AboutSection({ data }: AboutSectionProps) {
             {data?.description}
           </Typography>
         </div>
-        <div className="flex w-full justify-between">
+        <div className="flex w-full gap-2 md:gap-4">
           {data?.stats.map((stat, index) => (
             <div
               key={index}
-              className="flex h-[15vh] w-[12vw] items-center justify-center rounded-xl bg-white p-6 shadow-sm"
+              className="flex flex-1 items-center justify-center rounded-xl bg-white p-3 shadow-md sm:p-4 md:p-6"
             >
-              <Stat value={stat.value} label={stat.label} />
+              <Stat statNumber={stat.statNumber} statDescription={stat.statDescription} />
             </div>
           ))}
         </div>

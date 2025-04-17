@@ -29,9 +29,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
         </Typography>
         <div className="flex w-full items-start md:max-w-[40%]">
           <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
-            <a href={"hiring"}>
+            <a href={data?.ctaButton.buttonUrl}>
               <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
-                start a project
+                {data?.ctaButton.buttonLabel}
               </Typography>
             </a>
           </Button>
@@ -57,7 +57,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
 
           <div className="pt-[10vh]">
             <CarouselContent className="-ml-4 flex items-end">
-              {data?.portfolioItems?.map((item, index) => (
+              {data?.portfolioCarousel?.map((item, index) => (
                 <CarouselItem
                   key={index}
                   className="basis-[300px] pl-4 transition-all duration-300 md:basis-[320px]"
@@ -67,14 +67,14 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
                       <div className="absolute right-1 top-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <Typography variant="BodyMMedium16" className="text-[#0A3D62]">
                           {String(index + 1).padStart(2, "0")}/
-                          {String(data?.portfolioItems?.length).padStart(2, "0")}
+                          {String(data?.portfolioCarousel?.length).padStart(2, "0")}
                         </Typography>
                       </div>
 
                       <div className="absolute bottom-40 h-[40vh] w-[40vh] overflow-hidden rounded-lg transition-all duration-300 hover:h-[55vh] hover:w-[43vh]">
                         <img
-                          src={item?.image}
-                          alt={item?.title}
+                          src={item?.carouselImage.url}
+                          alt={item?.carouselImage.alt}
                           className="h-full w-full object-cover"
                         />
                       </div>
@@ -84,13 +84,13 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
                           variant="H6Medium24"
                           className="uppercase text-[#0A3D62] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         >
-                          {item?.title}
+                          {item?.carouselTitle}
                         </Typography>
                         <Typography
                           variant="CaptionLMedium14"
                           className="mt-2 text-[#0A3D62] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         >
-                          {item?.description}
+                          {item?.carouselDescription}
                         </Typography>
                       </div>
                     </div>

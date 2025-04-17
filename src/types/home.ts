@@ -2,15 +2,17 @@ export interface AboutSectionData {
   title: string;
   description: string;
   stats: {
-    value: string;
-    label: string;
+    statNumber: number;
+    statDescription: string;
   }[];
 }
 
 export interface HeroSectionData {
   heading: string;
   description: string;
-  services?: string[];
+  services?: {
+    name: string;
+  }[];
   ctaButton?: {
     text: string;
     link: string;
@@ -18,9 +20,15 @@ export interface HeroSectionData {
 }
 
 export interface CardItem {
-  logo: string;
+  logo: {
+    url: string;
+    alt?: string;
+  };
   description: string;
-  buttonText: string;
+  viewcasestudyButton: {
+    buttonLabel: string;
+    buttonUrl: string;
+  };
 }
 
 export interface CaseStudySectionData {
@@ -29,7 +37,7 @@ export interface CaseStudySectionData {
 
 export interface ServiceCard {
   title: string;
-  description: string;
+  servicesDescription: string;
   chips: string[];
 }
 
@@ -37,33 +45,48 @@ export interface OurServicesSectionData {
   title: string;
   description: string;
   ctaButton: {
-    text: string;
+    buttonLabel: string;
+    buttonUrl: string;
   };
-  sideimage: string;
-  serviceCards: ServiceCard[];
+  sideImage: {
+    url: string;
+    alt: string;
+  };
+  serviceCard: ServiceCard[];
 }
 
 export interface PortfolioItem {
-  image: string;
-  title: string;
-  description: string;
+  carouselImage: {
+    url: string;
+    alt: string;
+  };
+  carouselTitle: string;
+  carouselDescription: string;
 }
 
 export interface PortfolioSectionData {
   title: string;
   description: string;
   ctaButton: {
-    text: string;
+    buttonLabel: string;
+    buttonUrl: string;
   };
-  portfolioItems: PortfolioItem[];
+  portfolioCarousel: PortfolioItem[];
 }
 
 export interface BlogPost {
-  image: string;
+  image: {
+    url: string;
+    alt: string;
+  };
   date: string;
   title: string;
   description: string;
   tags: string[];
+  button: {
+    buttonLabel: string;
+    buttonUrl: string;
+  };
 }
 
 export interface BlogSectionData {
@@ -71,7 +94,6 @@ export interface BlogSectionData {
   description: string;
   posts: BlogPost[];
   buttons: {
-    readMore: string;
     viewAll: string;
   };
 }
