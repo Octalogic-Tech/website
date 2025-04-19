@@ -1,0 +1,44 @@
+import { Typography } from "../common/template";
+import type { MapSectionData } from "@/types/services";
+
+interface MapSectionProps {
+  data: MapSectionData;
+}
+
+const MapSection = ({ data }: MapSectionProps) => {
+  return (
+    <div className="flex min-h-[120vh] flex-col items-center justify-center bg-black px-4 text-white md:py-24">
+      <img
+        src={data.mapImage.url}
+        alt={data.mapImage.alt}
+        className="mb-8 w-full md:max-w-[70vw]"
+      />
+
+      <div className="flex w-full flex-col justify-between gap-6 md:max-w-[70vw] md:flex-row">
+        <div className="flex-1 rounded-md bg-[#111] p-6 md:max-w-[25vw]">
+          <Typography variant="H6Medium24" className="mb-2 uppercase">
+            {data.title}
+          </Typography>
+          <Typography variant="BodyMRegular16" className="text-gray-300">
+            {data.description}
+          </Typography>
+        </div>
+
+        <div className="grid flex-1 grid-cols-3 gap-x-4 gap-y-4 rounded-md bg-[#111] p-6 text-sm">
+          {data.countries.map((country, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <img
+                src={`/flags/${country.name.toLowerCase().replace(" ", "-")}.png`}
+                alt={country.name}
+                className="h-4 w-5"
+              />
+              <Typography variant="CaptionMMedium14">{country.name}</Typography>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MapSection;

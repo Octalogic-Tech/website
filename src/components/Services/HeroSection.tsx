@@ -1,13 +1,13 @@
 import React from "react";
 import { Typography } from "../common/template";
 import { Button } from "@/components/ui/button";
-import type { AboutHeroSectionData } from "@/types/about";
+import type { ServicesSectionData } from "@/types/services";
 
-interface AboutHeroProps {
-  data?: AboutHeroSectionData;
+interface ServiceHeroProps {
+  data?: ServicesSectionData;
 }
 
-const AboutHero: React.FC<AboutHeroProps> = ({ data }) => {
+const ServiceHero: React.FC<ServiceHeroProps> = ({ data }) => {
   return (
     <section className="bg-gradient-to-b from-[#DBEAFE] to-[#FFFFFF]">
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-12 px-4 py-28 text-center md:gap-16 md:px-16 md:py-40">
@@ -18,8 +18,8 @@ const AboutHero: React.FC<AboutHeroProps> = ({ data }) => {
           {data?.badge}
         </Typography>
 
-        <div className="flex max-w-[800px] flex-col gap-8">
-          <div>
+        <div className="flex max-w-[800px] flex-col items-center gap-8">
+          <div className="max-w-[300px] md:max-w-[400px]">
             <Typography
               variant="H1SemiBold80"
               className="bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text uppercase text-transparent"
@@ -49,4 +49,4 @@ const AboutHero: React.FC<AboutHeroProps> = ({ data }) => {
   );
 };
 
-export default AboutHero;
+export default ServiceHero;

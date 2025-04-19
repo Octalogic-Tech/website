@@ -150,7 +150,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
   const variantStyles = {
     H1SemiBold80:
       "text-[36px]/[44px] md:text-[60px]/[64px] font-bold font-Barlow-condensed tracking-tighter",
-    H2SemiBold64: "md:text-[64px]/[72px] font-semibold font-Barlow",
+    H2SemiBold64: "text-[32px]/[40px] md:text-[56px]/[68px] font-semibold font-Barlow",
     H2Medium64:
       "text-[32px]/[40px] md:text-[44px]/[52px] font-medium font-Barlow-condensed tracking-tighter",
     H3Medium48: "text-[48px]/[56px] font-medium font-Barlow",
@@ -158,7 +158,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant, children, class
       "text-[24px]/[32px] md:text-[36px]/[44px] font-semibold font-Barlow-condensed tracking-tighter",
     H4SemiBold40:
       "text-[32px]/[40px] md:text-[32px]/[40px] font-semibold font-Barlow-condensed tracking-tighter",
-    H5Medium32: "text-[32px]/[40px] font-medium font-Barlow",
+    H5Medium32: "text-[28px]/[32px] font-medium font-Barlow",
     H5SemiBold32: "text-[32px]/[40px] font-semibold font-Barlow",
     H6Medium24:
       "text-[20px]/[28px] font-medium font-Barlow-condensed font-semibold tracking-tighter",

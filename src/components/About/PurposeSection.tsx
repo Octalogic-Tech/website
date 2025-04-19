@@ -33,7 +33,7 @@ const PurposeSection: React.FC<PurposeSectionProps> = ({ data }) => {
 
   return (
     <section className="w-full bg-black">
-      <div className="mx-auto flex flex-col px-4 py-16 md:max-w-[1440px] md:flex-row md:justify-between md:px-24 md:py-[140px]">
+      <div className="mx-auto flex flex-col px-4 py-16 md:max-w-[1440px] md:flex-row md:justify-between md:px-24 md:py-36">
         <div className="mb-12 flex flex-col gap-8 md:mb-0 md:h-[320px] md:w-[800px]">
           <div className="w-full md:w-[480px]">
             <Typography variant="H2Medium64" className="!font-normal uppercase text-[#FAFAFA]">
