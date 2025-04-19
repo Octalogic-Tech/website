@@ -1,18 +1,11 @@
 import React from "react";
 import { Typography } from "../common/template";
 import { Button } from "@/components/ui/button";
-import useSWR from "swr";
-import { JOIN_US_QUERY } from "@/graphql/queries/joinUs";
-import { fetcher } from "@/lib/utils";
+import type { JoinOurTeamSectionProps } from "@/types/common";
 
-const JoinOurTeamSection: React.FC = () => {
-  const { data, error } = useSWR(JOIN_US_QUERY, fetcher);
-
-  if (error) console.error("Join Us Error:", error);
-
-  const joinUsData = data?.allJoinOurTeams?.[0];
-  const content = joinUsData;
-  const sideImages = joinUsData?.sideImages || [];
+const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
+  const content = data;
+  const sideImages = data?.sideImages || [];
 
   return (
     <section className="flex min-h-[100vh] items-center justify-center bg-[#141414] py-12">
@@ -32,7 +25,7 @@ const JoinOurTeamSection: React.FC = () => {
 
           <div className="flex w-full">
             <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
-              <a href={"hiring"}>
+              <a href="hiring">
                 <Typography
                   variant="H6Regular24"
                   className="uppercase tracking-tighter text-[#0A3D62]"

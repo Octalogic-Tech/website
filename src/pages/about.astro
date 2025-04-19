@@ -1,13 +1,49 @@
 ---
 import "../styles/globals.css";
-import Navigation from "../components/navigation";
-import Footer from "../components/Footer";
-import AboutHero from "../components/About/AboutHero";
-import MissionSection from "../components/About/MissionSection";
-import AboutImageCarousel from "../components/About/AboutImageCarousel";
-import AboutTestimonials from "../components/About/AboutTestimonials";
-import ContactUsSection from "../components/Case-Study/ContactUsSection.tsx";
-import AboutHiring from "../components/About/AboutHiring";
+import Navigation from "../components/common/navigation";
+import Footer from "../components/common/Footer";
+import Mainsection from "../components/About/MainSection.tsx";
+import { ABOUT_PAGE_QUERY } from "@/graphql/queries/about";
+import { CONTACT_QUERY } from "@/graphql/queries/contact";
+import { JOIN_US_QUERY } from "@/graphql/queries/joinUs";
+
+// Fetch all required data at build time
+const [aboutResponse, contactResponse, joinUsResponse] = await Promise.all([
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: ABOUT_PAGE_QUERY }),
+  }),
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: CONTACT_QUERY }),
+  }),
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: JOIN_US_QUERY }),
+  }),
+]);
+
+const [{ data: aboutData }, { data: contactData }, { data: joinUsData }] = await Promise.all([
+  aboutResponse.json(),
+  contactResponse.json(),
+  joinUsResponse.json(),
+]);
+
+const aboutPageData = aboutData.allAboutPages[0];
+const contactSectionData = contactData.allContacts[0];
+const joinUsSectionData = joinUsData.allJoinOurTeams[0];
 ---
 
 <html lang="en">
@@ -26,13 +62,13 @@ import AboutHiring from "../components/About/AboutHiring";
   </head>
   <body>
     <Navigation client:load />
-    <main class="pt-[72px]">
-      <AboutHero client:load />
-      <AboutImageCarousel client:load />
-      <MissionSection client:load />
-      <AboutTestimonials client:load />
-      <ContactUsSection client:load />
-      <AboutHiring client:load />
+    <main>
+      <Mainsection
+        client:load
+        data={aboutPageData}
+        contactData={contactSectionData}
+        joinUsData={joinUsSectionData}
+      />
     </main>
     <Footer client:load />
   </body>

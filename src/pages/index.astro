@@ -3,26 +3,48 @@ import "@/styles/globals.css";
 import Navigation from "../components/common/navigation";
 import Mainsection from "../components/Home/MainSection.tsx";
 import Footer from "../components/common/Footer";
+import { HOME_PAGE_QUERY } from "@/graphql/queries/home";
+import { CONTACT_QUERY } from "@/graphql/queries/contact";
+import { JOIN_US_QUERY } from "@/graphql/queries/joinUs";
+
+// Fetch all required data at build time
+const [homeResponse, contactResponse, joinUsResponse] = await Promise.all([
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: HOME_PAGE_QUERY }),
+  }),
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: CONTACT_QUERY }),
+  }),
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: JOIN_US_QUERY }),
+  }),
+]);
+
+const [{ data: homeData }, { data: contactData }, { data: joinUsData }] = await Promise.all([
+  homeResponse.json(),
+  contactResponse.json(),
+  joinUsResponse.json(),
+]);
+
+const homePageData = homeData.allHomepages[0];
+const contactSectionData = contactData.allContacts[0];
+const joinUsSectionData = joinUsData.allJoinOurTeams[0];
 ---
-
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "dark" : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  }
-</script>
 
 <html lang="en">
   <head>
@@ -41,10 +63,14 @@ import Footer from "../components/common/Footer";
     <title>Home</title>
   </head>
   <body class="flex flex-col">
-    <!-- <ModeToggle client:load /> -->
     <Navigation client:load />
     <main>
-      <Mainsection client:load />
+      <Mainsection
+        client:load
+        data={homePageData}
+        contactData={contactSectionData}
+        joinUsData={joinUsSectionData}
+      />
     </main>
     <Footer client:load />
   </body>

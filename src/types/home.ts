@@ -98,6 +98,26 @@ export interface BlogSectionData {
   };
 }
 
-export interface BannerData {
-  images: string[];
+export interface MainSectionProps {
+  data: {
+    heroTitle: string;
+    description: string;
+    services?: { name: string }[];
+    button: { buttonLabel: string; buttonUrl: string };
+    clientLogos: { url: string; alt: string }[];
+    aboutTitle: string;
+    aboutDescription: string;
+    stats: { statNumber: number; statDescription: string }[];
+    portfolioTitle: string;
+    portfolioDescription: string;
+    portfolioCarousel: any[];
+    caseStudyCards: any[];
+    servicesTitle: string;
+    servicesDescription: string;
+    sideImage: { url: string; alt: string };
+    serviceCard: any[];
+    blogsPageTitle: string;
+    blogPageDescription: string;
+    blogCards: any[];
+  };
 }

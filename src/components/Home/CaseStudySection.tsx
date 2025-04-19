@@ -4,10 +4,14 @@ import { Typography } from "../common/template";
 import type { CardItem } from "@/types/home";
 
 interface CaseStudySectionProps {
-  cards: CardItem[];
+  cards?: CardItem[];
 }
 
-const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards }) => {
+const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards = [] }) => {
+  if (!cards || cards.length === 0) {
+    return null; // Or return a placeholder/loading state
+  }
+
   return (
     <section className="mx-auto flex min-h-[70vh] items-center justify-center bg-[#F5F5F5] py-12">
       <div className="flex flex-col justify-between gap-4 md:flex-row">

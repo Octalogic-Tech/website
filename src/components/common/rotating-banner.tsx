@@ -22,7 +22,7 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
           animation: `scroll ${speed}s linear infinite`,
         }}
       >
-        {images.concat(images).map((image, index) => (
+        {(images || []).concat(images || []).map((image, index) => (
           <img
             key={`${image}-${index}`}
             src={image}

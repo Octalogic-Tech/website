@@ -41,7 +41,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         </div>
       </div>
       <div>
-        <Button variant="primary" className="rounded-3xl p-6" asChild>
+        <Button variant="primary" className="rounded-full p-7" asChild>
           <a href={data?.ctaButton?.link}>
             <Typography variant="H6Regular24" className="uppercase tracking-tighter text-[#0A3D62]">
               {data?.ctaButton?.text}

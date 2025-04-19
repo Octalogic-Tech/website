@@ -17,17 +17,17 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
               variant="H2Medium64"
               className="bg-gradient-to-r from-[#FFFFFF] to-[#8F8F8F] bg-clip-text text-start uppercase text-transparent md:text-left"
             >
-              {data.title}
+              {data?.title}
             </Typography>
             <Typography variant="BodyMMedium16" className="text-start text-[#E5E5E5]">
-              {data.description}
+              {data?.description}
             </Typography>
           </div>
           <div className="flex w-full items-start justify-end md:max-w-[40%]">
             <Button variant="primary" className="w-full rounded-full p-6 py-7 md:w-fit" asChild>
-              <a href={data.ctaButton.buttonUrl}>
+              <a href={data?.ctaButton?.buttonUrl}>
                 <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
-                  {data.ctaButton.buttonLabel}
+                  {data?.ctaButton?.buttonLabel}
                 </Typography>
               </a>
             </Button>
@@ -38,8 +38,8 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
           <div className="hidden w-full md:block md:w-[40%]">
             <div className="max-w-[30vw] md:ml-5 md:mt-40">
               <img
-                src={data.sideImage.url}
-                alt={data.sideImage.alt}
+                src={data?.sideImage?.url}
+                alt={data?.sideImage?.alt}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -47,7 +47,7 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
 
           <div className="w-full md:w-[60%]">
             <div className="flex flex-col">
-              {data.serviceCard.map((card, index) => (
+              {data?.serviceCard?.map((card, index) => (
                 <React.Fragment key={index}>
                   <div className="group flex flex-col items-start gap-2 md:flex-row md:gap-6">
                     <Typography
@@ -63,13 +63,13 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
                           variant="H3Medium48"
                           className="uppercase text-white/50 transition-colors duration-300 group-hover:text-white"
                         >
-                          {card.title}
+                          {card?.title}
                         </Typography>
                         <Typography
                           variant="CaptionMMedium14"
                           className="text-white/30 transition-colors duration-300 group-hover:text-white/80"
                         >
-                          {card.servicesDescription}
+                          {card?.servicesDescription}
                         </Typography>
 
                         <div className="flex flex-wrap gap-2">
