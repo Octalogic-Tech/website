@@ -19,7 +19,7 @@ const MapSection = ({ data }: MapSectionProps) => {
           <Typography variant="H6Medium24" className="mb-2 uppercase">
             {data.title}
           </Typography>
-          <Typography variant="BodyMRegular16" className="text-gray-300">
+          <Typography variant="BodyMRegular16" className="whitespace-pre-line text-gray-300">
             {data.description}
           </Typography>
         </div>
@@ -28,11 +28,11 @@ const MapSection = ({ data }: MapSectionProps) => {
           {data.countries.map((country, idx) => (
             <div key={idx} className="flex items-center gap-2">
               <img
-                src={`/flags/${country.name.toLowerCase().replace(" ", "-")}.png`}
-                alt={country.name}
-                className="h-4 w-5"
+                src={country?.countryFlag?.url}
+                alt={country?.countryFlag?.alt}
+                className="h-4 w-5 object-contain"
               />
-              <Typography variant="CaptionMMedium14">{country.name}</Typography>
+              <Typography variant="CaptionMMedium14">{country.countryName}</Typography>
             </div>
           ))}
         </div>

@@ -1,70 +1,82 @@
 export interface ServicesSectionData {
-  badge: string;
-  title: string;
-  description: string;
-  ctaButton: {
+  sectionNameTag: string;
+  heroTitle: string;
+  heroDescription: string;
+  workWithUs: {
     buttonLabel: string;
     buttonUrl: string;
   };
 }
-export interface DiscoveryItem {
+export interface NavigationMenuItem {
   id: number;
-  navTitle: string;
-  title: string;
+  name: string;
+}
+
+export interface ProcessCard {
+  stepNumber: number;
+  stepTitle: string;
   description: string;
-  bulletPoints: string[];
-  image: string;
+  descriptionPoints: string[];
+  customImage?: {
+    url: string;
+    alt: string;
+  };
+}
+
+export interface ProcessNavigation {
+  next: string;
+  previous: string;
+}
+
+export interface ProcessSectionData {
+  navigationMenu: NavigationMenuItem[];
+  processCards: ProcessCard[];
+  navigation: ProcessNavigation;
 }
 export interface NotScopeSectionData {
   title: string;
-  mainBox: {
-    title: string;
-    description: string;
-  };
-  boxes: {
-    title: string;
-    description: string;
+  cards: {
+    cardTitle: string;
+    cardDescription: string;
   }[];
 }
-// export interface TechnologyItem {
-//   id: number;
-//   title: string;
-//   description: string;
-//   technologies: { icon: string; name: string }[];
-// }
-export interface ExpertiseItem {
-  id: number;
-  title: string;
-  icon: string;
-  description: string;
-  bulletPoints: string[];
-}
-export interface DiscoverySectionData {
-  items: DiscoveryItem[];
-}
-// export interface TechnologySectionData {
-//   title: string;
-//   items: TechnologyItem[];
-// }
-export interface ExpertiseSectionData {
-  title: string;
-  items: ExpertiseItem[];
+
+export interface ExpertiseFeature {
+  featureLogo: { url: string; alt: string };
+  featureName: string;
+  featureTitle: string;
+  featureDescription: string;
+  featurePoints: string[];
 }
 
-export interface WorkStep {
-  icon: string;
+export interface ExpertiseSectionData {
+  title: string;
+  features: ExpertiseFeature[];
+}
+
+interface CustomLogo {
+  url: string;
+  alt: string;
+}
+
+interface WorkCard {
+  customLogo: CustomLogo;
   title: string;
   description: string;
 }
 
 export interface HowWeWorkSectionData {
   title: string;
-  steps: WorkStep[];
+  cards: WorkCard[];
+}
+
+export interface WorkCardProps extends WorkCard {
+  position: number;
 }
 
 export interface CountryInfo {
-  name: string;
-  flag: {
+  countryName: string;
+  countryFlag: {
     url: string;
     alt: string;
   };
@@ -80,12 +92,34 @@ export interface MapSectionData {
   countries: CountryInfo[];
 }
 
-export interface ServicesPageData {
-  servicesSection: ServicesSectionData;
-  discoverySection: DiscoverySectionData;
-  notScopeSection: NotScopeSectionData;
-  // technologySection: TechnologySectionData;
-  expertiseSection: ExpertiseSectionData;
-  howWeWorkSection: HowWeWorkSectionData;
-  mapData: MapSectionData;
+export interface MainSectionProps {
+  data: {
+    sectionNameTag: string;
+    heroTitle: string;
+    heroDescription: string;
+    workWithUs: {
+      buttonLabel: string;
+      buttonUrl: string;
+    };
+    stepsNavigationMenu: NavigationMenuItem[];
+    processCard: ProcessCard[];
+    nextButton: string;
+    previousButton: string;
+    valuePropositionTitle: string;
+    valueCards: {
+      cardTitle: string;
+      cardDescription: string;
+    }[];
+    expertiseTitle: string;
+    navigationFeatures: ExpertiseFeature[];
+    title: string;
+    howWeWorkCards: WorkCard[];
+    worldMap: {
+      url: string;
+      alt: string;
+    };
+    collaborationTitle: string;
+    collaborationDescription: string;
+    countries: CountryInfo[];
+  };
 }

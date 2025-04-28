@@ -1,15 +1,5 @@
 import { Typography } from "../common/template";
-import type { HowWeWorkSectionData } from "@/types/services";
-
-interface WorkStep {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-interface WorkStepProps extends WorkStep {
-  position: number;
-}
+import type { HowWeWorkSectionData, WorkCardProps } from "@/types/services";
 
 interface HowWeWorkSectionProps {
   data: HowWeWorkSectionData;
@@ -19,7 +9,7 @@ const shouldCenterItem = (position: number): boolean => {
   return position % 3 === 1;
 };
 
-const WorkStepComponent = ({ icon, title, description, position }: WorkStepProps) => {
+const WorkCardComponent = ({ customLogo, title, description, position }: WorkCardProps) => {
   const isCenter = shouldCenterItem(position);
 
   return (
@@ -29,7 +19,7 @@ const WorkStepComponent = ({ icon, title, description, position }: WorkStepProps
       }`}
     >
       <div className="mb-6 flex w-full items-center gap-4">
-        <img src={icon} alt={title} className="h-16 w-16 md:h-20 md:w-20" />
+        <img src={customLogo.url} alt={customLogo.alt} className="h-16 w-16 md:h-20 md:w-20" />
         <Typography variant="H6Medium24" className="max-w-[150px] uppercase text-[#0A3D62]">
           {title}
         </Typography>
@@ -50,10 +40,10 @@ const HowWeWorkSection = ({ data }: HowWeWorkSectionProps) => {
         {data.title}
       </Typography>
 
-      <div className="w-full overflow-hidden rounded-[12px] border border-[#E5E5E5]">
+      <div className="w-full overflow-hidden rounded-lg border border-[#E5E5E5]">
         <div className="grid grid-cols-1 md:grid-cols-3">
-          {data.steps.map((step, index) => (
-            <WorkStepComponent key={index} {...step} position={index} />
+          {data.cards.map((card, index) => (
+            <WorkCardComponent key={index} {...card} position={index} />
           ))}
         </div>
       </div>

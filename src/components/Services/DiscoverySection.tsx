@@ -7,13 +7,9 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import type { DiscoverySectionData } from "@/types/services";
+import type { ProcessSectionData } from "@/types/services";
 
-interface DiscoverySectionProps {
-  data: DiscoverySectionData;
-}
-
-export default function DiscoverySection({ data }: DiscoverySectionProps) {
+export default function DiscoverySection({ data }: { data: ProcessSectionData }) {
   const [activeSection, setActiveSection] = useState<number>(1);
   const [api, setApi] = useState<CarouselApi>();
 
@@ -38,16 +34,16 @@ export default function DiscoverySection({ data }: DiscoverySectionProps) {
   return (
     <section className="flex w-full flex-col gap-16 bg-gradient-to-b from-[#FFFFFF] to-[#DBEAFE] md:gap-32">
       <div className="flex w-full flex-wrap justify-center gap-4 bg-[#000] px-4 py-6 md:gap-16 md:px-12 md:py-12">
-        {data?.items?.map((item) => (
-          <div key={item.id} onClick={() => setActiveSection(item.id)} className="cursor-pointer">
+        {data.navigationMenu?.map((item, index) => (
+          <div key={index} onClick={() => setActiveSection(index + 1)} className="cursor-pointer">
             <Typography
               variant="H4SemiBold40"
               className={cn(
                 "text-sm uppercase md:text-base lg:text-xl",
-                activeSection === item.id ? "text-[#fff]" : "text-gray-400 hover:text-gray-300",
+                activeSection === index + 1 ? "text-[#fff]" : "text-gray-400 hover:text-gray-300",
               )}
             >
-              {item?.navTitle}
+              {item.name}
             </Typography>
           </div>
         ))}
@@ -68,26 +64,29 @@ export default function DiscoverySection({ data }: DiscoverySectionProps) {
           }}
         >
           <CarouselContent>
-            {data.items.map((item) => (
-              <CarouselItem key={item?.id} className="flex items-center justify-center md:px-0">
+            {data.processCards.map((item) => (
+              <CarouselItem
+                key={item.stepNumber}
+                className="flex items-center justify-center md:px-0"
+              >
                 <div className="flex w-full flex-col items-center gap-8 md:w-[600px] md:flex-row md:items-start">
                   <div className="w-full px-4 md:w-[300px] md:flex-shrink-0">
                     <Typography
                       variant="H3SemiBold48"
                       className="mb-3 text-center uppercase text-[#0A3D62] md:text-left"
                     >
-                      {item?.title}
+                      {item.stepTitle}
                     </Typography>
 
                     <Typography
                       variant="CaptionMSemiBold12"
                       className="mb-4 !font-medium text-[#0A3D62]"
                     >
-                      {item?.description}
+                      {item.description}
                     </Typography>
 
                     <ul className="flex flex-col gap-2">
-                      {item.bulletPoints.map((point, index) => (
+                      {item.descriptionPoints.map((point, index) => (
                         <li key={index} className="flex items-start gap-2">
                           <div className="mt-1 h-1 w-1 rounded-full bg-[#0A3D62]" />
                           <Typography variant="CaptionMMedium12" className="text-[#0A3D62]">
@@ -99,11 +98,13 @@ export default function DiscoverySection({ data }: DiscoverySectionProps) {
                   </div>
 
                   <div className="relative mx-auto h-[280px] w-[340px] overflow-hidden rounded-lg">
-                    <img
-                      src={item?.image}
-                      alt={item.title}
-                      className="h-full w-full object-cover"
-                    />
+                    {item?.customImage && (
+                      <img
+                        src={item.customImage.url}
+                        alt={item.customImage.alt}
+                        className="h-full w-full object-cover"
+                      />
+                    )}
                   </div>
                 </div>
               </CarouselItem>
@@ -116,7 +117,7 @@ export default function DiscoverySection({ data }: DiscoverySectionProps) {
                 variant="H6SemiBold24"
                 className="text-sm font-semibold uppercase text-[#00000] hover:opacity-80 md:text-base"
               >
-                Previous
+                {data.navigation.previous}
               </Typography>
             </button>
             <button onClick={() => api?.scrollNext()}>
@@ -124,7 +125,7 @@ export default function DiscoverySection({ data }: DiscoverySectionProps) {
                 variant="H6SemiBold24"
                 className="text-sm font-semibold uppercase text-[#00000] hover:opacity-80 md:text-base"
               >
-                Next
+                {data.navigation.next}
               </Typography>
             </button>
           </div>

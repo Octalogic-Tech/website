@@ -15,7 +15,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ data }) => {
           variant="CaptionLMedium14"
           className="rounded-full border-2 border-dashed border-[#D6D6D6] bg-[#fff] px-6 py-3 text-[12px]/[18px] uppercase tracking-[7px] text-[#0A3D62] transition-all duration-300 lg:text-[14px]/[20px]"
         >
-          {data?.badge}
+          {data?.sectionNameTag}
         </Typography>
 
         <div className="flex max-w-[800px] flex-col items-center gap-8">
@@ -24,22 +24,22 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ data }) => {
               variant="H1SemiBold80"
               className="bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text uppercase text-transparent"
             >
-              {data?.title}
+              {data?.heroTitle}
             </Typography>
           </div>
           <Typography variant="BodyLMedium20" className="text-[#737373]">
-            {data?.description}
+            {data?.heroDescription}
           </Typography>
         </div>
 
         <div>
           <Button variant="primary" className="rounded-full p-7" asChild>
-            <a href={data?.ctaButton?.buttonUrl}>
+            <a href={data?.workWithUs?.buttonUrl}>
               <Typography
                 variant="H6Regular24"
                 className="uppercase tracking-tighter text-[#0A3D62]"
               >
-                {data?.ctaButton?.buttonLabel}
+                {data?.workWithUs?.buttonLabel}
               </Typography>
             </a>
           </Button>
