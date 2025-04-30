@@ -72,10 +72,12 @@ export default function MainSection({
     },
   };
 
+  const bannerImages = data.clientLogos?.map((img) => img.url) || [];
+
   return (
     <main>
       <HeroSection data={heroData} />
-      <RotatingBanner images={data?.clientLogos?.map((logo) => logo.url)} />
+      <RotatingBanner images={bannerImages} />
       <AboutSection data={aboutData} />
       <PortfolioSection data={portfolioData} />
       <CaseStudySection cards={data?.caseStudyCards} />

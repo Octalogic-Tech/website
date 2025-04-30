@@ -17,7 +17,7 @@ const MenuListItems = [
   { name: "About us", link: "/about" },
   { name: "Services", link: "/services" },
   { name: "Portfolio", link: "/portfolio" },
-  { name: "Case studies", link: "/Case-Study" },
+  { name: "Case studies", link: "/casestudy" },
   { name: "Blog", link: "/blog" },
   { name: "Contact us", link: "/contact" },
   { name: "Careers", link: "/careers" },
