@@ -1,0 +1,64 @@
+---
+import "@/styles/globals.css";
+import Navigation from "../components/common/navigation";
+import Footer from "../components/common/Footer";
+import Mainsection from "../components/Portfolio/MainSection.tsx";
+import { PORTFOLIO_PAGE_QUERY } from "@/graphql/queries/portfolio";
+import { CONTACT_QUERY } from "@/graphql/queries/contact";
+
+// Fetch all required data at build time
+const [portfolioResponse, contactResponse] = await Promise.all([
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({
+      query: PORTFOLIO_PAGE_QUERY,
+    }),
+  }),
+  fetch(import.meta.env.DATOCMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify({ query: CONTACT_QUERY }),
+  }),
+]);
+
+const [{ data: portfolioData }, { data: contactData }] = await Promise.all([
+  portfolioResponse.json(),
+  contactResponse.json(),
+]);
+
+const portfolioPageData = portfolioData.allPortfolioLandingPages[0];
+const contactSectionData = contactData.allContacts[0];
+
+// Log for debugging
+console.log("Portfolio Page Data:", portfolioPageData);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portfolio</title>
+  </head>
+  <body class="flex flex-col">
+    <Navigation client:load />
+    <main>
+      <Mainsection client:load data={portfolioPageData} contactData={contactSectionData} />
+    </main>
+    <Footer client:load />
+  </body>
+</html>
