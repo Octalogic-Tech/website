@@ -16,6 +16,7 @@ export interface ClientProject {
   title: string;
   heading: string;
   description: string;
+  slug: string;
   button: {
     buttonLabel: string;
     buttonUrl: string;

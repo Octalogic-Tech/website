@@ -1,11 +1,5 @@
 import React from "react";
-
-interface RotatingBannerProps {
-  images: string[];
-  className?: string;
-  imageClassName?: string;
-  speed?: number;
-}
+import type { RotatingBannerProps } from "@/types/casestudy";
 
 export const RotatingBanner: React.FC<RotatingBannerProps> = ({
   images,
@@ -13,6 +7,8 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
   imageClassName = "w-auto h-[2rem] md:h-[2.5rem] lg:h-[3rem] object-contain",
   speed = 20,
 }) => {
+  const validImages = images.filter((url): url is string => url !== undefined && url !== "");
+
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
       <div
@@ -22,7 +18,7 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
           animation: `scroll ${speed}s linear infinite`,
         }}
       >
-        {(images || []).concat(images || []).map((image, index) => (
+        {validImages.concat(validImages).map((image, index) => (
           <img
             key={`${image}-${index}`}
             src={image}
@@ -33,12 +29,8 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
       </div>
       <style>{`
         @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
       `}</style>
     </div>

@@ -14,38 +14,41 @@ export default function MainSection({
   data: MainSectionProps["data"];
   contactData: ContactUsSectionProps["data"];
 }) {
-  const heroSectionData = {
-    badge: data.sectionTag,
-    title: data.heroTitle,
-    description: data.heroDescription,
+  const heroData = {
+    sectionTag: data.sectionTag || "",
+    heroTitle: data.heroTitle || "",
+    heroDescription: data.heroDescription || "",
   };
 
-  const featuredSectionData = {
-    title: data.featuredTitle,
-    description: data.featureDescription,
-    cashCard: data.cashCard,
+  const featuredData = {
+    title: data.featuredTitle || "",
+    description: data.featureDescription || "",
+    cashCard: data.cashCard || {},
   };
 
-  const storiesSectionData = {
-    title: data.successTitle,
-    description: data.successDescription,
-    stories: data.successStories,
+  const storiesData = {
+    title: data.successTitle || "",
+    description: data.successDescription || "",
+    stories: data.successStories || [],
   };
 
-  const innovationSectionData = {
-    title: data.sectionTitle,
-    description: data.sectionDescription,
-    button: data.button,
+  const innovationData = {
+    title: data.sectionTitle || "",
+    description: data.sectionDescription || "",
+    button: data.button || {},
   };
 
-  const bannerImages = data.rotatingBannerImages?.map((img) => img.url) || [];
+  const bannerImages =
+    data.rotatingBannerImages
+      ?.map((img) => img.url)
+      .filter((url) => url !== undefined && url !== "") || [];
 
   return (
     <main>
-      <HeroSection data={heroSectionData} />
-      <FeaturedSection data={featuredSectionData} />
-      <StoriesSection data={storiesSectionData} />
-      <InnovationSection data={innovationSectionData} />
+      <HeroSection data={heroData} />
+      <FeaturedSection data={featuredData} />
+      <StoriesSection data={storiesData} />
+      <InnovationSection data={innovationData} />
       <RotatingBanner images={bannerImages} />
       <ContactUsSection data={contactData} />
     </main>

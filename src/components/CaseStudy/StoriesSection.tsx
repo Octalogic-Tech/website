@@ -8,11 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CaseStudyCard from "@/components/CaseStudy/CaseStudyCard";
-import type { SuccessStoriesSectionData } from "@/types/casestudy";
-
-interface StoriesSectionProps {
-  data?: SuccessStoriesSectionData;
-}
+import type { CaseCardType, StoriesSectionProps } from "@/types/casestudy";
 
 const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
   return (
@@ -26,15 +22,15 @@ const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
                   variant="H2SemiBold64"
                   className="bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text tracking-tight text-transparent"
                 >
-                  {data?.title}
+                  {data?.title || ""}
                 </Typography>
               </div>
               <div>
                 <Typography variant="BodyMMedium16" className="text-[#737373]">
-                  {data?.description.split("\n\n").map((paragraph, index) => (
+                  {(data?.description || "").split("\n\n").map((paragraph, index, arr) => (
                     <React.Fragment key={index}>
                       {paragraph}
-                      {index < data?.description.split("\n\n").length - 1 && (
+                      {index < arr.length - 1 && (
                         <>
                           <br />
                           <br />
@@ -52,11 +48,36 @@ const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
           </div>
 
           <CarouselContent className="flex lg:gap-6">
-            {data?.stories.map((story, index) => (
-              <CarouselItem key={index} className="flex basis-[100%] justify-center lg:basis-[60%]">
-                <CaseStudyCard className="bg-[#FAFAFA]" {...story} />
-              </CarouselItem>
-            ))}
+            {(data?.stories || []).map((story, index) => {
+              const transformedStory: CaseCardType = {
+                logo: {
+                  alt: story.logo?.alt ?? "",
+                  url: story.logo?.url ?? "",
+                },
+                title: story.title ?? "",
+                description: story.description ?? "",
+                image: {
+                  alt: story.image?.alt ?? "",
+                  url: story.image?.url ?? "",
+                },
+                button: {
+                  buttonLabel: story.button?.buttonLabel ?? "View Case Study",
+                  buttonUrl: story.button?.buttonUrl ?? "#",
+                },
+                slug: story.slug ?? "",
+                portfolioSlug: story.portfolioSlug,
+                className: "bg-[#FAFAFA]",
+              };
+
+              return (
+                <CarouselItem
+                  key={index}
+                  className="flex basis-[100%] justify-center lg:basis-[60%]"
+                >
+                  <CaseStudyCard {...transformedStory} />
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
         </Carousel>
       </div>

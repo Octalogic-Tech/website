@@ -1,10 +1,7 @@
-import { Typography } from "../common/template";
+import React from "react";
 import { Button } from "../ui/button";
-import type { InnovationSectionData } from "@/types/casestudy";
-
-interface InnovationSectionProps {
-  data?: InnovationSectionData;
-}
+import { Typography } from "../common/template";
+import type { InnovationSectionProps } from "@/types/casestudy";
 
 const InnovationSection: React.FC<InnovationSectionProps> = ({ data }) => {
   return (
@@ -15,19 +12,16 @@ const InnovationSection: React.FC<InnovationSectionProps> = ({ data }) => {
             variant="H2SemiBold64"
             className="w-[80%] bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text uppercase text-transparent"
           >
-            {data?.title}
+            {data?.title || ""}
           </Typography>
           <Typography variant="BodyMMedium16" className="text-[#737373]">
-            {data?.description}
+            {data?.description || ""}
           </Typography>
           <div>
             <Button variant="primary" className="w-full rounded-full p-7 lg:w-fit" asChild>
-              <a href={data?.button?.buttonUrl}>
-                <Typography
-                  variant="H6Regular24"
-                  className="uppercase tracking-tighter text-[#0A3D62]"
-                >
-                  {data?.button?.buttonLabel}
+              <a href={data?.button?.buttonUrl || "#"}>
+                <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
+                  {data?.button?.buttonLabel || ""}
                 </Typography>
               </a>
             </Button>

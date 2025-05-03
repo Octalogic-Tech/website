@@ -43,7 +43,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ data }) => {
                 className="rounded-2xl border-2 border-gray-300 py-7 text-[#0A3D62] hover:text-[#0A3D62] md:max-w-48"
                 asChild
               >
-                <a href={project.button.buttonUrl}>
+                <a href={`/portfolio/${project.slug}`}>
                   <Typography variant="H6SemiBold24" className="leading-tighter uppercase">
                     {project.button.buttonLabel}
                   </Typography>

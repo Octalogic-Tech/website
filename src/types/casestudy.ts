@@ -1,11 +1,21 @@
-interface ImageType {
+export interface ImageType {
   alt: string;
   url: string;
 }
 
-interface ButtonType {
+export interface OptionalImageType {
+  alt?: string;
+  url?: string;
+}
+
+export interface ButtonType {
   buttonUrl: string;
   buttonLabel: string;
+}
+
+export interface OptionalButtonType {
+  buttonUrl?: string;
+  buttonLabel?: string;
 }
 
 export interface CaseCardType {
@@ -14,6 +24,19 @@ export interface CaseCardType {
   description: string;
   image: ImageType;
   button: ButtonType;
+  slug?: string;
+  portfolioSlug?: string;
+  className?: string;
+}
+
+export interface OptionalCaseCardType {
+  logo?: OptionalImageType;
+  title?: string;
+  description?: string;
+  image?: OptionalImageType;
+  button?: OptionalButtonType;
+  slug?: string;
+  portfolioSlug?: string;
 }
 
 export interface HeroSectionData {
@@ -25,7 +48,7 @@ export interface HeroSectionData {
 export interface FeaturedSectionData {
   title: string;
   description: string;
-  cashCard: CaseCardType;
+  cashCard: Partial<CaseCardType>;
 }
 
 export interface SuccessStoriesSectionData {
@@ -52,20 +75,57 @@ export interface CaseStudyPageData {
   bannerSection: BannerSectionData;
 }
 
+export interface CaseStudyHeroSectionData {
+  sectionTag?: string;
+  heroTitle?: string;
+  heroDescription?: string;
+}
+
 export interface MainSectionProps {
   data: {
-    sectionTag: string;
-    heroTitle: string;
-    heroDescription: string;
-    featuredTitle: string;
-    featureDescription: string;
-    cashCard: CaseCardType;
-    successTitle: string;
-    successDescription: string;
-    successStories: CaseCardType[];
-    sectionTitle: string;
-    sectionDescription: string;
-    button: ButtonType;
-    rotatingBannerImages: ImageType[];
+    sectionTag?: string;
+    heroTitle?: string;
+    heroDescription?: string;
+    featuredTitle?: string;
+    featureDescription?: string;
+    cashCard?: OptionalCaseCardType;
+    successTitle?: string;
+    successDescription?: string;
+    successStories?: OptionalCaseCardType[];
+    sectionTitle?: string;
+    sectionDescription?: string;
+    button?: OptionalButtonType;
+    rotatingBannerImages?: OptionalImageType[];
+  };
+}
+
+export interface FeaturedSectionProps {
+  data: {
+    title?: string;
+    description?: string;
+    cashCard?: OptionalCaseCardType;
+  };
+}
+
+export interface StoriesSectionProps {
+  data?: {
+    title?: string;
+    description?: string;
+    stories?: OptionalCaseCardType[];
+  };
+}
+
+export interface RotatingBannerProps {
+  images: (string | undefined)[];
+  className?: string;
+  imageClassName?: string;
+  speed?: number;
+}
+
+export interface InnovationSectionProps {
+  data?: {
+    title?: string;
+    description?: string;
+    button?: OptionalButtonType;
   };
 }

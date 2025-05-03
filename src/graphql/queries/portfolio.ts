@@ -14,6 +14,7 @@ export const PORTFOLIO_PAGE_QUERY = `
           url
         }
         title
+        slug
         heading
         description
         button {
