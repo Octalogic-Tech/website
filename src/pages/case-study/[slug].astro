@@ -35,8 +35,8 @@ export async function getStaticPaths() {
       ];
     }
 
-    const paths = json.data.allCaseStudies.map(({ slug }: { slug: string }) => {
-      return { params: { slug } };
+    const paths = json.data.allCaseStudies.map(({ slug: pathSlug }: { slug: string }) => {
+      return { params: { slug: pathSlug } };
     });
 
     const hasAcmeCorp = paths.some(
@@ -47,7 +47,8 @@ export async function getStaticPaths() {
     }
 
     return paths;
-  } catch (error) {
+  } catch {
+    // Fallback paths in case of error (removed unused _error variable)
     return [
       { params: { slug: "acme-corp" } },
       { params: { slug: "layers" } },
@@ -101,7 +102,8 @@ try {
   if (!caseStudyDetailData) {
     return Astro.redirect("/404");
   }
-} catch (error) {
+} catch {
+  // Redirect to 404 in case of error (removed unused _error variable)
   return Astro.redirect("/404");
 }
 ---

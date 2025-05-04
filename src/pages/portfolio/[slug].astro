@@ -50,7 +50,7 @@ const [portfolioResponse, contactResponse] = await Promise.all([
     },
     body: JSON.stringify({
       query: PORTFOLIO_BY_SLUG_QUERY,
-      variables: { slug: slug },
+      variables: { slug },
     }),
   }),
   fetch(import.meta.env.DATOCMS_ENDPOINT, {
