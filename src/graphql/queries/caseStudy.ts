@@ -13,6 +13,7 @@ export const CASE_STUDY_PAGE_QUERY = `
         }
         title
         description
+        slug
         button {
         buttonLabel
         buttonUrl
@@ -31,6 +32,7 @@ export const CASE_STUDY_PAGE_QUERY = `
         }
         title
         description
+        slug
         image {
           alt
           url

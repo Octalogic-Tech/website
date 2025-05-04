@@ -15,11 +15,14 @@ function CaseStudyCard({ className, ...data }: CaseCardType & { className?: stri
       url: data?.image?.url ?? "",
       alt: data?.image?.alt ?? "",
     },
+    slug: data?.slug ?? "",
     button: {
       buttonUrl: data?.button?.buttonUrl ?? "#",
       buttonLabel: data?.button?.buttonLabel ?? "View Case Study",
     },
   };
+
+  const linkUrl = safeData.slug ? `/case-study/${safeData.slug}` : safeData.button.buttonUrl;
 
   return (
     <div
@@ -50,7 +53,7 @@ function CaseStudyCard({ className, ...data }: CaseCardType & { className?: stri
               className="w-full rounded-full border-2 border-[#0A3D62] p-6 py-7 lg:w-fit"
               asChild
             >
-              <a href={safeData.button.buttonUrl}>
+              <a href={linkUrl}>
                 <Typography variant="H6Regular24" className="uppercase text-[#0A3D62]">
                   {safeData.button.buttonLabel}
                 </Typography>

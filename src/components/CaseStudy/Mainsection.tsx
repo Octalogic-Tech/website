@@ -1,7 +1,7 @@
 import HeroSection from "./HeroSection";
 import type { ContactUsSectionProps } from "@/types/common";
 import ContactUsSection from "../common/ContactUsSection";
-import type { MainSectionProps } from "@/types/casestudy";
+import type { MainSectionProps, HeroSectionData } from "@/types/casestudy";
 import FeaturedSection from "./FeaturedSection";
 import StoriesSection from "./StoriesSection";
 import InnovationSection from "./InnovationSection";
@@ -14,10 +14,10 @@ export default function MainSection({
   data: MainSectionProps["data"];
   contactData: ContactUsSectionProps["data"];
 }) {
-  const heroData = {
-    sectionTag: data.sectionTag || "",
-    heroTitle: data.heroTitle || "",
-    heroDescription: data.heroDescription || "",
+  const heroData: HeroSectionData = {
+    sectionTag: data.sectionTag || "Case Study",
+    heroTitle: data.heroTitle || "Case Study Title",
+    heroDescription: data.heroDescription || "Case Study Description",
   };
 
   const featuredData = {

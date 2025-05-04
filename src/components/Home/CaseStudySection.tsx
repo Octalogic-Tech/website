@@ -5,15 +5,18 @@ import type { CardItem } from "@/types/home";
 
 interface CaseStudySectionProps {
   cards?: CardItem[];
+  variant?: "home" | "caseStudy";
 }
 
-const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards = [] }) => {
+const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards = [], variant = "home" }) => {
   if (!cards || cards.length === 0) {
-    return null; // Or return a placeholder/loading state
+    return null;
   }
 
+  const bgColor = variant === "home" ? "bg-[#F5F5F5]" : "bg-[#F3FFFD]";
+
   return (
-    <section className="mx-auto flex min-h-[70vh] items-center justify-center bg-[#F5F5F5] py-12">
+    <section className={`mx-auto flex min-h-[70vh] items-center justify-center ${bgColor} py-12`}>
       <div className="flex flex-col justify-between gap-4 md:flex-row">
         {cards.map((card, index) => (
           <div key={index} className="flex flex-col md:max-w-[30vw]">

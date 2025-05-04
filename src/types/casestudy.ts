@@ -23,8 +23,8 @@ export interface CaseCardType {
   title: string;
   description: string;
   image: ImageType;
-  button: ButtonType;
   slug?: string;
+  button: ButtonType;
   portfolioSlug?: string;
   className?: string;
 }

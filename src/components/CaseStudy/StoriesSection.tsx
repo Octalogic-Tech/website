@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CaseStudyCard from "@/components/CaseStudy/CaseStudyCard";
-import type { CaseCardType, StoriesSectionProps } from "@/types/casestudy";
+import type { StoriesSectionProps, CaseCardType } from "@/types/casestudy";
 
 const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
   return (
@@ -48,25 +48,23 @@ const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
           </div>
 
           <CarouselContent className="flex lg:gap-6">
-            {(data?.stories || []).map((story, index) => {
-              const transformedStory: CaseCardType = {
+            {data?.stories?.map((story, index) => {
+              const cardData: CaseCardType = {
                 logo: {
-                  alt: story.logo?.alt ?? "",
-                  url: story.logo?.url ?? "",
+                  url: story.logo?.url || "",
+                  alt: story.logo?.alt || "",
                 },
-                title: story.title ?? "",
-                description: story.description ?? "",
+                title: story.title || "",
+                description: story.description || "",
                 image: {
-                  alt: story.image?.alt ?? "",
-                  url: story.image?.url ?? "",
+                  url: story.image?.url || "",
+                  alt: story.image?.alt || "",
                 },
                 button: {
-                  buttonLabel: story.button?.buttonLabel ?? "View Case Study",
-                  buttonUrl: story.button?.buttonUrl ?? "#",
+                  buttonUrl: story.button?.buttonUrl || "#",
+                  buttonLabel: story.button?.buttonLabel || "View Case Study",
                 },
-                slug: story.slug ?? "",
-                portfolioSlug: story.portfolioSlug,
-                className: "bg-[#FAFAFA]",
+                slug: story.slug,
               };
 
               return (
@@ -74,7 +72,7 @@ const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
                   key={index}
                   className="flex basis-[100%] justify-center lg:basis-[60%]"
                 >
-                  <CaseStudyCard {...transformedStory} />
+                  <CaseStudyCard className="bg-[#FAFAFA]" {...cardData} />
                 </CarouselItem>
               );
             })}

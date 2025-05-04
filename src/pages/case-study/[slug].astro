@@ -1,0 +1,124 @@
+---
+import "@/styles/globals.css";
+import Navigation from "../../components/common/navigation";
+import Footer from "../../components/common/Footer";
+import MainSection from "../../components/CaseStudy/Details/MainSection";
+import { CASE_STUDY_DETAIL_QUERY } from "@/graphql/queries/caseStudyDetail";
+import { CONTACT_QUERY } from "@/graphql/queries/contact";
+
+export async function getStaticPaths() {
+  try {
+    const query = `
+      query {
+        allCaseStudies {
+          slug
+        }
+      }
+    `;
+
+    const response = await fetch(import.meta.env.DATOCMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    const json = await response.json();
+
+    if (!json.data || !json.data.allCaseStudies) {
+      return [
+        { params: { slug: "acme-corp" } },
+        { params: { slug: "layers" } },
+        { params: { slug: "galileo" } },
+      ];
+    }
+
+    const paths = json.data.allCaseStudies.map(({ slug }: { slug: string }) => {
+      return { params: { slug } };
+    });
+
+    const hasAcmeCorp = paths.some(
+      (path: { params: { slug: string } }) => path.params.slug === "acme-corp",
+    );
+    if (!hasAcmeCorp) {
+      paths.push({ params: { slug: "acme-corp" } });
+    }
+
+    return paths;
+  } catch (error) {
+    return [
+      { params: { slug: "acme-corp" } },
+      { params: { slug: "layers" } },
+      { params: { slug: "galileo" } },
+    ];
+  }
+}
+
+const { slug } = Astro.params;
+
+let caseStudyDetailData = null;
+let contactSectionData = null;
+
+try {
+  const [caseStudyResponse, contactResponse] = await Promise.all([
+    fetch(import.meta.env.DATOCMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify({
+        query: CASE_STUDY_DETAIL_QUERY,
+        variables: { slug },
+      }),
+    }),
+    fetch(import.meta.env.DATOCMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify({
+        query: CONTACT_QUERY,
+      }),
+    }),
+  ]);
+
+  const [caseStudyJson, contactJson] = await Promise.all([
+    caseStudyResponse.json(),
+    contactResponse.json(),
+  ]);
+
+  if (!caseStudyJson.data || !caseStudyJson.data.caseStudy) {
+    return Astro.redirect("/404");
+  }
+
+  caseStudyDetailData = caseStudyJson.data.caseStudy;
+  contactSectionData = contactJson.data.allContacts[0];
+
+  if (!caseStudyDetailData) {
+    return Astro.redirect("/404");
+  }
+} catch (error) {
+  return Astro.redirect("/404");
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Case Study - {caseStudyDetailData.heroTitle}</title>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Navigation client:load />
+    <main class="flex-1">
+      <MainSection data={caseStudyDetailData} contactData={contactSectionData} client:load />
+    </main>
+    <Footer client:load />
+  </body>
+</html>

@@ -1,30 +1,30 @@
 import React from "react";
 import { Typography } from "../common/template";
 import CaseStudyCard from "@/components/CaseStudy/CaseStudyCard";
-import type { FeaturedSectionProps, CaseCardType } from "@/types/casestudy";
+import type { FeaturedSectionProps } from "@/types/casestudy";
 
 const FeaturedSection: React.FC<FeaturedSectionProps> = ({ data }) => {
+  const cardData = {
+    title: data?.cashCard?.title || "",
+    description: data?.cashCard?.description || "",
+    image: {
+      url: data?.cashCard?.image?.url || "",
+      alt: data?.cashCard?.image?.alt || "",
+    },
+    logo: {
+      url: data?.cashCard?.logo?.url || "",
+      alt: data?.cashCard?.logo?.alt || "",
+    },
+    slug: data?.cashCard?.slug || "",
+    button: {
+      buttonLabel: data?.cashCard?.button?.buttonLabel || "",
+      buttonUrl: data?.cashCard?.button?.buttonUrl || "#",
+    },
+  };
+
   if (!data?.cashCard) {
     return null;
   }
-
-  const cardData: CaseCardType = {
-    logo: {
-      alt: data.cashCard?.logo?.alt || "",
-      url: data.cashCard?.logo?.url || "",
-    },
-    title: data.cashCard?.title || "",
-    description: data.cashCard?.description || "",
-    image: {
-      alt: data.cashCard?.image?.alt || "",
-      url: data.cashCard?.image?.url || "",
-    },
-    button: {
-      buttonLabel: data.cashCard?.button?.buttonLabel || "",
-      buttonUrl: data.cashCard?.button?.buttonUrl || "",
-    },
-    slug: data.cashCard?.slug || "",
-  };
 
   return (
     <section className="relative flex min-h-[140vh] flex-col items-center justify-center gap-12 overflow-hidden bg-black px-4 py-12">

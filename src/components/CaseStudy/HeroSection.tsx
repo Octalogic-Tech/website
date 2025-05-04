@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography } from "../common/template";
-import type { HeroSectionData } from "@/types/casestudy";
+import type { CaseStudyHeroSectionData } from "@/types/casestudy";
 
 interface CaseStudyHeroProps {
-  data?: HeroSectionData;
+  data?: CaseStudyHeroSectionData;
 }
 
 const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ data }) => {
