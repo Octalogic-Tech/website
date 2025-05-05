@@ -1,8 +1,6 @@
 ---
-import "@/styles/globals.css";
-import Navigation from "../../components/common/navigation";
-import Footer from "../../components/common/Footer";
-import MainSection from "../../components/CaseStudy/Details/MainSection";
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@/components/CaseStudy/Details/MainSection";
 import { CASE_STUDY_DETAIL_QUERY } from "@/graphql/queries/caseStudyDetail";
 import { CONTACT_QUERY } from "@/graphql/queries/contact";
 
@@ -106,21 +104,12 @@ try {
   // Redirect to 404 in case of error (removed unused _error variable)
   return Astro.redirect("/404");
 }
+
+const pageTitle = `Case Study - ${caseStudyDetailData.heroTitle}`;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Case Study - {caseStudyDetailData.heroTitle}</title>
-  </head>
-  <body class="flex min-h-screen flex-col">
-    <Navigation client:load />
-    <main class="flex-1">
-      <MainSection data={caseStudyDetailData} contactData={contactSectionData} client:load />
-    </main>
-    <Footer client:load />
-  </body>
-</html>
+<MainLayout title={pageTitle}>
+  <main class="flex-1">
+    <MainSection data={caseStudyDetailData} contactData={contactSectionData} client:load />
+  </main>
+</MainLayout>
