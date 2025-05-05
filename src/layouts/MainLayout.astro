@@ -5,6 +5,15 @@ import Footer from "../components/common/Footer";
 import { HEADER_QUERY } from "@/graphql/queries/header";
 import { FOOTER_QUERY } from "@/graphql/queries/footer";
 
+// Define the props interface
+interface Props {
+  title: string;
+}
+
+// Explicitly use the Props type to satisfy ESLint
+const props: Props = Astro.props;
+const { title } = props;
+
 // Fetch header and footer data
 const [headerResponse, footerResponse] = await Promise.all([
   fetch(import.meta.env.DATOCMS_ENDPOINT, {
@@ -30,14 +39,8 @@ const [{ data: headerData }, { data: footerData }] = await Promise.all([
   footerResponse.json(),
 ]);
 
-const headerSectionData = headerData.header;
-const footerSectionData = footerData.footer;
-
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+const headerSectionData = headerData.allHeaders[0];
+const footerSectionData = footerData.allFooters[0];
 ---
 
 <html lang="en">
