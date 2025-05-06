@@ -15,32 +15,41 @@ const props: Props = Astro.props;
 const { title } = props;
 
 // Fetch header and footer data
-const [headerResponse, footerResponse] = await Promise.all([
-  fetch(import.meta.env.DATOCMS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
-    },
-    body: JSON.stringify({ query: HEADER_QUERY }),
-  }),
-  fetch(import.meta.env.DATOCMS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
-    },
-    body: JSON.stringify({ query: FOOTER_QUERY }),
-  }),
-]);
+let headerSectionData = null;
+let footerSectionData = null;
 
-const [{ data: headerData }, { data: footerData }] = await Promise.all([
-  headerResponse.json(),
-  footerResponse.json(),
-]);
+try {
+  const [headerResponse, footerResponse] = await Promise.all([
+    fetch(import.meta.env.DATOCMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify({ query: HEADER_QUERY }),
+    }),
+    fetch(import.meta.env.DATOCMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify({ query: FOOTER_QUERY }),
+    }),
+  ]);
 
-const headerSectionData = headerData.allHeaders[0];
-const footerSectionData = footerData.allFooters[0];
+  const [{ data: headerData }, { data: footerData }] = await Promise.all([
+    headerResponse.json(),
+    footerResponse.json(),
+  ]);
+
+  // Add null checks to prevent accessing properties of undefined
+  headerSectionData = headerData?.allHeaders?.[0] || null;
+  footerSectionData = footerData?.allFooters?.[0] || null;
+} catch (error) {
+  console.error("Error fetching layout data:", error);
+  // Set default values or leave as null
+}
 ---
 
 <html lang="en">
