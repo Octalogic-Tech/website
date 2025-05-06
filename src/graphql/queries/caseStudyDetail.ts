@@ -5,6 +5,18 @@ export const CASE_STUDY_DETAIL_QUERY = `
       companyLogo {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       heroTitle
       watchVideoButton {
@@ -27,6 +39,18 @@ export const CASE_STUDY_DETAIL_QUERY = `
       challengeImage {
         alt
         url
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       listTitle
       list
@@ -36,22 +60,70 @@ export const CASE_STUDY_DETAIL_QUERY = `
       solutionImage {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       solutionHeading2
       solutionPara2
       solutionImage2 {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       solutionPara3
       solutionImage3 {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       solutionPara4
       solutionImage4 {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       solutionPara5
       solutionQuote
@@ -64,6 +136,18 @@ export const CASE_STUDY_DETAIL_QUERY = `
       resultImage {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       resultQuote
       resultPara2
@@ -71,6 +155,18 @@ export const CASE_STUDY_DETAIL_QUERY = `
         logo {
           url
           alt
+          responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         description
         slug

@@ -1,5 +1,6 @@
 import { Typography } from "@/components/common/template";
 import type { SolutionsSectionProps, StatProps } from "@/types/caseStudyInner";
+import DatoCmsImage from "@/components/common/DatoCmsImage";
 
 const Stat = ({ value, description }: StatProps) => (
   <div className="flex flex-col items-start gap-2 rounded border-2 border-dotted border-[#60E3CF] bg-[#F3FFFD] p-6">
@@ -34,7 +35,15 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
           <Typography variant="BodyMMedium16">{data.para1}</Typography>
 
           <div className="relative w-full overflow-hidden rounded">
-            <img src={data.image.url} alt={data.image.alt} className="h-full w-full object-cover" />
+            {data.image.responsiveImage ? (
+              <DatoCmsImage data={data.image} className="h-full w-full object-cover" />
+            ) : (
+              <img
+                src={data.image.url}
+                alt={data.image.alt}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
 
           <Typography variant="H6Bold24" className="uppercase">
@@ -44,31 +53,43 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
           <Typography variant="BodyMMedium16">{data.para2}</Typography>
 
           <div className="relative w-full overflow-hidden rounded">
-            <img
-              src={data.image2.url}
-              alt={data.image2.alt}
-              className="h-full w-full object-cover"
-            />
+            {data.image2.responsiveImage ? (
+              <DatoCmsImage data={data.image2} className="h-full w-full object-cover" />
+            ) : (
+              <img
+                src={data.image2.url}
+                alt={data.image2.alt}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
 
           <Typography variant="BodyMMedium16">{data.para3}</Typography>
 
           <div className="relative w-full overflow-hidden rounded">
-            <img
-              src={data.image3.url}
-              alt={data.image3.alt}
-              className="h-full w-full object-cover"
-            />
+            {data.image3.responsiveImage ? (
+              <DatoCmsImage data={data.image3} className="h-full w-full object-cover" />
+            ) : (
+              <img
+                src={data.image3.url}
+                alt={data.image3.alt}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
 
           <Typography variant="BodyMMedium16">{data.para4}</Typography>
 
           <div className="relative w-full overflow-hidden rounded">
-            <img
-              src={data.image4.url}
-              alt={data.image4.alt}
-              className="h-full w-full object-cover"
-            />
+            {data.image4.responsiveImage ? (
+              <DatoCmsImage data={data.image4} className="h-full w-full object-cover" />
+            ) : (
+              <img
+                src={data.image4.url}
+                alt={data.image4.alt}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
 
           <Typography variant="BodyMMedium16">{data.para5}</Typography>

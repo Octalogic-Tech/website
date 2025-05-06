@@ -1,5 +1,6 @@
 import { Typography } from "@/components/common/template";
 import type { ResultsSectionProps } from "@/types/caseStudyInner";
+import DatoCmsImage from "@/components/common/DatoCmsImage";
 
 const ResultsSection = ({ data }: ResultsSectionProps) => {
   return (
@@ -19,7 +20,15 @@ const ResultsSection = ({ data }: ResultsSectionProps) => {
           </Typography>
 
           <div className="relative w-full overflow-hidden rounded">
-            <img src={data.image.url} alt={data.image.alt} className="h-full w-full object-cover" />
+            {data.image.responsiveImage ? (
+              <DatoCmsImage data={data.image} className="h-full w-full object-cover" />
+            ) : (
+              <img
+                src={data.image.url}
+                alt={data.image.alt}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
 
           <Typography variant="BodyMMedium16" className="">

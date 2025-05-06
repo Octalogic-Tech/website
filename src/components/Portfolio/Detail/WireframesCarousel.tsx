@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../../ui/carousel";
+import DatoCmsImage from "../../common/DatoCmsImage";
 import type { PortfolioCarouselImage } from "@/types/portfolioDetails";
 
 interface WireframesCarouselProps {
@@ -40,11 +41,19 @@ const WireframesCarousel: React.FC<WireframesCarouselProps> = ({ images }) => {
                     <div className="group cursor-pointer">
                       <div className="relative flex items-center">
                         <div className="overflow-hidden rounded-lg bg-white">
-                          <img
-                            src={image.url}
-                            alt={image.alt}
-                            className="h-auto w-full object-contain"
-                          />
+                          {image.responsiveImage ? (
+                            <DatoCmsImage
+                              data={image}
+                              className="h-auto w-full"
+                              objectFit="contain"
+                            />
+                          ) : (
+                            <img
+                              src={image.url}
+                              alt={image.alt}
+                              className="h-auto w-full object-contain"
+                            />
+                          )}
                         </div>
                       </div>
                     </div>

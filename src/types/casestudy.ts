@@ -1,4 +1,5 @@
 export interface ImageType {
+  responsiveImage: any;
   alt: string;
   url: string;
 }
@@ -6,6 +7,7 @@ export interface ImageType {
 export interface OptionalImageType {
   alt?: string;
   url?: string;
+  responsiveImage?: any;
 }
 
 export interface ButtonType {
@@ -113,13 +115,6 @@ export interface StoriesSectionProps {
     description?: string;
     stories?: OptionalCaseCardType[];
   };
-}
-
-export interface RotatingBannerProps {
-  images: (string | undefined)[];
-  className?: string;
-  imageClassName?: string;
-  speed?: number;
 }
 
 export interface InnovationSectionProps {

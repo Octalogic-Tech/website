@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "../../common/template";
+import DatoCmsImage from "../../common/DatoCmsImage";
 import type { PortfolioDesignSection } from "@/types/portfolioDetails";
 
 interface DesignSystemSectionProps {
@@ -33,11 +34,15 @@ const DesignSystemSection: React.FC<DesignSystemSectionProps> = ({ designs }) =>
           </div>
 
           <div className="mt-16 md:px-12">
-            <img
-              src={design.image.url}
-              alt={design.image.alt}
-              className="h-auto w-full object-contain"
-            />
+            {design.image.responsiveImage ? (
+              <DatoCmsImage data={design.image} className="h-auto w-full" objectFit="contain" />
+            ) : (
+              <img
+                src={design.image.url}
+                alt={design.image.alt}
+                className="h-auto w-full object-contain"
+              />
+            )}
           </div>
         </div>
       ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "../common/template";
 import { Button } from "../ui/button";
+import DatoCmsImage from "../common/DatoCmsImage";
 import type { ClientProject } from "@/types/portfolio";
 
 interface ProjectSectionProps {
@@ -17,8 +18,12 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ data }) => {
           key={index}
           className="mb-16 flex flex-col items-center justify-center gap-8 px-4 md:mb-32 md:gap-16"
         >
-          <div>
-            <img src={project.mainImage.url} alt={project.mainImage.alt} />
+          <div className="max-w-[1250px]">
+            {project.mainImage.responsiveImage ? (
+              <DatoCmsImage data={project.mainImage} className="w-full" objectFit="cover" />
+            ) : (
+              <img src={project.mainImage.url} alt={project.mainImage.alt} className="w-full" />
+            )}
           </div>
           <div className="mx-auto flex max-w-[1248px] flex-col justify-center gap-4 md:gap-8 lg:flex-row">
             <div>

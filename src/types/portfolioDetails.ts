@@ -14,6 +14,11 @@ export interface PortfolioDetailHeroSection {
 export type PortfolioDetailSection = PortfolioDetailHeroSection & {
   href: string;
   imageSrc: string;
+  posterImage?: {
+    responsiveImage?: any;
+    url: string;
+    alt?: string;
+  };
 };
 
 export interface PortfolioContentSection {
@@ -26,12 +31,14 @@ export interface PortfolioDesignSection {
   title: string;
   description: string;
   image: {
+    responsiveImage: any;
     alt: string;
     url: string;
   };
 }
 
 export interface PortfolioCarouselImage {
+  responsiveImage: any;
   url: string;
   alt: string;
 }

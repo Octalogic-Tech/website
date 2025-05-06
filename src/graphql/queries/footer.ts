@@ -4,6 +4,18 @@ export const FOOTER_QUERY = `
       logo {
         alt
         url
+        responsiveImage(imgixParams: { fit: clip, w: 400, h: 100, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       locations {
         name
@@ -12,6 +24,18 @@ export const FOOTER_QUERY = `
         socialMediaLogo {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 24, h: 24, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         socialMediaLinks
       }
@@ -24,6 +48,18 @@ export const FOOTER_QUERY = `
       creditLogo {
         alt
         url
+        responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
     }
   }

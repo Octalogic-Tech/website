@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Typography } from "../common/template";
+import DatoCmsImage from "../common/DatoCmsImage";
 import type { CardItem } from "@/types/home";
 
 interface CaseStudySectionProps {
@@ -22,11 +23,17 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards = [], variant
           <div key={index} className="flex flex-col md:max-w-[30vw]">
             <div className="flex-none p-6">
               <div className="flex items-center gap-4">
-                <img
-                  src={card.logo.url}
-                  alt={card.logo.alt}
-                  className="h-9 w-auto object-contain"
-                />
+                {card.logo.url ? (
+                  <div className="flex h-auto max-w-[180px] items-center">
+                    <DatoCmsImage data={card.logo} />
+                  </div>
+                ) : (
+                  <img
+                    src={card.logo.url}
+                    alt={card.logo.alt}
+                    className="h-9 w-auto object-contain"
+                  />
+                )}
               </div>
             </div>
 

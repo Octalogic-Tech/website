@@ -18,6 +18,7 @@ export interface ProcessCard {
   description: string;
   descriptionPoints: string[];
   customImage?: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -42,7 +43,11 @@ export interface NotScopeSectionData {
 }
 
 export interface ExpertiseFeature {
-  featureLogo: { url: string; alt: string };
+  featureLogo: {
+    responsiveImage: any;
+    url: string;
+    alt: string;
+  };
   featureName: string;
   featureTitle: string;
   featureDescription: string;
@@ -55,6 +60,7 @@ export interface ExpertiseSectionData {
 }
 
 interface CustomLogo {
+  responsiveImage: any;
   url: string;
   alt: string;
 }
@@ -77,6 +83,7 @@ export interface WorkCardProps extends WorkCard {
 export interface CountryInfo {
   countryName: string;
   countryFlag: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -86,6 +93,7 @@ export interface MapSectionData {
   title: string;
   description: string;
   mapImage: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -115,6 +123,7 @@ export interface MainSectionProps {
     title: string;
     howWeWorkCards: WorkCard[];
     worldMap: {
+      responsiveImage: any;
       url: string;
       alt: string;
     };

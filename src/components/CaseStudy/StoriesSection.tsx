@@ -53,12 +53,14 @@ const StoriesSection: React.FC<StoriesSectionProps> = ({ data }) => {
                 logo: {
                   url: story.logo?.url || "",
                   alt: story.logo?.alt || "",
+                  responsiveImage: undefined,
                 },
                 title: story.title || "",
                 description: story.description || "",
                 image: {
                   url: story.image?.url || "",
                   alt: story.image?.alt || "",
+                  responsiveImage: undefined,
                 },
                 button: {
                   buttonUrl: story.button?.buttonUrl || "#",

@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import type { PortfolioSectionData } from "@/types/home";
+import DatoCmsImage from "../common/DatoCmsImage";
 
 interface PortfolioSectionProps {
   data?: PortfolioSectionData;
@@ -72,9 +73,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
                       </div>
 
                       <div className="absolute bottom-40 h-[40vh] w-[40vh] overflow-hidden rounded-lg transition-all duration-300 hover:h-[55vh] hover:w-[43vh]">
-                        <img
-                          src={item?.carouselImage.url}
-                          alt={item?.carouselImage.alt}
+                        <DatoCmsImage
+                          data={item?.carouselImage}
                           className="h-full w-full object-cover"
                         />
                       </div>

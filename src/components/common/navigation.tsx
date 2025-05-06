@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Typography } from "./template";
+import DatoCmsImage from "./DatoCmsImage";
 
 interface NavLink {
   label: string;
@@ -27,6 +28,7 @@ interface HeaderData {
   logo?: {
     alt: string;
     url: string;
+    responsiveImage?: any;
   };
   navlinks: NavLink[];
   language?: LanguageOption[];
@@ -67,10 +69,18 @@ export default function Navigation({ headerData = { navlinks: [] } }: { headerDa
 
   return (
     <>
-      <nav className="sticky left-0 top-0 z-50 flex h-[72px] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-10">
+      <nav className="sticky left-0 top-0 z-50 flex min-h-[80px] w-full items-center justify-between border-b border-[#E5E5E5] bg-white px-10">
         <div className="flex items-center">
           <a href="/" className="flex items-center">
-            <img src={headerData?.logo?.url} alt={headerData?.logo?.alt} className="h-8 w-auto" />
+            {headerData?.logo?.responsiveImage ? (
+              <div className="flex h-8 max-w-[150px] items-center">
+                <DatoCmsImage data={headerData.logo} objectFit="contain" />
+              </div>
+            ) : (
+              <div className="flex h-8 max-w-[150px] items-center">
+                <img src={headerData?.logo?.url} alt={headerData?.logo?.alt} />
+              </div>
+            )}
           </a>
         </div>
 

@@ -4,24 +4,6 @@ import CaseStudyCard from "@/components/CaseStudy/CaseStudyCard";
 import type { FeaturedSectionProps } from "@/types/casestudy";
 
 const FeaturedSection: React.FC<FeaturedSectionProps> = ({ data }) => {
-  const cardData = {
-    title: data?.cashCard?.title || "",
-    description: data?.cashCard?.description || "",
-    image: {
-      url: data?.cashCard?.image?.url || "",
-      alt: data?.cashCard?.image?.alt || "",
-    },
-    logo: {
-      url: data?.cashCard?.logo?.url || "",
-      alt: data?.cashCard?.logo?.alt || "",
-    },
-    slug: data?.cashCard?.slug || "",
-    button: {
-      buttonLabel: data?.cashCard?.button?.buttonLabel || "",
-      buttonUrl: data?.cashCard?.button?.buttonUrl || "#",
-    },
-  };
-
   if (!data?.cashCard) {
     return null;
   }
@@ -49,7 +31,27 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ data }) => {
       </div>
 
       <div className="z-10">
-        <CaseStudyCard {...cardData} />
+        {data.cashCard && (
+          <CaseStudyCard
+            logo={{
+              url: data.cashCard.logo?.url || "",
+              alt: data.cashCard.logo?.alt || "",
+              responsiveImage: data.cashCard.logo?.responsiveImage,
+            }}
+            title={data.cashCard.title || ""}
+            description={data.cashCard.description || ""}
+            image={{
+              url: data.cashCard.image?.url || "",
+              alt: data.cashCard.image?.alt || "",
+              responsiveImage: data.cashCard.image?.responsiveImage,
+            }}
+            slug={data.cashCard.slug}
+            button={{
+              buttonUrl: data.cashCard.button?.buttonUrl || "#",
+              buttonLabel: data.cashCard.button?.buttonLabel || "View Case Study",
+            }}
+          />
+        )}
       </div>
     </section>
   );

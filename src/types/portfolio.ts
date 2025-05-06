@@ -10,6 +10,7 @@ export interface PortfolioHeroSection {
 
 export interface ClientProject {
   mainImage: {
+    responsiveImage: any;
     alt: string;
     url: string;
   };

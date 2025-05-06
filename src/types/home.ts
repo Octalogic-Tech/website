@@ -104,7 +104,6 @@ export interface MainSectionProps {
     description: string;
     services?: { name: string }[];
     button: { buttonLabel: string; buttonUrl: string };
-    clientLogos: { url: string; alt: string }[];
     aboutTitle: string;
     aboutDescription: string;
     stats: { statNumber: number; statDescription: string }[];
@@ -119,5 +118,6 @@ export interface MainSectionProps {
     blogsPageTitle: string;
     blogPageDescription: string;
     blogCards: any[];
+    clientLogos?: { url: string; alt: string; responsiveImage?: any }[];
   };
 }

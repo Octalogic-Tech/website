@@ -3,6 +3,7 @@ import { Typography } from "../common/template";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import type { BlogSectionData } from "@/types/home";
+import DatoCmsImage from "../common/DatoCmsImage";
 
 interface BlogSectionProps {
   data?: BlogSectionData;
@@ -31,11 +32,18 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
               className="flex flex-col gap-3 rounded-2xl border border-[#E5E5E5] p-2"
             >
               <div className="h-[30vh] w-full">
-                <img
-                  src={post?.image.url}
-                  alt={post?.image.alt}
-                  className="h-full w-full rounded-xl object-cover"
-                />
+                {post?.image.url ? (
+                  <DatoCmsImage
+                    data={post.image}
+                    className="h-full w-full rounded-xl object-cover"
+                  />
+                ) : (
+                  <img
+                    src={post?.image.url}
+                    alt={post?.image.alt}
+                    className="h-full w-full rounded-xl object-cover"
+                  />
+                )}
               </div>
 
               <div className="flex flex-col gap-4 p-4">

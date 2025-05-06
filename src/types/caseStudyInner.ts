@@ -40,6 +40,7 @@ export interface AboutSectionProps {
 }
 
 interface ChallengeImage {
+  responsiveImage: any;
   url: string;
   alt: string;
 }
@@ -56,6 +57,7 @@ export interface ChallengeSectionProps {
 }
 
 interface ResultsImage {
+  responsiveImage?: any; // Make responsiveImage optional
   url: string;
   alt: string;
 }
@@ -70,7 +72,8 @@ export interface ResultsSectionProps {
   };
 }
 
-interface Image {
+export interface Image {
+  responsiveImage?: any;
   url: string;
   alt: string;
 }

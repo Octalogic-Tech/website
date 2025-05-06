@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "../../common/template";
+import DatoCmsImage from "../../common/DatoCmsImage";
 import type { PortfolioDetailSection, PortfolioContentSection } from "@/types/portfolioDetails";
 
 interface MainContentProps {
@@ -11,7 +12,15 @@ const MainContent: React.FC<MainContentProps> = ({ section, portfolioContent = [
   return (
     <section>
       <div className="mx-auto px-4 md:px-32">
-        <img src={section.imageSrc} alt={section.title} className="w-full rounded-lg" />
+        {section.posterImage?.responsiveImage ? (
+          <DatoCmsImage
+            data={section.posterImage}
+            className="w-full rounded-lg"
+            objectFit="contain"
+          />
+        ) : (
+          <img src={section.imageSrc} alt={section.title} className="w-full rounded-lg" />
+        )}
       </div>
 
       <div className="mx-auto flex max-w-[1250px] flex-col items-center justify-center gap-12 px-4 py-16 sm:px-8 md:gap-24 md:px-12 md:py-32">

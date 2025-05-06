@@ -49,7 +49,11 @@ export default function MainSection({
   const mapData = {
     title: data.collaborationTitle,
     description: data.collaborationDescription,
-    mapImage: data.worldMap,
+    mapImage: {
+      url: data.worldMap.url,
+      alt: data.worldMap.alt,
+      responsiveImage: data.worldMap.responsiveImage,
+    },
     countries: data.countries,
   };
 

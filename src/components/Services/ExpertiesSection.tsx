@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Typography } from "../common/template";
 import { cn } from "@/lib/utils";
 import type { ExpertiseSectionData } from "@/types/services";
+import DatoCmsImage from "../common/DatoCmsImage";
 
 interface ExpertiseSectionProps {
   data: ExpertiseSectionData;
@@ -63,12 +64,22 @@ export default function ExpertiseSection({ data }: ExpertiseSectionProps) {
           <div className="min-h-[380px] w-full rounded-lg bg-[#0A3D62] p-4 md:min-h-[460px] md:w-2/3 md:p-8">
             {activeItem && (
               <div className="flex flex-col gap-4 md:gap-6">
-                <div className="flex items-center gap-4">
-                  <img
-                    src={activeItem.featureLogo.url}
-                    alt={activeItem.featureLogo.alt}
-                    className="h-16 w-16 md:h-24 md:w-24"
-                  />
+                <div className="flex w-full items-start">
+                  <div className="h-16 w-16 flex-shrink-0 md:h-24 md:w-24">
+                    {activeItem.featureLogo.responsiveImage ? (
+                      <DatoCmsImage
+                        data={activeItem.featureLogo}
+                        className="h-full w-full"
+                        objectFit="contain"
+                      />
+                    ) : (
+                      <img
+                        src={activeItem.featureLogo.url}
+                        alt={activeItem.featureLogo.alt}
+                        className="h-full w-full object-contain"
+                      />
+                    )}
+                  </div>
                 </div>
                 <Typography
                   variant="H5Medium32"

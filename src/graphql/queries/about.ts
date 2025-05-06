@@ -11,6 +11,18 @@ export const ABOUT_PAGE_QUERY = `
       imageCarousel {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 300, h: 400, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       missionTitle
       missionDescription
@@ -18,11 +30,35 @@ export const ABOUT_PAGE_QUERY = `
         cardLogo {
           url
           alt
+          responsiveImage(imgixParams: { fit: clip, w: 50, h: 50, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         cardDescription
         profileImage {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 100, h: 100, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         profileName
         profilePosition
@@ -30,6 +66,18 @@ export const ABOUT_PAGE_QUERY = `
       banner {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 600, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       purposeTitle
       purposeDescription
@@ -37,6 +85,18 @@ export const ABOUT_PAGE_QUERY = `
         customLogo {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 100, h: 50, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         title
         description

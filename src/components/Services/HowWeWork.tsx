@@ -1,5 +1,6 @@
 import { Typography } from "../common/template";
 import type { HowWeWorkSectionData, WorkCardProps } from "@/types/services";
+import DatoCmsImage from "../common/DatoCmsImage";
 
 interface HowWeWorkSectionProps {
   data: HowWeWorkSectionData;
@@ -18,9 +19,19 @@ const WorkCardComponent = ({ customLogo, title, description, position }: WorkCar
         isCenter ? "md:bg-[#F3FFFD]" : ""
       }`}
     >
-      <div className="mb-6 flex w-full items-center gap-4">
-        <img src={customLogo.url} alt={customLogo.alt} className="h-16 w-16 md:h-20 md:w-20" />
-        <Typography variant="H6Medium24" className="max-w-[150px] uppercase text-[#0A3D62]">
+      <div className="mb-6 flex w-full items-start">
+        <div className="mr-4 h-16 w-16 flex-shrink-0 md:h-20 md:w-20">
+          {customLogo.responsiveImage ? (
+            <DatoCmsImage data={customLogo} className="h-full w-full" objectFit="contain" />
+          ) : (
+            <img
+              src={customLogo.url}
+              alt={customLogo.alt}
+              className="h-full w-full object-contain"
+            />
+          )}
+        </div>
+        <Typography variant="H6Medium24" className="max-w-[30%] uppercase text-[#0A3D62]">
           {title}
         </Typography>
       </div>

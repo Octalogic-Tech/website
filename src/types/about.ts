@@ -20,6 +20,7 @@ export interface MissionSectionData {
 
 export interface Testimonial {
   cardLogo: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -39,10 +40,12 @@ export interface TestimonialsData {
 export interface BannerImage {
   url: string;
   alt: string;
+  responsiveImage?: any;
 }
 
 export interface PurposeCard {
   customLogo: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };

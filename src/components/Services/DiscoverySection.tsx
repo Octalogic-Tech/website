@@ -8,6 +8,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import type { ProcessSectionData } from "@/types/services";
+import DatoCmsImage from "@/components/common/DatoCmsImage";
 
 export default function DiscoverySection({ data }: { data: ProcessSectionData }) {
   const [activeSection, setActiveSection] = useState<number>(1);
@@ -98,13 +99,19 @@ export default function DiscoverySection({ data }: { data: ProcessSectionData })
                   </div>
 
                   <div className="relative mx-auto h-[280px] w-[340px] overflow-hidden rounded-lg">
-                    {item?.customImage && (
-                      <img
-                        src={item.customImage.url}
-                        alt={item.customImage.alt}
-                        className="h-full w-full object-cover"
-                      />
-                    )}
+                    {item?.customImage &&
+                      (item.customImage.responsiveImage ? (
+                        <DatoCmsImage
+                          data={item.customImage}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src={item.customImage.url}
+                          alt={item.customImage.alt}
+                          className="h-full w-full object-cover"
+                        />
+                      ))}
                   </div>
                 </div>
               </CarouselItem>

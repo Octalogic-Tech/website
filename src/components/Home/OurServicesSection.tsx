@@ -2,6 +2,7 @@ import React from "react";
 import { Typography } from "../common/template";
 import { Button } from "../ui/button";
 import type { OurServicesSectionData } from "@/types/home";
+import DatoCmsImage from "../common/DatoCmsImage";
 
 interface OurServicesSectionProps {
   data: OurServicesSectionData;
@@ -35,17 +36,23 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
         </div>
 
         <div className="mt-8 flex flex-col md:mt-16 md:flex-row">
-          <div className="hidden w-full md:block md:w-[40%]">
-            <div className="max-w-[30vw] md:ml-5 md:mt-40">
-              <img
-                src={data?.sideImage?.url}
-                alt={data?.sideImage?.alt}
-                className="h-full w-full object-cover"
-              />
+          <div className="hidden w-full md:block md:w-[50%]">
+            <div className="max-w-[30vw] border border-red-900 px-2 md:ml-5 md:mt-40">
+              {data?.sideImage?.url ? (
+                <DatoCmsImage data={data.sideImage} className="h-full w-full" objectFit="contain" />
+              ) : (
+                data?.sideImage?.url && (
+                  <img
+                    src={data.sideImage.url}
+                    alt={data.sideImage.alt || ""}
+                    className="h-full w-full object-cover"
+                  />
+                )
+              )}
             </div>
           </div>
 
-          <div className="w-full md:w-[60%]">
+          <div className="w-full md:w-[50%]">
             <div className="flex flex-col">
               {data?.serviceCard?.map((card, index) => (
                 <React.Fragment key={index}>

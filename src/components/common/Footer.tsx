@@ -1,10 +1,23 @@
 import React from "react";
 import { Typography } from "./template";
+import DatoCmsImage from "./DatoCmsImage";
 
 interface FooterData {
   logo: {
     alt: string;
     url: string;
+    responsiveImage?: {
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: number;
+      height: number;
+      aspectRatio: number;
+      alt: string;
+      title: string;
+      base64: string;
+    };
   };
   locations: {
     name: string;
@@ -13,6 +26,18 @@ interface FooterData {
     socialMediaLogo: {
       alt: string;
       url: string;
+      responsiveImage?: {
+        srcSet: string;
+        webpSrcSet: string;
+        sizes: string;
+        src: string;
+        width: number;
+        height: number;
+        aspectRatio: number;
+        alt: string;
+        title: string;
+        base64: string;
+      };
     };
     socialMediaLinks: string;
   }[];
@@ -25,6 +50,18 @@ interface FooterData {
   creditLogo: {
     alt: string;
     url: string;
+    responsiveImage?: {
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: number;
+      height: number;
+      aspectRatio: number;
+      alt: string;
+      title: string;
+      base64: string;
+    };
   };
 }
 
@@ -33,13 +70,13 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
-  // Fallback data if CMS data is not available
   const locations = footerData?.locations?.map((loc) => loc.name);
 
   const socialLinks = footerData?.socialMediaLinks?.map((link) => ({
     name: link.socialMediaLogo.alt,
     href: link.socialMediaLinks,
     imgSrc: link.socialMediaLogo.url,
+    responsiveImage: link.socialMediaLogo.responsiveImage,
   }));
 
   const mainLinks = footerData?.navlinks?.filter((_, index) => index < 4);
@@ -65,12 +102,21 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             <div>
               <div className="flex flex-col justify-between gap-12">
                 <div className="flex flex-col gap-4">
-                  <div className="w-36 overflow-hidden">
-                    <img src={footerData?.logo?.url} alt={footerData?.logo?.alt} />
+                  <div className="w-full max-w-[150px]">
+                    {footerData?.logo?.responsiveImage ? (
+                      <DatoCmsImage data={footerData.logo} className="h-auto w-full object-cover" />
+                    ) : (
+                      <img
+                        src={footerData?.logo?.url}
+                        alt={footerData?.logo?.alt}
+                        className="h-auto w-full object-cover"
+                      />
+                    )}
                   </div>
+
                   <div className="flex items-center gap-2 text-[#292929]">
                     {locations?.map((location, index) => (
-                      <React.Fragment key={location}>
+                      <React.Fragment key={`location-${index}-${location}`}>
                         <div>
                           <Typography variant="CaptionMMedium12">{location}</Typography>
                         </div>
@@ -82,19 +128,37 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  {socialLinks?.map((social) => (
-                    <a key={social.name} href={social.href} className="rounded-sm">
-                      <img src={social.imgSrc} alt={social.name} width={24} height={24} />
+                  {socialLinks?.map((social, index) => (
+                    <a
+                      key={`social-${index}-${social.name}`}
+                      href={social.href}
+                      className="rounded-sm"
+                    >
+                      {social.responsiveImage ? (
+                        <DatoCmsImage
+                          data={{
+                            alt: social.name,
+                            url: social.imgSrc,
+                            responsiveImage: social.responsiveImage,
+                          }}
+                          className="h-6 w-6"
+                        />
+                      ) : (
+                        <img src={social.imgSrc} alt={social.name} className="h-6 w-6" />
+                      )}
                     </a>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="flex gap-16 text-[##292929]">
-              {navigationLinks.map((section) => (
-                <div key={section.title} className="flex flex-col gap-4">
-                  {section?.links?.map((link) => (
-                    <div key={link.name}>
+            <div className="flex gap-16 text-[#292929]">
+              {navigationLinks.map((section, sectionIndex) => (
+                <div
+                  key={`section-${sectionIndex}-${section.title}`}
+                  className="flex flex-col gap-4"
+                >
+                  {section?.links?.map((link, linkIndex) => (
+                    <div key={`link-${sectionIndex}-${linkIndex}-${link.name}`}>
                       <Typography variant={"CaptionMMedium14"}>
                         <a href={link.href}>{link.name}</a>
                       </Typography>
@@ -115,12 +179,16 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             <div>
               <Typography variant="CaptionMMedium12">{footerData?.creditsText}</Typography>
             </div>
-            <div className="w-[20vw] object-contain md:w-[5vw]">
-              <img
-                src={footerData?.creditLogo?.url}
-                alt={footerData?.creditLogo?.alt}
-                className="h-auto w-full"
-              />
+            <div className="w-full max-w-[100px]">
+              {footerData?.creditLogo?.responsiveImage ? (
+                <DatoCmsImage data={footerData.creditLogo} className="h-auto w-full" />
+              ) : (
+                <img
+                  src={footerData?.creditLogo?.url}
+                  alt={footerData?.creditLogo?.alt}
+                  className="h-auto w-full"
+                />
+              )}
             </div>
           </div>
         </div>

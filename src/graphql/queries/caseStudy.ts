@@ -10,6 +10,18 @@ export const CASE_STUDY_PAGE_QUERY = `
         logo {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         title
         description
@@ -21,6 +33,18 @@ export const CASE_STUDY_PAGE_QUERY = `
         image {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 600, h: 400, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
       }
       successTitle
@@ -29,6 +53,18 @@ export const CASE_STUDY_PAGE_QUERY = `
         logo {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         title
         description
@@ -36,6 +72,18 @@ export const CASE_STUDY_PAGE_QUERY = `
         image {
           alt
           url
+          responsiveImage(imgixParams: { fit: clip, w: 600, h: 400, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
       }
       sectionTitle
@@ -47,6 +95,18 @@ export const CASE_STUDY_PAGE_QUERY = `
       rotatingBannerImages {
         alt
         url
+        responsiveImage(imgixParams: { fit: clip, w: 300, h: 100, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
     }
   }

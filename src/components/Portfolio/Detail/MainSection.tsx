@@ -50,13 +50,9 @@ const MainSection: React.FC<PortfolioDetailProps> = ({ portfolioPage, contactDat
     <main>
       <PortfolioDetailsHeroSection section={heroSectionData} />
       <MainContent section={mainContentData} portfolioContent={transformedContent} />
-
       <DesignSystemSection designs={portfolioPage.portfolioLexend || []} />
-
       <WireframesCarousel images={portfolioPage.carouselImage || []} />
-
       <ConclusionSection conclusion={conclusionData} />
-
       <ContactUsSection data={contactData} />
     </main>
   );

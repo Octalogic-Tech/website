@@ -1,8 +1,17 @@
 import React from "react";
-import type { RotatingBannerProps } from "@/types/casestudy";
+import DatoCmsImage from "./DatoCmsImage";
+
+export interface RotatingBannerProps {
+  images: (string | undefined)[];
+  imageObjects?: { url: string; alt?: string; responsiveImage?: any }[];
+  className?: string;
+  imageClassName?: string;
+  speed?: number;
+}
 
 export const RotatingBanner: React.FC<RotatingBannerProps> = ({
   images,
+  imageObjects = [],
   className = "bg-[#141414] min-h-[20vh] py-4 px-4 flex items-center",
   imageClassName = "w-auto h-[2rem] md:h-[2.5rem] lg:h-[3rem] object-contain",
   speed = 20,
@@ -18,14 +27,22 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
           animation: `scroll ${speed}s linear infinite`,
         }}
       >
-        {validImages.concat(validImages).map((image, index) => (
-          <img
-            key={`${image}-${index}`}
-            src={image}
-            alt="Rotating Banner"
-            className={`flex-shrink-0 ${imageClassName}`}
-          />
-        ))}
+        {imageObjects.length > 0
+          ? [...imageObjects, ...imageObjects].map((image, index) => (
+              <div key={`${image.url}-${index}`} className="flex-shrink-0">
+                <DatoCmsImage data={image} className={imageClassName} objectFit="contain" />
+              </div>
+            ))
+          : validImages
+              .concat(validImages)
+              .map((image, index) => (
+                <img
+                  key={`${image}-${index}`}
+                  src={image}
+                  alt="Rotating Banner"
+                  className={`flex-shrink-0 ${imageClassName}`}
+                />
+              ))}
       </div>
       <style>{`
         @keyframes scroll {

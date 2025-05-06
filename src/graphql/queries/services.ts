@@ -17,9 +17,21 @@ export const SERVICES_PAGE_QUERY = `
         description
         descriptionPoints
          customImage {
-        url
-        alt
-      }
+          url
+          alt
+          responsiveImage(imgixParams: { fit: clip, w: 800, h: 600, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
+        }
       }
       nextButton
       previousButton
@@ -34,6 +46,18 @@ export const SERVICES_PAGE_QUERY = `
         featureLogo {
           url
           alt
+          responsiveImage(imgixParams: { fit: clip, w: 200, h: 200, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         featureTitle
         featureDescription
@@ -44,6 +68,18 @@ export const SERVICES_PAGE_QUERY = `
         customLogo {
           url
           alt
+          responsiveImage(imgixParams: { fit: clip, w: 200, h: 200, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         title
         description
@@ -51,6 +87,18 @@ export const SERVICES_PAGE_QUERY = `
       worldMap {
         url
         alt
+        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 800, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
       }
       collaborationTitle
       collaborationDescription
@@ -58,6 +106,18 @@ export const SERVICES_PAGE_QUERY = `
         countryFlag {
           url
           alt
+          responsiveImage(imgixParams: { fit: clip, w: 50, h: 30, auto: format }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
         countryName
       }
