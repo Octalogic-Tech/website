@@ -41,8 +41,14 @@ const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
         <div className="grid grid-rows-2 gap-4 md:max-w-[50%]">
           <div className="grid grid-cols-2 gap-4">
             <div className="mt-20 flex justify-end">
-              {sideImages[0]?.url ? (
-                <DatoCmsImage data={sideImages[0]} className="h-[160px] w-[160px] object-cover" />
+              {sideImages[0]?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: sideImages[0]?.alt,
+                    responsiveImage: sideImages[0]?.responsiveImage,
+                  }}
+                  className="h-[160px] w-[160px] object-cover"
+                />
               ) : (
                 <img
                   src={sideImages[0]?.url}
@@ -52,8 +58,14 @@ const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
               )}
             </div>
             <div className="flex justify-start">
-              {sideImages[3]?.url ? (
-                <DatoCmsImage data={sideImages[3]} className="h-[240px] w-[160px] object-cover" />
+              {sideImages[3]?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: sideImages[3]?.alt,
+                    responsiveImage: sideImages[3]?.responsiveImage,
+                  }}
+                  className="h-[240px] w-[160px] object-cover"
+                />
               ) : (
                 <img
                   src={sideImages[3]?.url}
@@ -66,8 +78,14 @@ const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              {sideImages[4]?.url ? (
-                <DatoCmsImage data={sideImages[4]} className="h-[128px] w-[260px] object-cover" />
+              {sideImages[4]?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: sideImages[4]?.alt,
+                    responsiveImage: sideImages[4]?.responsiveImage,
+                  }}
+                  className="h-[128px] w-[260px] object-cover"
+                />
               ) : (
                 <img
                   src={sideImages[4]?.url}
@@ -77,8 +95,14 @@ const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
               )}
             </div>
             <div>
-              {sideImages[2]?.url ? (
-                <DatoCmsImage data={sideImages[2]} className="h-[240px] w-[200px] object-cover" />
+              {sideImages[2]?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: sideImages[2]?.alt,
+                    responsiveImage: sideImages[2]?.responsiveImage,
+                  }}
+                  className="h-[240px] w-[200px] object-cover"
+                />
               ) : (
                 <img
                   src={sideImages[2]?.url}
@@ -88,8 +112,14 @@ const JoinOurTeamSection: React.FC<JoinOurTeamSectionProps> = ({ data }) => {
               )}
             </div>
             <div>
-              {sideImages[1]?.url ? (
-                <DatoCmsImage data={sideImages[1]} className="h-[128px] w-[260px] object-cover" />
+              {sideImages[1]?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: sideImages[1]?.alt,
+                    responsiveImage: sideImages[1]?.responsiveImage,
+                  }}
+                  className="h-[128px] w-[260px] object-cover"
+                />
               ) : (
                 <img
                   src={sideImages[1]?.url}

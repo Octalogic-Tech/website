@@ -50,11 +50,19 @@ const AboutTestimonials: React.FC<AboutTestimonialsProps> = ({ data }) => {
 
                 <div className="flex items-center gap-4">
                   <div className="flex h-[45px] w-[45px] items-center justify-center overflow-hidden rounded-full bg-gray-100">
-                    <DatoCmsImage
-                      data={testimonial.profileImage}
-                      className="h-full w-full rounded-full object-cover"
-                      objectFit="cover"
-                    />
+                    {testimonial.profileImage.responsiveImage ? (
+                      <DatoCmsImage
+                        data={testimonial.profileImage}
+                        className="h-full w-full rounded-full object-cover"
+                        objectFit="cover"
+                      />
+                    ) : (
+                      <img
+                        src={testimonial.profileImage.url}
+                        alt={testimonial.profileImage.alt}
+                        className="h-full w-full rounded-full object-cover"
+                      />
+                    )}
                   </div>
                   <div>
                     <Typography variant="CaptionMSemiBold12" className="mb-1 text-[#0A3D62]">

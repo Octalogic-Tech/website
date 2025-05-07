@@ -21,6 +21,7 @@ export interface HeroSectionData {
 
 export interface CardItem {
   logo: {
+    responsiveImage: any;
     url: string;
     alt?: string;
   };
@@ -49,6 +50,7 @@ export interface OurServicesSectionData {
     buttonUrl: string;
   };
   sideImage: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -57,6 +59,7 @@ export interface OurServicesSectionData {
 
 export interface PortfolioItem {
   carouselImage: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -76,6 +79,7 @@ export interface PortfolioSectionData {
 
 export interface BlogPost {
   image: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };
@@ -113,7 +117,11 @@ export interface MainSectionProps {
     caseStudyCards: any[];
     servicesTitle: string;
     servicesDescription: string;
-    sideImage: { url: string; alt: string };
+    sideImage: {
+      responsiveImage: any;
+      url: string;
+      alt: string;
+    };
     serviceCard: any[];
     blogsPageTitle: string;
     blogPageDescription: string;

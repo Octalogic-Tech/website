@@ -135,7 +135,11 @@ export interface MainSectionProps {
     resultQuote: string;
     resultPara2: string;
     caseStudyCards: {
-      logo: { url: string; alt: string };
+      logo: {
+        responsiveImage: null;
+        url: string;
+        alt: string;
+      };
       description: string;
       viewcasestudyButton: { buttonLabel: string; buttonUrl: string };
     }[];

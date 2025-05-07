@@ -35,7 +35,7 @@ const DesignSystemSection: React.FC<DesignSystemSectionProps> = ({ designs }) =>
 
           <div className="mt-16 md:px-12">
             {design.image.responsiveImage ? (
-              <DatoCmsImage data={design.image} className="h-auto w-full" objectFit="contain" />
+              <DatoCmsImage data={design.image} className="h-auto w-full" objectFit="cover" />
             ) : (
               <img
                 src={design.image.url}

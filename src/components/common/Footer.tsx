@@ -104,7 +104,13 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 <div className="flex flex-col gap-4">
                   <div className="w-full max-w-[150px]">
                     {footerData?.logo?.responsiveImage ? (
-                      <DatoCmsImage data={footerData.logo} className="h-auto w-full object-cover" />
+                      <DatoCmsImage
+                        data={{
+                          alt: footerData.logo.alt,
+                          responsiveImage: footerData.logo.responsiveImage,
+                        }}
+                        className="h-auto w-full object-cover"
+                      />
                     ) : (
                       <img
                         src={footerData?.logo?.url}
@@ -138,7 +144,6 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                         <DatoCmsImage
                           data={{
                             alt: social.name,
-                            url: social.imgSrc,
                             responsiveImage: social.responsiveImage,
                           }}
                           className="h-6 w-6"
@@ -181,7 +186,13 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             </div>
             <div className="w-full max-w-[100px]">
               {footerData?.creditLogo?.responsiveImage ? (
-                <DatoCmsImage data={footerData.creditLogo} className="h-auto w-full" />
+                <DatoCmsImage
+                  data={{
+                    alt: footerData.creditLogo.alt,
+                    responsiveImage: footerData.creditLogo.responsiveImage,
+                  }}
+                  className="h-auto w-full"
+                />
               ) : (
                 <img
                   src={footerData?.creditLogo?.url}

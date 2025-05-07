@@ -23,9 +23,16 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ cards = [], variant
           <div key={index} className="flex flex-col md:max-w-[30vw]">
             <div className="flex-none p-6">
               <div className="flex items-center gap-4">
-                {card.logo.url ? (
+                {card.logo.responsiveImage ? (
                   <div className="flex h-auto max-w-[180px] items-center">
-                    <DatoCmsImage data={card.logo} />
+                    <DatoCmsImage
+                      data={{
+                        alt: card.logo.alt,
+                        responsiveImage: card.logo.responsiveImage,
+                      }}
+                      className="h-auto w-full"
+                      objectFit="contain"
+                    />
                   </div>
                 ) : (
                   <img

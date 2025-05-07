@@ -37,9 +37,16 @@ const OurServicesSection: React.FC<OurServicesSectionProps> = ({ data }) => {
 
         <div className="mt-8 flex flex-col md:mt-16 md:flex-row">
           <div className="hidden w-full md:block md:w-[50%]">
-            <div className="max-w-[30vw] border border-red-900 px-2 md:ml-5 md:mt-40">
-              {data?.sideImage?.url ? (
-                <DatoCmsImage data={data.sideImage} className="h-full w-full" objectFit="contain" />
+            <div className="max-w-[30vw] px-2 md:ml-5 md:mt-40">
+              {data?.sideImage?.responsiveImage ? (
+                <DatoCmsImage
+                  data={{
+                    alt: data.sideImage.alt,
+                    responsiveImage: data.sideImage.responsiveImage,
+                  }}
+                  className="h-full w-full"
+                  objectFit="contain"
+                />
               ) : (
                 data?.sideImage?.url && (
                   <img

@@ -4,6 +4,7 @@ import IntroductionSection from "./IntroductionSection";
 import ResultsSection from "./ResultsSection";
 import CaseStudySection from "../../Home/CaseStudySection";
 import type { MainSectionProps } from "@/types/caseStudyInner";
+import type { CardItem } from "@/types/home";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import ChallengeSection from "./ChallengeSection";
@@ -67,6 +68,21 @@ export default function MainSection({
     para2: data.resultPara2,
   };
 
+  // Transform caseStudyCards to match CardItem type
+  const transformedCards: CardItem[] =
+    data.caseStudyCards?.map((card) => ({
+      logo: {
+        responsiveImage: card.logo?.responsiveImage || null,
+        url: card.logo?.url || "",
+        alt: card.logo?.alt || "",
+      },
+      description: card.description || "",
+      viewcasestudyButton: {
+        buttonLabel: card.viewcasestudyButton?.buttonLabel || "",
+        buttonUrl: card.viewcasestudyButton?.buttonUrl || "",
+      },
+    })) || [];
+
   return (
     <main>
       <HeroSection data={heroData} />
@@ -75,7 +91,7 @@ export default function MainSection({
       <ChallengeSection data={challengesData} />
       <SolutionsSection data={solutionsData} />
       <ResultsSection data={resultsData} />
-      <CaseStudySection cards={data.caseStudyCards} variant="caseStudy" />
+      <CaseStudySection cards={transformedCards} variant="caseStudy" />
       <ContactUsSection data={contactData} />
     </main>
   );

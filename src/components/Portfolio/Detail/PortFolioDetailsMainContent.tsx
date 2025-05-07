@@ -14,7 +14,10 @@ const MainContent: React.FC<MainContentProps> = ({ section, portfolioContent = [
       <div className="mx-auto px-4 md:px-32">
         {section.posterImage?.responsiveImage ? (
           <DatoCmsImage
-            data={section.posterImage}
+            data={{
+              alt: section.posterImage.alt,
+              responsiveImage: section.posterImage.responsiveImage,
+            }}
             className="w-full rounded-lg"
             objectFit="contain"
           />

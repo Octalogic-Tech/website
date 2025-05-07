@@ -66,7 +66,7 @@ export const ABOUT_PAGE_QUERY = `
       banner {
         url
         alt
-        responsiveImage(imgixParams: { fit: clip, w: 1200, h: 600, auto: format }) {
+        responsiveImage(imgixParams: { fit: clip, w: 3000, h: 1000, auto: format }) {
           srcSet
           webpSrcSet
           sizes

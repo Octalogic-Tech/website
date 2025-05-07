@@ -74,11 +74,22 @@ export default function Navigation({ headerData = { navlinks: [] } }: { headerDa
           <a href="/" className="flex items-center">
             {headerData?.logo?.responsiveImage ? (
               <div className="flex h-8 max-w-[150px] items-center">
-                <DatoCmsImage data={headerData.logo} objectFit="contain" />
+                <DatoCmsImage
+                  data={{
+                    alt: headerData.logo.alt,
+                    responsiveImage: headerData.logo.responsiveImage,
+                  }}
+                  className="h-8 w-auto"
+                  objectFit="contain"
+                />
               </div>
             ) : (
               <div className="flex h-8 max-w-[150px] items-center">
-                <img src={headerData?.logo?.url} alt={headerData?.logo?.alt} />
+                <img
+                  src={headerData?.logo?.url}
+                  alt={headerData?.logo?.alt}
+                  className="h-8 w-auto object-contain"
+                />
               </div>
             )}
           </a>

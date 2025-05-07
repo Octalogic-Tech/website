@@ -32,15 +32,18 @@ const BlogSection: React.FC<BlogSectionProps> = ({ data }) => {
               className="flex flex-col gap-3 rounded-2xl border border-[#E5E5E5] p-2"
             >
               <div className="h-[30vh] w-full">
-                {post?.image.url ? (
+                {post?.image?.responsiveImage ? (
                   <DatoCmsImage
-                    data={post.image}
+                    data={{
+                      alt: post.image.alt,
+                      responsiveImage: post.image.responsiveImage,
+                    }}
                     className="h-full w-full rounded-xl object-cover"
                   />
                 ) : (
                   <img
-                    src={post?.image.url}
-                    alt={post?.image.alt}
+                    src={post?.image?.url}
+                    alt={post?.image?.alt}
                     className="h-full w-full rounded-xl object-cover"
                   />
                 )}

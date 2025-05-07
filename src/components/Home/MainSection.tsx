@@ -59,7 +59,11 @@ export default function MainSection({
       buttonLabel: data?.button?.buttonLabel || "",
       buttonUrl: data?.button?.buttonUrl || "",
     },
-    sideImage: data?.sideImage || { url: "", alt: "" },
+    sideImage: {
+      url: data?.sideImage?.url || "",
+      alt: data?.sideImage?.alt || "",
+      responsiveImage: data?.sideImage?.responsiveImage,
+    },
     serviceCard: data?.serviceCard || [],
   };
 

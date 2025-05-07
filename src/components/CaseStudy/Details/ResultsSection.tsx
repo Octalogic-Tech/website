@@ -21,7 +21,14 @@ const ResultsSection = ({ data }: ResultsSectionProps) => {
 
           <div className="relative w-full overflow-hidden rounded">
             {data.image.responsiveImage ? (
-              <DatoCmsImage data={data.image} className="h-full w-full object-cover" />
+              <DatoCmsImage
+                data={{
+                  alt: data.image.alt,
+                  responsiveImage: data.image.responsiveImage,
+                }}
+                className="h-full w-full"
+                objectFit="cover"
+              />
             ) : (
               <img
                 src={data.image.url}

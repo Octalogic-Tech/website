@@ -30,7 +30,22 @@ export const RotatingBanner: React.FC<RotatingBannerProps> = ({
         {imageObjects.length > 0
           ? [...imageObjects, ...imageObjects].map((image, index) => (
               <div key={`${image.url}-${index}`} className="flex-shrink-0">
-                <DatoCmsImage data={image} className={imageClassName} objectFit="contain" />
+                {image.responsiveImage ? (
+                  <DatoCmsImage
+                    data={{
+                      alt: image.alt,
+                      responsiveImage: image.responsiveImage,
+                    }}
+                    className={imageClassName}
+                    objectFit="contain"
+                  />
+                ) : (
+                  <img
+                    src={image.url}
+                    alt={image.alt || "Rotating Banner"}
+                    className={`flex-shrink-0 ${imageClassName}`}
+                  />
+                )}
               </div>
             ))
           : validImages

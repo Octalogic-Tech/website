@@ -17,6 +17,7 @@ export interface JoinOurTeamSectionProps {
       buttonUrl: string;
     };
     sideImages: {
+      responsiveImage: any;
       url: string;
       alt: string;
     }[];

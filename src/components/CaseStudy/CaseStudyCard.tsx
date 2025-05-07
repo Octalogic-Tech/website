@@ -36,9 +36,9 @@ function CaseStudyCard({ className, ...data }: CaseCardType & { className?: stri
     >
       <div className="flex w-full flex-col px-4 py-6 lg:w-1/2 lg:px-12 lg:py-12">
         <div className="flex items-center gap-2">
-          <div className="h-8 w-auto flex-shrink-0">
+          <div className="h-auto w-auto flex-shrink-0">
             {safeData.logo.responsiveImage ? (
-              <DatoCmsImage data={safeData.logo} className="h-8 w-auto" objectFit="contain" />
+              <DatoCmsImage data={safeData.logo} className="h-auto w-auto" />
             ) : (
               <img
                 src={safeData.logo.url}
@@ -78,7 +78,7 @@ function CaseStudyCard({ className, ...data }: CaseCardType & { className?: stri
 
       <div className="w-full overflow-hidden rounded-xl lg:h-auto lg:w-1/2">
         {safeData.image.responsiveImage ? (
-          <DatoCmsImage data={safeData.image} className="h-full w-full" objectFit="cover" />
+          <DatoCmsImage data={safeData.image} className="h-full w-full" />
         ) : (
           <img
             src={safeData.image.url}

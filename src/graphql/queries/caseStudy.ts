@@ -33,7 +33,7 @@ export const CASE_STUDY_PAGE_QUERY = `
         image {
           alt
           url
-          responsiveImage(imgixParams: { fit: clip, w: 600, h: 400, auto: format }) {
+          responsiveImage(imgixParams: { fit: clip, w: 1000, h: 600, auto: format }) {
             srcSet
             webpSrcSet
             sizes

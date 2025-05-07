@@ -9,6 +9,7 @@ export interface AboutHeroSectionData {
 }
 
 export interface CarouselImage {
+  responsiveImage: any;
   url: string;
   alt: string;
 }
@@ -26,6 +27,7 @@ export interface Testimonial {
   };
   cardDescription: string;
   profileImage: {
+    responsiveImage: any;
     url: string;
     alt: string;
   };

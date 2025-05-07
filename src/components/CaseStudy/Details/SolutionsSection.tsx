@@ -36,7 +36,14 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
 
           <div className="relative w-full overflow-hidden rounded">
             {data.image.responsiveImage ? (
-              <DatoCmsImage data={data.image} className="h-full w-full object-cover" />
+              <DatoCmsImage
+                data={{
+                  alt: data.image.alt,
+                  responsiveImage: data.image.responsiveImage,
+                }}
+                className="h-full w-full"
+                objectFit="cover"
+              />
             ) : (
               <img
                 src={data.image.url}
@@ -54,7 +61,14 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
 
           <div className="relative w-full overflow-hidden rounded">
             {data.image2.responsiveImage ? (
-              <DatoCmsImage data={data.image2} className="h-full w-full object-cover" />
+              <DatoCmsImage
+                data={{
+                  alt: data.image2.alt,
+                  responsiveImage: data.image2.responsiveImage,
+                }}
+                className="h-full w-full"
+                objectFit="cover"
+              />
             ) : (
               <img
                 src={data.image2.url}
@@ -68,7 +82,14 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
 
           <div className="relative w-full overflow-hidden rounded">
             {data.image3.responsiveImage ? (
-              <DatoCmsImage data={data.image3} className="h-full w-full object-cover" />
+              <DatoCmsImage
+                data={{
+                  alt: data.image3.alt,
+                  responsiveImage: data.image3.responsiveImage,
+                }}
+                className="h-full w-full"
+                objectFit="cover"
+              />
             ) : (
               <img
                 src={data.image3.url}
@@ -82,7 +103,14 @@ const SolutionsSection = ({ data }: SolutionsSectionProps) => {
 
           <div className="relative w-full overflow-hidden rounded">
             {data.image4.responsiveImage ? (
-              <DatoCmsImage data={data.image4} className="h-full w-full object-cover" />
+              <DatoCmsImage
+                data={{
+                  alt: data.image4.alt,
+                  responsiveImage: data.image4.responsiveImage,
+                }}
+                className="h-full w-full"
+                objectFit="cover"
+              />
             ) : (
               <img
                 src={data.image4.url}

@@ -73,10 +73,21 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ data }) => {
                       </div>
 
                       <div className="absolute bottom-40 h-[40vh] w-[40vh] overflow-hidden rounded-lg transition-all duration-300 hover:h-[55vh] hover:w-[43vh]">
-                        <DatoCmsImage
-                          data={item?.carouselImage}
-                          className="h-full w-full object-cover"
-                        />
+                        {item?.carouselImage?.responsiveImage ? (
+                          <DatoCmsImage
+                            data={{
+                              alt: item.carouselImage.alt,
+                              responsiveImage: item.carouselImage.responsiveImage,
+                            }}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <img
+                            src={item?.carouselImage?.url}
+                            alt={item?.carouselImage?.alt || ""}
+                            className="h-full w-full object-cover"
+                          />
+                        )}
                       </div>
 
                       <div className="absolute bottom-0 left-0 right-0 min-h-36">
