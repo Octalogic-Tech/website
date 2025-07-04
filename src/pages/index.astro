@@ -3,6 +3,16 @@
 import "@/styles/globals.css";
 // import Navigation from "./navigation";
 // import { ModeToggle } from "@/components/ModeToggle";
+import "@fontsource-variable/montserrat";
+import '@fontsource/barlow-condensed/100-italic.css';
+import '@fontsource/barlow-condensed/200-italic.css';
+import '@fontsource/barlow-condensed/300-italic.css';
+import '@fontsource/barlow-condensed/400-italic.css';
+import '@fontsource/barlow-condensed/500-italic.css';
+import '@fontsource/barlow-condensed/600-italic.css';
+import '@fontsource/barlow-condensed/700-italic.css';
+import '@fontsource/barlow-condensed/800-italic.css';
+import '@fontsource/barlow-condensed/900-italic.css';
 ---
 
 <script is:inline>
@@ -28,22 +38,52 @@ import "@/styles/globals.css";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
-    />
+    /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
   <body>
     <!-- <Navigation client:load /> -->
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
+
+
+    <h1 class="text-3xl  font-sans" >
+      Sphinx of black quartz, judge my vow.
+    </h1>
+
+    <h1 class="text-3xl  font-serif" >
+      Sphinx of black quartz, judge my vow.
+    </h1>
+
+    <h1 class="text-3xl  font-mono" >
+      Sphinx of black quartz, judge my vow.
+    </h1>
+
+    <h1 class="text-3xl font-barlow-condensed">
+      Barlow Condensed
+     </h1>
+
+     <h1 class="text-3xl">
+      Sphinx of black quartz, judge my vow.
+    </h1>
+    <h1 class="text-3xl font-montserrat">
+      Sphinx of black quartz, judge my vow.
+    </h1>
+
+
+    
+    <h1 class="text-3xl font-barlow-condensed" style="font-family: Barlow Condensed;">
+      Barlow Condensed
+     </h1>
+    <h1 class="text-3xl font-montserrat" style="font-family: Montserrat;">
+      Sphinx of black quartz, judge my vow.
     </h1>
     <!-- <ModeToggle client:load /> -->
   </body>

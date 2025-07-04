@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+  @apply size-full;
+}
+
+body {
+  @apply font-montserrat antialiased;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
