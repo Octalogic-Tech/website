@@ -70,3 +70,64 @@ body {
     @apply bg-background font-sans text-foreground antialiased;
   }
 } */
+
+
+@utility captionM {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0%;
+}
+
+@utility captionL {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0%;
+}
+
+@utility bodyM {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+}
+
+@utility bodyL {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0%;
+}
+
+@utility h6 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0%;
+}
+
+@utility h5 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 0%;
+}
+
+@utility h4 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -1%;
+}
+
+@utility h3 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  letter-spacing: -2%;
+}
+
+@utility h2 {
+  font-size: 4rem;
+  line-height: 4.5rem;
+  letter-spacing: -3%;
+}
+
+@utility h1 {
+  font-size: 5rem;
+  line-height: 5rem;
+  letter-spacing: -4%;
+}
