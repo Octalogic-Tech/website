@@ -1,4 +1,5 @@
 ---
+import "@/styles/globals.css";
 import "@fontsource-variable/montserrat";
 import "@fontsource/barlow-condensed/100.css";
 import "@fontsource/barlow-condensed/200.css";
@@ -9,7 +10,8 @@ import "@fontsource/barlow-condensed/600.css";
 import "@fontsource/barlow-condensed/700.css";
 import "@fontsource/barlow-condensed/800.css";
 import "@fontsource/barlow-condensed/900.css";
-// const { children } = Astro.props;
+
+const { title="Octalogic Tech" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@ import "@fontsource/barlow-condensed/900.css";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Octalogic Tech</title>
+        <title>{title}</title>
     </head>
     <body>
         <main>
