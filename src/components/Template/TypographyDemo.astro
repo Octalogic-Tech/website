@@ -1,0 +1,248 @@
+---
+import {
+  typographyVariants,
+  type VariantType,
+  type WeightType,
+} from "@/components/ui/typography.tsx";
+
+const montserratVariants = [
+  { variant: "captionM", size: 12 },
+  { variant: "captionL", size: 14 },
+  { variant: "bodyM", size: 16 },
+  { variant: "bodyL", size: 20 },
+];
+
+const barlowVariants = [
+  { variant: "h6", size: 24 },
+  { variant: "h5", size: 32 },
+  { variant: "h4", size: 40 },
+  { variant: "h3", size: 48 },
+  { variant: "h2", size: 64 },
+  { variant: "h1", size: 80 },
+];
+
+const weights: WeightType[] = ["normal", "medium", "semibold", "bold"];
+
+const codeSnippetAstro = `import { typographyVariants } from "@/components/ui/typography";
+
+<span
+  class={typographyVariants({
+    font: "montserrat",
+    variant: "bodyM",
+    weight: "medium",
+    className: "",
+  })}
+>
+  Hello There
+</span>`;
+
+const codeSnippet = `import { Typography } from "@/components/ui/typography";
+
+<Typography font="montserrat" variant="bodyM" weight="medium">
+  Hello There
+</Typography>`;
+---
+
+<div class="bg-white font-montserrat text-black">
+ <!--  <section class="flex items-center justify-between rounded-t-md bg-teal-400 px-6 py-4 text-black">
+    <div>
+      <h1 class="text-xl font-bold">Typography</h1>
+      <p class="text-sm text-gray-800">Design System → Typography</p>
+    </div>
+    <span class="text-xs text-gray-800">Octalogic Tech design system</span>
+  </section> -->
+
+  <div class="p-4">
+    <!-- Props Table -->
+    <section class="my-8">
+      <h2 class="mb-4 text-xl font-semibold">Props</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-gray-700 text-left">
+              <th class="px-4 py-2 font-medium">name</th>
+              <th class="px-4 py-2 font-medium">type</th>
+              <th class="px-4 py-2 font-medium">default</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-800">
+              <td class="px-4 py-2"><code class="rounded px-1 py-0.5 font-mono">font</code></td>
+              <td class="px-4 py-2">montserrat | barlow-condensed</td>
+              <td class="px-4 py-2">montserrat</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="px-4 py-2"><code class="rounded px-1 py-0.5 font-mono">variant</code></td>
+              <td class="px-4 py-2"
+                >captionM | captionL | bodyM | bodyL | h6 | h5 | h4 | h3 | h2 | h1</td
+              >
+              <td class="px-4 py-2">bodyM</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="px-4 py-2"><code class="rounded px-1 py-0.5 font-mono">weight</code></td>
+              <td class="px-4 py-2">normal | medium | semibold | bold</td>
+              <td class="px-4 py-2">normal</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="px-4 py-2"><code class="rounded px-1 py-0.5 font-mono">className</code></td
+              >
+              <td class="px-4 py-2">string</td>
+              <td class="px-4 py-2">""</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2"><code class="rounded px-1 py-0.5 font-mono">children</code></td>
+              <td class="px-4 py-2">ReactNode</td>
+              <td class="px-4 py-2">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+     <!-- Code Snippet -->
+    <h2 class="mb-4 text-xl font-semibold">How to use typographyVariants in Astro</h2>
+    <div class="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
+      <button
+        id="copy-typography-example"
+        class="absolute top-0 right-0 mb-4 rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700 cursor-pointer"
+        data-snippet={`import { typographyVariants } from "@/components/ui/typography";
+
+        <span
+          class={typographyVariants({
+            font: "montserrat",
+            variant: "bodyM",
+            weight: "medium",
+            className: "",
+          })}
+        >
+          Hello There
+        </span>`}
+      >
+        📋
+      </button>
+      <pre>{codeSnippetAstro}</pre>
+    </div>
+
+    <h2 class="mb-4 text-xl font-semibold">How to use Typography component in ReactJS</h2>
+    <div class="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
+      <button
+        id="copy-typography-example"
+        class="absolute top-0 right-0 mb-4 rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700 cursor-pointer"
+        data-snippet={`import { Typography } from "@/components/ui/typography";
+      
+      <Typography font="montserrat" variant="bodyM" weight="medium">
+        Hello There
+      </Typography>`}
+      >
+        📋
+      </button>
+      <pre>{codeSnippet}</pre>
+    </div>
+
+    <!-- Example Table -->
+    <h2 class="mb-4 text-xl font-semibold">Example Available Font Values</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full table-fixed border border-gray-200 text-center">
+        <thead class="bg-white">
+          <tr>
+            <th class="border border-gray-200 bg-white px-2 py-2 text-center"></th>
+            <th
+              colspan={montserratVariants.length}
+              class="border border-gray-200 bg-white px-2 py-2 text-center"
+            >
+              Montserrat
+            </th>
+            <th
+              colspan={barlowVariants.length}
+              class="border border-gray-200 bg-white px-2 py-2 text-center"
+            >
+              Barlow Condensed
+            </th>
+          </tr>
+          <tr>
+            <th class="w-32 border border-gray-200 bg-white"></th>
+            {
+              montserratVariants.map(({ size }) => (
+                <th class="border border-gray-200 py-2">{size}</th>
+              ))
+            }
+            {barlowVariants.map(({ size }) => <th class="border border-gray-200 py-2">{size}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            weights.map((weight) => (
+              <tr>
+                <td class="border border-gray-200 px-2 py-2 text-left font-semibold capitalize">
+                  {weight}
+                </td>
+                {montserratVariants.map(({ variant }) => (
+                  <td class="relative border border-gray-200 py-2">
+                    <div class="flex flex-col items-center gap-1">
+                      <span
+                        class={typographyVariants({
+                          variant: variant as VariantType,
+                          weight: weight,
+                        })}
+                      >
+                        {`Hello There`}
+                      </span>
+                      <button
+                        class="copy-btn absolute top-0 right-0 rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700 cursor-pointer"
+                        data-snippet={`<Typography variant="${variant}" weight="${weight}">HELLO THERE</Typography>`}
+                      >
+                        📋
+                      </button>
+                    </div>
+                  </td>
+                ))}
+                {barlowVariants.map(({ variant }) => (
+                  <td class="relative border border-gray-200 py-2">
+                    {weight === "normal" || weight === "bold" ? null : (
+                      <div class="flex flex-col items-center gap-1">
+                        <span
+                          class={typographyVariants({
+                            font: "barlow-condensed",
+                            variant: variant as VariantType,
+                            weight: weight,
+                          })}
+                        >
+                          Hello There
+                        </span>
+                        <button
+                          class="copy-btn absolute top-0 right-0 rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700 cursor-pointer"
+                          data-snippet={`<Typography font="barlow-condensed" variant="${variant}" weight="${weight}">HELLO THERE</Typography>`}
+                        >
+                          📋
+                        </button>
+                      </div>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const btn = document.getElementById("copy-typography-example");
+  btn?.addEventListener("click", () => {
+    const code = btn.getAttribute("data-snippet");
+    if (code) {
+      navigator.clipboard.writeText(code).then(() => alert("Code copied to clipboard!"));
+    }
+  });
+
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const snippet = btn.getAttribute("data-snippet");
+      if (snippet) {
+        navigator.clipboard.writeText(snippet).then(() => alert("Snippet copied!"));
+      }
+    });
+  });
+</script>

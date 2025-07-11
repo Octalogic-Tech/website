@@ -249,37 +249,6 @@ export default function ColorPalette() {
   return (
     <>
       <style>{`
-        * {
-          box-sizing: border-box;
-        }
-        body {
-          background-color: #111;
-          color: #eee;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          margin: 0;
-          padding: 16px;
-        }
-        h1 {
-          font-weight: 700;
-          letter-spacing: -0.02em;
-          color: #2dd4bf;
-          margin-bottom: 12px;
-        }
-        h2 {
-          margin-top: 24px;
-          margin-bottom: 8px;
-          font-weight: 600;
-          font-size: 15px;
-          letter-spacing: -0.01em;
-        }
-        p {
-          font-weight: 300;
-          max-width: 650px;
-          font-size: 13px;
-          line-height: 1.4;
-          margin-bottom: 16px;
-          letter-spacing: -0.01em;
-        }
         .color-palette {
           margin-top: 16px;
           max-width: 960px;
@@ -313,7 +282,7 @@ export default function ColorPalette() {
         }
         .color-block:hover {
           border-color: #2dd4bf;
-          color: #fff;
+          color: gray;
           font-weight: 700;
         }
         .color-block.copied::after {
@@ -387,7 +356,7 @@ export default function ColorPalette() {
         }
       `}</style>
 
-      <header className="header" aria-label="Page header with title and description">
+      {/*   <header className="header" aria-label="Page header with title and description">
         <div className="header-left">
           <span className="tag" aria-label="Octalogic Tech Short Tagline">
             OT
@@ -397,9 +366,9 @@ export default function ColorPalette() {
         <div aria-hidden="true" style={{ fontWeight: 600, fontSize: "13px", color: "#0f0f0f" }}>
           Octalogic Tech design system
         </div>
-      </header>
+      </header> */}
 
-      <section aria-label="Color Palette Sections" className="color-palette">
+      <section aria-label="Color Palette Sections" className="color-palette font-montserrat">
         {colorSections.map(({ title, colors, classNames }) => (
           <div
             key={title}
@@ -413,7 +382,7 @@ export default function ColorPalette() {
               {colors.map((color, idx) => (
                 <button
                   key={idx}
-                  className={`color-block${copiedColor === color ? "copied" : ""}`}
+                  className={`color-block${copiedColor === color ? "copied" : ""} cursor-pointer`}
                   role="listitem"
                   style={{ backgroundColor: color }}
                   aria-label={`Color block ${color}. Click to copy the color code.`}
@@ -432,9 +401,6 @@ export default function ColorPalette() {
 }
 export function ColorsDemo() {
   return (
-    <div>
-      <h1>Color Palette</h1>
       <ColorPalette />
-    </div>
   );
 }

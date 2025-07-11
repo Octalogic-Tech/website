@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import TypographyDemo from "../components/Template/TypographyDemo";
-import ColorsDemo from "../components/Template/ColorsDemo";
+import DesignSystem from "@/components/Template";
+// import TypographyDemo from "../components/Template/TypographyDemo";
+// import ColorsDemo from "../components/Template/ColorsDemo";
+// import Typography from "@/components/Template/TypographyDemo.astro";
 ---
 
 <BaseLayout title="Template Page">
-  <ColorsDemo client:load />
-  <TypographyDemo client:load />
+  <DesignSystem client:load />
+  <!-- <ColorsDemo  /> -->
+  <!-- <Typography /> -->
+  <!-- <TypographyDemo  /> -->
 </BaseLayout>

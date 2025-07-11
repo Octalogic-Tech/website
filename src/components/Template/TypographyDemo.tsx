@@ -18,6 +18,19 @@ const barlowVariants = [
 
 const weights: WeightType[] = ["normal", "medium", "semibold", "bold"];
 
+const codeSnippetAstro = `import { typographyVariants } from "@/components/ui/typography";
+
+<span
+  class={typographyVariants({
+    font: "montserrat",
+    variant: "bodyM",
+    weight: "medium",
+    className: "",
+  })}
+>
+  Hello There
+</span>`;
+
 const codeSnippet = `import { Typography } from "@/components/ui/typography";
 
 <Typography font="montserrat" variant="bodyM" weight="medium">
@@ -37,14 +50,14 @@ export default function TypographyDemo() {
   };
 
   return (
-    <main className="bg-white font-sans text-black">
-      <section className="flex items-center justify-between rounded-t-md bg-teal-400 px-6 py-4 text-black">
+    <main className="font-montserrat bg-white text-black">
+      {/* <section className="flex items-center justify-between rounded-t-md bg-teal-400 px-6 py-4 text-black">
         <div>
           <h1 className="text-xl font-bold">Typography</h1>
           <p className="text-sm text-gray-800">Design System → Typography</p>
         </div>
         <span className="text-xs text-gray-800">Octalogic Tech design system</span>
-      </section>
+      </section> */}
 
       <div className="p-4">
         {/* Typography Props Explanation */}
@@ -102,43 +115,43 @@ export default function TypographyDemo() {
           </div>
         </section>
 
-        {/*    <section className="mb-8">
-          <h2 className="mb-2 text-lg font-semibold">Typography Props</h2>
-          <ul className="list-disc pl-6 text-sm text-gray-800">
-            <li>
-              <strong>font:</strong> <code>"montserrat"</code> | <code>"barlow-condensed"</code>
-            </li>
-            <li>
-              <strong>variant:</strong>{" "}
-              <code>
-                "captionM" | "captionL" | "bodyM" | "bodyL" | "h6" | "h5" | "h4" | "h3" | "h2" |
-                "h1"
-              </code>
-            </li>
-            <li>
-              <strong>weight:</strong> <code>"normal"</code> | <code>"medium"</code> |{" "}
-              <code>"semibold"</code> | <code>"bold"</code>
-            </li>
-            <li>
-              <strong>children:</strong> React text or elements (the content inside)
-            </li>
-          </ul>
-        </section> */}
+        <h2 className="mb-4 text-xl font-semibold">How to use typographyVariants in Astro</h2>
+        <div className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
+          <button
+            id="copy-typography-example"
+            className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
+            data-snippet={`import { typographyVariants } from "@/components/ui/typography";
 
-        <h2 className="mb-4 text-xl font-semibold">How to use</h2>
+        <span
+          class={typographyVariants({
+            font: "montserrat",
+            variant: "bodyM",
+            weight: "medium",
+            className: "",
+          })}
+        >
+          Hello There
+        </span>`}
+          >
+            📋
+          </button>
+          <pre>{codeSnippetAstro}</pre>
+        </div>
+
+        <h2 className="mb-4 text-xl font-semibold">How to use Typography component in ReactJS</h2>
         <pre className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
           <>
             <button
               onClick={handleCopy}
-              className="absolute top-0 right-0 mb-4 rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
+              className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
             >
-              📋 Copy Typography Example
+              📋
             </button>
             {codeSnippet}
           </>
         </pre>
 
-        <h2 className="mb-4 text-xl font-semibold">Example</h2>
+        <h2 className="mb-4 text-xl font-semibold">Example Available Font Values</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full table-fixed border border-gray-200 text-center">
             <thead className="bg-white">
@@ -229,7 +242,7 @@ export default function TypographyDemo() {
                         </Typography>
                         <button
                           onClick={() => copySnippet("montserrat", variant, weight, "Hello There")}
-                          className="absolute top-0 right-0 rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
+                          className="absolute top-0 right-0 cursor-pointer rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
                         >
                           📋
                         </button>
@@ -256,7 +269,7 @@ export default function TypographyDemo() {
                             onClick={() =>
                               copySnippet("barlow-condensed", variant, weight, "HELLO THERE")
                             }
-                            className="absolute top-0 right-0 rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
+                            className="absolute top-0 right-0 cursor-pointer rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
                           >
                             📋
                           </button>
