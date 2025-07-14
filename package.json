@@ -8,8 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "prettier:format": "CI=true prettier --write \"**/*.{astro,tsx,ts,jsx,js,css,json,css,scss,md}\"",
-    "prettier:check": "CI=true npx prettier \"**/*.{astro,tsx,ts,jsx,js,css,json,css,scss,md}\" --check"
+    "prettier:format": "prettier --write \"**/*.{astro,tsx,ts,jsx,js,css,json,css,scss,md}\"",
+    "prettier:check": "npx prettier \"**/*.{astro,tsx,ts,jsx,js,css,json,css,scss,md}\" --check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

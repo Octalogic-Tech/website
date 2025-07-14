@@ -400,7 +400,5 @@ export default function ColorPalette() {
   );
 }
 export function ColorsDemo() {
-  return (
-      <ColorPalette />
-  );
+  return <ColorPalette />;
 }

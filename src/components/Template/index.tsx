@@ -3,6 +3,7 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Typography from "./TypographyDemo";
 import Color from "./ColorsDemo";
+import Button from "./ButtonDemo";
 // You can import more tab content components here
 
 const tabItems = [
@@ -16,11 +17,16 @@ const tabItems = [
     value: "color",
     component: <Color />,
   },
+  {
+    label: "Button",
+    value: "button",
+    component: <Button />,
+  },
 ];
 
 export default function DesignSystem() {
   return (
-    <div className="p-6 font-montserrat">
+    <div className="font-montserrat p-6">
       <h1 className="mb-6 text-3xl font-bold">Design System</h1>
       <Tabs defaultValue={tabItems[0].value} className="w-full">
         <TabsList className="rounded-lg border border-white/10 bg-black p-1">

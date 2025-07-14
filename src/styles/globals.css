@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
 
   /* Colors */
   /* --color-master: oklch(0.967 0.0159 253.9); */
@@ -118,7 +118,7 @@
   --color-white-40: rgba(255, 255, 255, 0.4);
   --color-white-60: rgba(255, 255, 255, 0.6);
   --color-white-80: rgba(255, 255, 255, 0.8);
-  --color-white-100: oklch(1 0 0); 
+  --color-white-100: oklch(1 0 0);
 
   /* Black colors */
   --color-black-05: rgba(0, 0, 0, 0.05);
@@ -127,7 +127,7 @@
   --color-black-40: rgba(0, 0, 0, 0.4);
   --color-black-60: rgba(0, 0, 0, 0.6);
   --color-black-80: rgba(0, 0, 0, 0.8);
-  --color-black-100: oklch(0 0 0); 
+  --color-black-100: oklch(0 0 0);
 
   /* Gray colors */
   --color-gray-50: oklch(0.989 0.002 106.85);
@@ -153,10 +153,10 @@
   --color-primary-blue-200: oklch(0.885 0.052 240.01);
   --color-primary-blue-300: oklch(0.814 0.078 240.01);
   --color-primary-blue-400: oklch(0.725 0.104 240.01);
-  --color-primary-blue-500: oklch(0.635 0.130 240.01);
+  --color-primary-blue-500: oklch(0.635 0.13 240.01);
   --color-primary-blue-600: oklch(0.545 0.156 240.01);
   --color-primary-blue-700: oklch(0.475 0.156 240.01);
-  --color-primary-blue-800: oklch(0.425 0.130 240.01);
+  --color-primary-blue-800: oklch(0.425 0.13 240.01);
   --color-primary-blue-900: oklch(0.395 0.104 240.01);
   --color-primary-blue-950: oklch(0.275 0.078 240.01);
 
@@ -165,9 +165,9 @@
   --color-primary-green-100: oklch(0.951 0.026 162.48);
   --color-primary-green-200: oklch(0.918 0.052 162.48);
   --color-primary-green-300: oklch(0.862 0.104 162.48);
-  --color-primary-green-400: oklch(0.795 0.130 162.48);
-  --color-primary-green-500: oklch(0.705 0.130 162.48);
-  --color-primary-green-600: oklch(0.615 0.130 162.48);
+  --color-primary-green-400: oklch(0.795 0.13 162.48);
+  --color-primary-green-500: oklch(0.705 0.13 162.48);
+  --color-primary-green-600: oklch(0.615 0.13 162.48);
   --color-primary-green-700: oklch(0.535 0.104 162.48);
   --color-primary-green-800: oklch(0.465 0.078 162.48);
   --color-primary-green-900: oklch(0.415 0.065 162.48);
@@ -178,10 +178,10 @@
   --color-success-100: oklch(0.968 0.026 142.5);
   --color-success-200: oklch(0.945 0.052 142.5);
   --color-success-300: oklch(0.905 0.091 142.5);
-  --color-success-400: oklch(0.845 0.130 142.5);
+  --color-success-400: oklch(0.845 0.13 142.5);
   --color-success-500: oklch(0.765 0.156 142.5);
   --color-success-600: oklch(0.685 0.156 142.5);
-  --color-success-700: oklch(0.595 0.130 142.5);
+  --color-success-700: oklch(0.595 0.13 142.5);
   --color-success-800: oklch(0.515 0.104 142.5);
   --color-success-900: oklch(0.455 0.091 142.5);
   --color-success-950: oklch(0.295 0.052 142.5);
@@ -195,7 +195,7 @@
   --color-error-500: oklch(0.695 0.181 17.38);
   --color-error-600: oklch(0.635 0.194 17.38);
   --color-error-700: oklch(0.565 0.194 17.38);
-  --color-error-800: oklch(0.455 0.130 17.38);
+  --color-error-800: oklch(0.455 0.13 17.38);
   --color-error-900: oklch(0.415 0.104 17.38);
   --color-error-950: oklch(0.275 0.065 17.38);
 
@@ -207,11 +207,10 @@
   --color-warning-400: oklch(0.835 0.143 85.87);
   --color-warning-500: oklch(0.735 0.143 85.87);
   --color-warning-600: oklch(0.645 0.143 85.87);
-  --color-warning-700: oklch(0.555 0.130 85.87);
+  --color-warning-700: oklch(0.555 0.13 85.87);
   --color-warning-800: oklch(0.485 0.104 85.87);
   --color-warning-900: oklch(0.415 0.091 85.87);
   --color-warning-950: oklch(0.295 0.065 85.87);
-
 }
 
 html,
@@ -222,7 +221,6 @@ body {
 body {
   @apply font-montserrat antialiased;
 }
-
 
 @layer base {
   :root {
@@ -279,7 +277,6 @@ body {
     @apply bg-background font-sans text-foreground antialiased;
   }
 } */
-
 
 @utility captionM {
   font-size: 0.75rem;

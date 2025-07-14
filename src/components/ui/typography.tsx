@@ -1,4 +1,3 @@
-
 // export type FontFamilyType = "montserrat" | "barlow-condensed";
 // export type VariantType =
 //   | "captionM"
