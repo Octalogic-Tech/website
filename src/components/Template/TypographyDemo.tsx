@@ -38,8 +38,8 @@ const codeSnippet = `import { Typography } from "@/components/ui/typography";
 </Typography>`;
 
 export default function TypographyDemo() {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeSnippet).then(() => {
+  const handleCopy = (code: string) => {
+    navigator.clipboard.writeText(code).then(() => {
       alert("Code copied to clipboard!");
     });
   };
@@ -50,7 +50,7 @@ export default function TypographyDemo() {
   };
 
   return (
-    <main className="font-montserrat bg-white text-black">
+    <div className="font-montserrat bg-white text-black">
       {/* <section className="flex items-center justify-between rounded-t-md bg-teal-400 px-6 py-4 text-black">
         <div>
           <h1 className="text-xl font-bold">Typography</h1>
@@ -118,20 +118,8 @@ export default function TypographyDemo() {
         <h2 className="mb-4 text-xl font-semibold">How to use typographyVariants in Astro</h2>
         <div className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
           <button
-            id="copy-typography-example"
             className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
-            data-snippet={`import { typographyVariants } from "@/components/ui/typography";
-
-        <span
-          class={typographyVariants({
-            font: "montserrat",
-            variant: "bodyM",
-            weight: "medium",
-            className: "",
-          })}
-        >
-          Hello There
-        </span>`}
+            onClick={() => handleCopy(codeSnippetAstro)}
           >
             📋
           </button>
@@ -142,7 +130,7 @@ export default function TypographyDemo() {
         <pre className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
           <>
             <button
-              onClick={handleCopy}
+              onClick={() => handleCopy(codeSnippet)}
               className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
             >
               📋
@@ -151,7 +139,7 @@ export default function TypographyDemo() {
           </>
         </pre>
 
-        <h2 className="mb-4 text-xl font-semibold">Example Available Font Values</h2>
+        <h2 className="mb-4 text-xl font-semibold">Example Available Font Variants</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full table-fixed border border-gray-200 text-center">
             <thead className="bg-white">
@@ -283,6 +271,6 @@ export default function TypographyDemo() {
           </table>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

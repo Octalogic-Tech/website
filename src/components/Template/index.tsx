@@ -2,9 +2,9 @@
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Typography from "./TypographyDemo";
-import Color from "./ColorsDemo";
 import Button from "./ButtonDemo";
-// You can import more tab content components here
+import Input from "./InputDemo";
+import Color from "./ColorsDemo";
 
 const tabItems = [
   {
@@ -13,14 +13,19 @@ const tabItems = [
     component: <Typography />,
   },
   {
-    label: "Color",
-    value: "color",
-    component: <Color />,
-  },
-  {
     label: "Button",
     value: "button",
     component: <Button />,
+  },
+  {
+    label: "Input",
+    value: "input",
+    component: <Input />,
+  },
+  {
+    label: "Color",
+    value: "color",
+    component: <Color />,
   },
 ];
 

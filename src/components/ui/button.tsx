@@ -10,10 +10,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-[#59e2cf] text-[#002d3d] hover:bg-[#45c6b4]",
-        primaryOptional: "bg-[#b7f2eb] text-[#002d3d] border border-[#b7f2eb] hover:bg-[#a2e4db]",
-        secondary: "bg-transparent text-[#002d3d] border border-[#002d3d] hover:bg-[#eefbfa]",
-        text: "bg-transparent text-[#002d3d] hover:text-[#000]",
+        primary:
+          "bg-primary-teal text-primary-blue border border-primary-teal hover:bg-primary-light-blue",
+        primaryOptional:
+          "bg-primary-light-blue text-primary-blue border border-primary-teal hover:bg-primary-teal",
+        secondary:
+          "bg-transparent text-primary-blue border border-primary-blue hover:border-transparent",
+        text: "bg-transparent text-primary-blue border border-transparent hover:border-primary-blue",
       },
       size: {
         default: "h-12 px-6",
