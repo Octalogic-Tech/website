@@ -6,7 +6,7 @@ import { Typography } from "./typography";
 const inputBaseStyles =
   "rounded-2xl border border-primary-blue bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-gray-600 transition-all disabled:cursor-not-allowed disabled:opacity-50 focus:outline-4 focus:outline-primary-light-blue focus:border-primary-teal";
 
-const inputVariants = cva(inputBaseStyles, {
+export const inputVariants = cva(inputBaseStyles, {
   variants: {
     error: {
       true: "border-red-300 focus:outline-4 focus:outline-red-100 focus:border-red-500",

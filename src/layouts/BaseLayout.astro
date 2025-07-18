@@ -11,6 +11,8 @@ import "@fontsource/barlow-condensed/700.css";
 import "@fontsource/barlow-condensed/800.css";
 import "@fontsource/barlow-condensed/900.css";
 
+import Header from "@/components/sections/common/Header.astro";
+
 const { title = "Octalogic Tech" } = Astro.props;
 ---
 
@@ -22,7 +24,8 @@ const { title = "Octalogic Tech" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <main>
+    <Header />
+    <main class="overflow-auto">
       <slot />
     </main>
   </body>

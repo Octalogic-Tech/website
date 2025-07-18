@@ -1,0 +1,142 @@
+---
+import { HEADER_QUERY, type HeaderQueryResponse } from "@/graphql/header";
+import { fetchDatoCMS } from "@/lib/fetcherData";
+import { buttonVariants } from "@/components/ui/button";
+import { typographyVariants } from "@/components/ui/typography";
+import { selectVariants } from "@/components/ui/select";
+
+const data = await fetchDatoCMS<HeaderQueryResponse>(HEADER_QUERY);
+const { logo, navlinks: navLinks, language, button } = data.header;
+---
+
+<style>
+  .drawer-open {
+    transform: translateX(0%);
+  }
+</style>
+
+<header class="w-full overflow-auto border-b border-gray-300 bg-white px-4 py-3 md:px-8">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[40px] w-auto" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden items-center gap-6 lg:flex">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.url}
+            class={typographyVariants({
+              variant: "captionL",
+              weight: "medium",
+              className:
+                "hover:decoration-primary-blue text-gray-600 hover:text-gray-800 hover:underline hover:underline-offset-[1.8rem]",
+            })}
+            class="hover:text-primary text-sm font-medium text-gray-800 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Desktop Lang + CTA -->
+    <div class="hidden items-center gap-4 lg:flex">
+      <div class="relative">
+        <select class={selectVariants()}>
+          {language.map((lang) => <option value={lang?.code}>{lang?.name || ""}</option>)}
+        </select>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.2"
+          stroke="currentColor"
+          class="absolute top-2 right-2.5 ml-1 h-5 w-5 text-slate-700"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+        </svg>
+      </div>
+      <!-- <div
+        class="cursor-pointer rounded-full border px-3 py-1 text-sm text-gray-800 hover:bg-gray-50"
+      >
+        {language}
+      </div> -->
+      <button class={buttonVariants({ variant: "primary", className: "uppercase" })}>
+        {button.buttonLabel}
+      </button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="menuToggle" class="lg:hidden">
+      <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobileDrawer"
+    class="fixed inset-y-0 right-0 z-50 w-[80%] max-w-xs translate-x-full transform bg-white p-6 transition-transform duration-300 lg:hidden"
+  >
+    <div class="mb-6 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[36px] w-auto" />
+      </a>
+      <button id="closeDrawer">
+        <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.url}
+            class="hover:text-primary text-base font-medium text-gray-700 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="mt-8">
+      <button class={buttonVariants({ variant: "primary", className: "uppercase w-full" })}>
+        {button.buttonLabel}
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+    const closeDrawer = document.getElementById("closeDrawer");
+
+    menuToggle?.addEventListener("click", () => {
+      mobileDrawer?.classList.remove("translate-x-full");
+      mobileDrawer?.classList.add("drawer-open");
+    });
+
+    closeDrawer?.addEventListener("click", () => {
+      mobileDrawer?.classList.add("translate-x-full");
+      mobileDrawer?.classList.remove("drawer-open");
+    });
+  });
+</script>

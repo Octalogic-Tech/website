@@ -20,7 +20,11 @@ export interface HeaderQueryResponse {
       label: string;
       url: string;
     }[];
-    language: string;
+    language: {
+      code: string;
+      label: string;
+      name: string;
+    }[];
     button: {
       buttonLabel: string;
       buttonUrl: string;
