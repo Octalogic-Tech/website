@@ -15,6 +15,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.3.0",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@datocms/astro": "^0.6.2",
     "@fontsource-variable/montserrat": "^5.2.6",
     "@fontsource/barlow-condensed": "^5.2.6",
     "@iconify-json/material-symbols": "^1.2.29",
@@ -31,6 +32,7 @@
     "astro-icon": "^1.1.5",
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",
+    "react-datocms": "^7.2.2",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
     "tailwind-merge": "^2.6.0"

@@ -1,4 +1,6 @@
 ---
+import { Image } from "@datocms/astro";
+
 import { Icon } from "astro-icon/components";
 
 import { HEADER_QUERY, type HeaderQueryResponse } from "@/graphql/header";
@@ -46,7 +48,10 @@ const isActiveLinkAdvanced = (linkUrl: string, currentPath: string): boolean => 
   <div class="flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2">
-      <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[40px] w-auto" />
+      <!-- <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[40px] w-auto" /> -->
+      <!-- imgClass={"!h-[2.5rem] !w-auto"} -->
+      <!-- pictureClass={"h-[2.5rem] w-auto"} -->
+      <Image data={logo.responsiveImage} />
     </a>
 
     <!-- Desktop Nav -->
