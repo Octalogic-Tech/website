@@ -12,6 +12,7 @@ import "@fontsource/barlow-condensed/800.css";
 import "@fontsource/barlow-condensed/900.css";
 
 import Header from "@/components/sections/common/Header.astro";
+import Footer from "@/components/sections/common/Footer.astro";
 
 const { title = "Octalogic Tech" } = Astro.props;
 ---
@@ -23,10 +24,11 @@ const { title = "Octalogic Tech" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="flex min-h-screen flex-col">
     <Header />
-    <main class="overflow-auto">
+    <main class="mt-[4.0625rem] flex-1 lg:mt-[4.5625rem]">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

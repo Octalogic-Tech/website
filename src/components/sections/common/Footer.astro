@@ -1,0 +1,150 @@
+---
+import { Image } from "@datocms/astro";
+
+import { fetchDatoCMS } from "@/lib/fetcherData";
+import { FOOTER_QUERY } from "@/graphql/footer";
+import type { FooterQueryResponse } from "@/graphql/footer";
+import { typographyVariants } from "@/components/ui/typography";
+import { isActiveLinkAdvanced } from "@/lib/misc";
+
+const data = await fetchDatoCMS<FooterQueryResponse>(FOOTER_QUERY);
+
+// Get current pathname for active link highlighting
+const currentPath = Astro.url.pathname;
+
+const { logo, locations, socialMediaLinks, navlinks, copyrightText, creditsText, creditLogo } =
+  data.footer;
+
+const midIndex = Math.ceil(navlinks.length / 2);
+const navCol1 = navlinks.slice(0, midIndex);
+const navCol2 = navlinks.slice(midIndex);
+---
+
+<footer class="pt-20 text-sm text-gray-900">
+  <div class="flex flex-col justify-between gap-12 px-4 pb-16 md:flex-row lg:gap-10 lg:px-24">
+    <!-- Left Column -->
+    <div class="flex flex-col justify-between">
+      <div class="flex flex-col gap-0.5">
+        <!-- Logo -->
+        {
+          logo?.responsiveImage && (
+            <a href="/">
+              <Image data={logo?.responsiveImage} />
+            </a>
+          )
+        }
+
+        <!-- Locations -->
+        <div class="flex flex-wrap gap-2">
+          {
+            locations.map((loc, idx) => (
+              <>
+                <span
+                  class={typographyVariants({
+                    variant: "captionM",
+                    weight: "medium",
+                    className: "flex items-center gap-1",
+                  })}
+                >
+                  {loc.name}
+                </span>
+                {idx !== locations.length - 1 && (
+                  <span class="text-primary-teal mb-1 text-[2rem] leading-none">•</span>
+                )}
+              </>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="mt-4 flex gap-2">
+        {
+          socialMediaLinks.map((social) => (
+            <a
+              href={social.socialMediaLinks}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.socialMediaLogo.alt}
+            >
+              <Image data={social.socialMediaLogo.responsiveImage} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Right Column (Nav Links) -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="flex flex-col gap-4">
+        {
+          navCol1.map((link) => {
+            const isActive = isActiveLinkAdvanced(link.url, currentPath);
+            return (
+              <a
+                href={link.url}
+                class={typographyVariants({
+                  variant: "captionL",
+                  weight: "medium",
+                  className: isActive
+                    ? "decoration-primary-blue text-primary-blue underline underline-offset-2 transition"
+                    : "hover:decoration-primary-blue hover:text-primary-blue transition hover:underline hover:underline-offset-2",
+                })}
+              >
+                {link.label}
+              </a>
+            );
+          })
+        }
+      </div>
+      <div class="flex flex-col gap-4">
+        {
+          navCol2.map((link) => {
+            const isActive = isActiveLinkAdvanced(link.url, currentPath);
+            return (
+              <a
+                href={link.url}
+                class={typographyVariants({
+                  variant: "captionL",
+                  weight: "medium",
+                  className: isActive
+                    ? "decoration-primary-blue text-primary-blue underline underline-offset-2"
+                    : "hover:decoration-primary-blue hover:text-primary-blue hover:underline hover:underline-offset-2",
+                })}
+              >
+                {link.label}
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Text -->
+  <div
+    class="mx-4 flex flex-col items-center justify-between gap-2 border-t border-gray-400 py-8 text-gray-600 md:flex-row lg:mx-24 lg:gap-0 lg:py-4"
+  >
+    <span
+      class={typographyVariants({
+        variant: "captionL",
+        weight: "medium",
+      })}>{copyrightText}</span
+    >
+    <div class="mt-2 flex items-center gap-2 md:mt-0">
+      <span
+        class={typographyVariants({
+          variant: "captionL",
+          weight: "medium",
+        })}>{creditsText}</span
+      >
+      {
+        creditLogo?.responsiveImage && (
+          <a href="/">
+            <Image data={creditLogo.responsiveImage} />
+          </a>
+        )
+      }
+    </div>
+  </div>
+</footer>

@@ -340,3 +340,7 @@ body {
   line-height: 5rem;
   letter-spacing: -4%;
 }
+
+pre {
+  overflow: auto;
+}

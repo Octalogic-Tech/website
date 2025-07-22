@@ -38,7 +38,7 @@ export const HEADER_QUERY = `
       logo {
         alt
         url
-        responsiveImage(imgixParams: { fit: clip, w: 200, h: 50, auto: format }) {
+        responsiveImage(imgixParams: { fit: clip, w: 134, h: 32, auto: format }) {
           srcSet
           webpSrcSet
           sizes

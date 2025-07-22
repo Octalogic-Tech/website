@@ -9,30 +9,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { typographyVariants } from "@/components/ui/typography";
 
 import { LanguageSelect } from "@/components/sections/common/LanguageSelect";
+import { isActiveLinkAdvanced } from "@/lib/misc";
 
 const data = await fetchDatoCMS<HeaderQueryResponse>(HEADER_QUERY);
 const { logo, navlinks: navLinks, language, button } = data.header;
 
 // Get current pathname for active link highlighting
 const currentPath = Astro.url.pathname;
-
-const isActiveLinkAdvanced = (linkUrl: string, currentPath: string): boolean => {
-  // Remove trailing slash for comparison
-  const cleanLinkUrl = linkUrl.replace(/\/$/, "") || "/";
-  const cleanCurrentPath = currentPath.replace(/\/$/, "") || "/";
-
-  // Exact match
-  if (cleanLinkUrl === cleanCurrentPath) {
-    return true;
-  }
-
-  // Check if current path starts with link URL (for nested routes)
-  if (cleanLinkUrl !== "/" && cleanCurrentPath.startsWith(cleanLinkUrl + "/")) {
-    return true;
-  }
-
-  return false;
-};
 ---
 
 <style>
@@ -44,7 +27,7 @@ const isActiveLinkAdvanced = (linkUrl: string, currentPath: string): boolean => 
   }
 </style>
 
-<header class="w-full border-b border-gray-300 bg-white px-4 py-3 md:px-8">
+<header class="fixed z-100 w-full border-b border-gray-300 bg-white px-4 py-3 md:px-8">
   <div class="flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2">
