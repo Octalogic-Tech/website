@@ -2,31 +2,44 @@
 
 import { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import Typography from "./TypographyDemo";
-import Button from "./ButtonDemo";
-import Input from "./InputDemo";
-import Color from "./ColorsDemo";
+import TypographyDemo from "./TypographyDemo";
+import ButtonDemo from "./ButtonDemo";
+import InputDemo from "./InputDemo";
+import ColorsDemo from "./ColorsDemo";
+import ImageDemo from "./ImageDemo";
+import IconDemo from "./IconDemo";
+import { Typography } from "@/components/ui";
 
 const tabItems = [
   {
     label: "Typography",
     value: "typography",
-    component: <Typography />,
+    component: <TypographyDemo />,
   },
   {
     label: "Button",
     value: "button",
-    component: <Button />,
+    component: <ButtonDemo />,
   },
   {
     label: "Input",
     value: "input",
-    component: <Input />,
+    component: <InputDemo />,
   },
   {
     label: "Color",
     value: "color",
-    component: <Color />,
+    component: <ColorsDemo />,
+  },
+  {
+    label: "Image",
+    value: "image",
+    component: <ImageDemo />,
+  },
+  {
+    label: "Icon",
+    value: "icon",
+    component: <IconDemo />,
   },
 ];
 
@@ -44,7 +57,15 @@ export default function DesignSystem() {
 
   return (
     <div className="font-montserrat p-6">
-      <h1 className="mb-6 text-3xl font-bold">Design System</h1>
+      <Typography
+        variant="h4"
+        font="barlow-condensed"
+        component="h1"
+        className="mb-4"
+        weight="bold"
+      >
+        Design System
+      </Typography>
       <Tabs value={tab} onValueChange={setTab} className="w-full">
         <TabsList className="rounded-lg border border-white/10 bg-black p-1">
           {tabItems.map((tabItem) => (

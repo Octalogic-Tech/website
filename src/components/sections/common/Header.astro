@@ -27,13 +27,10 @@ const currentPath = Astro.url.pathname;
   }
 </style>
 
-<header class="fixed z-100 w-full border-b border-gray-300 bg-white px-4 py-3 md:px-8">
+<header class="sticky top-0 z-100 w-full border-b border-gray-300 bg-white px-4 py-3 md:px-8">
   <div class="flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2">
-      <!-- <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[40px] w-auto" /> -->
-      <!-- imgClass={"!h-[2.5rem] !w-auto"} -->
-      <!-- pictureClass={"h-[2.5rem] w-auto"} -->
       <Image data={logo.responsiveImage} />
     </a>
 

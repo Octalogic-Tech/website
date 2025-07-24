@@ -1,6 +1,7 @@
-// app/design-system/button/page.tsx
-import { ArrowDown } from "lucide-react";
+import { Icon } from "@iconify/react";
+
 import { Button } from "@/components/ui/button";
+import { Typography } from "@/components/ui/typography";
 
 const codeSnippetAstro = `import { buttonVariants } from "@/components/ui/button";
 
@@ -31,9 +32,11 @@ export default function ButtonDemoPage() {
       <div className="p-4">
         {/* Button Props Explanation */}
         <section className="my-8">
-          <h2 className="mb-4 text-xl font-semibold">Props</h2>
+          <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+            Props
+          </Typography>
           <div className="overflow-x-auto">
-            <table className="w-full table-auto border-collapse text-sm">
+            <table className="captionL w-full table-auto border-collapse">
               <thead>
                 <tr className="border-b border-gray-700 text-left">
                   <th className="px-4 py-2 font-medium">name</th>
@@ -75,52 +78,57 @@ export default function ButtonDemoPage() {
           </div>
         </section>
 
-        <h2 className="mb-4 text-xl font-semibold">How to use buttonVariants in Astro</h2>
-        <div className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
-          <button
-            id="copy-typography-example"
-            className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          How to use buttonVariants in Astro
+        </Typography>
+        <pre className="captionL relative mb-8 rounded bg-gray-100 p-4 text-gray-800">
+          <Button
+            variant="text"
+            className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
             onClick={() => handleCopy(codeSnippetAstro)}
           >
-            📋
-          </button>
-          <pre>{codeSnippetAstro}</pre>
-        </div>
-
-        <h2 className="mb-4 text-xl font-semibold">How to use Button component in ReactJS</h2>
-        <pre className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
-          <>
-            <button
-              onClick={() => handleCopy(codeSnippet)}
-              className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
-            >
-              📋
-            </button>
-            {codeSnippet}
-          </>
+            <Icon icon="material-symbols:text-snippet-outline-sharp" width="24" height="24" />
+          </Button>
+          {codeSnippetAstro}
         </pre>
 
-        <h2 className="mb-4 text-xl font-semibold">Example Available Button Variants</h2>
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          How to use Button component in ReactJS
+        </Typography>
+        <pre className="captionL relative mb-8 rounded bg-gray-100 p-4 text-gray-800">
+          <Button
+            variant="text"
+            className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
+            onClick={() => handleCopy(codeSnippet)}
+          >
+            <Icon icon="material-symbols:text-snippet-outline-sharp" width="24" height="24" />
+          </Button>
+          {codeSnippet}
+        </pre>
+
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          Example Available Button Variants
+        </Typography>
         <div className="flex w-full flex-col justify-center space-y-4 p-4">
           <Button variant="primary" className="w-60 justify-between">
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
             GET IN TOUCH
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
           </Button>
           <Button variant="primaryOptional" className="w-60 justify-between">
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
             GET IN TOUCH
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
           </Button>
           <Button variant="secondary" className="w-60 justify-between">
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
             GET IN TOUCH
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
           </Button>
           <Button variant="text" className="w-60 justify-between">
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
             GET IN TOUCH
-            <ArrowDown />
+            <Icon icon="material-symbols:arrow-downward-rounded" width="36" height="36" />
           </Button>
         </div>
       </div>

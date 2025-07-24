@@ -24,6 +24,7 @@ interface BaseProps extends VariantProps<typeof inputVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   multiline?: boolean;
+  width?: string;
 }
 
 type InputProps =
@@ -31,7 +32,16 @@ type InputProps =
   | (BaseProps & React.TextareaHTMLAttributes<HTMLTextAreaElement> & { multiline: true });
 
 const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>((props, ref) => {
-  const { className, error, helperText, leftIcon, rightIcon, multiline = false, ...rest } = props;
+  const {
+    className,
+    error,
+    helperText,
+    leftIcon,
+    rightIcon,
+    multiline = false,
+    width = "max-w-md",
+    ...rest
+  } = props;
 
   const sharedWrapper = "relative inline-flex items-center";
   const sharedInputClass = cn(
@@ -42,7 +52,7 @@ const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProp
   );
 
   return (
-    <div className="inline-flex flex-col space-y-1">
+    <div className={`inline-flex flex-col space-y-1 ${width}`}>
       <div className={cn(sharedWrapper, multiline && "items-start")}>
         {leftIcon && (
           <div

@@ -1,6 +1,5 @@
-// components/ui/button.tsx
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot as SlotPrimitive } from "radix-ui";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -13,10 +12,10 @@ const buttonVariants = cva(
         primary:
           "bg-primary-teal text-primary-blue border border-primary-teal hover:bg-primary-light-blue",
         primaryOptional:
-          "bg-primary-light-blue text-primary-blue border border-primary-teal hover:bg-primary-teal",
+          "bg-primary-light-blue text-primary-blue border border-primary-teal hover:bg-primary-light-blue hover:border-primary-light-blue",
         secondary:
-          "bg-transparent text-primary-blue border border-primary-blue hover:border-transparent",
-        text: "bg-transparent text-primary-blue border border-transparent hover:border-primary-blue",
+          "bg-transparent text-primary-blue border border-primary-blue hover:border-primary-teal hover:text-primary-teal",
+        text: "bg-transparent text-primary-blue border border-transparent hover:text-primary-teal",
       },
       size: {
         default: "h-12 px-6",
@@ -39,7 +38,7 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button";
+  const Comp = asChild ? SlotPrimitive.Slot : "button";
 
   return (
     <Comp

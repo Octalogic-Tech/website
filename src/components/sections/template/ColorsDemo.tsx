@@ -356,18 +356,6 @@ export default function ColorPalette() {
         }
       `}</style>
 
-      {/*   <header className="header" aria-label="Page header with title and description">
-        <div className="header-left">
-          <span className="tag" aria-label="Octalogic Tech Short Tagline">
-            OT
-          </span>
-          Design System &rarr; Color Pallet
-        </div>
-        <div aria-hidden="true" style={{ fontWeight: 600, fontSize: "13px", color: "#0f0f0f" }}>
-          Octalogic Tech design system
-        </div>
-      </header> */}
-
       <section aria-label="Color Palette Sections" className="color-palette font-montserrat">
         {colorSections.map(({ title, colors, classNames }) => (
           <div

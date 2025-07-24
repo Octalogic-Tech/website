@@ -1,3 +1,6 @@
+import { Icon } from "@iconify/react";
+
+import { Button } from "@/components/ui/button";
 import { Typography, type VariantType, type WeightType } from "@/components/ui/typography";
 
 const montserratVariants = [
@@ -51,20 +54,14 @@ export default function TypographyDemo() {
 
   return (
     <div className="font-montserrat bg-white text-black">
-      {/* <section className="flex items-center justify-between rounded-t-md bg-teal-400 px-6 py-4 text-black">
-        <div>
-          <h1 className="text-xl font-bold">Typography</h1>
-          <p className="text-sm text-gray-800">Design System → Typography</p>
-        </div>
-        <span className="text-xs text-gray-800">Octalogic Tech design system</span>
-      </section> */}
-
       <div className="p-4">
         {/* Typography Props Explanation */}
         <section className="my-8">
-          <h2 className="mb-4 text-xl font-semibold">Props</h2>
+          <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+            Props
+          </Typography>
           <div className="overflow-x-auto">
-            <table className="w-full table-auto border-collapse text-sm">
+            <table className="captionL w-full table-auto border-collapse">
               <thead>
                 <tr className="border-b border-gray-700 text-left">
                   <th className="px-4 py-2 font-medium">name</th>
@@ -115,31 +112,37 @@ export default function TypographyDemo() {
           </div>
         </section>
 
-        <h2 className="mb-4 text-xl font-semibold">How to use typographyVariants in Astro</h2>
-        <div className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
-          <button
-            className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          How to use typographyVariants in Astro
+        </Typography>
+        <pre className="captionL relative mb-8 rounded bg-gray-100 p-4 text-gray-800">
+          <Button
+            variant="text"
+            className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
             onClick={() => handleCopy(codeSnippetAstro)}
           >
-            📋
-          </button>
-          <pre>{codeSnippetAstro}</pre>
-        </div>
-
-        <h2 className="mb-4 text-xl font-semibold">How to use Typography component in ReactJS</h2>
-        <pre className="relative mb-8 rounded bg-gray-100 p-4 text-sm text-gray-800">
-          <>
-            <button
-              onClick={() => handleCopy(codeSnippet)}
-              className="absolute top-0 right-0 mb-4 cursor-pointer rounded bg-gray-800 px-4 py-2 text-white hover:bg-gray-700"
-            >
-              📋
-            </button>
-            {codeSnippet}
-          </>
+            <Icon icon="material-symbols:text-snippet-outline-sharp" width="24" height="24" />
+          </Button>
+          {codeSnippetAstro}
         </pre>
 
-        <h2 className="mb-4 text-xl font-semibold">Example Available Font Variants</h2>
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          How to use Typography component in ReactJS
+        </Typography>
+        <pre className="captionL relative mb-8 rounded bg-gray-100 p-4 text-gray-800">
+          <Button
+            variant="text"
+            className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
+            onClick={() => handleCopy(codeSnippet)}
+          >
+            <Icon icon="material-symbols:text-snippet-outline-sharp" width="24" height="24" />
+          </Button>
+          {codeSnippet}
+        </pre>
+
+        <Typography variant="bodyL" component="h2" className="mb-4" weight="semibold">
+          Example Available Font Variants
+        </Typography>
         <div className="overflow-x-auto">
           <table className="min-w-full table-fixed border border-gray-200 text-center">
             <thead className="bg-white">
@@ -160,6 +163,19 @@ export default function TypographyDemo() {
               </tr>
               <tr>
                 <th className="w-32 border border-gray-200 bg-white"></th>
+                {montserratVariants.map(({ variant }) => (
+                  <th key={`mont-${variant}`} className="border border-gray-200 py-2">
+                    {variant}
+                  </th>
+                ))}
+                {barlowVariants.map(({ variant }) => (
+                  <th key={`barlow-${variant}`} className="border border-gray-200 py-2">
+                    {variant}
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                <th className="w-32 border border-gray-200 bg-white"></th>
                 {montserratVariants.map(({ size }) => (
                   <th key={`mont-${size}`} className="border border-gray-200 py-2">
                     {size}
@@ -172,41 +188,7 @@ export default function TypographyDemo() {
                 ))}
               </tr>
             </thead>
-            {/*   <tbody>
-              {weights.map((weight) => (
-                <tr key={weight}>
-                  <td className="border border-gray-200 px-2 py-2 text-left font-semibold capitalize">
-                    {weight}
-                  </td>
 
-                  {montserratVariants.map(({ variant }) => (
-                    <td key={`mont-${weight}-${variant}`} className="border border-gray-200 py-2">
-                      <Typography
-                        font="montserrat"
-                        variant={variant as VariantType}
-                        weight={weight}
-                      >
-                        Hello There
-                      </Typography>
-                    </td>
-                  ))}
-
-                  {barlowVariants.map(({ variant }) => (
-                    <td key={`barlow-${weight}-${variant}`} className="border border-gray-200 py-2">
-                      {weight === "normal" || weight === "bold" ? null : (
-                        <Typography
-                          font="barlow-condensed"
-                          variant={variant as VariantType}
-                          weight={weight}
-                        >
-                          HELLO THERE
-                        </Typography>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody> */}
             <tbody>
               {weights.map((weight) => (
                 <tr key={weight}>
@@ -225,15 +207,21 @@ export default function TypographyDemo() {
                           font="montserrat"
                           variant={variant as VariantType}
                           weight={weight}
+                          component="span"
                         >
                           Hello There
                         </Typography>
-                        <button
+                        <Button
+                          variant="text"
+                          className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
                           onClick={() => copySnippet("montserrat", variant, weight, "Hello There")}
-                          className="absolute top-0 right-0 cursor-pointer rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
                         >
-                          📋
-                        </button>
+                          <Icon
+                            icon="material-symbols:text-snippet-outline-sharp"
+                            width="24"
+                            height="24"
+                          />
+                        </Button>
                       </div>
                     </td>
                   ))}
@@ -250,17 +238,23 @@ export default function TypographyDemo() {
                             font="barlow-condensed"
                             variant={variant as VariantType}
                             weight={weight}
+                            component="span"
                           >
                             HELLO THERE
                           </Typography>
-                          <button
+                          <Button
+                            variant="text"
+                            className="absolute top-0 right-0 h-8 cursor-pointer rounded bg-gray-800 px-2 text-white hover:bg-gray-700"
                             onClick={() =>
                               copySnippet("barlow-condensed", variant, weight, "HELLO THERE")
                             }
-                            className="absolute top-0 right-0 cursor-pointer rounded bg-gray-800 px-1 py-1 text-xs text-white hover:bg-gray-700"
                           >
-                            📋
-                          </button>
+                            <Icon
+                              icon="material-symbols:text-snippet-outline-sharp"
+                              width="24"
+                              height="24"
+                            />
+                          </Button>
                         </div>
                       )}
                     </td>

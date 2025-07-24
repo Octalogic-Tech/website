@@ -1,35 +1,3 @@
-// export type FontFamilyType = "montserrat" | "barlow-condensed";
-// export type VariantType =
-//   | "captionM"
-//   | "captionL"
-//   | "bodyM"
-//   | "bodyL"
-//   | "h6"
-//   | "h5"
-//   | "h4"
-//   | "h3"
-//   | "h2"
-//   | "h1";
-// export type WeightType = "normal" | "medium" | "semibold" | "bold";
-
-// type TypographyProps = {
-//   font: FontFamilyType;
-//   variant?: VariantType;
-//   weight?: WeightType;
-//   className?: string;
-//   children: React.ReactNode;
-// };
-
-// export function Typography({
-//   font,
-//   weight = "normal",
-//   variant = "bodyM",
-//   className = "",
-//   children,
-// }: TypographyProps) {
-//   return <span className={`${variant} font-${font} font-${weight} ${className}`}>{children}</span>;
-// }
-
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
@@ -84,6 +52,7 @@ type TypographyProps = {
   variant?: VariantType;
   weight?: WeightType;
   className?: string;
+  component?: React.ElementType;
   children: React.ReactNode;
 } & VariantProps<typeof typographyVariants>;
 
@@ -92,10 +61,13 @@ function Typography({
   weight = "normal",
   variant = "bodyM",
   className = "",
+  component: Component = "p",
   children,
 }: TypographyProps) {
   return (
-    <span className={cn(typographyVariants({ font, variant, weight }), className)}>{children}</span>
+    <Component className={cn(typographyVariants({ font, variant, weight }), className)}>
+      {children}
+    </Component>
   );
 }
 
