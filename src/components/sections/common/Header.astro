@@ -1,0 +1,165 @@
+---
+import { Image } from "@datocms/astro";
+
+import { Icon } from "astro-icon/components";
+
+import { HEADER_QUERY, type HeaderQueryResponse } from "@/graphql/header";
+import { fetchDatoCMS } from "@/lib/fetcherData";
+import { buttonVariants } from "@/components/ui/button";
+import { typographyVariants } from "@/components/ui/typography";
+
+import { LanguageSelect } from "@/components/sections/common/LanguageSelect";
+import { isActiveLinkAdvanced } from "@/lib/misc";
+
+const data = await fetchDatoCMS<HeaderQueryResponse>(HEADER_QUERY);
+const { logo, navlinks: navLinks, language, button } = data.header;
+
+// Get current pathname for active link highlighting
+const currentPath = Astro.url.pathname;
+---
+
+<style>
+  .drawer-open {
+    transform: translateX(0%);
+  }
+  .drawer-open-body {
+    overflow: hidden;
+  }
+</style>
+
+<header class="sticky top-0 z-100 w-full border-b border-gray-300 bg-white px-4 py-3 md:px-8">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <Image data={logo.responsiveImage} />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden items-center gap-6 lg:flex">
+      {
+        navLinks.map((link) => {
+          const isActive = isActiveLinkAdvanced(link.url, currentPath);
+          return (
+            <a
+              href={link.url}
+              class={typographyVariants({
+                variant: "captionL",
+                weight: "medium",
+                className: isActive
+                  ? "decoration-primary-blue text-gray-800 underline underline-offset-[1.8rem]"
+                  : "hover:decoration-primary-blue text-gray-600 hover:text-gray-800 hover:underline hover:underline-offset-[1.8rem]",
+              })}
+              class="hover:text-primary text-sm font-medium text-gray-800 transition-colors"
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <!-- Desktop Lang + CTA -->
+    <div class="hidden items-center gap-4 lg:flex">
+      <LanguageSelect client:load language={language} defaultValue={language[0]?.code} />
+      <button class={buttonVariants({ variant: "primary", className: "uppercase" })}>
+        {button.buttonLabel}
+      </button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <div class="flex items-center gap-4 lg:hidden">
+      <LanguageSelect client:load language={language} defaultValue={language[0]?.code} />
+      <button id="menuToggle">
+        <Icon name="material-symbols:menu" width="24" height="24" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div
+    id="drawerBackdrop"
+    class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300 lg:hidden"
+  >
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobileDrawer"
+    class="fixed inset-y-0 right-0 z-50 h-full w-full translate-x-full transform bg-white p-6 transition-transform duration-300 sm:max-w-sm lg:hidden"
+  >
+    <div class="flex h-full flex-col">
+      <div class="mb-6 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2">
+          <img src={logo.responsiveImage.src} alt={logo.alt} class="h-[36px] w-auto" />
+        </a>
+        <div class="flex items-center justify-end gap-4">
+          <LanguageSelect client:load language={language} defaultValue={language[0]?.code} />
+          <button id="closeDrawer">
+            <Icon name="material-symbols:close" width="24" height="24" />
+          </button>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-1 flex-col justify-between">
+        <nav class="flex flex-col gap-7">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.url}
+                class={typographyVariants({
+                  variant: "bodyL",
+                  weight: "medium",
+                  className:
+                    "hover:decoration-primary-blue text-gray-500 hover:text-gray-800 hover:underline hover:underline-offset-[1.8rem]",
+                })}
+                class="hover:text-primary text-sm font-medium text-gray-800 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+        <div class="mt-8">
+          <button class={buttonVariants({ variant: "primary", className: "uppercase w-full" })}>
+            {button.buttonLabel}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+    const closeDrawer = document.getElementById("closeDrawer");
+    const drawerBackdrop = document.getElementById("drawerBackdrop");
+
+    const openDrawer = () => {
+      mobileDrawer?.classList.remove("translate-x-full");
+      mobileDrawer?.classList.add("drawer-open");
+      drawerBackdrop?.classList.remove("pointer-events-none", "opacity-0");
+      drawerBackdrop?.classList.add("pointer-events-auto", "opacity-100");
+      document.body.classList.add("drawer-open-body");
+    };
+
+    const closeDrawerFn = () => {
+      mobileDrawer?.classList.add("translate-x-full");
+      mobileDrawer?.classList.remove("drawer-open");
+      drawerBackdrop?.classList.add("pointer-events-none", "opacity-0");
+      drawerBackdrop?.classList.remove("pointer-events-auto", "opacity-100");
+      document.body.classList.remove("drawer-open-body");
+    };
+
+    menuToggle?.addEventListener("click", openDrawer);
+    closeDrawer?.addEventListener("click", closeDrawerFn);
+    drawerBackdrop?.addEventListener("click", closeDrawerFn);
+
+    // Close on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeDrawerFn();
+      }
+    });
+  });
+</script>

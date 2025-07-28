@@ -1,6 +1,229 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* Colors */
+  /* --color-master: oklch(0.967 0.0159 253.9); */
+
+  /* White colors */
+  /* --color-white-05: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-100: rgba(255, 255, 255, 1); */
+
+  /* Black colors */
+  /* --color-black-05: rgba(0, 0, 0, 0.05);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-black-60: rgba(0, 0, 0, 0.6);
+  --color-black-80: rgba(0, 0, 0, 0.8);
+  --color-black-100: rgba(0, 0, 0, 1); */
+
+  /* Gray colors */
+  /* --color-gray-50: rgba(252, 252, 252, 1);
+  --color-gray-100: rgba(250, 250, 250, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(229, 229, 229, 1);
+  --color-gray-400: rgba(214, 214, 214, 1);
+  --color-gray-500: rgba(163, 163, 163, 1);
+  --color-gray-600: rgba(115, 115, 115, 1);
+  --color-gray-700: rgba(82, 82, 82, 1);
+  --color-gray-800: rgba(66, 66, 66, 1);
+  --color-gray-900: rgba(41, 41, 41, 1);
+  --color-gray-950: rgba(20, 20, 20, 1); */
+
+  /* Primary colors - Teal */
+  /* --color-primary-teal: oklch(0.8375 0.1189 181.68);
+  --color-primary-blue: oklch(0.3488 0.0822 246.06);
+  --color-primary-light-blue: oklch(0.9905 0.0129 185.11); */
+
+  /* Primary Colors palette - Blue */
+  /* --color-primary-blue-50: rgba(239, 246, 255, 1);
+  --color-primary-blue-100: rgba(219, 234, 254, 1);
+  --color-primary-blue-200: rgba(191, 219, 254, 1);
+  --color-primary-blue-300: rgba(147, 197, 253, 1);
+  --color-primary-blue-400: rgba(96, 165, 250, 1);
+  --color-primary-blue-500: rgba(59, 130, 246, 1);
+  --color-primary-blue-600: rgba(37, 99, 235, 1);
+  --color-primary-blue-700: rgba(29, 78, 216, 1);
+  --color-primary-blue-800: rgba(30, 64, 175, 1);
+  --color-primary-blue-900: rgba(30, 58, 138, 1);
+  --color-primary-blue-950: rgba(23, 37, 84, 1); */
+
+  /* Primary Colors palette - Green */
+  /* --color-primary-green-50: rgba(237, 252, 246, 1);
+  --color-primary-green-100: rgba(211, 248, 232, 1);
+  --color-primary-green-200: rgba(171, 239, 214, 1);
+  --color-primary-green-300: rgba(103, 222, 185, 1);
+  --color-primary-green-400: rgba(60, 203, 163, 1);
+  --color-primary-green-500: rgba(25, 176, 139, 1);
+  --color-primary-green-600: rgba(12, 143, 113, 1);
+  --color-primary-green-700: rgba(10, 114, 93, 1);
+  --color-primary-green-800: rgba(11, 90, 75, 1);
+  --color-primary-green-900: rgba(10, 74, 62, 1);
+  --color-primary-green-950: rgba(4, 42, 36, 1); */
+
+  /* Success Colors - Green */
+  /* --color-success-50: rgba(240, 253, 244, 1);
+  --color-success-100: rgba(220, 252, 231, 1);
+  --color-success-200: rgba(187, 247, 208, 1);
+  --color-success-300: rgba(134, 239, 172, 1);
+  --color-success-400: rgba(74, 222, 128, 1);
+  --color-success-500: rgba(34, 197, 94, 1);
+  --color-success-600: rgba(22, 163, 74, 1);
+  --color-success-700: rgba(21, 128, 61, 1);
+  --color-success-800: rgba(22, 101, 52, 1);
+  --color-success-900: rgba(20, 83, 45, 1);
+  --color-success-950: rgba(5, 46, 22, 1); */
+
+  /* Error Colors - Red */
+  /* --color-error-50: rgba(254, 242, 242, 1);
+  --color-error-100: rgba(254, 226, 226, 1);
+  --color-error-200: rgba(254, 202, 202, 1);
+  --color-error-300: rgba(252, 165, 165, 1);
+  --color-error-400: rgba(248, 113, 113, 1);
+  --color-error-500: rgba(239, 68, 68, 1);
+  --color-error-600: rgba(250, 48, 47, 1);
+  --color-error-700: rgba(228, 24, 30, 1);
+  --color-error-800: rgba(153, 27, 27, 1);
+  --color-error-900: rgba(127, 29, 29, 1);
+  --color-error-950: rgba(69, 10, 10, 1); */
+
+  /* Warning Colors - Yellow */
+  /* --color-warning-50: rgba(255, 251, 235, 1);
+  --color-warning-100: rgba(254, 243, 199, 1);
+  --color-warning-200: rgba(253, 230, 138, 1);
+  --color-warning-300: rgba(252, 211, 77, 1);
+  --color-warning-400: rgba(251, 191, 36, 1);
+  --color-warning-500: rgba(245, 158, 11, 1);
+  --color-warning-600: rgba(217, 119, 6, 1);
+  --color-warning-700: rgba(180, 83, 9, 1);
+  --color-warning-800: rgba(146, 64, 14, 1);
+  --color-warning-900: rgba(111, 47, 12, 1);
+  --color-warning-950: rgba(69, 26, 3, 1); */
+
+  /* Master Colors */
+  --color-master: oklch(0.967 0.0159 253.9);
+
+  /* White colors */
+  --color-white-05: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-100: oklch(1 0 0);
+
+  /* Black colors */
+  --color-black-05: rgba(0, 0, 0, 0.05);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-black-60: rgba(0, 0, 0, 0.6);
+  --color-black-80: rgba(0, 0, 0, 0.8);
+  --color-black-100: oklch(0 0 0);
+
+  /* Gray colors */
+  --color-gray-50: oklch(0.989 0.002 106.85);
+  --color-gray-100: oklch(0.982 0.002 106.85);
+  --color-gray-200: oklch(0.968 0.002 106.85);
+  --color-gray-300: oklch(0.922 0.002 106.85);
+  --color-gray-400: oklch(0.875 0.002 106.85);
+  --color-gray-500: oklch(0.718 0.002 106.85);
+  --color-gray-600: oklch(0.558 0.002 106.85);
+  --color-gray-700: oklch(0.451 0.002 106.85);
+  --color-gray-800: oklch(0.396 0.002 106.85);
+  --color-gray-900: oklch(0.298 0.002 106.85);
+  --color-gray-950: oklch(0.189 0.002 106.85);
+
+  /* Primary colors - Teal */
+  --color-primary-teal: oklch(0.8375 0.1189 181.68);
+  --color-primary-blue: oklch(0.3488 0.0822 246.06);
+  --color-primary-light-blue: oklch(0.9905 0.0129 185.11);
+
+  /* Primary Colors palette - Blue */
+  --color-primary-blue-50: oklch(0.972 0.013 240.01);
+  --color-primary-blue-100: oklch(0.929 0.026 240.01);
+  --color-primary-blue-200: oklch(0.885 0.052 240.01);
+  --color-primary-blue-300: oklch(0.814 0.078 240.01);
+  --color-primary-blue-400: oklch(0.725 0.104 240.01);
+  --color-primary-blue-500: oklch(0.635 0.13 240.01);
+  --color-primary-blue-600: oklch(0.545 0.156 240.01);
+  --color-primary-blue-700: oklch(0.475 0.156 240.01);
+  --color-primary-blue-800: oklch(0.425 0.13 240.01);
+  --color-primary-blue-900: oklch(0.395 0.104 240.01);
+  --color-primary-blue-950: oklch(0.275 0.078 240.01);
+
+  /* Primary Colors palette - Green */
+  --color-primary-green-50: oklch(0.974 0.013 162.48);
+  --color-primary-green-100: oklch(0.951 0.026 162.48);
+  --color-primary-green-200: oklch(0.918 0.052 162.48);
+  --color-primary-green-300: oklch(0.862 0.104 162.48);
+  --color-primary-green-400: oklch(0.795 0.13 162.48);
+  --color-primary-green-500: oklch(0.705 0.13 162.48);
+  --color-primary-green-600: oklch(0.615 0.13 162.48);
+  --color-primary-green-700: oklch(0.535 0.104 162.48);
+  --color-primary-green-800: oklch(0.465 0.078 162.48);
+  --color-primary-green-900: oklch(0.415 0.065 162.48);
+  --color-primary-green-950: oklch(0.255 0.039 162.48);
+
+  /* Success Colors - Green */
+  --color-success-50: oklch(0.985 0.013 142.5);
+  --color-success-100: oklch(0.968 0.026 142.5);
+  --color-success-200: oklch(0.945 0.052 142.5);
+  --color-success-300: oklch(0.905 0.091 142.5);
+  --color-success-400: oklch(0.845 0.13 142.5);
+  --color-success-500: oklch(0.765 0.156 142.5);
+  --color-success-600: oklch(0.685 0.156 142.5);
+  --color-success-700: oklch(0.595 0.13 142.5);
+  --color-success-800: oklch(0.515 0.104 142.5);
+  --color-success-900: oklch(0.455 0.091 142.5);
+  --color-success-950: oklch(0.295 0.052 142.5);
+
+  /* Error Colors - Red */
+  --color-error-50: oklch(0.982 0.013 17.38);
+  --color-error-100: oklch(0.955 0.026 17.38);
+  --color-error-200: oklch(0.928 0.052 17.38);
+  --color-error-300: oklch(0.875 0.091 17.38);
+  --color-error-400: oklch(0.785 0.143 17.38);
+  --color-error-500: oklch(0.695 0.181 17.38);
+  --color-error-600: oklch(0.635 0.194 17.38);
+  --color-error-700: oklch(0.565 0.194 17.38);
+  --color-error-800: oklch(0.455 0.13 17.38);
+  --color-error-900: oklch(0.415 0.104 17.38);
+  --color-error-950: oklch(0.275 0.065 17.38);
+
+  /* Warning Colors - Yellow */
+  --color-warning-50: oklch(0.985 0.013 85.87);
+  --color-warning-100: oklch(0.968 0.039 85.87);
+  --color-warning-200: oklch(0.935 0.078 85.87);
+  --color-warning-300: oklch(0.895 0.117 85.87);
+  --color-warning-400: oklch(0.835 0.143 85.87);
+  --color-warning-500: oklch(0.735 0.143 85.87);
+  --color-warning-600: oklch(0.645 0.143 85.87);
+  --color-warning-700: oklch(0.555 0.13 85.87);
+  --color-warning-800: oklch(0.485 0.104 85.87);
+  --color-warning-900: oklch(0.415 0.091 85.87);
+  --color-warning-950: oklch(0.295 0.065 85.87);
+}
+
+html,
+body {
+  @apply size-full;
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+body {
+  @apply font-montserrat antialiased;
+}
 
 @layer base {
   :root {
@@ -49,11 +272,75 @@
   }
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
   }
+} */
+
+@utility captionM {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0%;
+}
+
+@utility captionL {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0%;
+}
+
+@utility bodyM {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+}
+
+@utility bodyL {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0%;
+}
+
+@utility h6 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0%;
+}
+
+@utility h5 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 0%;
+}
+
+@utility h4 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -1%;
+}
+
+@utility h3 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  letter-spacing: -2%;
+}
+
+@utility h2 {
+  font-size: 4rem;
+  line-height: 4.5rem;
+  letter-spacing: -3%;
+}
+
+@utility h1 {
+  font-size: 5rem;
+  line-height: 5rem;
+  letter-spacing: -4%;
+}
+
+pre {
+  overflow: auto;
 }
