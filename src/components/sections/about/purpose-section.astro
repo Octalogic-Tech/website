@@ -1,0 +1,44 @@
+---
+import type { PurposeCard } from "@/graphql/about";
+
+interface Props {
+  title: string;
+  description: string;
+  cards: PurposeCard[];
+}
+
+const { title, description, cards } = Astro.props as Props;
+---
+
+<section class="bg-black px-4 py-16 text-white">
+  <div class="mx-auto mb-10 max-w-5xl text-left">
+    <h2 class="mb-4 text-2xl font-semibold">{title}</h2>
+    <p class="text-base text-gray-300">{description}</p>
+  </div>
+
+  <div class="mx-auto flex max-w-2xl flex-col gap-6">
+    {
+      cards.map((card, idx) => (
+        <div
+          class={`rounded-xl p-6 ${
+            idx === 0
+              ? "bg-teal-400 text-black"
+              : idx === 1
+                ? "bg-blue-950 text-white"
+                : "bg-white text-black"
+          }`}
+        >
+          <div class="mb-3 flex items-center gap-3">
+            <img
+              src={card.customLogo.responsiveImage.src}
+              alt={card.customLogo.alt}
+              class="h-6 w-6 object-contain"
+            />
+            <h3 class="text-lg font-bold">{card.title}</h3>
+          </div>
+          <p class="text-sm">{card.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

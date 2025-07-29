@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  button: {
+    buttonLabel: string;
+    buttonUrl: string;
+  };
+}
+
+const { title, button } = Astro.props;
+---
+
+<section
+  class="relative mx-auto mt-16 max-w-6xl overflow-hidden rounded-3xl bg-white px-6 py-8 shadow-[0_4px_15px_rgba(0,0,0,0.08)] md:px-12"
+>
+  <div class="flex flex-col items-center justify-between gap-6 md:flex-row md:text-left">
+    <div class="flex items-center gap-4">
+      <div class="h-3 w-3 rounded-full bg-[#33C997]"></div>
+      <h2 class="text-xl font-bold tracking-wide text-[#20313E] uppercase md:text-2xl lg:text-3xl">
+        {title}
+      </h2>
+    </div>
+
+    <a
+      href={button.buttonUrl}
+      class="inline-block rounded-full bg-[#82E6C8] px-7 py-3 text-base font-semibold whitespace-nowrap text-[#20313E] uppercase md:px-9 md:py-3.5"
+    >
+      {button.buttonLabel}
+    </a>
+  </div>
+
+  <style>
+    body {
+      background-color: #f7f7f7;
+    }
+  </style>
+</section>

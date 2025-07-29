@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { fetchDatoCMS } from "@/lib/fetcherData";
+import { ABOUT_PAGE_QUERY } from "@/graphql/about";
+import type { AboutPageQueryResponse } from "@/graphql/about";
+import ImageCarousel from "@/components/ui/image-carousel";
+import TestimonialCarousel from "@/components/ui/testimonial-carousel";
+import PurposeSection from "@/components/sections/about/purpose-section.astro";
+import IntroCall from "@/components/sections/about/intro-call.astro";
+import JoinOurTeam from "@/components/sections/about/join-our-team.astro";
+
+const title = "About Us | Octalogic Tech";
+
+const data = await fetchDatoCMS<AboutPageQueryResponse>(ABOUT_PAGE_QUERY);
+const content = data.allAboutPages[0];
+---
+
+<BaseLayout title={title}>
+  <section class="py-10 text-center">
+    <h2 class="text-sm tracking-widest text-gray-500 uppercase">{content.sectionTag}</h2>
+    <h1 class="text-3xl font-bold">{content.heroTitle}</h1>
+    <p class="mt-2 text-lg text-gray-600">{content.heroDescription}</p>
+    <a
+      href={content.workWithUsButton.buttonUrl}
+      class="mt-4 inline-block rounded bg-green-500 px-4 py-2 text-white"
+    >
+      {content.workWithUsButton.buttonLabel}
+    </a>
+  </section>
+  <section class="py-6">
+    <ImageCarousel
+      images={content.imageCarousel.map((img) => ({
+        src: img.responsiveImage.src,
+        alt: img.responsiveImage.alt,
+      }))}
+    />
+  </section>
+  <section class="bg-[#edf5ff] py-16 text-center">
+    <div class="mx-auto max-w-3xl px-4">
+      <h2 class="mb-4 text-2xl font-semibold">{content.missionTitle}</h2>
+      <p class="text-base text-gray-700">{content.missionDescription}</p>
+    </div>
+  </section>
+  <section class="bg-white py-8">
+    <TestimonialCarousel testimonials={content.testimonial} />
+  </section>
+  <section class="w-full">
+    <img
+      src={content.banner.responsiveImage.src}
+      srcset={content.banner.responsiveImage.srcSet}
+      sizes={content.banner.responsiveImage.sizes}
+      alt={content.banner.alt}
+      class="h-auto w-full object-cover grayscale filter"
+    />
+  </section>
+  <PurposeSection
+    title={content.purposeTitle}
+    description={content.purposeDescription}
+    cards={content.purposeCards}
+  />
+  <IntroCall
+    title="Get started with an intro call."
+    button={{
+      buttonLabel: "Book a Call",
+      buttonUrl: "/contact",
+    }}
+  />
+  <JoinOurTeam
+    title="Join our team"
+    description="Fulfilling tech-led projects for seasoned designers, developers, and product owners. Solve the problem, find the joy, measure the outcome, and be fulfilled."
+    button={{
+      buttonLabel: "We are hiring",
+      buttonUrl: "/careers",
+    }}
+    image={{
+      src: "/images/Content.jpg",
+      alt: "image",
+    }}
+  />
+</BaseLayout>

@@ -22,7 +22,7 @@ interface WorkWithUsButton {
   buttonUrl: string;
 }
 
-interface Testimonial {
+export interface Testimonial {
   cardLogo: ImageWithResponsive;
   cardDescription: string;
   profileImage: ImageWithResponsive;
@@ -30,7 +30,7 @@ interface Testimonial {
   profilePosition: string;
 }
 
-interface PurposeCard {
+export interface PurposeCard {
   customLogo: ImageWithResponsive;
   title: string;
   description: string;
