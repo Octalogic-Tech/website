@@ -15,19 +15,25 @@ interface Props {
 const { title, description, button, image } = Astro.props;
 ---
 
-<section class="mt-16 bg-[#141414] px-6 py-20 md:px-12">
-  <div class="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-    <!-- Text Block -->
-    <div>
-      <h2 class="mb-4 text-3xl font-bold text-white uppercase md:text-4xl">
+<section class="mt-16 bg-[#141414] px-6 py-20 md:px-[96px] md:py-[140px]">
+  <div
+    class="mx-auto grid h-auto max-w-[1440px] items-center gap-6 md:h-[776px] md:grid-cols-2 md:gap-[24px]"
+  >
+    <div class="flex h-auto w-full max-w-[612px] flex-col items-start gap-[24px] md:h-[244px]">
+      <h2
+        class="bg-gradient-to-r from-white to-[#8F8F8F] bg-clip-text font-['Barlow_Condensed'] text-[32px] leading-[40px] font-semibold tracking-[-0.02em] text-transparent uppercase sm:text-[48px] sm:leading-[56px] md:text-[64px] md:leading-[72px]"
+      >
         {title}
       </h2>
-      <p class="mb-6 text-base text-[#D6D6D6]">
+
+      <p
+        class="font-montserrat mt-4 max-w-full text-[14px] leading-[20px] font-medium text-[#D6D6D6] sm:text-[16px] sm:leading-[24px] md:mt-[24px] md:max-w-[600px]"
+      >
         {description}
       </p>
       <a
         href={button.buttonUrl}
-        class="inline-block rounded-full bg-[#00B669] px-6 py-3 text-sm font-semibold text-white uppercase transition duration-300 hover:bg-[#009B57] md:px-8 md:text-base"
+        class="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[#82E6C8] px-6 py-3 font-['Barlow_Condensed'] text-[18px] leading-[26px] font-semibold text-[#0A3D62] uppercase md:text-[20px] md:leading-[28px]"
       >
         {button.buttonLabel}
       </a>
