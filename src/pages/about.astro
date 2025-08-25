@@ -8,7 +8,7 @@ import TestimonialCarousel from "@/components/ui/testimonial-carousel";
 import PurposeSection from "@/components/sections/about/purpose-section.astro";
 import IntroCall from "@/components/sections/about/intro-call.astro";
 import JoinOurTeam from "@/components/sections/about/join-our-team.astro";
-import { typographyVariants } from "@/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
 
 const title = "About Us | Octalogic Tech";
 
@@ -17,90 +17,43 @@ const content = data.allAboutPages[0];
 ---
 
 <BaseLayout title={title}>
-  <!-- <section class="hero-section relative flex flex-col items-center justify-center pb-40 text-center text-[#23354B]">
+  <section
+    class="hero-section relative flex flex-col items-center justify-center pb-40 text-center text-[#23354B]"
+  >
     <div class="background-shape absolute inset-0 -bottom-40 bg-[#DBEAFE]"></div>
 
-    <div class="white-shape relative z-10  bg-white rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
-        <div class="flex flex-col items-center justify-center h-full px-6 py-16 md:px-16 md:py-24">
-            <div class="inline-block rounded-full border border-dashed border-[#C3D2E2] px-[16px] py-[6px] mb-4">
-                <Typography
-                    component="h2"
-                    font="montserrat"
-                    weight="medium"
-                    className="text-sm leading-[15px] tracking-[0.5em] text-[#0A3D62] uppercase m-0"
-                >
-                    {content.sectionTag}
-                </Typography>
-            </div>
-
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-tight font-bold uppercase mb-4 max-w-3xl">
-                {content.heroTitle}
-            </h1>
-
-            <p class="mt-2 text-base md:text-lg text-[#5D7086] leading-relaxed mb-8 max-w-2xl">
-                {content.heroDescription}
-            </p>
-
-            <a
-                href={content.workWithUsButton.buttonUrl}
-                class="inline-block rounded-full bg-[#00B669] px-8 py-3 text-sm md:text-base font-semibold text-white uppercase transition-none"
-            >
-                {content.workWithUsButton.buttonLabel}
-            </a>
+    <div class="relative z-10 overflow-hidden rounded-3xl">
+      <div class="flex h-full flex-col items-center justify-center px-6 py-16 md:px-16 md:py-24">
+        <div
+          class="mb-4 inline-block rounded-full border border-dashed border-[#C3D2E2] px-[16px] py-[6px]"
+        >
+          <Typography
+            component="h2"
+            font="montserrat"
+            weight="medium"
+            className="m-0 text-sm leading-[15px] tracking-[0.5em] text-[#0A3D62] uppercase"
+          >
+            {content.sectionTag}
+          </Typography>
         </div>
-    </div>
-  </section> -->
 
-  <section
-    class="relative flex flex-col items-center justify-center bg-[#DBEAFE] pb-40 text-center"
-  >
-    <!-- White panel with slanted sides and curved bottom -->
-    <div
-      class="relative mx-auto w-[92%] max-w-7xl overflow-hidden px-6 py-20 md:px-16 md:py-28"
-      style="
-      background: white;
-      border: 1px solid;
-      border-image-source: linear-gradient(180deg, #FFFFFF 0%, #0A3D62 100%);
-      border-image-slice: 1;
-      border-radius: 0 0 80px 80px;
-      -webkit-mask-image: polygon(8% 0%, 89.75% 0%, 75.78% 92.13%, 24% 90%);
-      mask-image: polygon(8% 0%, 89.75% 0%, 75.78% 92%, 24% 90%);
-      mask-type: alpha;
-      -webkit-mask-type: alpha;
-      overflow: hidden;"
-    >
-      <!-- Section label -->
-      <span
-        class={typographyVariants({
-          font: "montserrat",
-          variant: "captionL",
-          weight: "medium",
-          className:
-            "mb-6 inline-block rounded-full border border-dashed border-[#C3D2E2] px-2.5 py-1 tracking-[0.5em] text-[#0A3D62] uppercase",
-        })}
-      >
-        {content.sectionTag}
-      </span>
+        <h1
+          class="mb-4 max-w-3xl text-3xl leading-tight font-bold uppercase sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+        >
+          {content.heroTitle}
+        </h1>
 
-      <!-- Heading -->
-      <h1
-        class="mx-auto mb-6 max-w-3xl text-4xl leading-tight font-bold text-[#0A2239] uppercase md:text-5xl"
-      >
-        {content.heroTitle}
-      </h1>
+        <p class="mt-2 mb-8 max-w-2xl text-base leading-relaxed text-[#5D7086] md:text-lg">
+          {content.heroDescription}
+        </p>
 
-      <!-- Description -->
-      <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-600">
-        {content.heroDescription}
-      </p>
-
-      <!-- Button -->
-      <a
-        href={content.workWithUsButton.buttonUrl}
-        class="inline-block rounded-full bg-[#30E3CA] px-8 py-3 text-sm font-semibold text-[#0A3D62] uppercase transition duration-300 hover:bg-[#29cbb4] md:text-base"
-      >
-        {content.workWithUsButton.buttonLabel}
-      </a>
+        <a
+          href={content.workWithUsButton.buttonUrl}
+          class="inline-block rounded-full bg-[#00B669] px-8 py-3 text-sm font-semibold text-white uppercase transition-none md:text-base"
+        >
+          {content.workWithUsButton.buttonLabel}
+        </a>
+      </div>
     </div>
   </section>
 
@@ -161,39 +114,5 @@ const content = data.allAboutPages[0];
     width: 100vw;
     margin-left: calc(50% - 50vw);
     overflow: hidden;
-  }
-
-  .background-shape {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-  }
-
-  .white-shape {
-    width: 1248px;
-    height: 680px;
-    border: 1px solid transparent;
-    border-image-source: linear-gradient(180deg, #ffffff 0%, #0a3d62 100%);
-    border-image-slice: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  @media (max-width: 1280px) {
-    .white-shape {
-      width: calc(100% - 48px);
-      max-width: 1248px;
-      height: auto;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .white-shape {
-      width: calc(100% - 32px);
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
   }
 </style>
