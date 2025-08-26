@@ -1,0 +1,35 @@
+---
+import { typographyVariants } from "@/components/ui/typography";
+
+interface Props {
+  images: {
+    src: string;
+    alt: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="bg-primary-blue-100 py-6">
+  <div class="mx-auto max-w-[1440px] overflow-hidden md:px-6">
+    <div class="flex flex-nowrap gap-4 overflow-hidden md:flex-nowrap md:gap-6">
+      {
+        images.map((img) => (
+          <div
+            class={typographyVariants({
+              className: `h-[200px] w-[150px] flex-shrink-0 md:h-[280px] md:w-[188px] md:min-w-[188px]`,
+            })}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="h-full w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
