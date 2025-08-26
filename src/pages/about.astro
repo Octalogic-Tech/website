@@ -23,14 +23,12 @@ const content = data.allAboutPages[0];
     heroDescription={content.heroDescription}
     workWithUsButton={content.workWithUsButton}
   />
-  <section class="bg-[#DBEAFE] py-6">
-    <ImageCarousel
-      images={content.imageCarousel.map((img) => ({
-        src: img.responsiveImage.src,
-        alt: img.responsiveImage.alt,
-      }))}
-    />
-  </section>
+  <ImageCarousel
+    images={content.imageCarousel.map((img) => ({
+      src: img.responsiveImage.src,
+      alt: img.responsiveImage.alt,
+    }))}
+  />
   <section class="bg-[#DBEAFE] py-16 text-center">
     <div class="mx-auto max-w-3xl px-4">
       <h2 class="mb-4 text-2xl font-semibold">{content.missionTitle}</h2>
