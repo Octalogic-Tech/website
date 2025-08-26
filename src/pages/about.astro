@@ -5,6 +5,7 @@ import { ABOUT_PAGE_QUERY } from "@/graphql/about";
 import type { AboutPageQueryResponse } from "@/graphql/about";
 import HeroSection from "@/components/sections/about/hero-section.astro";
 import ImageCarousel from "@/components/sections/about/image-carousel.astro";
+import MissionSection from "@/components/sections/about/mission-section.astro";
 import TestimonialCarousel from "@/components/ui/testimonial-carousel";
 import PurposeSection from "@/components/sections/about/purpose-section.astro";
 import IntroCall from "@/components/sections/about/intro-call.astro";
@@ -29,12 +30,7 @@ const content = data.allAboutPages[0];
       alt: img.responsiveImage.alt,
     }))}
   />
-  <section class="bg-[#DBEAFE] py-16 text-center">
-    <div class="mx-auto max-w-3xl px-4">
-      <h2 class="mb-4 text-2xl font-semibold">{content.missionTitle}</h2>
-      <p class="text-base text-gray-700">{content.missionDescription}</p>
-    </div>
-  </section>
+  <MissionSection title={content.missionTitle} description={content.missionDescription} />
   <section class="bg-white py-8">
     <TestimonialCarousel testimonials={content.testimonial} />
   </section>

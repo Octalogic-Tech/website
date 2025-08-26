@@ -1,0 +1,46 @@
+---
+import { typographyVariants } from "@/components/ui/typography";
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonLink?: string;
+  image?: any;
+}
+
+const { title, description } = Astro.props;
+---
+
+<section class="bg-primary-blue-100 py-16 text-center">
+  <div class="mx-auto flex max-w-[612px] flex-col items-center gap-12 px-4">
+    <!-- Title -->
+    <h2
+      class={typographyVariants({
+        font: "barlow-condensed",
+        variant: "h2",
+        weight: "semibold",
+        className: `
+          mb-4 bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text text-center text-transparent
+          uppercase text-[64px] leading-[72px] tracking-[-0.03em]
+        `,
+      })}
+    >
+      {title}
+    </h2>
+
+    <!-- Description -->
+    <p
+      class={typographyVariants({
+        font: "montserrat",
+        variant: "bodyM",
+        weight: "medium",
+        className: `
+          mb-8 text-[#737373] text-[16px] leading-[24px] text-center
+        `,
+      })}
+    >
+      {description}
+    </p>
+  </div>
+</section>
