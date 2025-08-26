@@ -3,12 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { fetchDatoCMS } from "@/lib/fetcherData";
 import { ABOUT_PAGE_QUERY } from "@/graphql/about";
 import type { AboutPageQueryResponse } from "@/graphql/about";
+import HeroSection from "@/components/sections/about/hero-section.astro";
 import ImageCarousel from "@/components/ui/image-carousel";
 import TestimonialCarousel from "@/components/ui/testimonial-carousel";
 import PurposeSection from "@/components/sections/about/purpose-section.astro";
 import IntroCall from "@/components/sections/about/intro-call.astro";
 import JoinOurTeam from "@/components/sections/about/join-our-team.astro";
-import { Typography } from "@/components/ui/typography";
 
 const title = "About Us | Octalogic Tech";
 
@@ -17,46 +17,12 @@ const content = data.allAboutPages[0];
 ---
 
 <BaseLayout title={title}>
-  <section
-    class="hero-section relative flex flex-col items-center justify-center pb-40 text-center text-[#23354B]"
-  >
-    <div class="background-shape absolute inset-0 -bottom-40 bg-[#DBEAFE]"></div>
-
-    <div class="relative z-10 overflow-hidden rounded-3xl">
-      <div class="flex h-full flex-col items-center justify-center px-6 py-16 md:px-16 md:py-24">
-        <div
-          class="mb-4 inline-block rounded-full border border-dashed border-[#C3D2E2] px-[16px] py-[6px]"
-        >
-          <Typography
-            component="h2"
-            font="montserrat"
-            weight="medium"
-            className="m-0 text-sm leading-[15px] tracking-[0.5em] text-[#0A3D62] uppercase"
-          >
-            {content.sectionTag}
-          </Typography>
-        </div>
-
-        <h1
-          class="mb-4 max-w-3xl text-3xl leading-tight font-bold uppercase sm:text-4xl md:text-5xl lg:text-[3.25rem]"
-        >
-          {content.heroTitle}
-        </h1>
-
-        <p class="mt-2 mb-8 max-w-2xl text-base leading-relaxed text-[#5D7086] md:text-lg">
-          {content.heroDescription}
-        </p>
-
-        <a
-          href={content.workWithUsButton.buttonUrl}
-          class="inline-block rounded-full bg-[#00B669] px-8 py-3 text-sm font-semibold text-white uppercase transition-none md:text-base"
-        >
-          {content.workWithUsButton.buttonLabel}
-        </a>
-      </div>
-    </div>
-  </section>
-
+  <HeroSection
+    sectionTag={content.sectionTag}
+    heroTitle={content.heroTitle}
+    heroDescription={content.heroDescription}
+    workWithUsButton={content.workWithUsButton}
+  />
   <section class="bg-[#DBEAFE] py-6">
     <ImageCarousel
       images={content.imageCarousel.map((img) => ({

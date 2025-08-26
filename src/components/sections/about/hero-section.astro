@@ -1,0 +1,68 @@
+---
+import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  sectionTag: string;
+  heroTitle: string;
+  heroDescription: string;
+  workWithUsButton: {
+    buttonLabel: string;
+    buttonUrl: string;
+  };
+}
+const { sectionTag, heroTitle, heroDescription, workWithUsButton } = Astro.props;
+---
+
+<section
+  class="bg-accent text-primary relative flex w-full max-w-[1440px] flex-col items-center justify-center gap-10 px-6 pt-16 pb-40 text-center md:px-24 md:pt-24 md:pb-40"
+>
+  <!-- Background -->
+  <div class="background-shape bg-accent absolute inset-0 -bottom-40"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full overflow-hidden rounded-3xl">
+    <div class="flex h-[800px] flex-col items-center justify-center gap-10">
+      <!-- Section Tag -->
+      <div
+        class="mb-4 inline-block rounded-full border border-dashed border-gray-400 bg-white px-4 py-[6px]"
+      >
+        <Typography
+          component="h2"
+          font="montserrat"
+          weight="medium"
+          className="text-center text-[14px] leading-[20px] tracking-[0.5em] text-[var(--New-primary-colors-Blue,#0A3D62)] uppercase"
+        >
+          {sectionTag}
+        </Typography>
+      </div>
+
+      <!-- Title -->
+      <Typography
+        component="h1"
+        font="barlow-condensed"
+        weight="semibold"
+        className="mb-4 max-w-5xl bg-gradient-to-r from-[#141414] to-[#0A3D62] bg-clip-text text-center text-[80px] leading-[80px] tracking-[-0.035em] text-transparent uppercase"
+      >
+        {heroTitle}
+      </Typography>
+
+      <!-- Description -->
+      <Typography
+        component="p"
+        font="montserrat"
+        weight="medium"
+        className="mt-2 mb-8 max-w-2xl text-center text-[20px] leading-[28px] tracking-normal text-[#737373]"
+      >
+        {heroDescription}
+      </Typography>
+
+      <!-- CTA -->
+      <a href={workWithUsButton.buttonUrl}>
+        <Button variant="primary" className="h-14 px-8 text-lg uppercase">
+          {workWithUsButton.buttonLabel}
+        </Button>
+      </a>
+    </div>
+  </div>
+</section>
