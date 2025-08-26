@@ -14,11 +14,15 @@ const ImageCarousel: FC<ImageCarouselProps> = ({ images }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true });
 
   return (
-    <div className="overflow-hidden" ref={emblaRef}>
-      <div className="flex">
+    <div className="mx-auto h-[280px] max-w-[1440px] overflow-hidden px-[96px]" ref={emblaRef}>
+      <div className="flex gap-[24px]">
         {images.map((img, index) => (
-          <div className="min-w-[200px] px-2" key={index}>
-            <img src={img.src} alt={img.alt} className="h-40 w-full rounded-lg object-cover" />
+          <div className="min-w-[188px] flex-shrink-0" key={index}>
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="h-[280px] w-[188px] rounded-[16px] object-cover"
+            />
           </div>
         ))}
       </div>
