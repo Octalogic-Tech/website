@@ -1,0 +1,139 @@
+---
+import { Image } from "@datocms/astro";
+
+import { typographyVariants } from "@/components/ui";
+import type { Testimonial } from "@/graphql/about";
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="overflow-hidden py-8 md:py-16">
+  <div class="embla" id="abc">
+    <div class="embla__viewport">
+      <div class="embla__container">
+        {
+          testimonials.map((item) => (
+            <div class="embla__slide">
+              <div class="flex h-[25rem] max-w-[25rem] flex-col justify-between rounded-xl border border-gray-400 p-6">
+                <div class="flex items-center justify-end">
+                  <Image
+                    data={item.cardLogo.responsiveImage}
+                    pictureClass="rounded-full"
+                    imgClass="rounded-full object-scale-down"
+                    imgStyle={{
+                      height: "2.5rem",
+                      width: "2.5rem",
+                    }}
+                  />
+                </div>
+                <p
+                  class={typographyVariants({
+                    variant: "captionL",
+                    weight: "normal",
+                    className: "md:bodyM line-clamp-5 text-gray-900",
+                  })}
+                >
+                  {`"${item.cardDescription}"`}
+                </p>
+                <div class="flex items-center gap-3">
+                  <Image
+                    data={item.profileImage.responsiveImage}
+                    pictureClass="bg-gray-300 rounded-full"
+                    imgClass="rounded-full object-scale-down"
+                    imgStyle={{
+                      height: "3.5rem",
+                      width: "3.5rem",
+                    }}
+                  />
+                  <div>
+                    <p
+                      class={typographyVariants({
+                        variant: "captionL",
+                        weight: "semibold",
+                        className: "md:bodyM text-primary-blue",
+                      })}
+                    >
+                      {item.profileName}
+                    </p>
+                    <p
+                      class={typographyVariants({
+                        variant: "captionL",
+                        weight: "normal",
+                        className: "md:captionM text-gray-600",
+                      })}
+                    >
+                      {item.profilePosition}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .embla {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+  }
+
+  .embla:active {
+    cursor: grabbing;
+  }
+
+  .embla__container {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .embla__slide {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 1rem;
+  }
+</style>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+  import AutoScroll from "embla-carousel-auto-scroll";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const emblaViewport = document.querySelector<HTMLElement>(".embla__viewport");
+
+    if (!emblaViewport) {
+      console.error("Embla viewport not found!");
+      return;
+    }
+
+    const options = {
+      // align: "start",
+      // containScroll: "trimSnaps",
+      dragFree: true,
+      loop: true,
+    };
+
+    const autoScrollOptions = {
+      speed: 2,
+      startDelay: 1000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+      playOnInit: true,
+    };
+
+    const embla = EmblaCarousel(emblaViewport, options, [AutoScroll(autoScrollOptions)]);
+
+    embla.on("init", () => {
+      console.log("Embla carousel is initialized and ready!");
+      embla?.plugins()?.autoScroll;
+    });
+  });
+</script>

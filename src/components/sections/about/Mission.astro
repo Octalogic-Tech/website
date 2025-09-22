@@ -1,0 +1,47 @@
+---
+import { typographyVariants } from "@/components/ui/typography";
+
+interface Props {
+  missionTitle: string;
+  missionDescription: string;
+}
+
+const { missionTitle, missionDescription } = Astro.props;
+---
+
+<section
+  class="bg-primary-blue-100 flex h-[calc(100vh-3.5rem)] items-center justify-center bg-[url('/src/assets/images/about/top_rounded_trapezoid_mob.png')] bg-cover bg-center bg-no-repeat md:h-[calc(75vh-3.5rem)] md:bg-[url('/src/assets/images/about/top_rounded_trapezoid.png')] xl:h-[calc(90vh-3.5rem)]"
+>
+  <div
+    class="mx-auto flex w-full max-w-[70%] flex-col items-center justify-center gap-y-6 md:max-w-[55%] xl:max-w-[35%] xl:gap-y-12"
+  >
+    <!-- Hero Title -->
+    <h2
+      class={typographyVariants({
+        font: "barlow-condensed",
+        variant: "h4",
+        weight: "semibold",
+        className: `
+          bg-gradient-to-r from-gray-950 to-primary-blue bg-clip-text text-center text-transparent uppercase
+          xl:h2
+        `,
+      })}
+    >
+      {missionTitle}
+    </h2>
+
+    <!-- Hero Description -->
+    <p
+      class={typographyVariants({
+        variant: "captionL",
+        weight: "medium",
+        className: `
+          text-gray-600 text-center max-w-[85%]
+          xl:bodyM xl:max-w-[80%]
+        `,
+      })}
+    >
+      {missionDescription}
+    </p>
+  </div>
+</section>

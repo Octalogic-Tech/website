@@ -1,0 +1,67 @@
+---
+import { Image } from "@datocms/astro";
+
+import { buttonVariants, typographyVariants } from "@/components/ui";
+import type { ImageWithResponsive, WorkWithUsButton } from "@/graphql/about";
+
+interface Props {
+  title: string;
+  description: string;
+  workWithUsButton: WorkWithUsButton;
+  banner: ImageWithResponsive;
+}
+
+const { title, description, workWithUsButton, banner } = Astro.props as Props;
+---
+
+<section
+  class="bg-black-100 flex flex-col gap-12 px-4 py-20 lg:flex-row lg:gap-0 lg:px-24 lg:py-[8.75rem]"
+>
+  <div class="w-full lg:flex lg:w-1/2 lg:items-center">
+    <div class="flex w-full flex-col gap-6 lg:w-2/3 lg:gap-8">
+      <h2
+        class={typographyVariants({
+          font: "barlow-condensed",
+          variant: "h4",
+          weight: "semibold",
+          className: `
+          bg-gradient-to-r from-white-100 to-gray-600 bg-clip-text text-transparent uppercase
+          lg:h2
+        `,
+        })}
+      >
+        {title}
+      </h2>
+      <p
+        class={typographyVariants({
+          variant: "captionL",
+          weight: "medium",
+          className: `
+          text-gray-400 max-w-[85%]
+          lg:bodyM lg:max-w-[80%]
+        `,
+        })}
+      >
+        {description}
+      </p>
+      <a href={workWithUsButton.buttonUrl}>
+        <button class={buttonVariants({ variant: "primary" })}>
+          {workWithUsButton.buttonLabel}
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="w-full lg:w-1/2">
+    <div
+      class="flex w-full flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-end"
+    >
+      <Image
+        data={banner.responsiveImage}
+        imgClass="object-cover grayscale filter max-w-none"
+        imgStyle={{
+          maxWidth: "none",
+        }}
+      />
+    </div>
+  </div>
+</section>

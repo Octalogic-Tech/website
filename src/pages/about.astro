@@ -3,12 +3,14 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { fetchDatoCMS } from "@/lib/fetcherData";
 import { ABOUT_PAGE_QUERY } from "@/graphql/about";
 import type { AboutPageQueryResponse } from "@/graphql/about";
-import HeroSection from "@/components/sections/about/hero-section.astro";
-import ImageCarousel from "@/components/ui/image-carousel";
-import TestimonialCarousel from "@/components/ui/testimonial-carousel";
-import PurposeSection from "@/components/sections/about/purpose-section.astro";
-import IntroCall from "@/components/sections/about/intro-call.astro";
-import JoinOurTeam from "@/components/sections/about/join-our-team.astro";
+import HeroSection from "@/components/sections/about/HeroSection.astro";
+import HeroImageCarousel from "@/components/sections/about/HeroImageCarousel.astro";
+import Mission from "@/components/sections/about/Mission.astro";
+import Testimonials from "@/components/sections/about/Testimonials.astro";
+import TeamPhoto from "@/components/sections/about/TeamPhoto.astro";
+import Purpose from "@/components/sections/about/Purpose.astro";
+import Intro from "@/components/sections/about/Intro.astro";
+import JoinOurTeam from "@/components/sections/about/JoinOurTeam.astro";
 
 const title = "About Us | Octalogic Tech";
 
@@ -23,55 +25,23 @@ const content = data.allAboutPages[0];
     heroDescription={content.heroDescription}
     workWithUsButton={content.workWithUsButton}
   />
-  <section class="bg-[#DBEAFE] py-6">
-    <ImageCarousel
-      images={content.imageCarousel.map((img) => ({
-        src: img.responsiveImage.src,
-        alt: img.responsiveImage.alt,
-      }))}
-    />
-  </section>
-  <section class="bg-[#DBEAFE] py-16 text-center">
-    <div class="mx-auto max-w-3xl px-4">
-      <h2 class="mb-4 text-2xl font-semibold">{content.missionTitle}</h2>
-      <p class="text-base text-gray-700">{content.missionDescription}</p>
-    </div>
-  </section>
-  <section class="bg-white py-8">
-    <TestimonialCarousel testimonials={content.testimonial} />
-  </section>
-  <section class="w-full">
-    <img
-      src={content.banner.responsiveImage.src}
-      srcset={content.banner.responsiveImage.srcSet}
-      sizes={content.banner.responsiveImage.sizes}
-      alt={content.banner.alt}
-      class="h-auto w-full object-cover grayscale filter"
-    />
-  </section>
-  <PurposeSection
+  <HeroImageCarousel images={content.imageCarousel} />
+  <Mission missionTitle={content.missionTitle} missionDescription={content.missionDescription} />
+  <Testimonials testimonials={content.testimonial} />
+  <TeamPhoto banner={content.banner} />
+  <Purpose
     title={content.purposeTitle}
     description={content.purposeDescription}
     cards={content.purposeCards}
   />
-  <IntroCall
-    title="Get started with an intro call."
-    button={{
-      buttonLabel: "Book a Call",
-      buttonUrl: "/contact",
-    }}
-  />
+
+  <Intro title="Get started with an intro call" workWithUsButton={content.workWithUsButton} />
+
   <JoinOurTeam
-    title="Join our team"
-    description="Fulfilling tech-led projects for seasoned designers, developers, and product owners. Solve the problem, find the joy, measure the outcome, and be fulfilled."
-    button={{
-      buttonLabel: "We are hiring",
-      buttonUrl: "/careers",
-    }}
-    image={{
-      src: "/images/Contents.png",
-      alt: "image",
-    }}
+    title={content?.missionTitle}
+    description={content?.missionDescription}
+    workWithUsButton={content.workWithUsButton}
+    banner={content.banner}
   />
 </BaseLayout>
 

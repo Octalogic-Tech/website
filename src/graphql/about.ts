@@ -11,13 +11,13 @@ interface ResponsiveImage {
   base64: string;
 }
 
-interface ImageWithResponsive {
+export interface ImageWithResponsive {
   url: string;
   alt: string;
   responsiveImage: ResponsiveImage;
 }
 
-interface WorkWithUsButton {
+export interface WorkWithUsButton {
   buttonLabel: string;
   buttonUrl: string;
 }

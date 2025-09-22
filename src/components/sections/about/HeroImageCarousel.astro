@@ -1,0 +1,143 @@
+---
+import type { ImageWithResponsive } from "@/graphql/about";
+import { Image } from "@datocms/astro";
+
+interface Props {
+  images: Array<ImageWithResponsive>;
+}
+
+const { images } = Astro.props;
+---
+
+<div class="embla bg-primary-blue-100 py-8 sm:py-0 lg:py-4 xl:py-28" id="embla">
+  <div class="embla__container">
+    {
+      images.map((image) => (
+        <div class="embla__slide">
+          <div class="embla__slide__img">
+            <Image
+              data={image.responsiveImage}
+              pictureClass="embla__slide__picture"
+              imgClass="embla__slide__image"
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .embla {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+  }
+
+  .embla:active {
+    cursor: grabbing;
+  }
+
+  .embla__container {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .embla__slide {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .embla__slide__img {
+    width: 11.75rem;
+    height: 17.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+  }
+
+  .embla__slide__img:hover {
+    transform: translateY(-2px);
+  }
+
+  .embla__slide__picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .embla__slide__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .embla__slide__img {
+      width: 5.875rem;
+      height: 8.75rem;
+    }
+
+    .embla__container {
+      gap: 0.5rem;
+      padding: 0.75rem;
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+  import AutoScroll from "embla-carousel-auto-scroll";
+  import type { EmblaOptionsType } from "embla-carousel";
+
+  // Initialize Embla Carousel
+  const emblaNode = document.getElementById("embla");
+
+  if (emblaNode) {
+    const options: EmblaOptionsType = {
+      align: "start",
+      containScroll: "trimSnaps",
+      dragFree: true, // Set to true for smooth auto-scroll
+      loop: true, // Enable loop for continuous scrolling
+    };
+
+    // Configure auto-scroll plugin
+    const autoScrollOptions = {
+      speed: 2, // Speed of auto-scroll (1 = slow, 4 = fast)
+      startDelay: 1000, // Delay before auto-scroll starts (in ms)
+      // direction: 'forward', // 'forward' or 'backward'
+      stopOnInteraction: true, // Stop auto-scroll when user interacts
+      stopOnMouseEnter: true, // Pause on hover
+      playOnInit: true, // Start auto-scroll immediately after startDelay
+    };
+
+    const embla = EmblaCarousel(emblaNode, options, [AutoScroll(autoScrollOptions)]);
+
+    // Optional: Add pause on hover functionality
+    emblaNode.addEventListener("mouseenter", () => {
+      embla.plugins().autoScroll?.stop();
+    });
+
+    emblaNode.addEventListener("mouseleave", () => {
+      embla.plugins().autoScroll?.play();
+    });
+
+    // Optional: Add play/pause controls
+    /*  const playButton = document.getElementById("embla-play");
+    const pauseButton = document.getElementById("embla-pause");
+
+    if (playButton) {
+      playButton.addEventListener("click", () => {
+        embla.plugins().autoScroll?.play();
+      });
+    }
+
+    if (pauseButton) {
+      pauseButton.addEventListener("click", () => {
+        embla.plugins().autoScroll?.stop();
+      });
+    } */
+  }
+</script>

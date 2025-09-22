@@ -1,0 +1,21 @@
+---
+import { Image } from "@datocms/astro";
+
+import type { ImageWithResponsive } from "@/graphql/about";
+
+interface Props {
+  banner: ImageWithResponsive;
+}
+
+const { banner } = Astro.props;
+---
+
+<section class="w-full">
+  <Image
+    data={banner.responsiveImage}
+    imgClass="h-auto w-full object-cover grayscale filter max-w-none"
+    imgStyle={{
+      maxWidth: "none",
+    }}
+  />
+</section>

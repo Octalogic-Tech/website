@@ -1,0 +1,101 @@
+---
+import { Image } from "@datocms/astro";
+
+import { typographyVariants } from "@/components/ui";
+import type { PurposeCard } from "@/graphql/about";
+
+interface Props {
+  title: string;
+  description: string;
+  cards: PurposeCard[];
+}
+
+const { title, description, cards } = Astro.props as Props;
+---
+
+<section
+  class="bg-black-100 flex flex-col gap-12 px-4 py-20 lg:flex-row lg:gap-0 lg:px-24 lg:py-[8.75rem]"
+>
+  <div class="w-full self-start lg:sticky lg:top-24 lg:w-1/2">
+    <div class="flex w-full flex-col gap-6 lg:w-2/3 lg:gap-8">
+      <h2
+        class={typographyVariants({
+          font: "barlow-condensed",
+          variant: "h4",
+          weight: "semibold",
+          className: `
+          bg-gradient-to-r from-white-100 to-gray-600 bg-clip-text text-transparent uppercase
+          lg:h2
+        `,
+        })}
+      >
+        {title}
+      </h2>
+      <p
+        class={typographyVariants({
+          variant: "captionL",
+          weight: "medium",
+          className: `
+          text-gray-400 max-w-[85%]
+          lg:bodyM lg:max-w-[80%]
+        `,
+        })}
+      >
+        {description}
+      </p>
+    </div>
+  </div>
+  <div class="w-full lg:w-1/2">
+    <div class="flex w-full flex-col items-end gap-6 lg:gap-8">
+      {
+        cards.map((card, idx) => (
+          <div
+            class={`flex w-full flex-col gap-6 rounded-3xl p-6 lg:w-2/3 lg:p-10 ${idx === 0 ? "bg-primary-teal text-primary-blue" : idx === 1 ? "bg-primary-blue text-primary-teal" : "bg-primary-light-blue"}`}
+          >
+            <div class="hidden lg:block">
+              <Image
+                data={card.customLogo.responsiveImage}
+                pictureClass="rounded-full"
+                imgClass="rounded-full object-scale-down"
+                imgStyle={{
+                  height: "2.5rem",
+                  width: "2.5rem",
+                }}
+              />
+            </div>
+            <div class="block lg:hidden">
+              <Image
+                data={card.customLogo.responsiveImage}
+                pictureClass="rounded-full"
+                imgClass="rounded-full object-scale-down"
+                imgStyle={{
+                  height: "3.75rem",
+                  width: "3.75rem",
+                }}
+              />
+            </div>
+            <h3
+              class={typographyVariants({
+                font: "barlow-condensed",
+                variant: "h5",
+                weight: "medium",
+                className: `lg:h3 uppercase ${idx === 0 ? "text-primary-blue" : idx === 1 ? "text-primary-teal" : "text-primary-blue"}`,
+              })}
+            >
+              {card.title}
+            </h3>
+            <p
+              class={typographyVariants({
+                variant: "captionL",
+                weight: "medium",
+                className: `lg:captionM ${idx === 0 ? "text-primary-blue" : idx === 1 ? "text-primary-teal" : "text-gray-600"}`,
+              })}
+            >
+              {card.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

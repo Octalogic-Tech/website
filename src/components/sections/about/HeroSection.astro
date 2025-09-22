@@ -2,28 +2,24 @@
 import { typographyVariants } from "@/components/ui/typography";
 import { buttonVariants } from "@/components/ui/button";
 
+import type { WorkWithUsButton } from "@/graphql/about";
+
 interface Props {
   sectionTag: string;
   heroTitle: string;
   heroDescription: string;
-  workWithUsButton: {
-    buttonLabel: string;
-    buttonUrl: string;
-  };
+  workWithUsButton: WorkWithUsButton;
 }
 
 const { sectionTag, heroTitle, heroDescription, workWithUsButton } = Astro.props;
 ---
 
 <section
-  class="bg-primary-blue-100 flex items-center justify-center 
-         bg-[url('/src/assets/images/about/polygon_frame_mob.png')] 
-         lg:bg-[url('/src/assets/images/about/polygon_frame.png')] 
-         bg-cover bg-center bg-no-repeat"
-  style="height: calc(100vh - 4.5rem);"
+  class="bg-primary-blue-100 flex h-[calc(90vh-4.5rem)] items-center justify-center bg-[url('/src/assets/images/about/bottom_rounded_trapezoid_mob.png')] bg-cover bg-center bg-no-repeat md:h-[calc(75vh-4.5rem)] md:bg-[url('/src/assets/images/about/bottom_rounded_trapezoid.png')] xl:h-[calc(90vh-4.5rem)]"
 >
-  <div class="mx-auto flex w-full max-w-[70%] flex-col items-center justify-center gap-y-6 md:max-w-[55%] xl:max-w-[50%] xl:gap-y-12">
-
+  <div
+    class="mx-auto flex w-full max-w-[70%] flex-col items-center justify-center gap-y-6 md:max-w-[55%] xl:max-w-[50%] xl:gap-y-12"
+  >
     <!-- Section Tag -->
     <span
       class={typographyVariants({
