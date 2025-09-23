@@ -55,7 +55,7 @@ export default function TypographyDemo() {
       const code = `<Typography font="${font}" variant="${variant}" weight="${weight}">${text}</Typography>`;
       await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    } catch (_) {
+    } catch {
       alert("Clipboard copy failed.");
     }
   };

@@ -185,7 +185,12 @@ export default [
       "import/no-deprecated": "error",
       "import/no-extraneous-dependencies": "off",
       "import/no-internal-modules": "off",
-      "import/no-unassigned-import": "warn",
+      "import/no-unassigned-import": [
+        "warn",
+        {
+          allowUnassignedImports: true,
+        },
+      ],
       "import/order": "off",
       indent: "off",
       "linebreak-style": "off",
