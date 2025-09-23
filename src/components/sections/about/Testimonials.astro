@@ -8,7 +8,7 @@ interface Props {
   testimonials: Testimonial[];
 }
 
-const { testimonials } = Astro.props;
+const { testimonials } = Astro.props as Props;
 ---
 
 <section class="overflow-hidden py-8 md:py-16">

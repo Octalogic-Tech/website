@@ -11,7 +11,7 @@ interface Props {
   workWithUsButton: WorkWithUsButton;
 }
 
-const { sectionTag, heroTitle, heroDescription, workWithUsButton } = Astro.props;
+const { sectionTag, heroTitle, heroDescription, workWithUsButton } = Astro.props as Props;
 ---
 
 <section

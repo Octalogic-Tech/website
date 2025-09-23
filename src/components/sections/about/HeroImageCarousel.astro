@@ -6,7 +6,7 @@ interface Props {
   images: Array<ImageWithResponsive>;
 }
 
-const { images } = Astro.props;
+const { images } = Astro.props as Props;
 ---
 
 <div class="embla bg-primary-blue-100 py-8 sm:py-0 lg:py-4 xl:py-28" id="embla">

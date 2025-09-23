@@ -12,10 +12,13 @@ const codeSnippet = `import { Icon } from "@iconify/react";
 <Icon icon="material-symbols:menu" width="24" height="24" />`;
 
 export default function ImageDemoPage() {
-  const handleCopy = (code: string) => {
-    navigator.clipboard.writeText(code).then(() => {
+  const handleCopy = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    });
+    } catch (_) {
+      alert("Clipboard copy failed.");
+    }
   };
 
   return (

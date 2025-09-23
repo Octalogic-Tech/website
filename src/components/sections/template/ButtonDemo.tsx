@@ -21,10 +21,13 @@ const codeSnippet = `import { Button } from "@/components/ui/button";
 </Button>`;
 
 export default function ButtonDemoPage() {
-  const handleCopy = (code: string) => {
-    navigator.clipboard.writeText(code).then(() => {
+  const handleCopy = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    });
+    } catch (_) {
+      alert("Clipboard copy failed.");
+    }
   };
 
   return (

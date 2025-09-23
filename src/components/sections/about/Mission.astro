@@ -6,7 +6,7 @@ interface Props {
   missionDescription: string;
 }
 
-const { missionTitle, missionDescription } = Astro.props;
+const { missionTitle, missionDescription } = Astro.props as Props;
 ---
 
 <section

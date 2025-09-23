@@ -241,7 +241,7 @@ export default function ColorPalette() {
       await navigator.clipboard.writeText(color);
       setCopiedColor(color);
       setTimeout(() => setCopiedColor(""), 1500);
-    } catch (error) {
+    } catch (_) {
       alert("Clipboard copy failed.");
     }
   };

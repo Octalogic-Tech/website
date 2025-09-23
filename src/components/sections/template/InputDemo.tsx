@@ -12,10 +12,13 @@ const codeSnippet = `import { Input } from "@/components/ui/input";
  />`;
 
 export default function InputDemo() {
-  const handleCopy = (code: string) => {
-    navigator.clipboard.writeText(code).then(() => {
+  const handleCopy = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    });
+    } catch (_) {
+      alert("Clipboard copy failed.");
+    }
   };
   return (
     <div className="font-montserrat bg-white text-black">

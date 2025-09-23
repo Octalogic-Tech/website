@@ -41,15 +41,23 @@ const codeSnippet = `import { Typography } from "@/components/ui/typography";
 </Typography>`;
 
 export default function TypographyDemo() {
-  const handleCopy = (code: string) => {
-    navigator.clipboard.writeText(code).then(() => {
+  const handleCopy = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    });
+    } catch (_) {
+      alert("Clipboard copy failed.");
+    }
   };
 
-  const copySnippet = (font: string, variant: string, weight: string, text: string) => {
-    const code = `<Typography font="${font}" variant="${variant}" weight="${weight}">${text}</Typography>`;
-    navigator.clipboard.writeText(code).then(() => alert("Snippet copied!"));
+  const copySnippet = async (font: string, variant: string, weight: string, text: string) => {
+    try {
+      const code = `<Typography font="${font}" variant="${variant}" weight="${weight}">${text}</Typography>`;
+      await navigator.clipboard.writeText(code);
+      alert("Code copied to clipboard!");
+    } catch (_) {
+      alert("Clipboard copy failed.");
+    }
   };
 
   return (

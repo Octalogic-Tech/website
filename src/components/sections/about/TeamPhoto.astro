@@ -7,7 +7,7 @@ interface Props {
   banner: ImageWithResponsive;
 }
 
-const { banner } = Astro.props;
+const { banner } = Astro.props as Props;
 ---
 
 <section class="w-full">
