@@ -69,6 +69,13 @@ export default [
       },
     },
 
+    settings: {
+      "import/ignore": [
+        "\\.(css|scss|sass|less|styl|jpg|jpeg|png|gif|svg|ico|webp)$",
+        "@fontsource",
+      ],
+    },
+
     rules: {
       "prettier/prettier": [
         "error",
@@ -185,12 +192,7 @@ export default [
       "import/no-deprecated": "error",
       "import/no-extraneous-dependencies": "off",
       "import/no-internal-modules": "off",
-      "import/no-unassigned-import": [
-        "warn",
-        {
-          allowUnassignedImports: true,
-        },
-      ],
+      "import/no-unassigned-import": "off",
       "import/order": "off",
       indent: "off",
       "linebreak-style": "off",
