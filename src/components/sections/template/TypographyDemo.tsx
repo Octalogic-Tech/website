@@ -45,7 +45,7 @@ export default function TypographyDemo() {
     try {
       await navigator.clipboard.writeText(code);
       alert("Code copied to clipboard!");
-    } catch (_) {
+    } catch {
       alert("Clipboard copy failed.");
     }
   };
